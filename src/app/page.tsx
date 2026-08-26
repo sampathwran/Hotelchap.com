@@ -12,6 +12,7 @@ import CustomerReviews from "@/components/CustomerReviews";
 import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { useState } from "react";
+import { Globe, CircleDollarSign } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
