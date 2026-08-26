@@ -1,0 +1,231 @@
+"use client";
+
+import Header from "@/components/Header";
+import MegaFooter from "@/components/MegaFooter";
+import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
+import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
+
+export default function FlightsPage() {
+  const popularRoutes = [
+    { from: "Colombo", to: "Dubai", price: "$250", img: "https://images.unsplash.com/photo-1512453979436-5a5338ce11ed?q=80&w=600&auto=format&fit=crop" },
+    { from: "Colombo", to: "London", price: "$450", img: "https://images.unsplash.com/photo-1513635269975-5969336cd100?q=80&w=600&auto=format&fit=crop" },
+    { from: "Colombo", to: "Singapore", price: "$180", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=600&auto=format&fit=crop" },
+    { from: "Colombo", to: "Maldives", price: "$150", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop" },
+  ];
+
+  const airlines = ["EK", "QR", "UL", "SQ", "EY", "MH", "TG", "CX"];
+
+  const faqs = [
+    { q: "How can I find the cheapest flight deals?", a: "To find the best deals, try to be flexible with your travel dates. Booking 2-3 months in advance and flying on weekdays (Tuesdays and Wednesdays) usually offers lower fares." },
+    { q: "Are there any hidden booking fees?", a: "No! HotelChap connects you directly with the airlines and top travel agencies. The price you see is the final price you pay." },
+    { q: "How much baggage is allowed on my flight?", a: "Baggage allowances vary by airline and ticket class. Most budget airlines charge extra for checked bags, while full-service airlines usually include 20-30kg for free. Check the specific airline rules before booking." },
+    { q: "What is the best time to book flights for holidays?", a: "For major holidays, it's recommended to book at least 3-4 months in advance. Last-minute deals are very rare during peak seasons." }
+  ];
+
+  const travelTips = [
+    { title: "Ultimate Dubai Travel Guide 2026", date: "Aug 15, 2026", img: "https://images.unsplash.com/photo-1512453979436-5a5338ce11ed?q=80&w=600&auto=format&fit=crop" },
+    { title: "How to survive long-haul flights comfortably", date: "Aug 10, 2026", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop" },
+    { title: "Top 10 Hidden Gems in Singapore", date: "Aug 02, 2026", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=600&auto=format&fit=crop" }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      <Header />
+
+      {/* Hero Section with Widget */}
+      <div className="relative w-full min-h-[500px] flex items-center justify-center py-12 md:py-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop')" }}
+        ></div>
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 drop-shadow-lg">Book Your Next Flight</h1>
+          <p className="text-lg md:text-xl text-white/90 font-medium mb-8 drop-shadow-md">Compare over 500 airlines to find the best deals globally</p>
+          
+          {/* Glassmorphism Wrapper for the Widget */}
+          <div className="w-full bg-white/10 backdrop-blur-md p-4 md:p-8 rounded-3xl border border-white/20 shadow-2xl">
+            <TravelpayoutsFlightWidget />
+          </div>
+        </div>
+      </div>
+
+      {/* 1. Airlines Trust Banner (Marquee style) */}
+      <div className="bg-white py-6 border-b border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">We compare thousands of routes from top airlines</p>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            {airlines.map(code => (
+              <img key={code} src={`https://pics.avs.io/150/50/${code}.png`} alt={`${code} airline logo`} className="h-8 md:h-10 object-contain mix-blend-multiply" />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Flight Deals / Flash Offers */}
+      <div className="max-w-7xl mx-auto px-4 py-16 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 text-white relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300">
+            <div className="absolute right-0 top-0 opacity-10 w-64 h-64 transform translate-x-16 -translate-y-16">
+              <Plane size={256} />
+            </div>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Special Offer</span>
+            <h3 className="text-3xl font-black mb-2">Up to 20% Off to Dubai</h3>
+            <p className="text-blue-100 mb-6 max-w-sm">Book Emirates flights today and enjoy exclusive discounts on your baggage and meals.</p>
+            <button className="bg-white text-indigo-700 font-bold px-6 py-2 rounded-xl shadow-md hover:bg-gray-50 transition">Book Now</button>
+          </div>
+          <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl p-8 text-white relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300">
+             <div className="absolute right-0 top-0 opacity-10 w-64 h-64 transform translate-x-16 -translate-y-16">
+              <ShieldCheck size={256} />
+            </div>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Student Deal</span>
+            <h3 className="text-3xl font-black mb-2">Extra Baggage for Students</h3>
+            <p className="text-red-100 mb-6 max-w-sm">Verify your student ID and get an additional 10KG baggage allowance for free globally.</p>
+            <button className="bg-white text-red-500 font-bold px-6 py-2 rounded-xl shadow-md hover:bg-gray-50 transition">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Us */}
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-10 text-center">Why book flights with HotelChap?</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <Plane size={36} />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-3">500+ Airlines</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">We search hundreds of airlines globally to find the cheapest flights for you.</p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <ShieldCheck size={36} />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-3">No Hidden Fees</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">The price you see is the price you pay. No surprise booking fees added.</p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <Clock size={36} />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-3">Instant Booking</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">Get your e-tickets instantly delivered straight to your email address.</p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <CreditCard size={36} />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-3">Secure Payments</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">Pay securely with international credit cards or alternative methods.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Popular Routes */}
+      <div className="bg-white py-16 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <div className="flex justify-between items-end mb-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Flight Routes</h2>
+              <p className="text-gray-500 font-medium">Explore top destinations from Colombo</p>
+            </div>
+            <button className="text-[#673AB7] font-bold hover:underline hidden md:block">View all routes</button>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularRoutes.map((route, idx) => (
+              <div key={idx} className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-72">
+                <img src={route.img} alt={route.to} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-6 w-full">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <p className="text-white/80 text-sm font-bold tracking-wider uppercase mb-1">{route.from} to</p>
+                      <h3 className="text-white text-3xl font-black">{route.to}</h3>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-lg font-bold border border-white/30">
+                      from {route.price}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Fare Alerts & 3. FAQ Section */}
+      <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
+        {/* FAQ Area (Takes 2 columns) */}
+        <div className="lg:col-span-2">
+          <h2 className="text-2xl font-black text-gray-900 mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <details key={idx} className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm open:bg-[#673AB7] open:text-white transition-colors duration-300">
+                <summary className="font-bold text-lg cursor-pointer list-none flex justify-between items-center group-open:text-white text-gray-800">
+                  {faq.q}
+                  <ChevronDown className="group-open:rotate-180 transition-transform duration-300" />
+                </summary>
+                <p className="mt-4 text-gray-500 group-open:text-white/90 leading-relaxed">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        {/* Fare Alerts Sidebar (Takes 1 column) */}
+        <div className="bg-[#673AB7] rounded-3xl p-8 text-white text-center flex flex-col justify-center shadow-xl relative overflow-hidden">
+          <div className="absolute -top-10 -right-10 opacity-20 w-40 h-40">
+            <Bell size={160} />
+          </div>
+          <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md relative z-10">
+            <Bell size={32} />
+          </div>
+          <h3 className="text-2xl font-black mb-3 relative z-10">Never miss a deal!</h3>
+          <p className="text-purple-200 mb-6 font-medium relative z-10">Subscribe to fare alerts and get notified instantly when prices drop to your favorite destinations.</p>
+          <div className="flex flex-col gap-3 relative z-10">
+            <input type="email" placeholder="Your email address" className="px-4 py-3 rounded-xl text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-purple-300" />
+            <button className="bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Subscribe Now</button>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Travel Tips & Blog Section */}
+      <div className="bg-gray-50 py-16 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <div className="flex justify-between items-end mb-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Travel Tips & Inspiration</h2>
+              <p className="text-gray-500 font-medium">Read our latest guides before you fly</p>
+            </div>
+            <button className="text-[#673AB7] font-bold hover:underline flex items-center gap-1">Read all posts <ArrowRight size={18} /></button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {travelTips.map((tip, idx) => (
+              <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer">
+                <div className="h-48 overflow-hidden">
+                  <img src={tip.img} alt={tip.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div className="p-6">
+                  <p className="text-sm font-bold text-[#673AB7] mb-2">{tip.date}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{tip.title}</h3>
+                  <p className="text-gray-500 font-medium text-sm">Discover everything you need to know before you embark on your journey with our comprehensive travel guide.</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Push Footer to bottom */}
+      <div className="mt-auto">
+        <MegaFooter />
+      </div>
+    </div>
+  );
+}

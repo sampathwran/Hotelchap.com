@@ -1,69 +1,446 @@
-import Image from "next/image";
+"use client";
+
+import Sidebar from "@/components/Sidebar";
+import PopularDestinations from "@/components/PopularDestinations";
+import PartnerLogos from "@/components/PartnerLogos";
+import RecentlyViewed from "@/components/RecentlyViewed";
+import TravelBlog from "@/components/TravelBlog";
+import FlashDeals from "@/components/FlashDeals";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import AppDownload from "@/components/AppDownload";
+import CustomerReviews from "@/components/CustomerReviews";
+import MegaFooter from "@/components/MegaFooter";
+import Link from "next/link";
+import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
+import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
+import TravelpayoutsTransferWidget from "@/components/TravelpayoutsTransferWidget";
+import DummyWidget from "@/components/DummyWidget";
+
+// Data for dynamic tabs with translations
+const tabData: any = {
+  hotels: {
+    id: "hotels",
+    title: { EN: "Find your perfect stay", SI: "ඔබේ නිවාඩුවට හොඳම තැන", TA: "உங்கள் சரியான தங்குமிடத்தைக் கண்டறியவும்" },
+    subtitle: { EN: "Luxury & Budget Hotels", SI: "සුඛෝපභෝගී සහ සාමාන්‍ය හෝටල්", TA: "ஆடம்பர மற்றும் பட்ஜெட் ஹோட்டல்கள்" },
+    gradientText: { EN: "anywhere in the world.", SI: "ලෝකයේ ඕනෑම තැනකින්.", TA: "உலகின் எந்த இடத்திலும்." },
+    image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Hotel Search Widget Goes Here", SI: "හෝටල් සෙවීමේ පද්ධතිය", TA: "ஹோட்டல் தேடல் அமைப்பு" },
+    badges: { EN: ["🏨 2M+ Properties", "🛡️ Secure Booking"], SI: ["🏨 ලක්ෂ 20+ හෝටල්", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["🏨 2M+ சொத்துக்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
+  },
+  flights: {
+    id: "flights",
+    title: { EN: "Fly to your dreams", SI: "ඔබේ සිහින ගමනාන්තයට පියාසර කරන්න", TA: "உங்கள் கனவு இடத்திற்கு பறக்கவும்" },
+    subtitle: { EN: "Cheap Flights", SI: "අඩුම මිලට ගුවන් ටිකට්පත්", TA: "மலிவான விமானங்கள்" },
+    gradientText: { EN: "at the best prices.", SI: "හොඳම මිල ගණන් යටතේ.", TA: "சிறந்த விலையில்." },
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Flight Search Widget Goes Here", SI: "ගුවන් ටිකට්පත් සෙවීමේ පද්ධතිය", TA: "விமான தேடல் அமைப்பு" },
+    badges: { EN: ["✈️ 500+ Airlines", "🛡️ Secure Booking"], SI: ["✈️ ගුවන් සමාගම් 500+", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["✈️ 500+ விமான நிறுவனங்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
+  },
+  cars: {
+    id: "cars",
+    title: { EN: "Hit the road with", SI: "නිදහසේ ගමනක් යන්න", TA: "சாலையில் செல்லுங்கள்" },
+    subtitle: { EN: "Car Rentals", SI: "කාර් කුලියට දීම", TA: "கார் வாடகை" },
+    gradientText: { EN: "unlimited miles.", SI: "සීමාවකින් තොරව.", TA: "வரம்பற்ற மைல்கள்." },
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop",
+    formPlaceholder: { EN: "Rentalcars.com / Travelpayouts Car Widget Goes Here", SI: "වාහන සෙවීමේ පද්ධතිය", TA: "கார் தேடல் அமைப்பு" },
+    badges: { EN: ["🚗 Free Cancellation", "⛽ Full to Full"], SI: ["🚗 නොමිලේ අවලංගු කිරීම", "⛽ Full to Full"], TA: ["🚗 இலவச ரத்துசெய்தல்", "⛽ Full to Full"] }
+  }
+  ,packages: {
+    id: "packages",
+    title: { EN: "Save more with", SI: "වැඩිපුර ඉතුරු කරන්න", TA: "மேலும் சேமிக்கவும்" },
+    subtitle: { EN: "Flight + Hotel Packages", SI: "ගුවන් ගමන් සහ හෝටල් පැකේජ", TA: "விமானம் + ஹோட்டல் தொகுப்புகள்" },
+    gradientText: { EN: "combo deals.", SI: "එකට ගෙන ඉතුරු කරන්න.", TA: "ஒருங்கிணைந்த சலுகைகள்." },
+    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Packages Widget Goes Here", SI: "පැකේජ සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "தொகுப்பு விட்ஜெட் இங்கே வரும்" },
+    badges: { EN: ["💼 Bundle & Save", "🔒 Secure Booking"], SI: ["💼 පැකේජ වලින් ලාභයි", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["💼 தொகுப்பு & சேமி", "🔒 பாதுகாப்பான முன்பதிவு"] }
+  },
+  transfers: {
+    id: "transfers",
+    title: { EN: "Hassle-free", SI: "කරදරයක් නැතිව ගමන", TA: "எளிதான பயணம்" },
+    subtitle: { EN: "Airport Transfers", SI: "ගුවන් තොටුපල ප්‍රවාහනය", TA: "விமான நிலைய பரிமாற்றங்கள்" },
+    gradientText: { EN: "straight to your door.", SI: "ඔබේ දොරකඩටම.", TA: "உங்கள் வாசலுக்கு." },
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Transfer Widget Goes Here", SI: "ප්‍රවාහන සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "பரிமாற்ற விட்ஜெட் இங்கே வரும்" },
+    badges: { EN: ["🚕 Professional Drivers", "🔒 Secure Booking"], SI: ["🚕 සුපිරි රියදුරන්", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🚕 தொழில்முறை ஓட்டுநர்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
+  },
+  attractions: {
+    id: "attractions",
+    title: { EN: "Discover top", SI: "අලුත් තැන් හොයාගන්න", TA: "சிறந்த இடங்களை கண்டறியுங்கள்" },
+    subtitle: { EN: "Attractions & Tours", SI: "නැරඹුම් ස්ථාන සහ චාරිකා", TA: "ஈர்ப்புகள் மற்றும் சுற்றுப்பயணங்கள்" },
+    gradientText: { EN: "experiences globally.", SI: "ලෝකේ වටේ යන්න.", TA: "உலகளாவிய அனுபவங்கள்." },
+    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=2070&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Attractions Widget Goes Here", SI: "චාරිකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "சுற்றுப்பயண விட்ஜெட் இங்கே வரும்" },
+    badges: { EN: ["🎟️ Skip the Line", "🔒 Secure Booking"], SI: ["🎟️ පෝලිම් නැතිව යන්න", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🎟️ வரிசையை தவிர்க்கவும்", "🔒 பாதுகாப்பான முன்பதிவு"] }
+  },
+  cruises: {
+    id: "cruises",
+    title: { EN: "Sail away on", SI: "මුහුදේ යන්න", TA: "பயணம் செய்யுங்கள்" },
+    subtitle: { EN: "Luxury Cruises", SI: "සුඛෝපභෝගී නෞකා", TA: "சொகுசு கப்பல்கள்" },
+    gradientText: { EN: "an ocean adventure.", SI: "මුහුදු චාරිකාවක්.", TA: "ஒரு கடல் சாகசம்." },
+    image: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?q=80&w=1974&auto=format&fit=crop",
+    formPlaceholder: { EN: "Travelpayouts Cruises Widget Goes Here", SI: "නෞකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "கப்பல் விட்ஜெட் இங்கே வரும்" },
+    badges: { EN: ["🛳️ Top Cruise Lines", "🔒 Secure Booking"], SI: ["🛳️ සුපිරි නෞකා", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🛳️ சிறந்த கப்பல்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
+  }
+
+
+};
+
+const i18n: any = {
+  EN: {
+    getApp: "Get the App",
+    listProperty: "List your property",
+    support: "Support",
+    signIn: "Sign In",
+    searchPlaceholder: "Search your destination...",
+    hotels: "Hotels",
+    flights: "Flights",
+    cars: "Car & Bike",
+    packages: "Flight + Hotel",
+    transfers: "Transfers",
+    attractions: "Attractions",
+    cruises: "Cruises"
+  },
+  SI: {
+    getApp: "App එක බාගන්න",
+    listProperty: "හෝටලයක් ඇතුලත් කරන්න",
+    support: "උදව්",
+    signIn: "ගිණුමට පිවිසෙන්න",
+    searchPlaceholder: "ගමනාන්තය සොයන්න...",
+    hotels: "හෝටල්",
+    flights: "ගුවන් ගමන්",
+    cars: "කාර් සහ බයික්",
+    packages: "ගුවන් + හෝටල්",
+    transfers: "ප්‍රවාහන",
+    attractions: "නැරඹුම් ස්ථාන",
+    cruises: "නෞකා"
+  },
+  TA: {
+    getApp: "App பதிவிறக்கு",
+    listProperty: "சொத்தை பட்டியலிடுங்கள்",
+    support: "ஆதரவு",
+    signIn: "உள்நுழைக",
+    searchPlaceholder: "இடத்தை தேடுங்கள்...",
+    hotels: "ஹோட்டல்கள்",
+    flights: "விமானங்கள்",
+    cars: "கார் & பைக்",
+    packages: "விமானம் + ஹோட்டல்",
+    transfers: "பரிமாற்றங்கள்",
+    attractions: "ஈர்ப்புகள்",
+    cruises: "கப்பல்கள்"
+  }
+};
 
 export default function Home() {
+  const { user } = useAuth();
+  const [activeTab, setActiveTab] = useState<string>("hotels");
+  
+  // Global Header States
+  const [currency, setCurrency] = useState("LKR");
+  const [language, setLanguage] = useState("EN");
+  const [showCurrency, setShowCurrency] = useState(false);
+  const [showLanguage, setShowLanguage] = useState(false);
+
+  const currencies = ["LKR", "USD", "EUR", "GBP", "AUD", "SGD", "AED"];
+  const languages = ["EN", "SI", "TA", "FR", "ES", "DE"];
+
+  // Fallback to EN if translation doesn't exist
+  const t = i18n[language] || i18n["EN"];
+  const currentData = tabData[activeTab];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <div className="flex flex-col min-h-screen bg-[#f5f5f5]">
+      
+      {/* Global Top Navbar */}
+      <header className="h-20 w-full flex items-center justify-between px-4 md:px-8 bg-white shadow-sm z-[60] sticky top-0 relative">
+        
+        {/* Left: Logo & Search */}
+        <div className="flex items-center gap-6 md:gap-12 w-full md:w-auto">
+          <Link href="/" className="flex items-center">
+            <img src="/logo.jpg" alt="HotelChap Logo" className="h-10 md:h-12 w-auto object-contain" />
+          </Link>
+
+          {/* Destination Search Bar */}
+          <div className="hidden sm:flex relative items-center w-[250px] md:w-[350px]">
+            <span className="absolute left-4 text-xl">🔍</span>
+            <input 
+              type="text" 
+              placeholder={t.searchPlaceholder}
+              className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+
+        {/* Right: Actions */}
+        <div className="hidden md:flex ml-auto items-center gap-5 relative">
+          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.getApp}</button>
+          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.listProperty}</button>
+          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.support}</button>
+          
+          <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
+          
+          {/* Currency Dropdown */}
+          <div className="relative">
+            <button 
+              onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} 
+              className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1"
+            >
+              {currency} <span className="text-xs">▼</span>
+            </button>
+            {showCurrency && (
+              <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                {currencies.map(c => (
+                  <button 
+                    key={c} 
+                    onClick={() => { setCurrency(c); setShowCurrency(false); }}
+                    className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Language Dropdown */}
+          <div className="relative">
+            <button 
+              onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} 
+              className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1"
+            >
+              {language} <span className="text-xs">▼</span>
+            </button>
+            {showLanguage && (
+              <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                {languages.map(l => {
+                  const langNames: any = { EN: "English", SI: "සිංහල", TA: "தமிழ்", FR: "Français", ES: "Español", DE: "Deutsch" };
+                  return (
+                    <button 
+                      key={l} 
+                      onClick={() => { setLanguage(l); setShowLanguage(false); }}
+                      className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}
+                    >
+                      {langNames[l] || l}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+          
+          {/* Notification Bell */}
+          <button className="text-xl text-gray-600 hover:text-[#673AB7] transition ml-2 relative">
+            🔔
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+          </button>
+          
+          {user ? (
+            <Link href="/account" className="ml-2 relative flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#673AB7] shadow-sm hover:shadow-md transition bg-gray-100 overflow-hidden">
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-[#673AB7] font-bold text-lg">{user.email?.charAt(0).toUpperCase()}</span>
+              )}
+            </Link>
+          ) : (
+            <Link href="/login" className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition">
+              {t.signIn}
+            </Link>
+          )}
+        </div>
+
+        {/* Mobile Search/Sign In Icons */}
+        <div className="md:hidden flex items-center gap-4">
+           <button className="text-xl">🔍</button>
+           <button className="text-xl relative">
+             🔔
+             <span className="absolute -top-0 -right-0 h-2 w-2 rounded-full bg-red-500"></span>
+           </button>
+           {user ? (
+            <Link href="/account" className="relative flex items-center justify-center w-8 h-8 rounded-full border border-[#673AB7] bg-gray-100 overflow-hidden">
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-[#673AB7] font-bold text-sm">{user.email?.charAt(0).toUpperCase()}</span>
+              )}
+            </Link>
+           ) : (
+            <Link href="/login" className="font-semibold text-white bg-[#673AB7] px-4 py-1.5 rounded-full shadow-md text-sm">
+              {t.signIn}
+            </Link>
+           )}
+        </div>
+      </header>
+
+      {/* Body with Sidebar and Main Content */}
+      <div className="flex flex-1 relative">
+        <Sidebar />
+
+        {/* Main Content Area */}
+        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0">
+
+          {/* Dynamic Hero Section */}
+          <div className="w-full px-4 md:px-10 mt-4 md:mt-6">
+            {/* Height Adjusted Image Box */}
+            <div className="relative w-full h-[360px] md:h-[480px] bg-gray-900 rounded-[30px] rounded-br-[80px] md:rounded-[40px] md:rounded-br-[150px] flex flex-col justify-center items-start px-8 md:px-16 overflow-hidden shadow-2xl transition-all duration-500">
+              
+              {/* Dynamic Full Cover Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out"
+                style={{ backgroundImage: `url('${currentData.image}')` }}
+              ></div>
+              
+              {/* Dark Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-500"></div>
+              
+              {/* Dynamic Text Layout */}
+              <div className="relative z-10 max-w-2xl mt-[-60px] md:mt-[-80px] transition-all duration-500">
+                <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/30">
+                  {currentData.subtitle[language] || currentData.subtitle["EN"]}
+                </span>
+                
+                <h1 className="flex flex-col gap-1 md:gap-2 mb-6 drop-shadow-lg">
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                    {currentData.title[language] || currentData.title["EN"]}
+                  </span>
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">
+                    {currentData.gradientText[language] || currentData.gradientText["EN"]}
+                  </span>
+                </h1>
+                
+                <div className="flex flex-col sm:flex-row gap-3 text-white/90 text-sm md:text-base font-medium">
+                  {(currentData.badges[language] || currentData.badges["EN"]).map((badge: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10">
+                      {badge}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Overlapping Search Box Card */}
+            <div className="relative z-20 w-[95%] md:w-[90%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-8 border border-gray-100">
+              
+            {/* Interactive Tabs (Dynamically Mapped from Database) */}
+            <div className="flex justify-center gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto">
+              
+              {Object.keys(tabData).map((key) => {
+                const tab = tabData[key as keyof typeof tabData];
+                
+                // Get icon dynamically based on category
+                let icon = "🏨";
+                if (key === "flights") icon = "✈️";
+                if (key === "cars") icon = "🚗";
+                if (key === "packages") icon = "💼";
+                if (key === "transfers") icon = "🚕";
+                if (key === "attractions") icon = "🎟️";
+                if (key === "cruises") icon = "🛳️";
+                
+                return (
+                  <button 
+                    key={key}
+                    onClick={() => setActiveTab(key as any)}
+                    className={`flex flex-col items-center gap-2 font-semibold pb-2 min-w-[80px] transition-all ${activeTab === key ? 'text-[#673AB7] border-b-2 border-[#673AB7]' : 'text-gray-400 hover:text-[#673AB7]'}`}
+                  >
+                    <span className="text-2xl">{icon}</span>
+                    <span className="text-sm capitalize">{t[key] || key}</span>
+                  </button>
+                );
+              })}
+
+            </div>
+
+              {/* Render Search Form or Travelpayouts Widget based on tab */}
+              {activeTab === "hotels" ? (
+                <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-lg border border-gray-100 p-3 md:p-4 flex flex-col md:flex-row items-center gap-3 mt-4 relative z-10 transition-all duration-500">
+                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
+                    <span className="text-gray-400 mr-3 text-lg">🔍</span>
+                    <input type="text" name="destination" placeholder="Where are you going?" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium placeholder-gray-400" required />
+                  </div>
+                  
+                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
+                    <span className="text-gray-400 mr-3 text-lg">📅</span>
+                    <input type="date" name="checkin" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
+                    <span className="text-gray-300 mx-2">-</span>
+                    <input type="date" name="checkout" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
+                  </div>
+
+                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
+                    <span className="text-gray-400 mr-3 text-lg">👥</span>
+                    <select name="guests" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium">
+                      <option value="1">1 Adult, 0 Children, 1 Room</option>
+                      <option value="2">2 Adults, 0 Children, 1 Room</option>
+                      <option value="3">2 Adults, 1 Child, 1 Room</option>
+                      <option value="4">2 Adults, 2 Children, 2 Rooms</option>
+                    </select>
+                  </div>
+
+                  <input type="hidden" name="type" value={activeTab} />
+
+                  <button type="submit" className="w-full md:w-auto bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 md:py-4 rounded-lg font-black text-lg shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
+                    <span>🔍</span> Search
+                  </button>
+                </form>
+              ) : activeTab === "flights" ? (
+                <div className="mt-4 relative z-10 w-full min-h-[150px]">
+                  <TravelpayoutsFlightWidget />
+                </div>
+              ) : activeTab === "cars" ? (
+                <div className="mt-4 relative z-10 w-full min-h-[150px]">
+                  <TravelpayoutsRentalWidget />
+                </div>
+              ) : activeTab === "transfers" ? (
+                <div className="mt-4 relative z-10 w-full min-h-[150px]">
+                  <TravelpayoutsTransferWidget />
+                </div>
+              ) : activeTab === "packages" || activeTab === "attractions" || activeTab === "cruises" ? (
+                <div className="mt-4 relative z-10 w-full min-h-[150px]">
+                  <DummyWidget />
+                </div>
+              ) : (
+                <div className="w-full bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 flex items-center justify-center text-center shadow-inner mt-4 relative z-10">
+                  <p className="text-gray-500 font-bold tracking-wide">{currentData.formPlaceholder[language] || currentData.formPlaceholder["EN"]}</p>
+                </div>
+              )}
+
+            </div>
+          </div>
+
+          {/* Trust Building: Partner Logos */}
+          <PartnerLogos />
+
+          {/* Recently Viewed History */}
+          <RecentlyViewed />
+
+          {/* Dynamic Geo-Location Popular Destinations */}
+          <PopularDestinations />
+
+          {/* Flash Deals with Countdown */}
+          <FlashDeals />
+
+          {/* Travel Blog & Inspiration */}
+          <TravelBlog />
+
+          {/* Why Choose Us */}
+          <WhyChooseUs />
+
+          {/* Customer Reviews */}
+          <CustomerReviews />
+
+          {/* Mobile App Download */}
+          <AppDownload />
+
+        </main>
+      </div>
+
+      {/* SEO Mega Footer */}
+      <MegaFooter />
+
     </div>
   );
 }
+
