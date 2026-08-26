@@ -3,7 +3,7 @@
 import { useGoogleOneTapLogin } from '@react-oauth/google';
 import { useAuth } from '@/context/AuthContext';
 import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { auth } from '@/firebase';
 import { useEffect } from 'react';
 
 export default function GoogleOneTap() {
