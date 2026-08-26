@@ -11,7 +11,7 @@ import AppDownload from "@/components/AppDownload";
 import CustomerReviews from "@/components/CustomerReviews";
 import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Globe, CircleDollarSign } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
@@ -150,11 +150,30 @@ export default function Home() {
   const t = i18n[language] || i18n["EN"];
   const currentData = tabData[activeTab];
 
+  const [showTopNav, setShowTopNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          setShowTopNav(false);
+        } else {
+          setShowTopNav(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+
   return (
     <div className="flex flex-col min-h-screen bg-[#f5f5f5]">
       
       {/* Global Top Navbar */}
-      <header className="w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 relative">
+      <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 relative transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
         <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">

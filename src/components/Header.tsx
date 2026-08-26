@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 
@@ -42,7 +42,7 @@ export default function Header() {
   const t = i18n[language] || i18n["EN"];
 
   return (
-    <header className="w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0">
+    <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
       
       {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
       <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
