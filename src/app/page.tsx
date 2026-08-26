@@ -340,7 +340,7 @@ export default function Home() {
             <div className="relative z-20 w-[95%] md:w-[90%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-8 border border-gray-100">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
-            <div className="flex justify-center gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto">
+            <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
               
               {Object.keys(tabData).map((key) => {
                 const tab = tabData[key as keyof typeof tabData];
