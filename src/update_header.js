@@ -1,47 +1,10 @@
-"use client";
+const fs = require('fs');
 
-import Link from "next/link";
-import { useState } from "react";
-import { useAuth } from "@/context/AuthContext";
-import { Globe, CircleDollarSign } from "lucide-react";
+const file = 'C:/src/hotelchap-web/src/components/Header.tsx';
+let content = fs.readFileSync(file, 'utf8');
 
-const i18n: any = {
-  EN: {
-    getApp: "Get the App",
-    listProperty: "List your property",
-    support: "Support",
-    signIn: "Sign In",
-    searchPlaceholder: "Search for a destination..."
-  },
-  SI: {
-    getApp: "App එක ගන්න",
-    listProperty: "හෝටලය ඇතුලත් කරන්න",
-    support: "උදව්",
-    signIn: "ඇතුල් වෙන්න",
-    searchPlaceholder: "ගමනාන්තයක් සොයන්න..."
-  },
-  TA: {
-    getApp: "பயன்பாட்டைப் பெறுக",
-    listProperty: "உங்கள் சொத்தை பட்டியலிடுங்கள்",
-    support: "ஆதரவு",
-    signIn: "உள்நுழைக",
-    searchPlaceholder: "இடத்தை தேடுங்கள்..."
-  }
-};
-
-const currencies = ["USD", "LKR", "EUR", "GBP", "AUD"];
-const languages = ["EN", "SI", "TA", "FR", "ES", "DE"];
-
-export default function Header() {
-  const { user } = useAuth();
-  const [currency, setCurrency] = useState("USD");
-  const [language, setLanguage] = useState("EN");
-  const [showCurrency, setShowCurrency] = useState(false);
-  const [showLanguage, setShowLanguage] = useState(false);
-
-  const t = i18n[language] || i18n["EN"];
-
-  return (
+// The new return statement for Header
+const newReturn = `  return (
     <header className="w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0">
       
       {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
@@ -66,12 +29,12 @@ export default function Header() {
           {/* Currency Mobile */}
           <div className="relative">
             <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-              <CircleDollarSign size={16} className="text-gray-500" /> {currency} <span className="text-[10px]">▼</span>
+              {currency} <span className="text-[10px]">▼</span>
             </button>
             {showCurrency && (
               <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
                 {currencies.map(c => (
-                  <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{c}</button>
+                  <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={\`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition \${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}\`}>{c}</button>
                 ))}
               </div>
             )}
@@ -80,14 +43,14 @@ export default function Header() {
           {/* Language Mobile */}
           <div className="relative">
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-              <Globe size={16} className="text-gray-500" /> {language} <span className="text-[10px]">▼</span>
+              {language} <span className="text-[10px]">▼</span>
             </button>
             {showLanguage && (
               <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
                 {languages.map(l => {
                   const langNames: any = { EN: "English", SI: "සිංහල", TA: "தமிழ்", FR: "Français", ES: "Español", DE: "Deutsch" };
                   return (
-                    <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{langNames[l] || l}</button>
+                    <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={\`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition \${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}\`}>{langNames[l] || l}</button>
                   );
                 })}
               </div>
@@ -133,12 +96,12 @@ export default function Header() {
         {/* Currency Dropdown Desktop */}
         <div className="relative">
           <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-            <CircleDollarSign size={18} className="text-gray-500 mr-1" /> {currency} <span className="text-xs">▼</span>
+            {currency} <span className="text-xs">▼</span>
           </button>
           {showCurrency && (
             <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
               {currencies.map(c => (
-                <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{c}</button>
+                <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={\`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition \${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}\`}>{c}</button>
               ))}
             </div>
           )}
@@ -147,14 +110,14 @@ export default function Header() {
         {/* Language Dropdown Desktop */}
         <div className="relative">
           <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-            <Globe size={18} className="text-gray-500 mr-1" /> {language} <span className="text-xs">▼</span>
+            {language} <span className="text-xs">▼</span>
           </button>
           {showLanguage && (
             <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
               {languages.map(l => {
                 const langNames: any = { EN: "English", SI: "සිංහල", TA: "தமிழ்", FR: "Français", ES: "Español", DE: "Deutsch" };
                 return (
-                  <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{langNames[l] || l}</button>
+                  <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={\`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition \${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}\`}>{langNames[l] || l}</button>
                 );
               })}
             </div>
@@ -179,4 +142,14 @@ export default function Header() {
 
     </header>
   );
+}
+`;
+
+const returnIndex = content.indexOf('  return (');
+if (returnIndex !== -1) {
+  content = content.substring(0, returnIndex) + newReturn;
+  fs.writeFileSync(file, content, 'utf8');
+  console.log('Successfully updated Header.tsx layout');
+} else {
+  console.log('Error: Could not find return statement');
 }

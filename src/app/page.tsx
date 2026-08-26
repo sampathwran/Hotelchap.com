@@ -177,7 +177,7 @@ export default function Home() {
             {/* Currency Mobile */}
             <div className="relative">
               <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-                {currency} <span className="text-[10px]">▼</span>
+                <CircleDollarSign size={16} className="text-gray-500" /> {currency} <span className="text-[10px]">▼</span>
               </button>
               {showCurrency && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -191,7 +191,7 @@ export default function Home() {
             {/* Language Mobile */}
             <div className="relative">
               <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-                {language} <span className="text-[10px]">▼</span>
+                <Globe size={16} className="text-gray-500" /> {language} <span className="text-[10px]">▼</span>
               </button>
               {showLanguage && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -244,7 +244,7 @@ export default function Home() {
           {/* Currency Dropdown Desktop */}
           <div className="relative">
             <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-              {currency} <span className="text-xs">▼</span>
+              <CircleDollarSign size={18} className="text-gray-500 mr-1" /> {currency} <span className="text-xs">▼</span>
             </button>
             {showCurrency && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -258,7 +258,7 @@ export default function Home() {
           {/* Language Dropdown Desktop */}
           <div className="relative">
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-              {language} <span className="text-xs">▼</span>
+              <Globe size={18} className="text-gray-500 mr-1" /> {language} <span className="text-xs">▼</span>
             </button>
             {showLanguage && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
