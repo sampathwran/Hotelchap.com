@@ -50,7 +50,7 @@ export default function Header() {
         </Link>
 
         {/* Destination Search Bar */}
-        <div className="hidden sm:flex relative items-center w-[250px] md:w-[350px]">
+        <div className="flex relative items-center flex-1 sm:w-[250px] md:w-[350px]">
           <span className="absolute left-4 text-xl">🔍</span>
           <input 
             type="text" 
@@ -143,7 +143,7 @@ export default function Header() {
 
       {/* Mobile Search/Sign In Icons */}
       <div className="md:hidden flex items-center gap-4">
-         <button className="text-xl">🔍</button>
+         
          <button className="text-xl relative">
            🔔
            <span className="absolute -top-0 -right-0 h-2 w-2 rounded-full bg-red-500"></span>
