@@ -111,7 +111,7 @@ export default function FlashDeals() {
                 Time Left: {formatTimeLeft(deal.endTime)}
               </div>
               {deal.discountBadge && (
-                <div className="absolute top-4 right-4 bg-red-600 text-white font-black px-3 py-1 rounded-full shadow-lg text-sm transform rotate-3">
+                <div className="absolute bottom-4 right-4 bg-red-600 text-white font-black px-3 py-1 rounded-full shadow-lg text-sm transform rotate-3">
                   {deal.discountBadge}
                 </div>
               )}
