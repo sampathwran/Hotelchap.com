@@ -1,5 +1,5 @@
 "use client";
-import { FileText, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -16,14 +16,15 @@ import {
   Menu,
   X,
   ChevronRight,
-  LogOut
+  LogOut,
+  FileText
 } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-    const menuItems = [
+    const menuItems: Array<{ name: string; icon: JSX.Element; href: string; isMain: boolean; badge?: string }> = [
     { name: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/admin", isMain: true },
     { name: "Bookings", icon: <ShoppingCart size={20} />, href: "/admin/bookings", isMain: true },
     { name: "Destinations", icon: <Globe size={20} />, href: "/admin/destinations", isMain: true },

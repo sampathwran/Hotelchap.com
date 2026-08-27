@@ -38,6 +38,7 @@ export default function Header() {
   const [language, setLanguage] = useState("EN");
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
+  const [showTopNav, setShowTopNav] = useState(true);
 
   const t = i18n[language] || i18n["EN"];
 
