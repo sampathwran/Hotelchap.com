@@ -48,7 +48,7 @@ export default function Header() {
       {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
       <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
         <Link href="/" className="flex items-center">
-          <img src="/logo.png" alt="HotelChap Logo" className="h-10 md:h-12 w-auto object-contain" />
+          <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain scale-110 origin-left" />
         </Link>
 
         {/* Destination Search Bar (Desktop) */}
