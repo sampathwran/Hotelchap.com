@@ -99,10 +99,10 @@ export default function FlashDeals() {
         {activeDeals.map((deal) => (
           <div 
             key={deal.id} 
-            className="min-w-[90%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
+            className="min-w-[80%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
             onClick={() => window.open(deal.targetUrl || '#', '_blank')}
           >
-            <div className="relative h-64 w-full overflow-hidden">
+            <div className="relative h-48 md:h-64 w-full overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url('${deal.imageUrl}')` }}
