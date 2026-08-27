@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <GoogleOAuthProvider clientId="649987888032-d8lsvr95s08c6cp176qegn0vcu2g49qe.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="138916892371-uk50uaqnu7ambeml7nvb81k2u45rauvo.apps.googleusercontent.com">
         <AuthProvider>
           <VisitTracker />
           <GoogleOneTap />
