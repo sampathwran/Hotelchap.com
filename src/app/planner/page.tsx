@@ -50,7 +50,7 @@ export default function AIPlanner() {
       <header className="h-20 w-full flex items-center justify-between px-4 md:px-8 bg-white shadow-sm z-[60] sticky top-0">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center">
-            <img src="/logo.jpg" alt="HotelChap Logo" className="h-10 md:h-12 w-auto object-contain" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-10 md:h-12 w-auto object-contain" />
           </Link>
           <div className="hidden sm:block font-bold text-xl text-[#673AB7] border-l-2 border-gray-200 pl-6">
             AI Trip Planner ✨
