@@ -1,14 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { collection, query, where, getDocs, Timestamp } from "firebase/firestore";
 import { db } from "@/firebase";
 
 export default function FlashDeals() {
   const [deals, setDeals] = useState<any[]>([]);
   const [now, setNow] = useState(new Date());
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Update 'now' every second for the countdown timers
     const timer = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -41,36 +41,74 @@ export default function FlashDeals() {
     return `${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
   };
 
-  // Filter deals: only show deals where startTime is in the past (or doesn't exist)
   const activeDeals = deals.filter((deal) => {
-    if (!deal.startTime) return true; // Legacy deals
+    if (!deal.startTime) return true;
     return deal.startTime.toDate() <= now;
   });
 
-  if (activeDeals.length === 0) return null; // Don't show the section if no active deals
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+  };
+
+  if (activeDeals.length === 0) return null;
 
   return (
-    <div className="w-full px-4 md:px-10 mt-6 md:mt-8 pb-10">
+    <div className="w-full px-4 md:px-10 mt-6 md:mt-8 pb-10 relative">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 bg-red-50 border border-red-100 p-6 rounded-2xl">
         <div className="flex items-center gap-4">
-          <div className="bg-red-500 text-white text-3xl p-3 rounded-xl animate-pulse">🔥</div>
+          <div className="bg-red-500 text-white text-3xl p-3 rounded-xl animate-pulse">??</div>
           <div>
             <h2 className="text-2xl font-black text-gray-900">Flash Deals</h2>
             <p className="text-red-500 font-bold">Hurry! Limited time offers selected for you.</p>
           </div>
         </div>
+        
+        {/* Navigation Arrows for Desktop */}
+        {activeDeals.length > 3 && (
+          <div className="hidden md:flex gap-3 mt-4 md:mt-0">
+            <button 
+              onClick={scrollLeft} 
+              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition"
+              aria-label="Previous Deals"
+            >
+              ?
+            </button>
+            <button 
+              onClick={scrollRight} 
+              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition"
+              aria-label="Next Deals"
+            >
+              ?
+            </button>
+          </div>
+        )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <style>{`.hide-scroll::-webkit-scrollbar { display: none; }`}</style>
+      
+      {/* Slider Container */}
+      <div 
+        ref={scrollRef}
+        className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory hide-scroll"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
         {activeDeals.map((deal) => (
-          <div key={deal.id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer">
+          <div 
+            key={deal.id} 
+            className="min-w-[85%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
+            onClick={() => window.open(deal.targetUrl || '#', '_blank')}
+          >
             <div className="relative h-48 w-full overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url('${deal.imageUrl}')` }}
               ></div>
               <div className="absolute top-4 left-4 bg-gray-900 text-white font-bold px-3 py-1 rounded-full shadow-lg text-sm flex items-center gap-2">
-                ⏳ {formatTimeLeft(deal.endTime)}
+                ? {formatTimeLeft(deal.endTime)}
               </div>
               {deal.discountBadge && (
                 <div className="absolute top-4 right-4 bg-red-600 text-white font-black px-3 py-1 rounded-full shadow-lg text-sm transform rotate-3">
@@ -79,19 +117,9 @@ export default function FlashDeals() {
               )}
             </div>
             <div className="p-5">
-              <h3 className="font-bold text-lg text-gray-900 mb-2">{deal.title || 'Special Deal'}</h3>
-              <p className="text-sm text-gray-500 mb-4">Click below to view this exclusive offer before time runs out!</p>
-              
-              <button 
-                onClick={() => {
-                  import('@/lib/analytics').then(m => m.trackEvent('clicks'));
-                  if (deal.targetUrl) {
-                    window.open(deal.targetUrl, '_blank');
-                  }
-                }}
-                className="w-full bg-gray-900 text-white font-bold py-3 rounded-xl group-hover:bg-red-600 transition-colors shadow-md"
-              >
-                Claim Deal Now
+              <h3 className="font-bold text-lg text-gray-900 mb-2 truncate">{deal.title || 'Special Deal'}</h3>
+              <button className="w-full mt-2 bg-red-50 text-red-600 font-bold py-2 rounded-xl group-hover:bg-red-500 group-hover:text-white transition-colors">
+                Grab Deal ?
               </button>
             </div>
           </div>
