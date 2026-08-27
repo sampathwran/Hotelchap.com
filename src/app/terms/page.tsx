@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import MegaFooter from '@/components/MegaFooter';
 
 export const metadata = {
   title: 'Terms of Service - HotelChap',
@@ -51,7 +51,7 @@ export default function TermsOfService() {
         </div>
       </main>
 
-      <Footer />
+      <MegaFooter />
     </div>
   );
 }

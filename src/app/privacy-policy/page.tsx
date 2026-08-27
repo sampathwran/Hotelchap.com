@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import MegaFooter from '@/components/MegaFooter';
 
 export const metadata = {
   title: 'Privacy Policy - HotelChap',
@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
         </div>
       </main>
 
-      <Footer />
+      <MegaFooter />
     </div>
   );
 }
