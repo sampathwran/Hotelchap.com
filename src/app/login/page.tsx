@@ -21,6 +21,19 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, googleProvider);
       const { getAdditionalUserInfo } = await import("firebase/auth");
       const additionalInfo = getAdditionalUserInfo(result);
+      
+      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+      const { db } = await import("@/firebase");
+
+      const userRef = doc(db, 'users', result.user.uid);
+      await setDoc(userRef, {
+        name: result.user.displayName,
+        email: result.user.email,
+        photoURL: result.user.photoURL,
+        lastLoginAt: serverTimestamp(),
+        ...(additionalInfo?.isNewUser && { createdAt: serverTimestamp() })
+      }, { merge: true });
+
       if (additionalInfo?.isNewUser) {
         import("@/lib/analytics").then((m) => m.trackEvent("registered"));
       }
@@ -38,11 +51,25 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+      const { db } = await import("@/firebase");
+
       if (isLogin) {
-        await signInWithEmailAndPassword(auth, email, password);
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        const userRef = doc(db, 'users', result.user.uid);
+        await setDoc(userRef, {
+          lastLoginAt: serverTimestamp(),
+        }, { merge: true });
       } else {
-        await createUserWithEmailAndPassword(auth, email, password);
-        // Here you could also save the 'name' to Firestore or update profile
+        const result = await createUserWithEmailAndPassword(auth, email, password);
+        const userRef = doc(db, 'users', result.user.uid);
+        await setDoc(userRef, {
+          name: name,
+          email: result.user.email,
+          createdAt: serverTimestamp(),
+          lastLoginAt: serverTimestamp(),
+        }, { merge: true });
+        
         import("@/lib/analytics").then((m) => m.trackEvent("registered"));
       }
       router.push("/"); // Redirect to home on success
