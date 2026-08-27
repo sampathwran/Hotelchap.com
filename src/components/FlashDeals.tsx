@@ -58,7 +58,13 @@ export default function FlashDeals() {
                 <span className="text-sm text-gray-400 line-through mb-1">{deal.oldPrice}</span>
                 <span className="text-xs text-gray-500 mb-1 ml-1">/ night</span>
               </div>
-              <button className="w-full mt-4 bg-gray-900 text-white font-bold py-2 rounded-xl group-hover:bg-[#673AB7] transition-colors">
+              <button 
+                onClick={() => {
+                  import('@/lib/analytics').then(m => m.trackEvent('clicks'));
+                  // window.open('YOUR_AFFILIATE_LINK_HERE', '_blank');
+                }}
+                className="w-full mt-4 bg-gray-900 text-white font-bold py-2 rounded-xl group-hover:bg-[#673AB7] transition-colors"
+              >
                 Claim Deal
               </button>
             </div>

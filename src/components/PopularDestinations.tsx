@@ -53,7 +53,11 @@ export default function PopularDestinations() {
             {destinations.map((dest, idx) => (
               <div 
                 key={dest.id || idx}
-                className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+                onClick={() => {
+                  import('@/lib/analytics').then(m => m.trackEvent('clicks'));
+                  // window.open('YOUR_AFFILIATE_LINK_HERE', '_blank');
+                }}
+                className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 cursor-pointer"
               >
                 {/* Image Box */}
                 <div className="h-[200px] md:h-[240px] w-full relative overflow-hidden">
