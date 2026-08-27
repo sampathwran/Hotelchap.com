@@ -60,7 +60,7 @@ export default function FlashDeals() {
     <div className="w-full px-4 md:px-10 mt-6 md:mt-8 pb-10 relative">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 bg-red-50 border border-red-100 p-6 rounded-2xl">
         <div className="flex items-center gap-4">
-          <div className="bg-red-500 text-white text-3xl p-3 rounded-xl animate-pulse">??</div>
+          <div className="bg-red-500 text-white text-xl font-bold p-3 rounded-xl animate-pulse">HOT</div>
           <div>
             <h2 className="text-2xl font-black text-gray-900">Flash Deals</h2>
             <p className="text-red-500 font-bold">Hurry! Limited time offers selected for you.</p>
@@ -72,17 +72,17 @@ export default function FlashDeals() {
           <div className="hidden md:flex gap-3 mt-4 md:mt-0">
             <button 
               onClick={scrollLeft} 
-              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition"
+              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition font-bold"
               aria-label="Previous Deals"
             >
-              ?
+              &lt;
             </button>
             <button 
               onClick={scrollRight} 
-              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition"
+              className="w-10 h-10 rounded-full bg-white border border-red-200 text-red-500 flex items-center justify-center shadow hover:bg-red-50 transition font-bold"
               aria-label="Next Deals"
             >
-              ?
+              &gt;
             </button>
           </div>
         )}
@@ -99,16 +99,16 @@ export default function FlashDeals() {
         {activeDeals.map((deal) => (
           <div 
             key={deal.id} 
-            className="min-w-[85%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
+            className="min-w-[90%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
             onClick={() => window.open(deal.targetUrl || '#', '_blank')}
           >
-            <div className="relative h-48 w-full overflow-hidden">
+            <div className="relative h-64 w-full overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url('${deal.imageUrl}')` }}
               ></div>
               <div className="absolute top-4 left-4 bg-gray-900 text-white font-bold px-3 py-1 rounded-full shadow-lg text-sm flex items-center gap-2">
-                ? {formatTimeLeft(deal.endTime)}
+                Time Left: {formatTimeLeft(deal.endTime)}
               </div>
               {deal.discountBadge && (
                 <div className="absolute top-4 right-4 bg-red-600 text-white font-black px-3 py-1 rounded-full shadow-lg text-sm transform rotate-3">
