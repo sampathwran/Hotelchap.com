@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { FileText, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -23,14 +23,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const menuItems = [
-    { name: "Dashboards", icon: <LayoutDashboard size={20} />, href: "/admin", isMain: true, badge: "12" },
-    { name: "CRM", icon: <ChevronRight size={16} className="ml-2" />, href: "#" },
-    { name: "Ecommerce", icon: <ChevronRight size={16} className="ml-2" />, href: "#" },
+    const menuItems = [
+    { name: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/admin", isMain: true },
     { name: "Bookings", icon: <ShoppingCart size={20} />, href: "/admin/bookings", isMain: true },
-    { name: "Users", icon: <Users size={20} />, href: "/admin/users", isMain: true },
-    { name: "AI Planner", icon: <Sparkles size={20} />, href: "/admin/planner", isMain: true },
-    { name: "Promotions", icon: <Flame size={20} />, href: "/admin/deals", isMain: true, badge: "Hot" },
+    { name: "Destinations", icon: <Globe size={20} />, href: "/admin/destinations", isMain: true },
+    { name: "Flash Deals", icon: <Flame size={20} />, href: "/admin/deals", isMain: true },
+    { name: "Travel Blog", icon: <FileText size={20} />, href: "/admin/blog", isMain: true },
     { name: "Settings", icon: <Settings size={20} />, href: "/admin/settings", isMain: true },
   ];
 
