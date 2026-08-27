@@ -119,7 +119,7 @@ export default function FlashDeals() {
             <div className="p-5">
               <h3 className="font-bold text-lg text-gray-900 mb-2 truncate">{deal.title || 'Special Deal'}</h3>
               <button className="w-full mt-2 bg-red-50 text-red-600 font-bold py-2 rounded-xl group-hover:bg-red-500 group-hover:text-white transition-colors">
-                Grab Deal ?
+                Grab Deal &rarr;
               </button>
             </div>
           </div>
