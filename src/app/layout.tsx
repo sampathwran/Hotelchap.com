@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleOneTap from "@/components/GoogleOneTap";
+import VisitTracker from "@/components/VisitTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col">
         <GoogleOAuthProvider clientId="649987888032-d8lsvr95s08c6cp176qegn0vcu2g49qe.apps.googleusercontent.com">
         <AuthProvider>
+          <VisitTracker />
           <GoogleOneTap />
           {children}
         </AuthProvider>

@@ -18,7 +18,12 @@ export default function LoginPage() {
     try {
       setError("");
       setLoading(true);
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const { getAdditionalUserInfo } = await import("firebase/auth");
+      const additionalInfo = getAdditionalUserInfo(result);
+      if (additionalInfo?.isNewUser) {
+        import("@/lib/analytics").then((m) => m.trackEvent("registered"));
+      }
       router.push("/"); // Redirect to home on success
     } catch (err: any) {
       setError(err.message);
@@ -38,6 +43,7 @@ export default function LoginPage() {
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
         // Here you could also save the 'name' to Firestore or update profile
+        import("@/lib/analytics").then((m) => m.trackEvent("registered"));
       }
       router.push("/"); // Redirect to home on success
     } catch (err: any) {
