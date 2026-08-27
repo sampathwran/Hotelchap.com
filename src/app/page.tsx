@@ -170,7 +170,7 @@ export default function Home() {
 
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f5f5f5]">
+    <div className="flex flex-col min-h-screen bg-transparent">
       
       {/* Global Top Navbar */}
       <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 relative transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
