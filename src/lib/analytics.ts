@@ -13,10 +13,18 @@ export const trackEvent = async (event: AnalyticsEvent) => {
     const dateString = `${year}-${month}-${day}`; 
 
     const docRef = doc(db, "daily_analytics", dateString);
+    const allTimeRef = doc(db, "all_time_analytics", "totals");
 
+    // Update daily stats
     await setDoc(docRef, {
       [event]: increment(1),
       date: dateString,
+      updatedAt: today.getTime(),
+    }, { merge: true });
+
+    // Update all-time stats
+    await setDoc(allTimeRef, {
+      [event]: increment(1),
       updatedAt: today.getTime(),
     }, { merge: true });
 
