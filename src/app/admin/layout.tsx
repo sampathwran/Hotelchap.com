@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-    const menuItems: Array<{ name: string; icon: JSX.Element; href: string; isMain: boolean; badge?: string }> = [
+    const menuItems: Array<{ name: string; icon: React.ReactNode; href: string; isMain: boolean; badge?: string }> = [
     { name: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/admin", isMain: true },
     { name: "Bookings", icon: <ShoppingCart size={20} />, href: "/admin/bookings", isMain: true },
     { name: "Destinations", icon: <Globe size={20} />, href: "/admin/destinations", isMain: true },
