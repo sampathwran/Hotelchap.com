@@ -5,7 +5,7 @@ import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDiuLmkscXaDJ2gBtOvKMnqhvcnOmWqRsM",
-  authDomain: "hotelchap-8926a.firebaseapp.com",
+  authDomain: "auth.hotelchap.com",
   projectId: "hotelchap-8926a",
   storageBucket: "hotelchap-8926a.firebasestorage.app",
   messagingSenderId: "649987888032",
