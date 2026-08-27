@@ -63,9 +63,14 @@ export default function FlashDeals() {
                 className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url('${deal.imageUrl}')` }}
               ></div>
-              <div className="absolute top-4 left-4 bg-red-600 text-white font-bold px-3 py-1 rounded-full shadow-lg text-sm flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-gray-900 text-white font-bold px-3 py-1 rounded-full shadow-lg text-sm flex items-center gap-2">
                 ⏳ {formatTimeLeft(deal.endTime)}
               </div>
+              {deal.discountBadge && (
+                <div className="absolute top-4 right-4 bg-red-600 text-white font-black px-3 py-1 rounded-full shadow-lg text-sm transform rotate-3">
+                  {deal.discountBadge}
+                </div>
+              )}
             </div>
             <div className="p-5">
               <h3 className="font-bold text-lg text-gray-900 mb-2">{deal.title || 'Special Deal'}</h3>
