@@ -41,7 +41,13 @@ export default function FlashDeals() {
     return `${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
   };
 
-  if (deals.length === 0) return null; // Don't show the section if no active deals
+  // Filter deals: only show deals where startTime is in the past (or doesn't exist)
+  const activeDeals = deals.filter((deal) => {
+    if (!deal.startTime) return true; // Legacy deals
+    return deal.startTime.toDate() <= now;
+  });
+
+  if (activeDeals.length === 0) return null; // Don't show the section if no active deals
 
   return (
     <div className="w-full px-4 md:px-10 mt-6 md:mt-8 pb-10">
@@ -56,7 +62,7 @@ export default function FlashDeals() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {deals.map((deal) => (
+        {activeDeals.map((deal) => (
           <div key={deal.id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer">
             <div className="relative h-48 w-full overflow-hidden">
               <div 
