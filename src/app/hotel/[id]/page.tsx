@@ -84,15 +84,42 @@ export default function HotelDetailsPage() {
             </p>
           </div>
           <div className="flex flex-col items-end">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="text-right">
-                <p className="text-sm text-gray-500 font-bold">Prices from</p>
-                <p className="text-3xl font-black text-gray-900">${hotel.price}</p>
+              <div className="flex gap-4 items-center w-full md:w-auto">
+                <div className="text-right">
+                  <p className="text-sm text-gray-500 font-bold">Prices from</p>
+                  <p className="text-3xl font-black text-gray-900">${hotel.price}</p>
+                </div>
+                <button 
+                  onClick={async () => {
+                    const { auth } = await import("@/firebase");
+                    const user = auth.currentUser;
+                    if (!user) {
+                      alert("Please log in to save to your wishlist.");
+                      return;
+                    }
+                    try {
+                      const { doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+                      const { db } = await import("@/firebase");
+                      const wishlistRef = doc(db, 'wishlists', `${user.uid}_${hotel.id}`);
+                      await setDoc(wishlistRef, {
+                        userId: user.uid,
+                        userEmail: user.email,
+                        hotelId: hotel.id,
+                        hotelName: hotel.name,
+                        price: hotel.price,
+                        createdAt: serverTimestamp()
+                      });
+                      alert("Saved to Wishlist!");
+                      import("@/lib/analytics").then((m) => m.trackEvent("wishlist"));
+                    } catch(e) {
+                      console.error(e);
+                    }
+                  }}
+                  className="bg-white border border-gray-200 text-[#673AB7] p-3 rounded-lg shadow-sm hover:bg-gray-50 transition"
+                >
+                  <Heart size={20} />
+                </button>
               </div>
-              <button className="bg-white border border-gray-200 text-[#673AB7] p-3 rounded-lg shadow-sm hover:bg-gray-50">
-                <Heart size={20} />
-              </button>
-            </div>
             <a href="#rooms" className="bg-[#673AB7] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#522b94] transition shadow-md whitespace-nowrap text-lg w-full text-center md:w-auto">
               Select Room
             </a>
