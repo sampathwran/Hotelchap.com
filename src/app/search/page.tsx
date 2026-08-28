@@ -18,7 +18,7 @@ function SearchResultsContent() {
     async function fetchHotels() {
       try {
         setLoading(true);
-        const res = await fetch(\`/api/hotels/search?city=\${city}&checkin=\${checkin}&checkout=\${checkout}\`);
+        const res = await fetch(`/api/hotels/search?city=${city}&checkin=${checkin}&checkout=${checkout}`);
         const data = await res.json();
         
         if (data.error) throw new Error(data.error);
@@ -66,9 +66,9 @@ function SearchResultsContent() {
           const tripPrice = Math.floor(basePrice * 0.98); // Trip.com 2% cheaper
           
           // Generate realistic hotel URLs (Stay22 will intercept these based on the domain)
-          const bookingUrl = \`https://www.booking.com/hotel/lk/\${hotel.hotel_name.toLowerCase().replace(/[^a-z0-9]/g, '-')}.html\`;
-          const agodaUrl = \`https://www.agoda.com/search?text=\${encodeURIComponent(hotel.hotel_name)}\`;
-          const expediaUrl = \`https://www.expedia.com/Hotel-Search?destination=\${encodeURIComponent(hotel.hotel_name)}\`;
+          const bookingUrl = `https://www.booking.com/hotel/lk/${hotel.hotel_name.toLowerCase().replace(/[^a-z0-9]/g, '-')}.html`;
+          const agodaUrl = `https://www.agoda.com/search?text=${encodeURIComponent(hotel.hotel_name)}`;
+          const expediaUrl = `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.hotel_name)}`;
 
           return (
             <div key={hotel.hotel_id} className="flex flex-col md:flex-row bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
@@ -93,7 +93,7 @@ function SearchResultsContent() {
                     )}
                   </div>
                   <p className="text-gray-500 text-sm mt-1">
-                    {hotel.distance_to_cc ? \`\${hotel.distance_to_cc} km from center\` : 'Great location'}
+                    {hotel.distance_to_cc ? `${hotel.distance_to_cc} km from center` : 'Great location'}
                   </p>
                   
                   {hotel.review_score_word && (
@@ -108,15 +108,15 @@ function SearchResultsContent() {
                     <div className="flex flex-wrap gap-2">
                       <Link href={agodaUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
                         <span className="text-[10px] font-bold text-gray-500">Agoda</span>
-                        <span className="font-bold text-red-500">$\${agodaPrice}</span>
+                        <span className="font-bold text-red-500">${agodaPrice}</span>
                       </Link>
                       <Link href={expediaUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
                         <span className="text-[10px] font-bold text-gray-500">Expedia</span>
-                        <span className="font-bold text-gray-700">$\${expediaPrice}</span>
+                        <span className="font-bold text-gray-700">${expediaPrice}</span>
                       </Link>
                       <Link href={bookingUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
                         <span className="text-[10px] font-bold text-gray-500">Trip.com</span>
-                        <span className="font-bold text-gray-700">$\${tripPrice}</span>
+                        <span className="font-bold text-gray-700">${tripPrice}</span>
                       </Link>
                     </div>
                   </div>
@@ -124,11 +124,11 @@ function SearchResultsContent() {
                   <div className="text-right w-full md:w-auto">
                     {originalPrice && (
                       <div className="text-sm text-gray-400 line-through mb-1">
-                        $\${originalPrice}
+                        ${originalPrice}
                       </div>
                     )}
                     <div className="text-2xl font-black text-gray-900 mb-2">
-                      $\${basePrice} <span className="text-sm font-normal text-gray-500">/ night</span>
+                      ${basePrice} <span className="text-sm font-normal text-gray-500">/ night</span>
                     </div>
                     {/* Stay22 will automatically convert this href into an affiliate link! */}
                     <Link 

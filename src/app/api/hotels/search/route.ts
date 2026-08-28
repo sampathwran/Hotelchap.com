@@ -21,7 +21,7 @@ export async function GET(request: Request) {
   try {
     // Step 1: Search for the Destination ID
     const locationRes = await fetch(
-      \`https://\${RAPIDAPI_HOST}/v1/hotels/locations?name=\${encodeURIComponent(city)}&locale=en-gb\`,
+      `https://${RAPIDAPI_HOST}/v1/hotels/locations?name=${encodeURIComponent(city)}&locale=en-gb`,
       {
         headers: {
           'x-rapidapi-key': RAPIDAPI_KEY,
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
 
     // Step 2: Search for Hotels
     const hotelRes = await fetch(
-      \`https://\${RAPIDAPI_HOST}/v1/hotels/search?dest_id=\${destination.dest_id}&dest_type=\${destination.dest_type}&checkin_date=\${checkin}&checkout_date=\${checkout}&adults_number=\${adults}&room_number=\${rooms}&filter_by_currency=USD&order_by=popularity&units=metric&locale=en-gb\`,
+      `https://${RAPIDAPI_HOST}/v1/hotels/search?dest_id=${destination.dest_id}&dest_type=${destination.dest_type}&checkin_date=${checkin}&checkout_date=${checkout}&adults_number=${adults}&room_number=${rooms}&filter_by_currency=USD&order_by=popularity&units=metric&locale=en-gb`,
       {
         headers: {
           'x-rapidapi-key': RAPIDAPI_KEY,
