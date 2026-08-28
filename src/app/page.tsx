@@ -16,6 +16,7 @@ import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
 import LanguageModal from "@/components/LanguageModal";
 import { useAuth } from "@/context/AuthContext";
+import { useSettings } from "@/context/SettingsContext";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
 import TravelpayoutsTransferWidget from "@/components/TravelpayoutsTransferWidget";

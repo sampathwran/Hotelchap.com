@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import { SettingsProvider } from "@/context/SettingsContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleOneTap from "@/components/GoogleOneTap";
 import VisitTracker from "@/components/VisitTracker";
@@ -45,11 +46,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
 
         <GoogleOAuthProvider clientId="138916892371-uk50uaqnu7ambeml7nvb81k2u45rauvo.apps.googleusercontent.com">
+        <SettingsProvider>
         <AuthProvider>
           <VisitTracker />
           <GoogleOneTap />
           {children}
         </AuthProvider>
+        </SettingsProvider>
         </GoogleOAuthProvider>
       </body>
     </html>

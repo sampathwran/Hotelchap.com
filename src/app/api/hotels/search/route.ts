@@ -40,6 +40,7 @@ export async function GET(request: Request) {
   const checkout = searchParams.get('checkout');
   const adults = searchParams.get('adults') || '2';
   const rooms = searchParams.get('rooms') || '1';
+  const currency = searchParams.get('currency') || 'USD';
 
   if (!city || !checkin || !checkout) {
     return NextResponse.json(
@@ -69,7 +70,7 @@ export async function GET(request: Request) {
 
     // Step 2: Search for Hotels
     const hotels = await fetchWithRetry(
-      `https://${RAPIDAPI_HOST}/v1/hotels/search?dest_id=${destination.dest_id}&dest_type=${destination.dest_type}&checkin_date=${checkin}&checkout_date=${checkout}&adults_number=${adults}&room_number=${rooms}&filter_by_currency=USD&order_by=popularity&units=metric&locale=en-gb`,
+      `https://${RAPIDAPI_HOST}/v1/hotels/search?dest_id=${destination.dest_id}&dest_type=${destination.dest_type}&checkin_date=${checkin}&checkout_date=${checkout}&adults_number=${adults}&room_number=${rooms}&filter_by_currency=${currency}&order_by=popularity&units=metric&locale=en-gb`,
       { headers, cache: 'no-store' }
     );
 

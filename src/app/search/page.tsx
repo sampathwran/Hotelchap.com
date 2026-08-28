@@ -8,8 +8,13 @@ import MegaFooter from "@/components/MegaFooter";
 import RecentlyViewed from "@/components/RecentlyViewed";
 import Header from "@/components/Header";
 import { filterCategories } from "@/lib/filterData";
+import { allCurrencies } from "@/components/CurrencyModal";
+import { useSettings } from "@/context/SettingsContext";
+
+const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
 function SearchResults() {
+  const { currency } = useSettings();
   const searchParams = useSearchParams();
   const destination = searchParams.get("city") || searchParams.get("destination") || "Colombo";
   const checkin = searchParams.get("checkin") || "2026-10-01";
@@ -28,7 +33,7 @@ function SearchResults() {
     async function fetchHotels() {
       try {
         setLoading(true);
-        const res = await fetch(`/api/hotels/search?city=${destination}&checkin=${checkin}&checkout=${checkout}`, { cache: 'no-store' });
+        const res = await fetch(`/api/hotels/search?city=${destination}&checkin=${checkin}&checkout=${checkout}&currency=${currency}`, { cache: 'no-store' });
         const data = await res.json();
         
         if (data.error) {
@@ -96,7 +101,7 @@ function SearchResults() {
       }
     }
     fetchHotels();
-  }, [destination, checkin, checkout]);
+  }, [destination, checkin, checkout, currency]);
 
   const handleFilterToggle = (option: string) => {
     setSelectedFilters(prev => 
@@ -270,8 +275,8 @@ function SearchResults() {
                     <div>
                       <p className="text-xs text-green-600 font-bold mb-1">Limited availability</p>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-400 line-through text-sm font-medium">US${hotel.originalPrice}</span>
-                        <span className="text-3xl font-black text-gray-900">US${hotel.price}</span>
+                        <span className="text-gray-400 line-through text-sm font-medium">${getCurrencySymbol(currency)} {hotel.originalPrice}</span>
+                        <span className="text-3xl font-black text-gray-900">${getCurrencySymbol(currency)} {hotel.price}</span>
                       </div>
                       <p className="text-xs text-gray-400 font-medium">Includes taxes and charges</p>
                     </div>

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
+
+import { useSettings } from "@/context/SettingsContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
 import LanguageModal from "./LanguageModal";

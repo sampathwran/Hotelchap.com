@@ -3,6 +3,8 @@
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Star, MapPin, Heart, Wifi, Coffee, Car, Check, ChevronRight, Utensils, Info, Clock, AlertCircle, Sparkles, Navigation, Train, ShoppingBag, Wind } from "lucide-react";
+import { useSettings } from "@/context/SettingsContext";
+import { allCurrencies } from "@/components/CurrencyModal";
 import { useState, Suspense, useEffect } from "react";
 import MegaFooter from "@/components/MegaFooter";
 import RecentlyViewed from "@/components/RecentlyViewed";
@@ -10,6 +12,7 @@ import Header from "@/components/Header";
 
 function HotelDetailsContent() {
   const params = useParams();
+  const { currency } = useSettings();
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -240,7 +243,7 @@ function HotelDetailsContent() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-xl font-black text-gray-900">US${providerPrice}</p>
+                        <p className="text-xl font-black text-gray-900">${getCurrencySymbol(currency)} {providerPrice}</p>
                         <button 
                           onClick={() => handleBook(provider.name, provider.url)}
                           className={`mt-1 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm transition ${isCheapest ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
@@ -262,6 +265,8 @@ function HotelDetailsContent() {
 }
 
 export const dynamic = 'force-dynamic';
+
+const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
 export default function HotelDetailsPage() {
   return (
