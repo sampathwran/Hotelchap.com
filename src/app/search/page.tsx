@@ -44,7 +44,9 @@ function SearchResults() {
         }
         
         // Map API format to expected UI format
-        const mappedHotels = (data.results || []).map((h: any) => {
+        const validResults = (data.results || []).filter((h: any) => h.hotel_name || h.hotel_name_trans || h.name);
+        
+        const mappedHotels = validResults.map((h: any) => {
           // Generate keywords mapping to match the UI filters
           const keywords = [];
           if (h.has_free_parking) keywords.push("Parking");
