@@ -1,9 +1,37 @@
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic'; // Prevent Next.js from caching the route
+export const dynamic = 'force-dynamic';
 
 const RAPIDAPI_KEY = '94ea5ae213msh8b45eeb44bafaa3p14e5c0jsn2b52490c4351';
 const RAPIDAPI_HOST = 'booking-com.p.rapidapi.com';
+
+// Helper to retry API calls specifically for scraper authentication failures (Code 1008)
+async function fetchWithRetry(url: string, options: any, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    const res = await fetch(url, options);
+    let data;
+    try {
+      data = await res.json();
+    } catch (err) {
+      if (i < maxRetries - 1) {
+        await new Promise(r => setTimeout(r, 1000));
+        continue;
+      }
+      throw err;
+    }
+
+    // Check if it's the known "Authentication token is invalid" (1008) error from the scraper
+    if (!data.result && data.detail && typeof data.detail === 'string' && data.detail.includes('1008')) {
+      console.warn(`[Retry ${i + 1}/${maxRetries}] RapidAPI Scraper Error 1008. Retrying...`);
+      if (i < maxRetries - 1) {
+        await new Promise(r => setTimeout(r, 1500)); // wait 1.5s before retry
+        continue;
+      }
+    }
+    
+    return data;
+  }
+}
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -21,21 +49,18 @@ export async function GET(request: Request) {
   }
 
   try {
+    const headers = {
+      'x-rapidapi-key': RAPIDAPI_KEY,
+      'x-rapidapi-host': RAPIDAPI_HOST,
+    };
+
     // Step 1: Search for the Destination ID
-    const locationRes = await fetch(
+    const locations = await fetchWithRetry(
       `https://${RAPIDAPI_HOST}/v1/hotels/locations?name=${encodeURIComponent(city)}&locale=en-gb`,
-      {
-        headers: {
-          'x-rapidapi-key': RAPIDAPI_KEY,
-          'x-rapidapi-host': RAPIDAPI_HOST,
-        },
-        cache: 'no-store'
-      }
+      { headers, cache: 'no-store' }
     );
 
-    const locations = await locationRes.json();
-
-    if (!locations || locations.length === 0) {
+    if (!locations || locations.length === 0 || !Array.isArray(locations)) {
       return NextResponse.json({ error: 'City not found' }, { status: 404 });
     }
 
@@ -43,18 +68,10 @@ export async function GET(request: Request) {
     const destination = locations.find((loc: any) => loc.dest_type === 'city') || locations[0];
 
     // Step 2: Search for Hotels
-    const hotelRes = await fetch(
+    const hotels = await fetchWithRetry(
       `https://${RAPIDAPI_HOST}/v1/hotels/search?dest_id=${destination.dest_id}&dest_type=${destination.dest_type}&checkin_date=${checkin}&checkout_date=${checkout}&adults_number=${adults}&room_number=${rooms}&filter_by_currency=USD&order_by=popularity&units=metric&locale=en-gb`,
-      {
-        headers: {
-          'x-rapidapi-key': RAPIDAPI_KEY,
-          'x-rapidapi-host': RAPIDAPI_HOST,
-        },
-        cache: 'no-store'
-      }
+      { headers, cache: 'no-store' }
     );
-
-    const hotels = await hotelRes.json();
 
     if (!hotels.result) {
       // RapidAPI returned something unexpected or 0 results

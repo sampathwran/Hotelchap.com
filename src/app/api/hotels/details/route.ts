@@ -5,6 +5,35 @@ export const dynamic = 'force-dynamic';
 const RAPIDAPI_KEY = '94ea5ae213msh8b45eeb44bafaa3p14e5c0jsn2b52490c4351';
 const RAPIDAPI_HOST = 'booking-com.p.rapidapi.com';
 
+// Helper to retry API calls specifically for scraper authentication failures (Code 1008)
+async function fetchWithRetry(url: string, options: any, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    const res = await fetch(url, options);
+    let data;
+    try {
+      data = await res.json();
+    } catch (err) {
+      if (i < maxRetries - 1) {
+        await new Promise(r => setTimeout(r, 1000));
+        continue;
+      }
+      throw err;
+    }
+
+    // Check if it's the known "Authentication token is invalid" (1008) error from the scraper
+    // Description API might return it differently, so we check broadly
+    if (data.detail && typeof data.detail === 'string' && data.detail.includes('1008')) {
+      console.warn(`[Details Retry ${i + 1}/${maxRetries}] RapidAPI Scraper Error 1008. Retrying...`);
+      if (i < maxRetries - 1) {
+        await new Promise(r => setTimeout(r, 1500)); // wait 1.5s before retry
+        continue;
+      }
+    }
+    
+    return data;
+  }
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const hotel_id = searchParams.get('id');
@@ -22,22 +51,19 @@ export async function GET(request: Request) {
       'x-rapidapi-host': RAPIDAPI_HOST,
     };
 
-    // Fetch Description and Photos in parallel to be fast
-    const [descRes, photosRes] = await Promise.all([
-      fetch(`https://${RAPIDAPI_HOST}/v1/hotels/description?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' }),
-      fetch(`https://${RAPIDAPI_HOST}/v1/hotels/photos?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' })
+    // Fetch Description and Photos in parallel using retry wrapper
+    const [descriptionData, photosData] = await Promise.all([
+      fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/description?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' }),
+      fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/photos?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' })
     ]);
-
-    const descriptionData = await descRes.json();
-    const photosData = await photosRes.json();
 
     // Map the photo objects to just a flat array of max resolution URLs
     const photos = Array.isArray(photosData) 
-      ? photosData.map(p => p.url_max).filter(Boolean).slice(0, 10) 
+      ? photosData.map((p: any) => p.url_max).filter(Boolean).slice(0, 10) 
       : [];
 
     return NextResponse.json({
-      description: descriptionData.description || "No description available for this property.",
+      description: descriptionData?.description || "No description available for this property.",
       photos: photos
     });
 
