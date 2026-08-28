@@ -26,7 +26,7 @@ const tabData: any = {
     title: { EN: "Find your perfect stay", SI: "ඔබේ නිවාඩුවට හොඳම තැන", TA: "உங்கள் சரியான தங்குமிடத்தைக் கண்டறியவும்" },
     subtitle: { EN: "Luxury & Budget Hotels", SI: "සුඛෝපභෝගී සහ සාමාන්‍ය හෝටල්", TA: "ஆடம்பர மற்றும் பட்ஜெட் ஹோட்டல்கள்" },
     gradientText: { EN: "anywhere in the world.", SI: "ලෝකයේ ඕනෑම තැනකින්.", TA: "உலகின் எந்த இடத்திலும்." },
-    image: "/image/hotels.png",
+    image: "/image/hotels.jpg",
     formPlaceholder: { EN: "Travelpayouts Hotel Search Widget Goes Here", SI: "හෝටල් සෙවීමේ පද්ධතිය", TA: "ஹோட்டல் தேடல் அமைப்பு" },
     badges: { EN: ["🏨 2M+ Properties", "🛡️ Secure Booking"], SI: ["🏨 ලක්ෂ 20+ හෝටල්", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["🏨 2M+ சொத்துக்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
   },
