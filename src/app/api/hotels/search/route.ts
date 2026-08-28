@@ -57,7 +57,14 @@ export async function GET(request: Request) {
     const hotels = await hotelRes.json();
 
     if (!hotels.result) {
-      // RapidAPI returned something unexpected (like a block or error message)
+      // RapidAPI returned something unexpected or 0 results
+      if (hotels.count === 0 || (hotels.detail === undefined && hotels.message === undefined)) {
+        return NextResponse.json({
+          location: destination,
+          results: [],
+          count: 0
+        });
+      }
       return NextResponse.json({
         error: 'RapidAPI did not return results',
         debug_info: hotels,

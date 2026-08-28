@@ -37,6 +37,8 @@ function SearchResults() {
              specificMsg = "API Error: " + data.debug_info.detail[0].msg;
           } else if (data.debug_info?.message) {
              specificMsg = "API Error: " + data.debug_info.message;
+          } else if (data.debug_info) {
+             specificMsg = "API Error: " + JSON.stringify(data.debug_info).substring(0, 150);
           }
           throw new Error(specificMsg);
         }
