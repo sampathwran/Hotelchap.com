@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -28,7 +28,7 @@ function SearchResults() {
     async function fetchHotels() {
       try {
         setLoading(true);
-        const res = await fetch(/api/hotels/search?city=${destination}&checkin=${checkin}&checkout=${checkout}, { cache: 'no-store' });
+        const res = await fetch(`/api/hotels/search?city=${destination}&checkin=${checkin}&checkout=${checkout}`, { cache: 'no-store' });
         const data = await res.json();
         
         if (data.error) {
@@ -47,7 +47,7 @@ function SearchResults() {
           name: h.hotel_name || "Hotel",
           location: h.city_trans || h.city || destination,
           address: h.address || h.address_trans || "",
-          distance: h.distance_to_cc ? ${h.distance_to_cc} km from center : "Great location",
+          distance: h.distance_to_cc ? `${h.distance_to_cc} km from center` : "Great location",
           rating: h.review_score || 0,
           reviews: h.review_nr || 0,
           starRating: h.class || 3,
@@ -127,12 +127,12 @@ function SearchResults() {
                 <h4 className="font-bold text-gray-800 mb-3 text-sm">Your budget (per night)</h4>
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">US$$</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">US$</span>
                     <input type="number" value="0" disabled className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                   <span className="text-gray-400 font-bold">-</span>
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">US$$</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">US$</span>
                     <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                 </div>
@@ -168,7 +168,7 @@ function SearchResults() {
         <div className="w-full lg:w-3/4 flex flex-col gap-6">
           {error ? (
             <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-red-100 flex flex-col items-center justify-center">
-              <span className="text-4xl mb-4 text-red-500">??</span>
+              <span className="text-4xl mb-4 text-red-500">⚠️</span>
               <h3 className="text-xl font-black text-gray-900 mb-2">Error Loading Hotels</h3>
               <p className="text-red-500 font-medium">{error}</p>
             </div>
@@ -179,7 +179,7 @@ function SearchResults() {
             </div>
           ) : filteredHotels.length === 0 ? (
             <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center justify-center">
-              <span className="text-4xl mb-4">??</span>
+              <span className="text-4xl mb-4">🔍</span>
               <h3 className="text-xl font-black text-gray-900 mb-2">No properties found</h3>
               <p className="text-gray-500 font-medium">Try adjusting your filters or price range to see more results.</p>
               <button 
@@ -195,7 +195,7 @@ function SearchResults() {
                 
                 {/* Image Section */}
                 <div className="w-full md:w-[280px] h-60 md:h-auto relative">
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('${hotel.image}')" }}></div>
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${hotel.image}')` }}></div>
                   {hotel.highlights?.[0] && (
                     <span className="absolute top-4 left-4 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                       {hotel.highlights[0]}
@@ -210,7 +210,7 @@ function SearchResults() {
                 <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-2">
-                      <Link href={"/hotel/${hotel.id}"}>
+                      <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`}>
                         <h2 className="text-xl md:text-2xl font-black text-gray-900 hover:text-[#673AB7] cursor-pointer transition">{hotel.name}</h2>
                       </Link>
                       <div className="flex flex-col items-end">
@@ -241,13 +241,13 @@ function SearchResults() {
                     <div>
                       <p className="text-xs text-green-600 font-bold mb-1">Limited availability</p>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-400 line-through text-sm font-medium">US$${hotel.originalPrice}</span>
-                        <span className="text-3xl font-black text-gray-900">US$${hotel.price}</span>
+                        <span className="text-gray-400 line-through text-sm font-medium">US${hotel.originalPrice}</span>
+                        <span className="text-3xl font-black text-gray-900">US${hotel.price}</span>
                       </div>
                       <p className="text-xs text-gray-400 font-medium">Includes taxes and charges</p>
                     </div>
                     
-                    <Link href={"/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&url=${encodeURIComponent(hotel.bookingUrl || '')}"} className="mt-4 md:mt-0 bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 rounded-xl font-bold shadow-md transition w-full md:w-auto text-center">
+                    <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`} className="mt-4 md:mt-0 bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 rounded-xl font-bold shadow-md transition w-full md:w-auto text-center">
                       See availability
                     </Link>
                   </div>
@@ -276,4 +276,3 @@ export default function SearchPage() {
     </Suspense>
   );
 }
-
