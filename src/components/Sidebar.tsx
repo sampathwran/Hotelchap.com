@@ -52,7 +52,7 @@ export default function Sidebar() {
       {/* Desktop & Tablet Sidebar (Hidden on Mobile) */}
       <div className="hidden md:block sticky top-24 h-[calc(100vh-96px)] z-50 bg-transparent w-[80px]">
         <div 
-          className={`absolute top-0 left-0 h-[calc(100vh-96px)] bg-white/30 backdrop-blur-xl shadow-2xl border-r border-white/40 transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${isHovered ? 'w-[250px]' : 'w-[80px]'}`}
+          className={`absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${isHovered ? 'w-[250px]' : 'w-[80px]'}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

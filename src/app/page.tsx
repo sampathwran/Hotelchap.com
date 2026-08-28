@@ -311,7 +311,7 @@ export default function Home() {
 
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-0 left-0 w-full z-0">
-        <div className="relative w-full h-[450px] md:h-[550px] bg-gray-900 rounded-b-[30px] md:rounded-b-[80px] flex flex-col justify-center items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-500 pt-20">
+        <div className="relative w-full h-[450px] md:h-[550px] bg-gray-900 rounded-b-[30px] md:rounded-b-[80px] flex flex-col justify-start items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-500 pt-[120px] md:pt-[150px]">
           
           {/* Dynamic Full Cover Image */}
           <div 
@@ -323,7 +323,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/10 transition-opacity duration-500"></div>
           
           {/* Dynamic Text Layout */}
-          <div className="relative z-10 max-w-3xl text-center mt-4 transition-all duration-500">
+          <div className="relative z-10 max-w-3xl text-center transition-all duration-500">
             <span className="inline-block py-1.5 px-5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/20 shadow-xl">
               {currentData.subtitle[language] || currentData.subtitle["EN"]}
             </span>
@@ -345,7 +345,7 @@ export default function Home() {
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10 pt-[350px] md:pt-[350px]">
+        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10 pt-[420px] md:pt-[480px]">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
