@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
+import LanguageModal from "./LanguageModal";
 
 const i18n: any = {
   EN: {
@@ -84,16 +85,7 @@ export default function Header() {
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
               <Globe size={16} className="text-gray-500" /> {language} <span className="text-[10px]">▼</span>
             </button>
-            {showLanguage && (
-              <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-                {languages.map(l => {
-                  const langNames: any = { EN: "English", SI: "සිංහල", TA: "தமிழ்", FR: "Français", ES: "Español", DE: "Deutsch" };
-                  return (
-                    <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{langNames[l] || l}</button>
-                  );
-                })}
-              </div>
-            )}
+            
           </div>
 
           {/* Profile Mobile */}
@@ -151,16 +143,7 @@ export default function Header() {
           <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
             <Globe size={18} className="text-gray-500 mr-1" /> {language} <span className="text-xs">▼</span>
           </button>
-          {showLanguage && (
-            <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-              {languages.map(l => {
-                const langNames: any = { EN: "English", SI: "සිංහල", TA: "தமிழ்", FR: "Français", ES: "Español", DE: "Deutsch" };
-                return (
-                  <button key={l} onClick={() => { setLanguage(l); setShowLanguage(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${language === l ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{langNames[l] || l}</button>
-                );
-              })}
-            </div>
-          )}
+          
         </div>
         
         {/* Profile Desktop */}
