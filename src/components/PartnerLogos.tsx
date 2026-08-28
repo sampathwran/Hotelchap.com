@@ -2,11 +2,11 @@
 
 export default function PartnerLogos() {
   const partners = [
-    { name: "Booking.com", color: "text-[#003580]" },
-    { name: "Agoda", color: "text-[#f5a623]" },
-    { name: "Expedia", color: "text-[#00008b]" },
-    { name: "Trip.com", color: "text-[#3264ff]" },
-    { name: "Hotels.com", color: "text-[#d32f2f]" }
+    { name: "Booking.com", url: "https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" },
+    { name: "Agoda", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Agoda_logo.svg" },
+    { name: "Expedia", url: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Expedia_Logo.svg" },
+    { name: "Trip.com", url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Trip.com_logo.svg" },
+    { name: "Hotels.com", url: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Hotels.com_logo.svg" }
   ];
 
   return (
@@ -18,11 +18,9 @@ export default function PartnerLogos() {
           <p className="text-xl font-extrabold text-gray-800">100+ Travel Sites</p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 transition-all duration-500">
           {partners.map((p, i) => (
-            <div key={i} className={`text-xl md:text-2xl font-black ${p.color} tracking-tight`}>
-              {p.name}
-            </div>
+            <img key={i} src={p.url} alt={p.name} className="h-5 md:h-7 object-contain drop-shadow-sm" />
           ))}
           <div className="text-lg font-bold text-gray-500 bg-gray-100 px-4 py-1 rounded-full">
             + 100 More
