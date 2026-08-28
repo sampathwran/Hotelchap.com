@@ -2,11 +2,11 @@
 
 export default function PartnerLogos() {
   const partners = [
-    { name: "Booking.com", domain: "booking.com", color: "text-[#003580]" },
-    { name: "Agoda", domain: "agoda.com", color: "text-[#f5a623]" },
-    { name: "Expedia", domain: "expedia.com", color: "text-[#00008b]" },
-    { name: "Trip.com", domain: "trip.com", color: "text-[#3264ff]" },
-    { name: "Hotels.com", domain: "hotels.com", color: "text-[#d32f2f]" }
+    { name: "Booking.com", file: "booking.png", color: "text-[#003580]" },
+    { name: "Agoda", file: "agoda.png", color: "text-[#f5a623]" },
+    { name: "Expedia", file: "expedia.jpg", color: "text-[#00008b]" },
+    { name: "Trip.com", file: "trip.png", color: "text-[#3264ff]" },
+    { name: "Hotels.com", file: "hotels.png", color: "text-[#d32f2f]" }
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function PartnerLogos() {
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 transition-all duration-500">
           {partners.map((p, i) => (
             <div key={i} className="flex items-center gap-2">
-              <img src={`/logos/${p.domain.split('.')[0]}.png`} alt={p.name} className="w-6 h-6 md:w-8 md:h-8 rounded-full shadow-sm bg-white" />
+              <img src={`/logos/${p.file}`} alt={p.name} className="w-6 h-6 md:w-8 md:h-8 rounded-full shadow-sm bg-white" />
               <span className={`text-lg md:text-xl font-black ${p.color} tracking-tight`}>
                 {p.name}
               </span>
