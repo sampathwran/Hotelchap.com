@@ -56,6 +56,15 @@ export async function GET(request: Request) {
 
     const hotels = await hotelRes.json();
 
+    if (!hotels.result) {
+      // RapidAPI returned something unexpected (like a block or error message)
+      return NextResponse.json({
+        error: 'RapidAPI did not return results',
+        debug_info: hotels,
+        location: destination
+      }, { status: 500 });
+    }
+
     return NextResponse.json({
       location: destination,
       results: hotels.result || [],
