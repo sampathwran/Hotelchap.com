@@ -13,7 +13,7 @@ function HotelDetailsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
-  const hotelId = params.id as string;
+  const hotelId = params?.id as string || "unknown";
   
   // Read details from URL if available
   const urlName = searchParams.get("name");
@@ -39,14 +39,14 @@ function HotelDetailsContent() {
   };
 
   const providers = [
-    { name: "Agoda", logo: "A", color: "bg-blue-500", text: "text-blue-500", discount: 5, url: `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name)}` },
-    { name: "Expedia", logo: "E", color: "bg-yellow-500", text: "text-yellow-600", discount: 2, url: `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.name)}` },
-    { name: "Booking.com", logo: "B", color: "bg-blue-900", text: "text-blue-900", discount: 0, url: bookingUrl },
-    { name: "Trip.com", logo: "T", color: "bg-cyan-600", text: "text-cyan-600", discount: -2, url: `https://us.trip.com/hotels/list?city=1&keyword=${encodeURIComponent(hotel.name)}` },
-    { name: "Hotels.com", logo: "H", color: "bg-red-600", text: "text-red-600", discount: 1, url: `https://www.hotels.com/search.do?q-destination=${encodeURIComponent(hotel.name)}` },
-    { name: "Traveloka", logo: "V", color: "bg-sky-500", text: "text-sky-500", discount: 3, url: `https://www.traveloka.com/en-en/hotel/search?keyword=${encodeURIComponent(hotel.name)}` },
-    { name: "Trivago", logo: "TR", color: "bg-orange-500", text: "text-orange-500", discount: -1, url: `https://www.trivago.com/search?query=${encodeURIComponent(hotel.name)}` },
-    { name: "Kayak", logo: "K", color: "bg-orange-600", text: "text-orange-600", discount: 4, url: `https://www.kayak.com/hotels/${encodeURIComponent(hotel.name)}` }
+    { name: "Agoda", logo: "https://www.google.com/s2/favicons?domain=agoda.com&sz=64", color: "border-blue-500", text: "text-blue-500", discount: 5, url: `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name)}` },
+    { name: "Expedia", logo: "https://www.google.com/s2/favicons?domain=expedia.com&sz=64", color: "border-yellow-500", text: "text-yellow-600", discount: 2, url: `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.name)}` },
+    { name: "Booking.com", logo: "https://www.google.com/s2/favicons?domain=booking.com&sz=64", color: "border-blue-900", text: "text-blue-900", discount: 0, url: bookingUrl },
+    { name: "Trip.com", logo: "https://www.google.com/s2/favicons?domain=trip.com&sz=64", color: "border-cyan-600", text: "text-cyan-600", discount: -2, url: `https://us.trip.com/hotels/list?city=1&keyword=${encodeURIComponent(hotel.name)}` },
+    { name: "Hotels.com", logo: "https://www.google.com/s2/favicons?domain=hotels.com&sz=64", color: "border-red-600", text: "text-red-600", discount: 1, url: `https://www.hotels.com/search.do?q-destination=${encodeURIComponent(hotel.name)}` },
+    { name: "Traveloka", logo: "https://www.google.com/s2/favicons?domain=traveloka.com&sz=64", color: "border-sky-500", text: "text-sky-500", discount: 3, url: `https://www.traveloka.com/en-en/hotel/search?keyword=${encodeURIComponent(hotel.name)}` },
+    { name: "Trivago", logo: "https://www.google.com/s2/favicons?domain=trivago.com&sz=64", color: "border-orange-500", text: "text-orange-500", discount: -1, url: `https://www.trivago.com/search?query=${encodeURIComponent(hotel.name)}` },
+    { name: "Kayak", logo: "https://www.google.com/s2/favicons?domain=kayak.com&sz=64", color: "border-orange-600", text: "text-orange-600", discount: 4, url: `https://www.kayak.com/hotels/${encodeURIComponent(hotel.name)}` }
   ];
 
   const [isRedirecting, setIsRedirecting] = useState<string | null>(null);
@@ -141,26 +141,26 @@ function HotelDetailsContent() {
               </h3>
 
               <div className="space-y-4">
-                {providers.sort((a, b) => a.discount - b.discount).map((provider, idx) => {
+                {providers.sort((a, b) => b.discount - a.discount).map((provider, idx) => {
                   const providerPrice = hotel.price - provider.discount;
                   const isCheapest = idx === 0;
 
                   return (
-                    <div key={provider.name} className={`flex items-center justify-between p-3 rounded-xl border ${isCheapest ? 'border-green-400 bg-green-50' : 'border-gray-100 hover:border-gray-200'} transition`}>
+                    <div key={provider.name} className={"flex items-center justify-between p-3 rounded-xl border  transition"}>
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs ${provider.color}`}>
-                          {provider.logo}
+                        <div className={"w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-gray-50 border "}>
+                          <img src={provider.logo} alt={provider.name} className="w-5 h-5 object-contain" />
                         </div>
                         <div>
-                          <p className={`font-bold ${isCheapest ? 'text-gray-900' : 'text-gray-700'}`}>{provider.name}</p>
+                          <p className={"font-bold "}>{provider.name}</p>
                           {isCheapest && <p className="text-[10px] uppercase font-black text-green-600 tracking-wider">Lowest Price</p>}
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-xl font-black text-gray-900">US${providerPrice}</p>
+                        <p className="text-xl font-black text-gray-900">US$${providerPrice}</p>
                         <button 
                           onClick={() => handleBook(provider.name, provider.url)}
-                          className={`mt-1 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm transition ${isCheapest ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                          className={"mt-1 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm transition "}
                         >
                           View Deal
                         </button>
