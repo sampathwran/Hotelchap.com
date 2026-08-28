@@ -26,7 +26,7 @@ const tabData: any = {
     title: { EN: "Find your perfect stay", SI: "ඔබේ නිවාඩුවට හොඳම තැන", TA: "உங்கள் சரியான தங்குமிடத்தைக் கண்டறியவும்" },
     subtitle: { EN: "Luxury & Budget Hotels", SI: "සුඛෝපභෝගී සහ සාමාන්‍ය හෝටල්", TA: "ஆடம்பர மற்றும் பட்ஜெட் ஹோட்டல்கள்" },
     gradientText: { EN: "anywhere in the world.", SI: "ලෝකයේ ඕනෑම තැනකින්.", TA: "உலகின் எந்த இடத்திலும்." },
-    image: "/image/hotels.jpg",
+    image: "/api/image/hotels",
     formPlaceholder: { EN: "Travelpayouts Hotel Search Widget Goes Here", SI: "හෝටල් සෙවීමේ පද්ධතිය", TA: "ஹோட்டல் தேடல் அமைப்பு" },
     badges: { EN: ["🏨 2M+ Properties", "🛡️ Secure Booking"], SI: ["🏨 ලක්ෂ 20+ හෝටල්", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["🏨 2M+ சொத்துக்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
   },
@@ -35,7 +35,7 @@ const tabData: any = {
     title: { EN: "Fly to your dreams", SI: "ඔබේ සිහින ගමනාන්තයට පියාසර කරන්න", TA: "உங்கள் கனவு இடத்திற்கு பறக்கவும்" },
     subtitle: { EN: "Cheap Flights", SI: "අඩුම මිලට ගුවන් ටිකට්පත්", TA: "மலிவான விமானங்கள்" },
     gradientText: { EN: "at the best prices.", SI: "හොඳම මිල ගණන් යටතේ.", TA: "சிறந்த விலையில்." },
-    image: "/image/flights.jpg",
+    image: "/api/image/flights",
     formPlaceholder: { EN: "Travelpayouts Flight Search Widget Goes Here", SI: "ගුවන් ටිකට්පත් සෙවීමේ පද්ධතිය", TA: "விமான தேடல் அமைப்பு" },
     badges: { EN: ["✈️ 500+ Airlines", "🛡️ Secure Booking"], SI: ["✈️ ගුවන් සමාගම් 500+", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["✈️ 500+ விமான நிறுவனங்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
   },
@@ -44,7 +44,7 @@ const tabData: any = {
     title: { EN: "Hit the road with", SI: "නිදහසේ ගමනක් යන්න", TA: "சாலையில் செல்லுங்கள்" },
     subtitle: { EN: "Car Rentals", SI: "කාර් කුලියට දීම", TA: "கார் வாடகை" },
     gradientText: { EN: "unlimited miles.", SI: "සීමාවකින් තොරව.", TA: "வரம்பற்ற மைல்கள்." },
-    image: "/image/cars.jpg",
+    image: "/api/image/cars",
     formPlaceholder: { EN: "Rentalcars.com / Travelpayouts Car Widget Goes Here", SI: "වාහන සෙවීමේ පද්ධතිය", TA: "கார் தேடல் அமைப்பு" },
     badges: { EN: ["🚗 Free Cancellation", "⛽ Full to Full"], SI: ["🚗 නොමිලේ අවලංගු කිරීම", "⛽ Full to Full"], TA: ["🚗 இலவச ரத்துசெய்தல்", "⛽ Full to Full"] }
   }
@@ -53,7 +53,7 @@ const tabData: any = {
     title: { EN: "Save more with", SI: "වැඩිපුර ඉතුරු කරන්න", TA: "மேலும் சேமிக்கவும்" },
     subtitle: { EN: "Flight + Hotel Packages", SI: "ගුවන් ගමන් සහ හෝටල් පැකේජ", TA: "விமானம் + ஹோட்டல் தொகுப்புகள்" },
     gradientText: { EN: "combo deals.", SI: "එකට ගෙන ඉතුරු කරන්න.", TA: "ஒருங்கிணைந்த சலுகைகள்." },
-    image: "/image/packages.jpg",
+    image: "/api/image/packages",
     formPlaceholder: { EN: "Travelpayouts Packages Widget Goes Here", SI: "පැකේජ සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "தொகுப்பு விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["💼 Bundle & Save", "🔒 Secure Booking"], SI: ["💼 පැකේජ වලින් ලාභයි", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["💼 தொகுப்பு & சேமி", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -62,7 +62,7 @@ const tabData: any = {
     title: { EN: "Hassle-free", SI: "කරදරයක් නැතිව ගමන", TA: "எளிதான பயணம்" },
     subtitle: { EN: "Airport Transfers", SI: "ගුවන් තොටුපල ප්‍රවාහනය", TA: "விமான நிலைய பரிமாற்றங்கள்" },
     gradientText: { EN: "straight to your door.", SI: "ඔබේ දොරකඩටම.", TA: "உங்கள் வாசலுக்கு." },
-    image: "/image/transfers.jpg",
+    image: "/api/image/transfers",
     formPlaceholder: { EN: "Travelpayouts Transfer Widget Goes Here", SI: "ප්‍රවාහන සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "பரிமாற்ற விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🚕 Professional Drivers", "🔒 Secure Booking"], SI: ["🚕 සුපිරි රියදුරන්", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🚕 தொழில்முறை ஓட்டுநர்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -71,7 +71,7 @@ const tabData: any = {
     title: { EN: "Discover top", SI: "අලුත් තැන් හොයාගන්න", TA: "சிறந்த இடங்களை கண்டறியுங்கள்" },
     subtitle: { EN: "Attractions & Tours", SI: "නැරඹුම් ස්ථාන සහ චාරිකා", TA: "ஈர்ப்புகள் மற்றும் சுற்றுப்பயணங்கள்" },
     gradientText: { EN: "experiences globally.", SI: "ලෝකේ වටේ යන්න.", TA: "உலகளாவிய அனுபவங்கள்." },
-    image: "/image/attractions.jpg",
+    image: "/api/image/attractions",
     formPlaceholder: { EN: "Travelpayouts Attractions Widget Goes Here", SI: "චාරිකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "சுற்றுப்பயண விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🎟️ Skip the Line", "🔒 Secure Booking"], SI: ["🎟️ පෝලිම් නැතිව යන්න", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🎟️ வரிசையை தவிர்க்கவும்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -80,7 +80,7 @@ const tabData: any = {
     title: { EN: "Sail away on", SI: "මුහුදේ යන්න", TA: "பயணம் செய்யுங்கள்" },
     subtitle: { EN: "Luxury Cruises", SI: "සුඛෝපභෝගී නෞකා", TA: "சொகுசு கப்பல்கள்" },
     gradientText: { EN: "an ocean adventure.", SI: "මුහුදු චාරිකාවක්.", TA: "ஒரு கடல் சாகசம்." },
-    image: "/image/cruises.jpg",
+    image: "/api/image/cruises",
     formPlaceholder: { EN: "Travelpayouts Cruises Widget Goes Here", SI: "නෞකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "கப்பல் விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🛳️ Top Cruise Lines", "🔒 Secure Booking"], SI: ["🛳️ සුපිරි නෞකා", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🛳️ சிறந்த கப்பல்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   }
