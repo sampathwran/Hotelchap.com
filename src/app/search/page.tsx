@@ -66,9 +66,10 @@ function SearchResultsContent() {
           const tripPrice = Math.floor(basePrice * 0.98); // Trip.com 2% cheaper
           
           // Generate realistic hotel URLs (Stay22 will intercept these based on the domain)
-          const bookingUrl = `https://www.booking.com/hotel/lk/${hotel.hotel_name.toLowerCase().replace(/[^a-z0-9]/g, '-')}.html`;
-          const agodaUrl = `https://www.agoda.com/search?text=${encodeURIComponent(hotel.hotel_name)}`;
-          const expediaUrl = `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.hotel_name)}`;
+          const safeHotelName = (hotel.hotel_name || 'hotel').toLowerCase().replace(/[^a-z0-9]/g, '-');
+          const bookingUrl = `https://www.booking.com/hotel/lk/${safeHotelName}.html`;
+          const agodaUrl = `https://www.agoda.com/search?text=${encodeURIComponent(hotel.hotel_name || '')}`;
+          const expediaUrl = `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.hotel_name || '')}`;
 
           return (
             <div key={hotel.hotel_id} className="flex flex-col md:flex-row bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
@@ -148,6 +149,8 @@ function SearchResultsContent() {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';
 
 export default function SearchPage() {
   return (
