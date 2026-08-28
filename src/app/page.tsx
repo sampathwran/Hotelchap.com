@@ -16,6 +16,7 @@ import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
 import LanguageModal from "@/components/LanguageModal";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
@@ -91,52 +92,8 @@ const tabData: any = {
 
 };
 
-const i18n: any = {
-  EN: {
-    getApp: "Get the App",
-    listProperty: "List your property",
-    support: "Support",
-    signIn: "Sign In",
-    searchPlaceholder: "Search your destination...",
-    hotels: "Hotels",
-    flights: "Flights",
-    cars: "Car & Bike",
-    packages: "Flight + Hotel",
-    transfers: "Transfers",
-    attractions: "Attractions",
-    cruises: "Cruises"
-  },
-  SI: {
-    getApp: "App එක බාගන්න",
-    listProperty: "හෝටලයක් ඇතුලත් කරන්න",
-    support: "උදව්",
-    signIn: "ගිණුමට පිවිසෙන්න",
-    searchPlaceholder: "ගමනාන්තය සොයන්න...",
-    hotels: "හෝටල්",
-    flights: "ගුවන් ගමන්",
-    cars: "කාර් සහ බයික්",
-    packages: "ගුවන් + හෝටල්",
-    transfers: "ප්‍රවාහන",
-    attractions: "නැරඹුම් ස්ථාන",
-    cruises: "නෞකා"
-  },
-  TA: {
-    getApp: "App பதிவிறக்கு",
-    listProperty: "சொத்தை பட்டியலிடுங்கள்",
-    support: "ஆதரவு",
-    signIn: "உள்நுழைக",
-    searchPlaceholder: "இடத்தை தேடுங்கள்...",
-    hotels: "ஹோட்டல்கள்",
-    flights: "விமானங்கள்",
-    cars: "கார் & பைக்",
-    packages: "விமானம் + ஹோட்டல்",
-    transfers: "பரிமாற்றங்கள்",
-    attractions: "ஈர்ப்புகள்",
-    cruises: "கப்பல்கள்"
-  }
-};
-
 export default function Home() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<string>("hotels");
   
@@ -150,7 +107,7 @@ export default function Home() {
   const languages = ["EN", "SI", "TA", "FR", "ES", "DE"];
 
   // Fallback to EN if translation doesn't exist
-  const t = i18n[language] || i18n["EN"];
+  
   const currentData = tabData[activeTab];
 
   const [showTopNav, setShowTopNav] = useState(true);
@@ -189,7 +146,7 @@ export default function Home() {
             <span className="absolute left-4 text-xl">🔍</span>
             <input 
               type="text" 
-              placeholder={t.searchPlaceholder}
+              placeholder={t("searchPlaceholder")}
               className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
             />
           </div>
@@ -224,7 +181,7 @@ export default function Home() {
               </Link>
             ) : (
               <Link href="/login" className="font-bold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-[#522b94] transition">
-                {t.signIn}
+                {t("signIn")}
               </Link>
             )}
 
@@ -236,16 +193,16 @@ export default function Home() {
           <span className="absolute left-4 text-xl">🔍</span>
           <input 
             type="text" 
-            placeholder={t.searchPlaceholder}
+            placeholder={t("searchPlaceholder")}
             className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
           />
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex ml-auto items-center gap-5 relative">
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.getApp}</button>
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.listProperty}</button>
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.support}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("getApp")}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("listProperty")}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("support")}</button>
           
           <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
           
@@ -276,7 +233,7 @@ export default function Home() {
             </Link>
           ) : (
             <Link href="/login" className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition">
-              {t.signIn}
+              {t("signIn")}
             </Link>
           )}
         </div>
@@ -346,7 +303,7 @@ export default function Home() {
                     className={`flex flex-col items-center gap-2 font-semibold pb-2 min-w-[80px] transition-all ${activeTab === key ? 'text-[#673AB7] border-b-2 border-[#673AB7]' : 'text-gray-400 hover:text-[#673AB7]'}`}
                   >
                     <span className="text-2xl">{icon}</span>
-                    <span className="text-sm capitalize">{t[key] || key}</span>
+                    <span className="text-sm capitalize">{t(key)}</span>
                   </button>
                 );
               })}

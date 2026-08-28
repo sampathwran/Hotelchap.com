@@ -4,37 +4,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 
+import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
 import LanguageModal from "./LanguageModal";
 
-const i18n: any = {
-  EN: {
-    getApp: "Get the App",
-    listProperty: "List your property",
-    support: "Support",
-    signIn: "Sign In",
-    searchPlaceholder: "Search for a destination..."
-  },
-  SI: {
-    getApp: "App එක ගන්න",
-    listProperty: "හෝටලය ඇතුලත් කරන්න",
-    support: "උදව්",
-    signIn: "ඇතුල් වෙන්න",
-    searchPlaceholder: "ගමනාන්තයක් සොයන්න..."
-  },
-  TA: {
-    getApp: "பயன்பாட்டைப் பெறுக",
-    listProperty: "உங்கள் சொத்தை பட்டியலிடுங்கள்",
-    support: "ஆதரவு",
-    signIn: "உள்நுழைக",
-    searchPlaceholder: "இடத்தை தேடுங்கள்..."
-  }
-};
-
-const currencies = ["USD", "LKR", "EUR", "GBP", "AUD"];
-const languages = ["EN", "SI", "TA", "FR", "ES", "DE"];
 
 export default function Header() {
   const { user } = useAuth();
@@ -43,7 +18,7 @@ export default function Header() {
   const [showLanguage, setShowLanguage] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
 
-  const t = i18n[language] || i18n["EN"];
+  const { t } = useTranslation();
 
   return (
     <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
@@ -59,7 +34,7 @@ export default function Header() {
           <span className="absolute left-4 text-xl">🔍</span>
           <input 
             type="text" 
-            placeholder={t.searchPlaceholder}
+            placeholder={t("searchPlaceholder")}
             className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
           />
         </div>
@@ -94,7 +69,7 @@ export default function Header() {
             </Link>
           ) : (
             <Link href="/login" className="font-semibold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1">
-              {t.signIn}
+              {t("signIn")}
             </Link>
           )}
 
@@ -106,16 +81,16 @@ export default function Header() {
         <span className="absolute left-4 text-xl">🔍</span>
         <input 
           type="text" 
-          placeholder={t.searchPlaceholder}
+          placeholder={t("searchPlaceholder")}
           className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
         />
       </div>
 
       {/* Desktop Actions */}
       <div className="hidden md:flex ml-auto items-center gap-5 relative">
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.getApp}</button>
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.listProperty}</button>
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.support}</button>
+        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("getApp")}</button>
+        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("listProperty")}</button>
+        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("support")}</button>
         
         <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
         
@@ -146,7 +121,7 @@ export default function Header() {
           </Link>
         ) : (
           <Link href="/login" className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition">
-            {t.signIn}
+            {t("signIn")}
           </Link>
         )}
       </div>
