@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic'; // Prevent Next.js from caching the route
+
 const RAPIDAPI_KEY = '94ea5ae213msh8b45eeb44bafaa3p14e5c0jsn2b52490c4351';
 const RAPIDAPI_HOST = 'booking-com.p.rapidapi.com';
 
@@ -27,6 +29,7 @@ export async function GET(request: Request) {
           'x-rapidapi-key': RAPIDAPI_KEY,
           'x-rapidapi-host': RAPIDAPI_HOST,
         },
+        cache: 'no-store'
       }
     );
 
@@ -47,6 +50,7 @@ export async function GET(request: Request) {
           'x-rapidapi-key': RAPIDAPI_KEY,
           'x-rapidapi-host': RAPIDAPI_HOST,
         },
+        cache: 'no-store'
       }
     );
 
