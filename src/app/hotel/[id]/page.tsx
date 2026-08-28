@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Star, MapPin, Heart, Wifi, Coffee, Car, Check, ChevronRight, Utensils, Info, Clock, AlertCircle, Sparkles, Navigation, Train, ShoppingBag, Wind } from "lucide-react";
 import { useSettings } from "@/context/SettingsContext";
 import { allCurrencies } from "@/components/CurrencyModal";
+import { convertCurrency } from "@/lib/exchangeRates";
 import { useState, Suspense, useEffect } from "react";
 import MegaFooter from "@/components/MegaFooter";
 import RecentlyViewed from "@/components/RecentlyViewed";
@@ -21,6 +22,8 @@ function HotelDetailsContent() {
   // Read core details from URL
   const urlName = searchParams.get("name") || "Hotel";
   const urlPrice = searchParams.get("price");
+  const baseCurrency = searchParams.get("baseCurrency") || "USD";
+  const displayPrice = urlPrice ? convertCurrency(Number(urlPrice), baseCurrency, currency) : 100;
   const urlImage = searchParams.get("image");
   const urlRating = searchParams.get("rating");
   const urlReviews = searchParams.get("reviews");
@@ -29,7 +32,7 @@ function HotelDetailsContent() {
   const hotel = {
     id: hotelId,
     name: urlName,
-    price: urlPrice ? parseInt(urlPrice) : 150,
+    price: displayPrice,
     image: urlImage || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     rating: urlRating || "8.5",
     reviews: urlReviews || "120",
@@ -228,7 +231,7 @@ function HotelDetailsContent() {
 
               <div className="space-y-4">
                 {providers.sort((a, b) => b.discount - a.discount).map((provider, idx) => {
-                  const providerPrice = hotel.price - provider.discount;
+                  const providerPrice = Math.round(hotel.price * (1 - provider.discount / 100));
                   const isCheapest = idx === 0;
 
                   return (

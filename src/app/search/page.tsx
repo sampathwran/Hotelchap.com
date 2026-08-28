@@ -244,7 +244,7 @@ function SearchResults() {
                 <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-2">
-                      <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`}>
+                      <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&baseCurrency=${currency}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`}>
                         <h2 className="text-xl md:text-2xl font-black text-gray-900 hover:text-[#673AB7] cursor-pointer transition">{hotel.name}</h2>
                       </Link>
                       <div className="flex flex-col items-end">
@@ -281,7 +281,7 @@ function SearchResults() {
                       <p className="text-xs text-gray-400 font-medium">Includes taxes and charges</p>
                     </div>
                     
-                    <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`} className="mt-4 md:mt-0 bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 rounded-xl font-bold shadow-md transition w-full md:w-auto text-center">
+                    <Link href={`/hotel/${hotel.id}?checkin=${checkin}&checkout=${checkout}&name=${encodeURIComponent(hotel.name)}&price=${hotel.price}&baseCurrency=${currency}&image=${encodeURIComponent(hotel.image)}&rating=${hotel.rating}&reviews=${hotel.reviews}&url=${encodeURIComponent(hotel.bookingUrl || "")}`} className="mt-4 md:mt-0 bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 rounded-xl font-bold shadow-md transition w-full md:w-auto text-center">
                       See availability
                     </Link>
                   </div>
