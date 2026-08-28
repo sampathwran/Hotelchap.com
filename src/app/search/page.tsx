@@ -21,7 +21,15 @@ function SearchResultsContent() {
         const res = await fetch(`/api/hotels/search?city=${city}&checkin=${checkin}&checkout=${checkout}`, { cache: 'no-store' });
         const data = await res.json();
         
-        if (data.error) throw new Error(data.error);
+        if (data.error) {
+          let specificMsg = data.error;
+          if (data.debug_info?.detail?.[0]?.msg) {
+             specificMsg = "API Error: " + data.debug_info.detail[0].msg;
+          } else if (data.debug_info?.message) {
+             specificMsg = "API Error: " + data.debug_info.message;
+          }
+          throw new Error(specificMsg);
+        }
         setHotels(data.results || []);
       } catch (err: any) {
         setError(err.message || 'Failed to fetch hotels');
