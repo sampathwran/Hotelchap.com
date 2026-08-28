@@ -13,6 +13,7 @@ import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Globe, CircleDollarSign } from "lucide-react";
+import CurrencyModal from "@/components/CurrencyModal";
 import { useAuth } from "@/context/AuthContext";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
@@ -199,13 +200,7 @@ export default function Home() {
               <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-800 text-sm flex items-center gap-1 drop-shadow-sm">
                 <CircleDollarSign size={16} className="text-gray-700" /> {currency} <span className="text-[10px]">▼</span>
               </button>
-              {showCurrency && (
-                <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-                  {currencies.map(c => (
-                    <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{c}</button>
-                  ))}
-                </div>
-              )}
+              
             </div>
 
             {/* Language Mobile */}
@@ -266,13 +261,7 @@ export default function Home() {
             <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-800 hover:text-[#673AB7] transition flex items-center gap-1 drop-shadow-sm">
               <CircleDollarSign size={18} className="text-gray-700 mr-1" /> {currency} <span className="text-xs">▼</span>
             </button>
-            {showCurrency && (
-              <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
-                {currencies.map(c => (
-                  <button key={c} onClick={() => { setCurrency(c); setShowCurrency(false); }} className={`w-full text-left px-4 py-2 text-sm font-bold hover:bg-gray-50 transition ${currency === c ? 'text-[#673AB7] bg-purple-50' : 'text-gray-700'}`}>{c}</button>
-                ))}
-              </div>
-            )}
+            
           </div>
 
           {/* Language Dropdown Desktop */}
@@ -464,8 +453,7 @@ export default function Home() {
       </div>
 
       {/* SEO Mega Footer */}
-      <MegaFooter />
-
+      <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c: string) => { setCurrency(c); setShowCurrency(false); }} />
     </div>
   );
 }

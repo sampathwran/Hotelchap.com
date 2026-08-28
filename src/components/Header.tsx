@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Globe, CircleDollarSign } from "lucide-react";
+import CurrencyModal from "./CurrencyModal";
 
 const i18n: any = {
   EN: {
