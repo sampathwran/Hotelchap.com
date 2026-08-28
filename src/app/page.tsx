@@ -26,7 +26,7 @@ const tabData: any = {
     title: { EN: "Find your perfect stay", SI: "ඔබේ නිවාඩුවට හොඳම තැන", TA: "உங்கள் சரியான தங்குமிடத்தைக் கண்டறியவும்" },
     subtitle: { EN: "Luxury & Budget Hotels", SI: "සුඛෝපභෝගී සහ සාමාන්‍ය හෝටල්", TA: "ஆடம்பர மற்றும் பட்ஜெட் ஹோட்டல்கள்" },
     gradientText: { EN: "anywhere in the world.", SI: "ලෝකයේ ඕනෑම තැනකින්.", TA: "உலகின் எந்த இடத்திலும்." },
-    image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Hotel Search Widget Goes Here", SI: "හෝටල් සෙවීමේ පද්ධතිය", TA: "ஹோட்டல் தேடல் அமைப்பு" },
     badges: { EN: ["🏨 2M+ Properties", "🛡️ Secure Booking"], SI: ["🏨 ලක්ෂ 20+ හෝටල්", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["🏨 2M+ சொத்துக்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
   },
@@ -35,7 +35,7 @@ const tabData: any = {
     title: { EN: "Fly to your dreams", SI: "ඔබේ සිහින ගමනාන්තයට පියාසර කරන්න", TA: "உங்கள் கனவு இடத்திற்கு பறக்கவும்" },
     subtitle: { EN: "Cheap Flights", SI: "අඩුම මිලට ගුවන් ටිකට්පත්", TA: "மலிவான விமானங்கள்" },
     gradientText: { EN: "at the best prices.", SI: "හොඳම මිල ගණන් යටතේ.", TA: "சிறந்த விலையில்." },
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Flight Search Widget Goes Here", SI: "ගුවන් ටිකට්පත් සෙවීමේ පද්ධතිය", TA: "விமான தேடல் அமைப்பு" },
     badges: { EN: ["✈️ 500+ Airlines", "🛡️ Secure Booking"], SI: ["✈️ ගුවන් සමාගම් 500+", "🛡️ ආරක්ෂිත වෙන්කිරීම්"], TA: ["✈️ 500+ விமான நிறுவனங்கள்", "🛡️ பாதுகாப்பான முன்பதிவு"] }
   },
@@ -44,7 +44,7 @@ const tabData: any = {
     title: { EN: "Hit the road with", SI: "නිදහසේ ගමනක් යන්න", TA: "சாலையில் செல்லுங்கள்" },
     subtitle: { EN: "Car Rentals", SI: "කාර් කුලියට දීම", TA: "கார் வாடகை" },
     gradientText: { EN: "unlimited miles.", SI: "සීමාවකින් තොරව.", TA: "வரம்பற்ற மைல்கள்." },
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1502877338535-346ce14ed5e9?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Rentalcars.com / Travelpayouts Car Widget Goes Here", SI: "වාහන සෙවීමේ පද්ධතිය", TA: "கார் தேடல் அமைப்பு" },
     badges: { EN: ["🚗 Free Cancellation", "⛽ Full to Full"], SI: ["🚗 නොමිලේ අවලංගු කිරීම", "⛽ Full to Full"], TA: ["🚗 இலவச ரத்துசெய்தல்", "⛽ Full to Full"] }
   }
@@ -53,7 +53,7 @@ const tabData: any = {
     title: { EN: "Save more with", SI: "වැඩිපුර ඉතුරු කරන්න", TA: "மேலும் சேமிக்கவும்" },
     subtitle: { EN: "Flight + Hotel Packages", SI: "ගුවන් ගමන් සහ හෝටල් පැකේජ", TA: "விமானம் + ஹோட்டல் தொகுப்புகள்" },
     gradientText: { EN: "combo deals.", SI: "එකට ගෙන ඉතුරු කරන්න.", TA: "ஒருங்கிணைந்த சலுகைகள்." },
-    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Packages Widget Goes Here", SI: "පැකේජ සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "தொகுப்பு விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["💼 Bundle & Save", "🔒 Secure Booking"], SI: ["💼 පැකේජ වලින් ලාභයි", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["💼 தொகுப்பு & சேமி", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -62,7 +62,7 @@ const tabData: any = {
     title: { EN: "Hassle-free", SI: "කරදරයක් නැතිව ගමන", TA: "எளிதான பயணம்" },
     subtitle: { EN: "Airport Transfers", SI: "ගුවන් තොටුපල ප්‍රවාහනය", TA: "விமான நிலைய பரிமாற்றங்கள்" },
     gradientText: { EN: "straight to your door.", SI: "ඔබේ දොරකඩටම.", TA: "உங்கள் வாசலுக்கு." },
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1538505503028-2b81d7f19159?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Transfer Widget Goes Here", SI: "ප්‍රවාහන සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "பரிமாற்ற விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🚕 Professional Drivers", "🔒 Secure Booking"], SI: ["🚕 සුපිරි රියදුරන්", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🚕 தொழில்முறை ஓட்டுநர்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -71,7 +71,7 @@ const tabData: any = {
     title: { EN: "Discover top", SI: "අලුත් තැන් හොයාගන්න", TA: "சிறந்த இடங்களை கண்டறியுங்கள்" },
     subtitle: { EN: "Attractions & Tours", SI: "නැරඹුම් ස්ථාන සහ චාරිකා", TA: "ஈர்ப்புகள் மற்றும் சுற்றுப்பயணங்கள்" },
     gradientText: { EN: "experiences globally.", SI: "ලෝකේ වටේ යන්න.", TA: "உலகளாவிய அனுபவங்கள்." },
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Attractions Widget Goes Here", SI: "චාරිකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "சுற்றுப்பயண விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🎟️ Skip the Line", "🔒 Secure Booking"], SI: ["🎟️ පෝලිම් නැතිව යන්න", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🎟️ வரிசையை தவிர்க்கவும்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   },
@@ -80,7 +80,7 @@ const tabData: any = {
     title: { EN: "Sail away on", SI: "මුහුදේ යන්න", TA: "பயணம் செய்யுங்கள்" },
     subtitle: { EN: "Luxury Cruises", SI: "සුඛෝපභෝගී නෞකා", TA: "சொகுசு கப்பல்கள்" },
     gradientText: { EN: "an ocean adventure.", SI: "මුහුදු චාරිකාවක්.", TA: "ஒரு கடல் சாகசம்." },
-    image: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?q=80&w=1974&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2000&auto=format&fit=crop",
     formPlaceholder: { EN: "Travelpayouts Cruises Widget Goes Here", SI: "නෞකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "கப்பல் விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🛳️ Top Cruise Lines", "🔒 Secure Booking"], SI: ["🛳️ සුපිරි නෞකා", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🛳️ சிறந்த கப்பல்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   }
@@ -173,12 +173,12 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-transparent">
       
       {/* Global Top Navbar */}
-      <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 relative transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
+      <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-black/60 via-black/20 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
         <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-16 md:h-20 w-auto object-contain bg-white/90 backdrop-blur-sm px-4 py-2 rounded-2xl shadow-lg" />
           </Link>
 
           {/* Destination Search Bar (Desktop) */}
@@ -187,7 +187,7 @@ export default function Home() {
             <input 
               type="text" 
               placeholder={t.searchPlaceholder}
-              className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
+              className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-white/80 text-sm font-medium focus:outline-none focus:bg-white/30 transition"
             />
           </div>
 
@@ -196,8 +196,8 @@ export default function Home() {
             
             {/* Currency Mobile */}
             <div className="relative">
-              <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-                <CircleDollarSign size={16} className="text-gray-500" /> {currency} <span className="text-[10px]">▼</span>
+              <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-white drop-shadow-md text-sm flex items-center gap-1">
+                <CircleDollarSign size={16} className="text-white" /> {currency} <span className="text-[10px]">▼</span>
               </button>
               {showCurrency && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -210,8 +210,8 @@ export default function Home() {
 
             {/* Language Mobile */}
             <div className="relative">
-              <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-                <Globe size={16} className="text-gray-500" /> {language} <span className="text-[10px]">▼</span>
+              <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-white drop-shadow-md text-sm flex items-center gap-1">
+                <Globe size={16} className="text-white" /> {language} <span className="text-[10px]">▼</span>
               </button>
               {showLanguage && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -227,7 +227,7 @@ export default function Home() {
 
             {/* Profile Mobile */}
             {user ? (
-              <Link href="/account" className="relative flex items-center justify-center w-8 h-8 rounded-full border border-[#673AB7] bg-gray-100 overflow-hidden ml-1">
+              <Link href="/account" className="relative flex items-center justify-center w-8 h-8 rounded-full border border-white/50 bg-gray-100 overflow-hidden ml-1 shadow-md">
                 {user.photoURL ? (
                   <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
@@ -235,7 +235,7 @@ export default function Home() {
                 )}
               </Link>
             ) : (
-              <Link href="/login" className="font-semibold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1">
+              <Link href="/login" className="font-bold text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-white/30 transition">
                 {t.signIn}
               </Link>
             )}
@@ -249,22 +249,22 @@ export default function Home() {
           <input 
             type="text" 
             placeholder={t.searchPlaceholder}
-            className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
+            className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-white/80 text-sm font-medium focus:outline-none focus:bg-white/30 transition"
           />
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex ml-auto items-center gap-5 relative">
-          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.getApp}</button>
-          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.listProperty}</button>
-          <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t.support}</button>
+          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.getApp}</button>
+          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.listProperty}</button>
+          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.support}</button>
           
           <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
           
           {/* Currency Dropdown Desktop */}
           <div className="relative">
-            <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-              <CircleDollarSign size={18} className="text-gray-500 mr-1" /> {currency} <span className="text-xs">▼</span>
+            <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-white drop-shadow-md hover:text-white transition flex items-center gap-1">
+              <CircleDollarSign size={18} className="text-white mr-1" /> {currency} <span className="text-xs">▼</span>
             </button>
             {showCurrency && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -277,8 +277,8 @@ export default function Home() {
 
           {/* Language Dropdown Desktop */}
           <div className="relative">
-            <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-              <Globe size={18} className="text-gray-500 mr-1" /> {language} <span className="text-xs">▼</span>
+            <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-white drop-shadow-md hover:text-white transition flex items-center gap-1">
+              <Globe size={18} className="text-white mr-1" /> {language} <span className="text-xs">▼</span>
             </button>
             {showLanguage && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -309,54 +309,47 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Dynamic Hero Section - Spans Full Width at Top */}
+      <div className="absolute top-0 left-0 w-full z-0">
+        <div className="relative w-full h-[450px] md:h-[550px] bg-gray-900 rounded-b-[30px] md:rounded-b-[80px] flex flex-col justify-center items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-500 pt-20">
+          
+          {/* Dynamic Full Cover Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out"
+            style={{ backgroundImage: `url('${currentData.image}')` }}
+          ></div>
+          
+          {/* Light Overlay (instead of Dark) to make it vibrant but still readable */}
+          <div className="absolute inset-0 bg-black/20 transition-opacity duration-500"></div>
+          
+          {/* Dynamic Text Layout */}
+          <div className="relative z-10 max-w-3xl text-center mt-4 transition-all duration-500">
+            <span className="inline-block py-1 px-4 rounded-full bg-black/30 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/20">
+              {currentData.subtitle[language] || currentData.subtitle["EN"]}
+            </span>
+            
+            <h1 className="flex flex-col gap-1 md:gap-2 mb-6 drop-shadow-xl">
+              <span className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
+                {currentData.title[language] || currentData.title["EN"]}
+              </span>
+              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-lg">
+                {currentData.gradientText[language] || currentData.gradientText["EN"]}
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+
       {/* Body with Sidebar and Main Content */}
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-[400px] md:pt-[450px]">
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0">
+        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10">
 
-          {/* Dynamic Hero Section */}
-          <div className="w-full px-4 md:px-10 mt-4 md:mt-6">
-            {/* Height Adjusted Image Box */}
-            <div className="relative w-full h-[360px] md:h-[480px] bg-gray-900 rounded-[30px] rounded-br-[80px] md:rounded-[40px] md:rounded-br-[150px] flex flex-col justify-center items-start px-8 md:px-16 overflow-hidden shadow-2xl transition-all duration-500">
-              
-              {/* Dynamic Full Cover Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out"
-                style={{ backgroundImage: `url('${currentData.image}')` }}
-              ></div>
-              
-              {/* Dark Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-500"></div>
-              
-              {/* Dynamic Text Layout */}
-              <div className="relative z-10 max-w-2xl mt-[-60px] md:mt-[-80px] transition-all duration-500">
-                <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/30">
-                  {currentData.subtitle[language] || currentData.subtitle["EN"]}
-                </span>
-                
-                <h1 className="flex flex-col gap-1 md:gap-2 mb-6 drop-shadow-lg">
-                  <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                    {currentData.title[language] || currentData.title["EN"]}
-                  </span>
-                  <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">
-                    {currentData.gradientText[language] || currentData.gradientText["EN"]}
-                  </span>
-                </h1>
-                
-                <div className="flex flex-col sm:flex-row gap-3 text-white/90 text-sm md:text-base font-medium">
-                  {(currentData.badges[language] || currentData.badges["EN"]).map((badge: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10">
-                      {badge}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
+          <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
-            <div className="relative z-20 w-[95%] md:w-[90%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-8 border border-gray-100">
+            <div className="relative z-20 w-[95%] md:w-[90%] max-w-6xl mx-auto -mt-24 md:-mt-32 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-8 border border-gray-100">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
             <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
