@@ -4,11 +4,11 @@ const newContent = "use client";
 
 export default function PartnerLogos() {
   const partners = [
-    { name: "Booking.com", url: "https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" },
-    { name: "Agoda", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Agoda_logo.svg" },
-    { name: "Expedia", url: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Expedia_Logo.svg" },
-    { name: "Trip.com", url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Trip.com_logo.svg" },
-    { name: "Hotels.com", url: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Hotels.com_logo.svg" }
+    { name: "Booking.com", domain: "booking.com", color: "text-[#003580]" },
+    { name: "Agoda", domain: "agoda.com", color: "text-[#f5a623]" },
+    { name: "Expedia", domain: "expedia.com", color: "text-[#00008b]" },
+    { name: "Trip.com", domain: "trip.com", color: "text-[#3264ff]" },
+    { name: "Hotels.com", domain: "hotels.com", color: "text-[#d32f2f]" }
   ];
 
   return (
@@ -20,9 +20,14 @@ export default function PartnerLogos() {
           <p className="text-xl font-extrabold text-gray-800">100+ Travel Sites</p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 transition-all duration-500">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 transition-all duration-500">
           {partners.map((p, i) => (
-            <img key={i} src={p.url} alt={p.name} className="h-6 md:h-8 object-contain drop-shadow-sm" />
+            <div key={i} className="flex items-center gap-2">
+              <img src={\https://logo.clearbit.com/\\} alt={p.name} className="w-6 h-6 md:w-8 md:h-8 rounded-full shadow-sm bg-white" />
+              <span className={\	ext-lg md:text-xl font-black \ tracking-tight\}>
+                {p.name}
+              </span>
+            </div>
           ))}
           <div className="text-lg font-bold text-gray-500 bg-gray-100 px-4 py-1 rounded-full">
             + 100 More
