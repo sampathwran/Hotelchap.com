@@ -18,7 +18,7 @@ function SearchResultsContent() {
     async function fetchHotels() {
       try {
         setLoading(true);
-        const res = await fetch(`/api/hotels/search?city=${city}&checkin=${checkin}&checkout=${checkout}`);
+        const res = await fetch(`/api/hotels/search?city=${city}&checkin=${checkin}&checkout=${checkout}`, { cache: 'no-store' });
         const data = await res.json();
         
         if (data.error) throw new Error(data.error);
@@ -57,22 +57,14 @@ function SearchResultsContent() {
       
       <div className="grid gap-6">
         {hotels.map((hotel: any) => {
-          const basePrice = hotel.min_total_price || Math.floor(Math.random() * 50) + 50;
-          const originalPrice = hotel.min_total_price ? Math.floor(basePrice * 1.2) : undefined;
+          const basePrice = hotel.min_total_price || null;
+          const originalPrice = basePrice ? Math.floor(basePrice * 1.2) : null;
           
-          // Smart Metasearch Trick: Calculate fake competitor prices around the real base price
-          const agodaPrice = Math.floor(basePrice * 0.95); // Agoda 5% cheaper
-          const expediaPrice = Math.floor(basePrice * 1.05); // Expedia 5% more
-          const tripPrice = Math.floor(basePrice * 0.98); // Trip.com 2% cheaper
-          
-          // Generate realistic hotel URLs (Stay22 will intercept these based on the domain)
-          const safeHotelName = (hotel.hotel_name || 'hotel').toLowerCase().replace(/[^a-z0-9]/g, '-');
-          const bookingUrl = `https://www.booking.com/hotel/lk/${safeHotelName}.html`;
-          const agodaUrl = `https://www.agoda.com/search?text=${encodeURIComponent(hotel.hotel_name || '')}`;
-          const expediaUrl = `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.hotel_name || '')}`;
+          // Use the exact Booking.com URL provided by RapidAPI
+          const bookingUrl = hotel.url || `https://www.booking.com/hotel/lk/${(hotel.hotel_name || 'hotel').toLowerCase().replace(/[^a-z0-9]/g, '-')}.html`;
 
           return (
-            <div key={hotel.hotel_id} className="flex flex-col md:flex-row bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
+            <div key={hotel.hotel_id || Math.random()} className="flex flex-col md:flex-row bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
               {/* Hotel Image */}
               <div className="md:w-1/3 h-56 md:h-auto bg-gray-200">
                 {hotel.max_photo_url ? (
@@ -88,7 +80,7 @@ function SearchResultsContent() {
                   <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold text-gray-900">{hotel.hotel_name}</h3>
                     {hotel.review_score && (
-                      <div className="bg-blue-600 text-white px-2 py-1 rounded font-bold text-sm">
+                      <div className="bg-[#673AB7] text-white px-2 py-1 rounded font-bold text-sm">
                         {hotel.review_score}
                       </div>
                     )}
@@ -98,28 +90,18 @@ function SearchResultsContent() {
                   </p>
                   
                   {hotel.review_score_word && (
-                    <p className="text-sm font-medium text-blue-600 mt-2">{hotel.review_score_word}</p>
+                    <p className="text-sm font-medium text-[#673AB7] mt-2">{hotel.review_score_word}</p>
                   )}
                 </div>
                 
-                {/* Price Comparison Section (Metasearch View) */}
+                {/* Clean Booking View */}
                 <div className="mt-6 flex flex-col md:flex-row items-end justify-between border-t pt-4">
                   <div className="w-full md:w-auto space-y-2 mb-4 md:mb-0">
-                    <p className="text-xs text-gray-500 uppercase font-bold">Compare Prices:</p>
-                    <div className="flex flex-wrap gap-2">
-                      <Link href={agodaUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
-                        <span className="text-[10px] font-bold text-gray-500">Agoda</span>
-                        <span className="font-bold text-red-500">${agodaPrice}</span>
-                      </Link>
-                      <Link href={expediaUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
-                        <span className="text-[10px] font-bold text-gray-500">Expedia</span>
-                        <span className="font-bold text-gray-700">${expediaPrice}</span>
-                      </Link>
-                      <Link href={bookingUrl} target="_blank" className="flex flex-col items-center border rounded p-1 px-3 hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer">
-                        <span className="text-[10px] font-bold text-gray-500">Trip.com</span>
-                        <span className="font-bold text-gray-700">${tripPrice}</span>
-                      </Link>
-                    </div>
+                    {hotel.is_free_cancellable === 1 && (
+                      <span className="text-green-600 font-bold text-sm flex items-center gap-1">
+                        ✓ Free Cancellation
+                      </span>
+                    )}
                   </div>
                   
                   <div className="text-right w-full md:w-auto">
@@ -128,14 +110,19 @@ function SearchResultsContent() {
                         ${originalPrice}
                       </div>
                     )}
-                    <div className="text-2xl font-black text-gray-900 mb-2">
-                      ${basePrice} <span className="text-sm font-normal text-gray-500">/ night</span>
-                    </div>
-                    {/* Stay22 will automatically convert this href into an affiliate link! */}
+                    {basePrice ? (
+                      <div className="text-2xl font-black text-gray-900 mb-2">
+                        ${Math.floor(basePrice)} <span className="text-sm font-normal text-gray-500">/ night</span>
+                      </div>
+                    ) : (
+                      <div className="text-lg font-black text-gray-900 mb-2">
+                        Price unavailable
+                      </div>
+                    )}
                     <Link 
                       href={bookingUrl}
                       target="_blank"
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition shadow-md block text-center"
+                      className="bg-[#673AB7] hover:bg-[#522b94] text-white font-bold py-2 px-6 rounded-lg transition shadow-md block text-center"
                     >
                       View Deal
                     </Link>
@@ -154,7 +141,7 @@ export const dynamic = 'force-dynamic';
 
 export default function SearchPage() {
   return (
-    <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto">
+    <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto bg-sky-50">
       <Suspense fallback={<div className="text-center p-8">Loading...</div>}>
         <SearchResultsContent />
       </Suspense>
