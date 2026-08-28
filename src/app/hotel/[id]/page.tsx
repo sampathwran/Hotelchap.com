@@ -49,6 +49,7 @@ function HotelDetailsContent() {
   // Real Data State
   const [realDescription, setRealDescription] = useState("");
   const [realPhotos, setRealPhotos] = useState<string[]>([]);
+  const [realFacilities, setRealFacilities] = useState<string[]>([]);
   const [isLoadingDetails, setIsLoadingDetails] = useState(true);
 
   useEffect(() => {
@@ -62,6 +63,9 @@ function HotelDetailsContent() {
         }
         if (data.photos && data.photos.length > 0) {
           setRealPhotos(data.photos);
+        }
+        if (data.facilities && data.facilities.length > 0) {
+          setRealFacilities(data.facilities);
         }
       } catch (err) {
         console.error("Failed to fetch real details:", err);
@@ -180,6 +184,21 @@ function HotelDetailsContent() {
                 </div>
               )}
             </section>
+
+            {/* Facilities Section */}
+            {realFacilities.length > 0 && (
+              <section className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-black text-gray-900 mb-6">Top Facilities</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6">
+                  {realFacilities.map((facility, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <Check className="text-green-500 flex-shrink-0" size={20} />
+                      <span className="text-gray-700 font-medium">{facility}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Map Section */}
             <section className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">

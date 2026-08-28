@@ -51,10 +51,11 @@ export async function GET(request: Request) {
       'x-rapidapi-host': RAPIDAPI_HOST,
     };
 
-    // Fetch Description and Photos in parallel using retry wrapper
-    const [descriptionData, photosData] = await Promise.all([
+    // Fetch Description, Photos, and Facilities in parallel using retry wrapper
+    const [descriptionData, photosData, facilitiesData] = await Promise.all([
       fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/description?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' }),
-      fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/photos?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' })
+      fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/photos?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' }),
+      fetchWithRetry(`https://${RAPIDAPI_HOST}/v1/hotels/facilities?hotel_id=${hotel_id}&locale=en-gb`, { headers, cache: 'force-cache' })
     ]);
 
     // Map the photo objects to just a flat array of max resolution URLs
@@ -62,9 +63,15 @@ export async function GET(request: Request) {
       ? photosData.map((p: any) => p.url_max).filter(Boolean).slice(0, 10) 
       : [];
 
+    // Extract top facilities (filter out weird ones and deduplicate)
+    const facilities = Array.isArray(facilitiesData)
+      ? Array.from(new Set(facilitiesData.map((f: any) => f.facility_name).filter(Boolean))).slice(0, 12)
+      : [];
+
     return NextResponse.json({
       description: descriptionData?.description || "No description available for this property.",
-      photos: photos
+      photos: photos,
+      facilities: facilities
     });
 
   } catch (error: any) {
