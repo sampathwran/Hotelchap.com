@@ -324,15 +324,15 @@ export default function Home() {
           
           {/* Dynamic Text Layout */}
           <div className="relative z-10 max-w-3xl text-center mt-4 transition-all duration-500">
-            <span className="inline-block py-1 px-4 rounded-full bg-black/30 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/20">
+            <span className="inline-block py-1.5 px-5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/20 shadow-xl">
               {currentData.subtitle[language] || currentData.subtitle["EN"]}
             </span>
             
-            <h1 className="flex flex-col gap-1 md:gap-2 mb-6 drop-shadow-xl">
+            <h1 className="flex flex-col gap-1 md:gap-2 mb-6" style={{ textShadow: '0 4px 24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.9)' }}>
               <span className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
                 {currentData.title[language] || currentData.title["EN"]}
               </span>
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-lg">
+              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                 {currentData.gradientText[language] || currentData.gradientText["EN"]}
               </span>
             </h1>
