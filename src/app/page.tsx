@@ -173,12 +173,12 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-transparent">
       
       {/* Global Top Navbar */}
-      <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-black/60 via-black/20 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
+      <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
         <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-16 md:h-20 w-auto object-contain bg-white/90 backdrop-blur-sm px-4 py-2 rounded-2xl shadow-lg" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md" />
           </Link>
 
           {/* Destination Search Bar (Desktop) */}
@@ -187,7 +187,7 @@ export default function Home() {
             <input 
               type="text" 
               placeholder={t.searchPlaceholder}
-              className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-white/80 text-sm font-medium focus:outline-none focus:bg-white/30 transition"
+              className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
             />
           </div>
 
@@ -196,8 +196,8 @@ export default function Home() {
             
             {/* Currency Mobile */}
             <div className="relative">
-              <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-white drop-shadow-md text-sm flex items-center gap-1">
-                <CircleDollarSign size={16} className="text-white" /> {currency} <span className="text-[10px]">▼</span>
+              <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-800 text-sm flex items-center gap-1 drop-shadow-sm">
+                <CircleDollarSign size={16} className="text-gray-700" /> {currency} <span className="text-[10px]">▼</span>
               </button>
               {showCurrency && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -210,8 +210,8 @@ export default function Home() {
 
             {/* Language Mobile */}
             <div className="relative">
-              <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-white drop-shadow-md text-sm flex items-center gap-1">
-                <Globe size={16} className="text-white" /> {language} <span className="text-[10px]">▼</span>
+              <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-800 text-sm flex items-center gap-1 drop-shadow-sm">
+                <Globe size={16} className="text-gray-700" /> {language} <span className="text-[10px]">▼</span>
               </button>
               {showLanguage && (
                 <div className="absolute top-8 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -235,7 +235,7 @@ export default function Home() {
                 )}
               </Link>
             ) : (
-              <Link href="/login" className="font-bold text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-white/30 transition">
+              <Link href="/login" className="font-bold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-[#522b94] transition">
                 {t.signIn}
               </Link>
             )}
@@ -249,22 +249,22 @@ export default function Home() {
           <input 
             type="text" 
             placeholder={t.searchPlaceholder}
-            className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-white/80 text-sm font-medium focus:outline-none focus:bg-white/30 transition"
+            className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
           />
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex ml-auto items-center gap-5 relative">
-          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.getApp}</button>
-          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.listProperty}</button>
-          <button className="font-semibold text-white/90 drop-shadow-md hover:text-white transition">{t.support}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.getApp}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.listProperty}</button>
+          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t.support}</button>
           
           <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
           
           {/* Currency Dropdown Desktop */}
           <div className="relative">
-            <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-white drop-shadow-md hover:text-white transition flex items-center gap-1">
-              <CircleDollarSign size={18} className="text-white mr-1" /> {currency} <span className="text-xs">▼</span>
+            <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-800 hover:text-[#673AB7] transition flex items-center gap-1 drop-shadow-sm">
+              <CircleDollarSign size={18} className="text-gray-700 mr-1" /> {currency} <span className="text-xs">▼</span>
             </button>
             {showCurrency && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -277,8 +277,8 @@ export default function Home() {
 
           {/* Language Dropdown Desktop */}
           <div className="relative">
-            <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-white drop-shadow-md hover:text-white transition flex items-center gap-1">
-              <Globe size={18} className="text-white mr-1" /> {language} <span className="text-xs">▼</span>
+            <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-800 hover:text-[#673AB7] transition flex items-center gap-1 drop-shadow-sm">
+              <Globe size={18} className="text-gray-700 mr-1" /> {language} <span className="text-xs">▼</span>
             </button>
             {showLanguage && (
               <div className="absolute top-10 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
@@ -320,7 +320,7 @@ export default function Home() {
           ></div>
           
           {/* Light Overlay (instead of Dark) to make it vibrant but still readable */}
-          <div className="absolute inset-0 bg-black/20 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-black/10 transition-opacity duration-500"></div>
           
           {/* Dynamic Text Layout */}
           <div className="relative z-10 max-w-3xl text-center mt-4 transition-all duration-500">
@@ -341,11 +341,11 @@ export default function Home() {
       </div>
 
       {/* Body with Sidebar and Main Content */}
-      <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-[400px] md:pt-[450px]">
+      <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10">
+        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10 pt-[350px] md:pt-[350px]">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
