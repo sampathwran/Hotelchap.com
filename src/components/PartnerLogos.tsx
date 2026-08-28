@@ -21,7 +21,7 @@ export default function PartnerLogos() {
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 transition-all duration-500">
           {partners.map((p, i) => (
             <div key={i} className="flex items-center gap-2">
-              <img src={`https://logo.clearbit.com/${p.domain}`} alt={p.name} className="w-6 h-6 md:w-8 md:h-8 rounded-full shadow-sm bg-white" />
+              <img src={`/logos/${p.domain.split('.')[0]}.png`} alt={p.name} className="w-6 h-6 md:w-8 md:h-8 rounded-full shadow-sm bg-white" />
               <span className={`text-lg md:text-xl font-black ${p.color} tracking-tight`}>
                 {p.name}
               </span>
