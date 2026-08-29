@@ -6,7 +6,6 @@ import { useState } from "react";
 const bookingServices = [
   { name: "Hotels & Villas", icon: "🏨", link: "/search" },
   { name: "Flights", icon: "✈️", link: "/flights" },
-  { name: "Flight + Hotel", icon: "💼", link: "/packages" },
   { name: "Attractions", icon: "🎟️", link: "/attractions" },
   { name: "Car & Bike Rentals", icon: "🚗", link: "/cars" },
   { name: "Airport Transfers", icon: "🚕", link: "/transfers" },
