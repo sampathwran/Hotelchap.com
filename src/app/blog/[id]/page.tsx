@@ -5,13 +5,14 @@ import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
 
-interface Props {
-  params: { id: string }
+type Props = {
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   try {
-    const docRef = doc(db, "blogs", params.id);
+    const { id } = await params;
+    const docRef = doc(db, "blogs", id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const data = docSnap.data();
@@ -34,7 +35,8 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 }
 
 export default async function BlogPost({ params }: Props) {
-  const docRef = doc(db, "blogs", params.id);
+  const { id } = await params;
+  const docRef = doc(db, "blogs", id);
   const docSnap = await getDoc(docRef);
   
   if (!docSnap.exists()) {
@@ -83,7 +85,7 @@ export default async function BlogPost({ params }: Props) {
 
         <article 
           className="prose prose-lg max-w-none text-gray-800 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: article.content }} 
+          dangerouslySetInnerHTML={{ __html: article.content || "" }} 
         />
       </main>
 
