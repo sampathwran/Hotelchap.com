@@ -81,9 +81,10 @@ export default async function BlogPost({ params }: Props) {
           style={{ backgroundImage: `url('${article.image}')` }}
         ></div>
 
-        <article className="prose prose-lg max-w-none text-gray-800 leading-relaxed whitespace-pre-wrap">
-          {article.content}
-        </article>
+        <article 
+          className="prose prose-lg max-w-none text-gray-800 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: article.content }} 
+        />
       </main>
 
       <MegaFooter />
