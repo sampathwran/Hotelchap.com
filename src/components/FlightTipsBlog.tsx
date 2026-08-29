@@ -15,15 +15,20 @@ export default function FlightTipsBlog() {
       try {
         const q = query(
           collection(db, "blogs"),
-          where("type", "==", "flight"),
-          orderBy("createdAt", "desc"),
-          limit(3)
+          where("type", "==", "flight")
         );
         const snapshot = await getDocs(q);
         const fetchedBlogs = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
+        }))
+        .sort((a: any, b: any) => {
+          const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
+          const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
+          return timeB - timeA;
+        })
+        .slice(0, 3);
+        
         setBlogs(fetchedBlogs);
       } catch (error) {
         console.error("Error fetching flight blogs:", error);
