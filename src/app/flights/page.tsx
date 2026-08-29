@@ -6,6 +6,7 @@ import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import FlightOffersSlider from "@/components/FlightOffersSlider";
 import PopularFlightRoutes from "@/components/PopularFlightRoutes";
 import FareAlertsForm from "@/components/FareAlertsForm";
+import FlightTipsBlog from "@/components/FlightTipsBlog";
 import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
 
 export default function FlightsPage() {
@@ -19,11 +20,7 @@ export default function FlightsPage() {
     { q: "What is the best time to book flights for holidays?", a: "For major holidays, it's recommended to book at least 3-4 months in advance. Last-minute deals are very rare during peak seasons." }
   ];
 
-  const travelTips = [
-    { title: "Ultimate Dubai Travel Guide 2026", date: "Aug 15, 2026", img: "https://images.unsplash.com/photo-1512453979436-5a5338ce11ed?q=80&w=600&auto=format&fit=crop" },
-    { title: "How to survive long-haul flights comfortably", date: "Aug 10, 2026", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop" },
-    { title: "Top 10 Hidden Gems in Singapore", date: "Aug 02, 2026", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=600&auto=format&fit=crop" }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
@@ -128,32 +125,7 @@ export default function FlightsPage() {
       </div>
 
       {/* 5. Travel Tips & Blog Section */}
-      <div className="bg-gray-50 py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="flex justify-between items-end mb-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Travel Tips & Inspiration</h2>
-              <p className="text-gray-500 font-medium">Read our latest guides before you fly</p>
-            </div>
-            <button className="text-[#673AB7] font-bold hover:underline flex items-center gap-1">Read all posts <ArrowRight size={18} /></button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {travelTips.map((tip, idx) => (
-              <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer">
-                <div className="h-48 overflow-hidden">
-                  <img src={tip.img} alt={tip.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                </div>
-                <div className="p-6">
-                  <p className="text-sm font-bold text-[#673AB7] mb-2">{tip.date}</p>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{tip.title}</h3>
-                  <p className="text-gray-500 font-medium text-sm">Discover everything you need to know before you embark on your journey with our comprehensive travel guide.</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <FlightTipsBlog />
 
       {/* Push Footer to bottom */}
       <div className="mt-auto">

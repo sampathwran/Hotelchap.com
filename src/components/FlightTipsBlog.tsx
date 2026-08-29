@@ -1,0 +1,100 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { collection, query, where, orderBy, limit, getDocs } from "firebase/firestore";
+import { db } from "@/firebase";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
+export default function FlightTipsBlog() {
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const q = query(
+          collection(db, "blogs"),
+          where("type", "==", "flight"),
+          orderBy("createdAt", "desc"),
+          limit(3)
+        );
+        const snapshot = await getDocs(q);
+        const fetchedBlogs = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setBlogs(fetchedBlogs);
+      } catch (error) {
+        console.error("Error fetching flight blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="bg-gray-50 py-16 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <div className="flex justify-between items-end mb-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Travel Tips & Inspiration</h2>
+              <p className="text-gray-500 font-medium">Read our latest guides before you fly</p>
+            </div>
+          </div>
+          <div className="flex justify-center items-center py-12">
+            <div className="w-10 h-10 border-4 border-[#673AB7] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // If no blogs yet, render a fallback or nothing. We will render empty state to match UI
+  if (blogs.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="bg-gray-50 py-16 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 w-full">
+        <div className="flex justify-between items-end mb-10">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Travel Tips & Inspiration</h2>
+            <p className="text-gray-500 font-medium">Read our latest guides before you fly</p>
+          </div>
+          <Link href="/blog" className="text-[#673AB7] font-bold hover:underline flex items-center gap-1">
+            Read all posts <ArrowRight size={18} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {blogs.map((blog) => (
+            <Link key={blog.id} href={`/blog/${blog.id}`}>
+              <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer h-full flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={blog.image || "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop"} 
+                    alt={blog.title} 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <p className="text-sm font-bold text-[#673AB7] mb-2">{blog.category}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{blog.title}</h3>
+                  <p className="text-gray-500 font-medium text-sm line-clamp-3">
+                    {blog.metaDescription || "Discover everything you need to know before you embark on your journey with our comprehensive travel guide."}
+                  </p>
+                  <p className="text-gray-400 text-xs mt-auto pt-4">{blog.readTime}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
