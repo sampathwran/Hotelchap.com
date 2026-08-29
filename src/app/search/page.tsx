@@ -146,7 +146,7 @@ function SearchResults() {
       {/* Search Bar */}
         <div className="bg-white border-b border-gray-200 py-6 px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
-            <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-2 md:p-3 flex flex-col md:flex-row items-center gap-3">
+            <form key={destination + checkin + checkout} action="/search" method="GET" className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-2 md:p-3 flex flex-col md:flex-row items-center gap-3">
               <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
                 <span className="text-gray-400 mr-3 text-lg">📍</span>
                 <input type="text" name="city" defaultValue={destination} placeholder="Where are you going?" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium placeholder-gray-400" required />
