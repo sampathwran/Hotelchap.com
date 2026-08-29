@@ -180,7 +180,7 @@ export default function PopularDestinations() {
                         </div>
 
                         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
-                          <span className="text-yellow-500 mr-1">⭐</span> {city.rating}
+                          <span className="text-yellow-500 mr-1">?</span> {city.rating}
                         </div>
                         <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-white">
                           {city.reviews} reviews
@@ -222,12 +222,12 @@ export default function PopularDestinations() {
                         <div className="bg-gray-50 rounded-lg p-3 mb-4 flex flex-col gap-2">
                           {city.bestTime && (
                             <div className="flex items-center text-xs text-gray-600 font-medium">
-                              <span className="mr-2 text-sm">🗓️</span> Best time: {city.bestTime}
+                              <span className="mr-2 text-sm">???</span> Best time: {city.bestTime}
                             </div>
                           )}
                           {city.startingPrice && (
                             <div className="flex items-center text-xs text-gray-600 font-medium">
-                              <span className="mr-2 text-sm">💰</span> Starting from <span className="font-bold text-gray-900 ml-1">${city.startingPrice} / night</span>
+                              <span className="mr-2 text-sm">??</span> Starting from <span className="font-bold text-gray-900 ml-1">${city.startingPrice} / night</span>
                             </div>
                           )}
                         </div>
@@ -243,7 +243,7 @@ export default function PopularDestinations() {
                           </button>
 
                           <a href="/attractions" className="w-full py-2 text-gray-500 hover:text-[#673AB7] text-sm font-bold flex justify-center items-center gap-2 transition-colors">
-                            <span className="text-lg">🎡</span> Top Attractions
+                            <span className="text-lg">??</span> Top Attractions
                           </a>
                         </div>
                       </div>
