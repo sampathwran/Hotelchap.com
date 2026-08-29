@@ -4,15 +4,10 @@ import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import FlightOffersSlider from "@/components/FlightOffersSlider";
+import PopularFlightRoutes from "@/components/PopularFlightRoutes";
 import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
 
 export default function FlightsPage() {
-  const popularRoutes = [
-    { from: "Colombo", to: "Dubai", price: "$250", img: "https://images.unsplash.com/photo-1512453979436-5a5338ce11ed?q=80&w=600&auto=format&fit=crop" },
-    { from: "Colombo", to: "London", price: "$450", img: "https://images.unsplash.com/photo-1513635269975-5969336cd100?q=80&w=600&auto=format&fit=crop" },
-    { from: "Colombo", to: "Singapore", price: "$180", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=600&auto=format&fit=crop" },
-    { from: "Colombo", to: "Maldives", price: "$150", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop" },
-  ];
 
   const airlines = ["EK", "QR", "UL", "SQ", "EY", "MH", "TG", "CX"];
 
@@ -105,37 +100,7 @@ export default function FlightsPage() {
       </div>
 
       {/* Popular Routes */}
-      <div className="bg-white py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="flex justify-between items-end mb-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Flight Routes</h2>
-              <p className="text-gray-500 font-medium">Explore top destinations from Colombo</p>
-            </div>
-            <button className="text-[#673AB7] font-bold hover:underline hidden md:block">View all routes</button>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularRoutes.map((route, idx) => (
-              <div key={idx} className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-72">
-                <img src={route.img} alt={route.to} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6 w-full">
-                  <div className="flex justify-between items-end">
-                    <div>
-                      <p className="text-white/80 text-sm font-bold tracking-wider uppercase mb-1">{route.from} to</p>
-                      <h3 className="text-white text-3xl font-black">{route.to}</h3>
-                    </div>
-                    <div className="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-lg font-bold border border-white/30">
-                      from {route.price}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PopularFlightRoutes />
 
       {/* 4. Fare Alerts & 3. FAQ Section */}
       <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
