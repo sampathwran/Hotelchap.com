@@ -123,7 +123,7 @@ export default function PopularDestinations() {
               <p>Admin hasn't added any countries yet.</p>
             </div>
           ) : (
-            <div ref={countriesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+            <div ref={countriesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
               {countries.map((country) => (
                 <div 
                   key={country.id}
@@ -168,9 +168,9 @@ export default function PopularDestinations() {
                    <span className="text-gray-700 font-bold text-sm">Showing cities for {countries.find(c => c.id === selectedCountryId)?.name}</span>
                  </div>
               )}
-              <div ref={citiesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+              <div ref={citiesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
                 {displayedCities.map((city) => (
-                  <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[520px]">
+                  <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[540px]">
                     {/* Image Box */}
                       <div className="h-[220px] w-full relative overflow-hidden shrink-0">
                         <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
@@ -188,14 +188,14 @@ export default function PopularDestinations() {
                       </div>
 
                     {/* Content Box */}
-                      <div className="p-5 flex flex-col grow">
+                      <div className="p-5 flex flex-col grow overflow-y-auto custom-scrollbar">
                         <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-bold text-xl text-gray-900 group-hover:text-[#673AB7] transition-colors">{city.name}</h3>
+                          <h3 className="font-bold text-xl text-gray-900 group-hover:text-[#673AB7] transition-colors shrink-0">{city.name}</h3>
                         </div>
 
                         {/* Tags */}
                         {city.tags && (
-                          <div className="flex flex-wrap gap-1.5 mb-2">
+                          <div className="flex flex-wrap gap-1.5 mb-2 shrink-0">
                             {city.tags.split(',').map((tag: string, i: number) => (
                               <span key={i} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">
                                 {tag.trim()}
@@ -204,8 +204,8 @@ export default function PopularDestinations() {
                           </div>
                         )}
 
-                        <div className="grow mb-3 overflow-hidden flex flex-col">
-                          <div className={`text-sm text-gray-500 leading-relaxed transition-all flex-grow ${expandedCities.has(city.id) ? 'overflow-y-auto max-h-[100px] hide-scrollbar' : 'line-clamp-3'}`}>
+                        <div className="grow mb-3 flex flex-col">
+                          <div className={`text-sm text-gray-500 leading-relaxed transition-all ${expandedCities.has(city.id) ? '' : 'line-clamp-3'}`}>
                             {city.desc}
                           </div>
                           {city.desc && city.desc.length > 100 && (
@@ -233,7 +233,7 @@ export default function PopularDestinations() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-col gap-2 shrink-0">
+                        <div className="flex flex-col gap-2 shrink-0 mt-auto">
                           <button 
                             onClick={() => handleCityClick(city.name)}
                             className="w-full py-2.5 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
