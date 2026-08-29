@@ -170,7 +170,7 @@ export default function PopularDestinations() {
               )}
               <div ref={citiesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory hide-scrollbar scroll-smooth">
                 {displayedCities.map((city) => (
-                  <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                  <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[520px]">
                     {/* Image Box */}
                       <div className="h-[220px] w-full relative overflow-hidden shrink-0">
                         <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
@@ -180,7 +180,7 @@ export default function PopularDestinations() {
                         </div>
 
                         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
-                          <span className="text-yellow-500 mr-1">?</span> {city.rating}
+                          <span className="text-yellow-500 mr-1">⭐</span> {city.rating}
                         </div>
                         <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-white">
                           {city.reviews} reviews
@@ -195,7 +195,7 @@ export default function PopularDestinations() {
 
                         {/* Tags */}
                         {city.tags && (
-                          <div className="flex flex-wrap gap-1.5 mb-3">
+                          <div className="flex flex-wrap gap-1.5 mb-2">
                             {city.tags.split(',').map((tag: string, i: number) => (
                               <span key={i} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">
                                 {tag.trim()}
@@ -204,14 +204,14 @@ export default function PopularDestinations() {
                           </div>
                         )}
 
-                        <div className="grow mb-4">
-                          <p className={`text-sm text-gray-500 leading-relaxed transition-all ${expandedCities.has(city.id) ? '' : 'line-clamp-3'}`}>
+                        <div className="grow mb-3 overflow-hidden flex flex-col">
+                          <div className={`text-sm text-gray-500 leading-relaxed transition-all flex-grow ${expandedCities.has(city.id) ? 'overflow-y-auto max-h-[100px] hide-scrollbar' : 'line-clamp-3'}`}>
                             {city.desc}
-                          </p>
+                          </div>
                           {city.desc && city.desc.length > 100 && (
                             <button 
                               onClick={() => toggleExpand(city.id)}
-                              className="text-[#673AB7] text-xs font-bold mt-2 hover:underline focus:outline-none"
+                              className="text-[#673AB7] text-xs font-bold mt-1 hover:underline focus:outline-none self-start"
                             >
                               {expandedCities.has(city.id) ? '[ Show Less ]' : '[ Read More... ]'}
                             </button>
@@ -219,31 +219,31 @@ export default function PopularDestinations() {
                         </div>
                         
                         {/* Meta Info */}
-                        <div className="bg-gray-50 rounded-lg p-3 mb-4 flex flex-col gap-2">
+                        <div className="bg-gray-50 rounded-lg p-2.5 mb-3 flex flex-col gap-1.5 shrink-0">
                           {city.bestTime && (
                             <div className="flex items-center text-xs text-gray-600 font-medium">
-                              <span className="mr-2 text-sm">???</span> Best time: {city.bestTime}
+                              <span className="mr-2 text-sm">🗓️</span> Best time: {city.bestTime}
                             </div>
                           )}
                           {city.startingPrice && (
                             <div className="flex items-center text-xs text-gray-600 font-medium">
-                              <span className="mr-2 text-sm">??</span> Starting from <span className="font-bold text-gray-900 ml-1">${city.startingPrice} / night</span>
+                              <span className="mr-2 text-sm">💰</span> Starting from <span className="font-bold text-gray-900 ml-1">${city.startingPrice} / night</span>
                             </div>
                           )}
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 shrink-0">
                           <button 
                             onClick={() => handleCityClick(city.name)}
-                            className="w-full py-3 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
+                            className="w-full py-2.5 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
                           >
                             View Hotels
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                           </button>
 
-                          <a href="/attractions" className="w-full py-2 text-gray-500 hover:text-[#673AB7] text-sm font-bold flex justify-center items-center gap-2 transition-colors">
-                            <span className="text-lg">??</span> Top Attractions
+                          <a href="/attractions" className="w-full py-1 text-gray-500 hover:text-[#673AB7] text-sm font-bold flex justify-center items-center gap-2 transition-colors">
+                            <span className="text-lg">🎡</span> Top Attractions
                           </a>
                         </div>
                       </div>
