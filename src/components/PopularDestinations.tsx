@@ -138,30 +138,69 @@ export default function PopularDestinations() {
                 {displayedCities.map((city) => (
                   <div key={city.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                     {/* Image Box */}
-                    <div className="h-[220px] w-full relative overflow-hidden shrink-0">
-                      <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
-                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
-                        <span className="text-yellow-500 mr-1">?</span> {city.rating}
+                      <div className="h-[220px] w-full relative overflow-hidden shrink-0">
+                        <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                        
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm hover:scale-110 transition-transform cursor-pointer group/heart">
+                          <svg className="w-5 h-5 text-gray-400 group-hover/heart:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+
+                        <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
+                          <span className="text-yellow-500 mr-1">⭐</span> {city.rating}
+                        </div>
+                        <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-white">
+                          {city.reviews} reviews
+                        </div>
                       </div>
-                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-white">
-                        {city.reviews} reviews
-                      </div>
-                    </div>
 
                     {/* Content Box */}
-                    <div className="p-5 flex flex-col grow">
-                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-[#673AB7] transition-colors">{city.name}</h3>
-                      <p className="text-sm text-gray-500 mt-2 line-clamp-3 leading-relaxed grow">{city.desc}</p>
-                      
-                      {/* Action Button */}
-                      <button 
-                        onClick={() => handleCityClick(city.name)}
-                        className="mt-6 w-full py-3 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
-                      >
-                        View Hotels
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                      </button>
-                    </div>
+                      <div className="p-5 flex flex-col grow">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="font-bold text-xl text-gray-900 group-hover:text-[#673AB7] transition-colors">{city.name}</h3>
+                        </div>
+
+                        {/* Tags */}
+                        {city.tags && (
+                          <div className="flex flex-wrap gap-1.5 mb-3">
+                            {city.tags.split(',').map((tag: string, i: number) => (
+                              <span key={i} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">
+                                {tag.trim()}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                        <p className="text-sm text-gray-500 line-clamp-3 leading-relaxed grow mb-4">{city.desc}</p>
+                        
+                        {/* Meta Info */}
+                        <div className="bg-gray-50 rounded-lg p-3 mb-4 flex flex-col gap-2">
+                          {city.bestTime && (
+                            <div className="flex items-center text-xs text-gray-600 font-medium">
+                              <span className="mr-2 text-sm">🗓️</span> Best time: {city.bestTime}
+                            </div>
+                          )}
+                          {city.startingPrice && (
+                            <div className="flex items-center text-xs text-gray-600 font-medium">
+                              <span className="mr-2 text-sm">💰</span> Starting from <span className="font-bold text-gray-900 ml-1">${city.startingPrice} / night</span>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col gap-2">
+                          <button 
+                            onClick={() => handleCityClick(city.name)}
+                            className="w-full py-3 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
+                          >
+                            View Hotels
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                          </button>
+
+                          <a href="/attractions" className="w-full py-2 text-gray-500 hover:text-[#673AB7] text-sm font-bold flex justify-center items-center gap-2 transition-colors">
+                            <span className="text-lg">🎡</span> Top Attractions
+                          </a>
+                        </div>
+                      </div>
                   </div>
                 ))}
               </div>
