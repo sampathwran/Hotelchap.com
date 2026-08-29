@@ -6,6 +6,7 @@ import { SettingsProvider } from "@/context/SettingsContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleOneTap from "@/components/GoogleOneTap";
 import VisitTracker from "@/components/VisitTracker";
+import GoogleTranslate from "@/components/GoogleTranslate";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -30,16 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sky-50 text-gray-900">
-        <div id="google_translate_element" style={{ display: "none" }}></div>
-        <script dangerouslySetInnerHTML={{ __html: `
-            window.googleTranslateElementInit = function() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                autoDisplay: false
-              }, 'google_translate_element');
-            }
-          `}} />
-        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+        <GoogleTranslate />
 
         {/* Stay22 LetMeAllez Script for Affiliate Monetization */}
         <Script id="stay22-script" strategy="afterInteractive">
