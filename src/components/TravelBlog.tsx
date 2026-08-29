@@ -1,26 +1,49 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { db } from "../firebase";
+import Link from "next/link";
+
+interface Article {
+  id: string;
+  title: string;
+  category: string;
+  readTime: string;
+  image: string;
+}
+
 export default function TravelBlog() {
-  const articles = [
-    {
-      title: "Top 10 Hidden Gems in Bali",
-      category: "Guides",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000",
-    },
-    {
-      title: "How to Travel Europe on a Budget",
-      category: "Tips & Tricks",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1000",
-    },
-    {
-      title: "Best Luxury Resorts in the Maldives",
-      category: "Luxury",
-      readTime: "4 min read",
-      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1000",
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const q = query(collection(db, "blogs"), orderBy("createdAt", "desc"), limit(3));
+        const snapshot = await getDocs(q);
+        const data = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as Article[];
+        
+        setArticles(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
     }
-  ];
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return <div className="w-full px-4 md:px-10 mt-16 mb-16 text-center text-gray-500">Loading articles...</div>;
+  }
+
+  if (articles.length === 0) {
+    return null;
+  }
 
   return (
     <div className="w-full px-4 md:px-10 mt-16 mb-16">
@@ -29,12 +52,14 @@ export default function TravelBlog() {
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Get Inspired</h2>
           <p className="text-gray-500">Travel guides, tips, and stories to inspire your next adventure.</p>
         </div>
-        <button className="text-[#673AB7] font-bold hover:underline hidden md:block">Read all articles →</button>
+        <Link href="/blog" className="text-[#673AB7] font-bold hover:underline hidden md:block">
+          Read all articles →
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {articles.map((article, i) => (
-          <div key={i} className="group cursor-pointer">
+        {articles.map((article) => (
+          <Link href={`/blog/${article.id}`} key={article.id} className="group cursor-pointer block">
             <div className="relative h-60 w-full rounded-2xl overflow-hidden mb-4 shadow-sm">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -48,12 +73,13 @@ export default function TravelBlog() {
               {article.title}
             </h3>
             <p className="text-sm text-gray-500">{article.readTime}</p>
-          </div>
+          </Link>
         ))}
       </div>
-      <button className="w-full mt-6 py-3 border border-gray-200 rounded-xl font-bold text-gray-700 md:hidden">
+      
+      <Link href="/blog" className="w-full mt-6 py-3 border border-gray-200 rounded-xl font-bold text-gray-700 md:hidden flex justify-center items-center">
         Read all articles
-      </button>
+      </Link>
     </div>
   );
 }

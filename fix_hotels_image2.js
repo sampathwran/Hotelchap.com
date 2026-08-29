@@ -1,1 +1,0 @@
-const fs = require("fs"); let c = fs.readFileSync("src/app/page.tsx", "utf-8"); c = c.replace("/image/hotels.jpg", "/image/hotels.png"); fs.writeFileSync("src/app/page.tsx", c); console.log("Reverted hotels to png");
