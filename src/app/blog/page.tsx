@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import MegaFooter from "@/components/MegaFooter";
 
 interface Article {
   id: string;
@@ -40,7 +40,7 @@ export default function BlogList() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      <Header />
       
       <main className="max-w-7xl mx-auto px-4 md:px-10 py-12 mt-20">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Travel Blog & Guides</h1>
@@ -75,7 +75,7 @@ export default function BlogList() {
         )}
       </main>
 
-      <Footer />
+      <MegaFooter />
     </div>
   );
 }

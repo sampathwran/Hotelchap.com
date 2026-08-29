@@ -1,7 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
 
@@ -40,7 +40,7 @@ export default async function BlogPost({ params }: Props) {
   if (!docSnap.exists()) {
     return (
       <div className="min-h-screen bg-white">
-        <Navbar />
+        <Header />
         <div className="max-w-4xl mx-auto px-4 md:px-10 py-24 text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Article Not Found</h1>
           <p className="text-gray-500 mb-8">This article might have been removed or doesn't exist.</p>
@@ -48,7 +48,7 @@ export default async function BlogPost({ params }: Props) {
             ← Back to all articles
           </Link>
         </div>
-        <Footer />
+        <MegaFooter />
       </div>
     );
   }
@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
   
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      <Header />
       
       <main className="max-w-4xl mx-auto px-4 md:px-10 py-12 mt-16">
         <Link href="/blog" className="text-gray-500 hover:text-[#673AB7] text-sm font-medium mb-6 inline-block">
@@ -86,7 +86,7 @@ export default async function BlogPost({ params }: Props) {
         </article>
       </main>
 
-      <Footer />
+      <MegaFooter />
     </div>
   );
 }
