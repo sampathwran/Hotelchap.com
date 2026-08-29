@@ -16,9 +16,17 @@ const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === c
 function SearchResults() {
   const { currency } = useSettings();
   const searchParams = useSearchParams();
+  
+  // Calculate today and tomorrow for dynamic defaults
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const todayStr = today.toISOString().split("T")[0];
+  const tomorrowStr = tomorrow.toISOString().split("T")[0];
+
   const destination = searchParams.get("city") || searchParams.get("destination") || "Colombo";
-  const checkin = searchParams.get("checkin") || "2026-10-01";
-  const checkout = searchParams.get("checkout") || "2026-10-05";
+  const checkin = searchParams.get("checkin") || todayStr;
+  const checkout = searchParams.get("checkout") || tomorrowStr;
 
   // Filter State
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);

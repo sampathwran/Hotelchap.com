@@ -97,6 +97,13 @@ export default function Home() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<string>("hotels");
   
+  // Dynamic dates for search bar
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const todayStr = today.toISOString().split("T")[0];
+  const tomorrowStr = tomorrow.toISOString().split("T")[0];
+  
   // Global Header States
   const [currency, setCurrency] = useState("LKR");
   const [language, setLanguage] = useState("EN");
@@ -320,9 +327,9 @@ export default function Home() {
                   
                   <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
                     <span className="text-gray-400 mr-3 text-lg">📅</span>
-                    <input type="date" name="checkin" min="2026-08-28" defaultValue="2026-08-29" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
+                    <input type="date" name="checkin" min={todayStr} defaultValue={todayStr} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
                     <span className="text-gray-300 mx-2">-</span>
-                    <input type="date" name="checkout" min="2026-08-29" defaultValue="2026-09-01" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
+                    <input type="date" name="checkout" min={todayStr} defaultValue={tomorrowStr} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
                   </div>
 
                   <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
