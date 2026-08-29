@@ -44,7 +44,7 @@ export default function PopularDestinations() {
 
   const handleCityClick = (cityName: string) => {
     trackEvent("clicks");
-    router.push(`/search?dest=${encodeURIComponent(cityName)}`);
+    window.location.href = `/search?city=${encodeURIComponent(cityName)}`;
   };
 
   const displayedCities = selectedCountryId 
