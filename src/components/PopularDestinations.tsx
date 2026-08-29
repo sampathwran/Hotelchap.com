@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
 
 export default function PopularDestinations() {
+  const router = useRouter();
   const [destinations, setDestinations] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,7 +57,7 @@ export default function PopularDestinations() {
                 key={dest.id || idx}
                 onClick={() => {
                   import('@/lib/analytics').then(m => m.trackEvent('clicks'));
-                  // window.open('YOUR_AFFILIATE_LINK_HERE', '_blank');
+                  router.push(`/search?dest=${encodeURIComponent(dest.name)}`);
                 }}
                 className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 cursor-pointer"
               >
