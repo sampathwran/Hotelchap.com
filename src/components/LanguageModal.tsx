@@ -3,79 +3,104 @@ import { Search, X } from 'lucide-react';
 
 export const allLanguages = [
   {
-    "code": "EN",
-    "name": "English",
-    "localName": "English"
+    "code": "AF",
+    "name": "Afrikaans",
+    "localName": "Afrikaans"
   },
   {
-    "code": "SI",
-    "name": "Sinhala",
-    "localName": "ధళಟನ"
+    "code": "SQ",
+    "name": "Albanian",
+    "localName": "Shqip"
   },
   {
-    "code": "TA",
-    "name": "Tamil",
-    "localName": "தமோ஧௽"
-  },
-  {
-    "code": "ES",
-    "name": "Spanish",
-    "localName": "Español"
-  },
-  {
-    "code": "FR",
-    "name": "French",
-    "localName": "Français"
-  },
-  {
-    "code": "DE",
-    "name": "German",
-    "localName": "Deutsch"
-  },
-  {
-    "code": "IT",
-    "name": "Italian",
-    "localName": "Italiano"
-  },
-  {
-    "code": "PT",
-    "name": "Portuguese",
-    "localName": "Português"
-  },
-  {
-    "code": "RU",
-    "name": "Russian",
-    "localName": "Русский"
-  },
-  {
-    "code": "ZH",
-    "name": "Chinese",
-    "localName": "简体中文"
-  },
-  {
-    "code": "JA",
-    "name": "Japanese",
-    "localName": "日本語"
-  },
-  {
-    "code": "KO",
-    "name": "Korean",
-    "localName": "한귬어"
+    "code": "AM",
+    "name": "Amharic",
+    "localName": "????"
   },
   {
     "code": "AR",
     "name": "Arabic",
-    "localName": "العربية"
+    "localName": "???????"
   },
   {
-    "code": "HI",
-    "name": "Hindi",
-    "localName": "हिन্दी"
+    "code": "HY",
+    "name": "Armenian",
+    "localName": "???????"
   },
   {
-    "code": "TR",
-    "name": "Turkish",
-    "localName": "Türkçe"
+    "code": "AZ",
+    "name": "Azerbaijani",
+    "localName": "Az?rbaycan"
+  },
+  {
+    "code": "EU",
+    "name": "Basque",
+    "localName": "Euskara"
+  },
+  {
+    "code": "BE",
+    "name": "Belarusian",
+    "localName": "??????????"
+  },
+  {
+    "code": "BN",
+    "name": "Bengali",
+    "localName": "?????"
+  },
+  {
+    "code": "BS",
+    "name": "Bosnian",
+    "localName": "Bosanski"
+  },
+  {
+    "code": "BG",
+    "name": "Bulgarian",
+    "localName": "?????????"
+  },
+  {
+    "code": "CA",
+    "name": "Catalan",
+    "localName": "Catal�"
+  },
+  {
+    "code": "CEB",
+    "name": "Cebuano",
+    "localName": "Cebuano"
+  },
+  {
+    "code": "NY",
+    "name": "Chichewa",
+    "localName": "Chichewa"
+  },
+  {
+    "code": "ZH-CN",
+    "name": "Chinese (Simplified)",
+    "localName": "????"
+  },
+  {
+    "code": "ZH-TW",
+    "name": "Chinese (Traditional)",
+    "localName": "????"
+  },
+  {
+    "code": "CO",
+    "name": "Corsican",
+    "localName": "Corsu"
+  },
+  {
+    "code": "HR",
+    "name": "Croatian",
+    "localName": "Hrvatski"
+  },
+  {
+    "code": "CS",
+    "name": "Czech",
+    "localName": "Ce�tina"
+  },
+  {
+    "code": "DA",
+    "name": "Danish",
+    "localName": "Dansk"
   },
   {
     "code": "NL",
@@ -83,9 +108,264 @@ export const allLanguages = [
     "localName": "Nederlands"
   },
   {
-    "code": "SV",
-    "name": "Swedish",
-    "localName": "Svenska"
+    "code": "EN",
+    "name": "English",
+    "localName": "English"
+  },
+  {
+    "code": "EO",
+    "name": "Esperanto",
+    "localName": "Esperanto"
+  },
+  {
+    "code": "ET",
+    "name": "Estonian",
+    "localName": "Eesti"
+  },
+  {
+    "code": "TL",
+    "name": "Filipino",
+    "localName": "Filipino"
+  },
+  {
+    "code": "FI",
+    "name": "Finnish",
+    "localName": "Suomi"
+  },
+  {
+    "code": "FR",
+    "name": "French",
+    "localName": "Fran�ais"
+  },
+  {
+    "code": "FY",
+    "name": "Frisian",
+    "localName": "Frysk"
+  },
+  {
+    "code": "GL",
+    "name": "Galician",
+    "localName": "Galego"
+  },
+  {
+    "code": "KA",
+    "name": "Georgian",
+    "localName": "???????"
+  },
+  {
+    "code": "DE",
+    "name": "German",
+    "localName": "Deutsch"
+  },
+  {
+    "code": "EL",
+    "name": "Greek",
+    "localName": "????????"
+  },
+  {
+    "code": "GU",
+    "name": "Gujarati",
+    "localName": "???????"
+  },
+  {
+    "code": "HT",
+    "name": "Haitian Creole",
+    "localName": "Krey�l"
+  },
+  {
+    "code": "HA",
+    "name": "Hausa",
+    "localName": "Hausa"
+  },
+  {
+    "code": "HAW",
+    "name": "Hawaiian",
+    "localName": "Hawai?i"
+  },
+  {
+    "code": "IW",
+    "name": "Hebrew",
+    "localName": "?????"
+  },
+  {
+    "code": "HI",
+    "name": "Hindi",
+    "localName": "??????"
+  },
+  {
+    "code": "HMN",
+    "name": "Hmong",
+    "localName": "Hmoob"
+  },
+  {
+    "code": "HU",
+    "name": "Hungarian",
+    "localName": "Magyar"
+  },
+  {
+    "code": "IS",
+    "name": "Icelandic",
+    "localName": "�slenska"
+  },
+  {
+    "code": "IG",
+    "name": "Igbo",
+    "localName": "Igbo"
+  },
+  {
+    "code": "ID",
+    "name": "Indonesian",
+    "localName": "Indonesia"
+  },
+  {
+    "code": "GA",
+    "name": "Irish",
+    "localName": "Gaeilge"
+  },
+  {
+    "code": "IT",
+    "name": "Italian",
+    "localName": "Italiano"
+  },
+  {
+    "code": "JA",
+    "name": "Japanese",
+    "localName": "???"
+  },
+  {
+    "code": "JW",
+    "name": "Javanese",
+    "localName": "Jawa"
+  },
+  {
+    "code": "KN",
+    "name": "Kannada",
+    "localName": "?????"
+  },
+  {
+    "code": "KK",
+    "name": "Kazakh",
+    "localName": "?????"
+  },
+  {
+    "code": "KM",
+    "name": "Khmer",
+    "localName": "?????"
+  },
+  {
+    "code": "RW",
+    "name": "Kinyarwanda",
+    "localName": "Kinyarwanda"
+  },
+  {
+    "code": "KO",
+    "name": "Korean",
+    "localName": "???"
+  },
+  {
+    "code": "KU",
+    "name": "Kurdish (Kurmanji)",
+    "localName": "Kurd�"
+  },
+  {
+    "code": "KY",
+    "name": "Kyrgyz",
+    "localName": "????????"
+  },
+  {
+    "code": "LO",
+    "name": "Lao",
+    "localName": "???"
+  },
+  {
+    "code": "LA",
+    "name": "Latin",
+    "localName": "Latina"
+  },
+  {
+    "code": "LV",
+    "name": "Latvian",
+    "localName": "Latvie�u"
+  },
+  {
+    "code": "LT",
+    "name": "Lithuanian",
+    "localName": "Lietuviu"
+  },
+  {
+    "code": "LB",
+    "name": "Luxembourgish",
+    "localName": "L�tzebuergesch"
+  },
+  {
+    "code": "MK",
+    "name": "Macedonian",
+    "localName": "??????????"
+  },
+  {
+    "code": "MG",
+    "name": "Malagasy",
+    "localName": "Malagasy"
+  },
+  {
+    "code": "MS",
+    "name": "Malay",
+    "localName": "Melayu"
+  },
+  {
+    "code": "ML",
+    "name": "Malayalam",
+    "localName": "??????"
+  },
+  {
+    "code": "MT",
+    "name": "Maltese",
+    "localName": "Malti"
+  },
+  {
+    "code": "MI",
+    "name": "Maori",
+    "localName": "Maori"
+  },
+  {
+    "code": "MR",
+    "name": "Marathi",
+    "localName": "?????"
+  },
+  {
+    "code": "MN",
+    "name": "Mongolian",
+    "localName": "??????"
+  },
+  {
+    "code": "MY",
+    "name": "Myanmar (Burmese)",
+    "localName": "??????"
+  },
+  {
+    "code": "NE",
+    "name": "Nepali",
+    "localName": "??????"
+  },
+  {
+    "code": "NO",
+    "name": "Norwegian",
+    "localName": "Norsk"
+  },
+  {
+    "code": "OR",
+    "name": "Odia (Oriya)",
+    "localName": "?????"
+  },
+  {
+    "code": "PS",
+    "name": "Pashto",
+    "localName": "????"
+  },
+  {
+    "code": "FA",
+    "name": "Persian",
+    "localName": "?????"
   },
   {
     "code": "PL",
@@ -93,19 +373,179 @@ export const allLanguages = [
     "localName": "Polski"
   },
   {
-    "code": "ID",
-    "name": "Indonesian",
-    "localName": "Bahasa Indonesia"
+    "code": "PT",
+    "name": "Portuguese",
+    "localName": "Portugu�s"
+  },
+  {
+    "code": "PA",
+    "name": "Punjabi",
+    "localName": "??????"
+  },
+  {
+    "code": "RO",
+    "name": "Romanian",
+    "localName": "Rom�na"
+  },
+  {
+    "code": "RU",
+    "name": "Russian",
+    "localName": "???????"
+  },
+  {
+    "code": "SM",
+    "name": "Samoan",
+    "localName": "Samoa"
+  },
+  {
+    "code": "GD",
+    "name": "Scots Gaelic",
+    "localName": "G�idhlig"
+  },
+  {
+    "code": "SR",
+    "name": "Serbian",
+    "localName": "??????"
+  },
+  {
+    "code": "ST",
+    "name": "Sesotho",
+    "localName": "Sesotho"
+  },
+  {
+    "code": "SN",
+    "name": "Shona",
+    "localName": "Shona"
+  },
+  {
+    "code": "SD",
+    "name": "Sindhi",
+    "localName": "????"
+  },
+  {
+    "code": "SI",
+    "name": "Sinhala",
+    "localName": "?????"
+  },
+  {
+    "code": "SK",
+    "name": "Slovak",
+    "localName": "Slovencina"
+  },
+  {
+    "code": "SL",
+    "name": "Slovenian",
+    "localName": "Sloven�cina"
+  },
+  {
+    "code": "SO",
+    "name": "Somali",
+    "localName": "Soomaali"
+  },
+  {
+    "code": "ES",
+    "name": "Spanish",
+    "localName": "Espa�ol"
+  },
+  {
+    "code": "SU",
+    "name": "Sundanese",
+    "localName": "Sunda"
+  },
+  {
+    "code": "SW",
+    "name": "Swahili",
+    "localName": "Kiswahili"
+  },
+  {
+    "code": "SV",
+    "name": "Swedish",
+    "localName": "Svenska"
+  },
+  {
+    "code": "TG",
+    "name": "Tajik",
+    "localName": "??????"
+  },
+  {
+    "code": "TA",
+    "name": "Tamil",
+    "localName": "?????"
+  },
+  {
+    "code": "TT",
+    "name": "Tatar",
+    "localName": "?????"
+  },
+  {
+    "code": "TE",
+    "name": "Telugu",
+    "localName": "??????"
   },
   {
     "code": "TH",
     "name": "Thai",
-    "localName": "ไทย"
+    "localName": "???"
+  },
+  {
+    "code": "TR",
+    "name": "Turkish",
+    "localName": "T�rk�e"
+  },
+  {
+    "code": "TK",
+    "name": "Turkmen",
+    "localName": "T�rkmen"
+  },
+  {
+    "code": "UK",
+    "name": "Ukrainian",
+    "localName": "??????????"
+  },
+  {
+    "code": "UR",
+    "name": "Urdu",
+    "localName": "????"
+  },
+  {
+    "code": "UG",
+    "name": "Uyghur",
+    "localName": "????????"
+  },
+  {
+    "code": "UZ",
+    "name": "Uzbek",
+    "localName": "O?zbek"
   },
   {
     "code": "VI",
     "name": "Vietnamese",
-    "localName": "Tiếng Việt"
+    "localName": "Ti?ng Vi?t"
+  },
+  {
+    "code": "CY",
+    "name": "Welsh",
+    "localName": "Cymraeg"
+  },
+  {
+    "code": "XH",
+    "name": "Xhosa",
+    "localName": "isiXhosa"
+  },
+  {
+    "code": "YI",
+    "name": "Yiddish",
+    "localName": "??????"
+  },
+  {
+    "code": "YO",
+    "name": "Yoruba",
+    "localName": "Yor�b�"
+  },
+  {
+    "code": "ZU",
+    "name": "Zulu",
+    "localName": "isiZulu"
   }
 ];
 

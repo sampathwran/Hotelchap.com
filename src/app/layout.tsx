@@ -30,6 +30,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sky-50 text-gray-900">
+        <div id="google_translate_element" style={{ display: "none" }}></div>
+        <Script id="google-translate-init" strategy="beforeInteractive">
+          {`
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false
+              }, 'google_translate_element');
+            }
+          `}
+        </Script>
+        <Script id="google-translate-script" strategy="beforeInteractive" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" />
+
         {/* Stay22 LetMeAllez Script for Affiliate Monetization */}
         <Script id="stay22-script" strategy="afterInteractive">
           {`
