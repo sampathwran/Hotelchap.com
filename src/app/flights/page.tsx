@@ -5,6 +5,7 @@ import MegaFooter from "@/components/MegaFooter";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
 import FlightOffersSlider from "@/components/FlightOffersSlider";
 import PopularFlightRoutes from "@/components/PopularFlightRoutes";
+import FareAlertsForm from "@/components/FareAlertsForm";
 import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
 
 export default function FlightsPage() {
@@ -123,20 +124,7 @@ export default function FlightsPage() {
         </div>
 
         {/* Fare Alerts Sidebar (Takes 1 column) */}
-        <div className="bg-[#673AB7] rounded-3xl p-8 text-white text-center flex flex-col justify-center shadow-xl relative overflow-hidden">
-          <div className="absolute -top-10 -right-10 opacity-20 w-40 h-40">
-            <Bell size={160} />
-          </div>
-          <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md relative z-10">
-            <Bell size={32} />
-          </div>
-          <h3 className="text-2xl font-black mb-3 relative z-10">Never miss a deal!</h3>
-          <p className="text-purple-200 mb-6 font-medium relative z-10">Subscribe to fare alerts and get notified instantly when prices drop to your favorite destinations.</p>
-          <div className="flex flex-col gap-3 relative z-10">
-            <input type="email" placeholder="Your email address" className="px-4 py-3 rounded-xl text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-purple-300" />
-            <button className="bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Subscribe Now</button>
-          </div>
-        </div>
+        <FareAlertsForm />
       </div>
 
       {/* 5. Travel Tips & Blog Section */}
