@@ -1,4 +1,16 @@
-"use client";
+const fs = require("fs");
+
+let settings = fs.readFileSync("src/context/SettingsContext.tsx", "utf8");
+settings = settings.replace(/const setLanguage = \(newLanguage: string\) => \{[\s\S]*?\};\s*return \(/, 
+`const setLanguage = (newLanguage: string) => {
+    setLanguageState(newLanguage);
+    localStorage.setItem("app_language", newLanguage);
+  };
+
+  return (`);
+fs.writeFileSync("src/context/SettingsContext.tsx", settings, "utf8");
+
+let gt = `"use client";
 import { useEffect } from "react";
 import { useSettings } from "@/context/SettingsContext";
 
@@ -59,3 +71,6 @@ export default function GoogleTranslate() {
 
   return <div id="google_translate_element" style={{ display: "none" }}></div>;
 }
+`;
+fs.writeFileSync("src/components/GoogleTranslate.tsx", gt, "utf8");
+

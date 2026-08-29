@@ -31,8 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sky-50 text-gray-900">
-        <GoogleTranslate />
-
         {/* Stay22 LetMeAllez Script for Affiliate Monetization */}
         <Script id="stay22-script" strategy="afterInteractive">
           {`
@@ -50,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <GoogleOAuthProvider clientId="138916892371-uk50uaqnu7ambeml7nvb81k2u45rauvo.apps.googleusercontent.com">
         <SettingsProvider>
+          <GoogleTranslate />
         <AuthProvider>
           <VisitTracker />
           <GoogleOneTap />
