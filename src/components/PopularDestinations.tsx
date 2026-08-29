@@ -1,95 +1,172 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
+import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 export default function PopularDestinations() {
   const router = useRouter();
-  const [destinations, setDestinations] = useState<any[]>([]);
+  
+  const [activeTab, setActiveTab] = useState<"countries" | "cities">("countries");
+  const [countries, setCountries] = useState<any[]>([]);
+  const [cities, setCities] = useState<any[]>([]);
+  const [selectedCountryId, setSelectedCountryId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchDestinations = async () => {
+    const fetchData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "destinations"));
-        const data: any[] = [];
-        querySnapshot.forEach((doc) => {
-          data.push({ id: doc.id, ...doc.data() });
-        });
-        setDestinations(data);
+        const [countriesSnap, citiesSnap] = await Promise.all([
+          getDocs(collection(db, "countries")),
+          getDocs(collection(db, "cities"))
+        ]);
+        
+        const countriesData = countriesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const citiesData = citiesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        
+        setCountries(countriesData);
+        setCities(citiesData);
       } catch (error) {
         console.error("Error fetching destinations:", error);
       }
       setLoading(false);
     };
 
-    fetchDestinations();
+    fetchData();
   }, []);
 
+  const handleCountryClick = (countryId: string) => {
+    setSelectedCountryId(countryId);
+    setActiveTab("cities");
+  };
+
+  const handleCityClick = (cityName: string) => {
+    trackEvent("clicks");
+    router.push(`/search?dest=${encodeURIComponent(cityName)}`);
+  };
+
+  const displayedCities = selectedCountryId 
+    ? cities.filter(c => c.countryId === selectedCountryId)
+    : cities;
+
   return (
-    <div className="w-full px-4 md:px-10 py-10 md:py-16 bg-white">
+    <div className="w-full px-4 md:px-10 py-10 md:py-16 bg-gray-50">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex justify-between items-end mb-8 md:mb-10">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Popular Destinations</h2>
-            <p className="text-gray-500 font-medium">Explore top-rated spots chosen by travelers worldwide.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 md:mb-12 gap-4">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Best Destinations</h2>
+            <p className="text-gray-500 font-medium">Explore the world's top countries and vibrant cities.</p>
           </div>
-          <button className="hidden md:block font-bold text-[#673AB7] hover:bg-purple-50 px-4 py-2 rounded-full transition">
-            See all
-          </button>
+          
+          {/* Custom Tabs */}
+          <div className="flex bg-white p-1 rounded-full shadow-sm border border-gray-100">
+            <button 
+              onClick={() => { setActiveTab("countries"); setSelectedCountryId(null); }}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === "countries" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
+            >
+              Countries
+            </button>
+            <button 
+              onClick={() => setActiveTab("cities")}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === "cities" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
+            >
+              Cities
+            </button>
+          </div>
         </div>
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-[#673AB7]"></div>
           </div>
-        ) : destinations.length === 0 ? (
-          <div className="text-center py-20 text-gray-500 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
-            <p className="font-bold text-lg mb-2">No Destinations Found</p>
-            <p>Admin hasn't added any popular destinations yet.</p>
-          </div>
-        ) : (
-          <div className="flex overflow-x-auto hide-scrollbar gap-4 md:gap-6 pb-6 snap-x">
-            {destinations.map((dest, idx) => (
-              <div 
-                key={dest.id || idx}
-                onClick={() => {
-                  import('@/lib/analytics').then(m => m.trackEvent('clicks'));
-                  router.push(`/search?dest=${encodeURIComponent(dest.name)}`);
-                }}
-                className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 cursor-pointer"
-              >
-                {/* Image Box */}
-                <div className="h-[200px] md:h-[240px] w-full relative overflow-hidden">
+        ) : activeTab === "countries" ? (
+          /* COUNTRIES VIEW */
+          countries.length === 0 ? (
+            <div className="text-center py-20 text-gray-500 bg-white rounded-2xl border border-dashed border-gray-300">
+              <p className="font-bold text-lg mb-2">No Countries Found</p>
+              <p>Admin hasn't added any countries yet.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {countries.map((country) => (
+                <div 
+                  key={country.id}
+                  onClick={() => handleCountryClick(country.id)}
+                  className="group relative h-[280px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                >
                   <div className="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
-                  <img 
-                    src={dest.image} 
-                    alt={dest.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
-                    <span className="text-yellow-500 mr-1">★</span> {dest.rating}
+                  <img src={country.image} alt={country.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <div className="flex items-center gap-2">
+                      <span className="text-3xl">{country.flag}</span>
+                      <h3 className="text-2xl font-bold">{country.name}</h3>
+                    </div>
+                    <p className="text-sm text-gray-300 mt-1">{cities.filter(c => c.countryId === country.id).length} Cities</p>
                   </div>
                 </div>
+              ))}
+            </div>
+          )
+        ) : (
+          /* CITIES VIEW */
+          displayedCities.length === 0 ? (
+            <div className="text-center py-20 text-gray-500 bg-white rounded-2xl border border-dashed border-gray-300">
+              <p className="font-bold text-lg mb-2">No Cities Found</p>
+              <p>{selectedCountryId ? "No cities added for this country yet." : "No cities added yet."}</p>
+              {selectedCountryId && (
+                <button onClick={() => { setActiveTab("countries"); setSelectedCountryId(null); }} className="mt-4 text-[#673AB7] font-bold underline">
+                  Back to Countries
+                </button>
+              )}
+            </div>
+          ) : (
+            <div>
+              {selectedCountryId && (
+                 <div className="mb-6 flex items-center gap-2">
+                   <button onClick={() => { setActiveTab("countries"); setSelectedCountryId(null); }} className="text-gray-500 hover:text-[#673AB7] font-bold text-sm flex items-center gap-1">
+                     &larr; All Countries
+                   </button>
+                   <span className="text-gray-300">|</span>
+                   <span className="text-gray-700 font-bold text-sm">Showing cities for {countries.find(c => c.id === selectedCountryId)?.name}</span>
+                 </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {displayedCities.map((city) => (
+                  <div key={city.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    {/* Image Box */}
+                    <div className="h-[220px] w-full relative overflow-hidden shrink-0">
+                      <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-gray-800 flex items-center shadow-sm">
+                        <span className="text-yellow-500 mr-1">?</span> {city.rating}
+                      </div>
+                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-white">
+                        {city.reviews} reviews
+                      </div>
+                    </div>
 
-                {/* Content Box */}
-                <div className="p-4 md:p-5">
-                  <h3 className="font-bold text-lg text-gray-900 group-hover:text-[#673AB7] transition-colors line-clamp-1">{dest.name}</h3>
-                  <p className="text-sm text-gray-500 mt-1 line-clamp-2 min-h-[40px]">{dest.desc}</p>
-                  
-                  {/* Meta Stats */}
-                  <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100 text-xs font-semibold text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <span className="text-gray-400">💬</span> {dest.reviews}
+                    {/* Content Box */}
+                    <div className="p-5 flex flex-col grow">
+                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-[#673AB7] transition-colors">{city.name}</h3>
+                      <p className="text-sm text-gray-500 mt-2 line-clamp-3 leading-relaxed grow">{city.desc}</p>
+                      
+                      {/* Action Button */}
+                      <button 
+                        onClick={() => handleCityClick(city.name)}
+                        className="mt-6 w-full py-3 bg-[#673AB7]/10 hover:bg-[#673AB7] text-[#673AB7] hover:text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-2"
+                      >
+                        View Hotels
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                      </button>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          )
         )}
       </div>
     </div>
