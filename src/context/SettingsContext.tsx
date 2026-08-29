@@ -40,7 +40,9 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
     } else {
+      document.cookie = "googtrans=/en/" + code + "; path=/;";
       document.cookie = "googtrans=/auto/" + code + "; path=/;";
+      document.cookie = "googtrans=/en/" + code + "; domain=" + window.location.hostname + "; path=/;";
       document.cookie = "googtrans=/auto/" + code + "; domain=" + window.location.hostname + "; path=/;";
     }
     

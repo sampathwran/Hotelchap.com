@@ -1,6 +1,7 @@
-import { useSettings } from "@/context/SettingsContext";
+const fs = require("fs");
+let code = fs.readFileSync("src/lib/i18n.ts", "utf8");
 
-export const translations: Record<string, Record<string, string>> = {
+code = code.replace(/export const translations: Record<string, Record<string, string>> = \{[\s\S]*?export function useTranslation/m, `export const translations: Record<string, Record<string, string>> = {
   EN: {
     hotels: "Hotels",
     flights: "Flights",
@@ -23,18 +24,7 @@ export const translations: Record<string, Record<string, string>> = {
   }
 };
 
-export function useTranslation() {
-  const { language } = useSettings();
-  
-  const t = (key: string) => {
-    if (translations[language] && translations[language][key]) {
-      return translations[language][key];
-    }
-    if (translations["EN"][key]) {
-      return translations["EN"][key];
-    }
-    return key;
-  };
+export function useTranslation`);
 
-  return { t, language };
-}
+fs.writeFileSync("src/lib/i18n.ts", code, "utf8");
+
