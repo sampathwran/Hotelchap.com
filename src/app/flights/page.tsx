@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
 import TravelpayoutsFlightWidget from "@/components/TravelpayoutsFlightWidget";
+import FlightOffersSlider from "@/components/FlightOffersSlider";
 import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
 
 export default function FlightsPage() {
@@ -63,29 +64,8 @@ export default function FlightsPage() {
         </div>
       </div>
 
-      {/* 2. Flight Deals / Flash Offers */}
-      <div className="max-w-7xl mx-auto px-4 py-16 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 text-white relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300">
-            <div className="absolute right-0 top-0 opacity-10 w-64 h-64 transform translate-x-16 -translate-y-16">
-              <Plane size={256} />
-            </div>
-            <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Special Offer</span>
-            <h3 className="text-3xl font-black mb-2">Up to 20% Off to Dubai</h3>
-            <p className="text-blue-100 mb-6 max-w-sm">Book Emirates flights today and enjoy exclusive discounts on your baggage and meals.</p>
-            <button className="bg-white text-indigo-700 font-bold px-6 py-2 rounded-xl shadow-md hover:bg-gray-50 transition">Book Now</button>
-          </div>
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl p-8 text-white relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300">
-             <div className="absolute right-0 top-0 opacity-10 w-64 h-64 transform translate-x-16 -translate-y-16">
-              <ShieldCheck size={256} />
-            </div>
-            <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Student Deal</span>
-            <h3 className="text-3xl font-black mb-2">Extra Baggage for Students</h3>
-            <p className="text-red-100 mb-6 max-w-sm">Verify your student ID and get an additional 10KG baggage allowance for free globally.</p>
-            <button className="bg-white text-red-500 font-bold px-6 py-2 rounded-xl shadow-md hover:bg-gray-50 transition">Learn More</button>
-          </div>
-        </div>
-      </div>
+      {/* 2. Flight Deals / Flash Offers (Dynamic) */}
+      <FlightOffersSlider />
 
       {/* Why Choose Us */}
       <div className="bg-gray-50 py-16">
