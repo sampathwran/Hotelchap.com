@@ -39,7 +39,7 @@ export default function TrustedPartnersMarquee() {
                     nextSibling.classList.remove('hidden');
                   }
                 }}
-                className="max-h-8 md:max-h-12 w-auto object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="max-h-8 md:max-h-12 w-auto object-contain hover:scale-110 transition-transform duration-300"
               />
               <span className="hidden font-black text-xl md:text-2xl text-gray-800 opacity-40 uppercase tracking-widest">{logo.name}</span>
             </div>
