@@ -3,14 +3,14 @@
 import React from "react";
 
 const logos = [
-  { name: "Avis", url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Avis_logo.svg" },
-  { name: "Hertz", url: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hertz_logo.svg" },
-  { name: "Europcar", url: "https://upload.wikimedia.org/wikipedia/commons/0/07/Europcar_Logo.svg" },
-  { name: "Enterprise", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Enterprise_Rent-A-Car_logo.svg" },
-  { name: "Sixt", url: "https://upload.wikimedia.org/wikipedia/commons/7/74/Sixt_logo.svg" },
-  { name: "Budget", url: "https://upload.wikimedia.org/wikipedia/commons/9/91/Budget_Rent_a_Car_logo.svg" },
-  { name: "Alamo", url: "https://upload.wikimedia.org/wikipedia/commons/0/07/Alamo_Rent_A_Car_Logo.svg" },
-  { name: "National", url: "https://upload.wikimedia.org/wikipedia/commons/9/9b/National_Car_Rental_Logo.svg" },
+  { name: "Avis", url: "/partners/avis.png" },
+  { name: "Hertz", url: "/partners/hertz.png" },
+  { name: "Europcar", url: "/partners/europcar.png" },
+  { name: "Enterprise", url: "/partners/enterprise.png" },
+  { name: "Sixt", url: "/partners/sixt.png" },
+  { name: "Budget", url: "/partners/budget.png" },
+  { name: "Alamo", url: "/partners/alamo.png" },
+  { name: "National", url: "/partners/national.png" },
 ];
 
 export default function TrustedPartnersMarquee() {
@@ -35,8 +35,16 @@ export default function TrustedPartnersMarquee() {
               <img 
                 src={logo.url} 
                 alt={logo.name} 
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                  const nextSibling = (e.target as HTMLImageElement).nextElementSibling;
+                  if (nextSibling) {
+                    nextSibling.classList.remove('hidden');
+                  }
+                }}
                 className="max-h-8 md:max-h-12 w-auto object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               />
+              <span className="hidden font-black text-xl md:text-2xl text-gray-800 opacity-40 uppercase tracking-widest">{logo.name}</span>
             </div>
           ))}
         </div>
