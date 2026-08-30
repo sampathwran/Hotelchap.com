@@ -12,7 +12,7 @@ import CustomerReviews from "@/components/CustomerReviews";
 import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Globe, CircleDollarSign, Menu, Smartphone } from "lucide-react";
+import { Globe, CircleDollarSign, Menu, Smartphone, Building, MapPin, CreditCard, Plane, Calendar, Tag, Car, Map, Shield, Clock, UserCheck, ThumbsUp, Ticket, Camera, Star, Ship, Coffee } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
 import LanguageModal from "@/components/LanguageModal";
 
@@ -107,6 +107,39 @@ export default function Home() {
   // Fallback to EN if translation doesn't exist
   
   
+  const tabFeatures: Record<string, {icon: any, text: string}[]> = {
+    hotels: [
+      { icon: <Building size={16} />, text: "Luxury & Budget Hotels" },
+      { icon: <MapPin size={16} />, text: "Prime Locations" },
+      { icon: <CreditCard size={16} />, text: "Pay at Property" }
+    ],
+    flights: [
+      { icon: <Plane size={16} />, text: "500+ Airlines" },
+      { icon: <Calendar size={16} />, text: "Flexible Dates" },
+      { icon: <Tag size={16} />, text: "Best Fares" }
+    ],
+    cars: [
+      { icon: <Car size={16} />, text: "Top Brands" },
+      { icon: <Map size={16} />, text: "Unlimited Mileage" },
+      { icon: <Shield size={16} />, text: "Free Cancellation" }
+    ],
+    transfers: [
+      { icon: <Clock size={16} />, text: "24/7 Availability" },
+      { icon: <UserCheck size={16} />, text: "Pro Drivers" },
+      { icon: <ThumbsUp size={16} />, text: "Fixed Prices" }
+    ],
+    attractions: [
+      { icon: <Ticket size={16} />, text: "Skip-the-line" },
+      { icon: <Camera size={16} />, text: "Guided Tours" },
+      { icon: <Star size={16} />, text: "Exclusive" }
+    ],
+    cruises: [
+      { icon: <Ship size={16} />, text: "Ocean & River" },
+      { icon: <Coffee size={16} />, text: "All-Inclusive" },
+      { icon: <Globe size={16} />, text: "Worldwide" }
+    ]
+  };
+
   const tabShapes: Record<string, string> = {
     "hotels": "rounded-b-[30px] md:rounded-b-[80px]",
     "flights": "rounded-b-[30px] md:rounded-br-[180px] md:rounded-bl-[30px]",
@@ -248,7 +281,7 @@ export default function Home() {
           ></div>
           
           {/* Light Overlay (instead of Dark) to make it vibrant but still readable */}
-          <div className="absolute inset-0 bg-black/10 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-black/50 transition-opacity duration-500"></div>
           
           {/* Dynamic Text Layout */}
           <div className="relative z-10 max-w-3xl text-center transition-all duration-500">
@@ -256,14 +289,21 @@ export default function Home() {
               {currentData.subtitle[language] || currentData.subtitle["EN"]}
             </span>
             
-            <h1 className="flex flex-col gap-1 md:gap-2 mb-6" style={{ textShadow: '0 4px 24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.9)' }}>
-              <span className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
-                {currentData.title[language] || currentData.title["EN"]}
-              </span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-2xl leading-tight mb-4" style={{ textShadow: '0 4px 24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.9)' }}>
+              {currentData.title[language] || currentData.title["EN"]}{" "}
               <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                 {currentData.gradientText[language] || currentData.gradientText["EN"]}
               </span>
             </h1>
+            
+            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-4">
+              {tabFeatures[activeTab]?.map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-white/90 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/30 text-sm md:text-base font-medium shadow-sm">
+                  {feature.icon}
+                  <span>{feature.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
