@@ -7,31 +7,6 @@ export default function GoogleTranslate() {
   const prevLanguage = useRef(language);
 
   useEffect(() => {
-    // Only add the script if it doesn't exist
-    if (!document.getElementById("google-translate-script")) {
-      (window as any).googleTranslateElementInit = () => {
-        try {
-          new (window as any).google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              autoDisplay: false,
-            },
-            "google_translate_element"
-          );
-        } catch (e) {
-          console.error("Google Translate Error:", e);
-        }
-      };
-
-      const addScript = document.createElement("script");
-      addScript.id = "google-translate-script";
-      addScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      addScript.async = true;
-      document.body.appendChild(addScript);
-    }
-  }, []);
-
-  useEffect(() => {
     let targetLang = language.toLowerCase();
     if (targetLang === "zh-cn") targetLang = "zh-CN";
     if (targetLang === "zh-tw") targetLang = "zh-TW";
