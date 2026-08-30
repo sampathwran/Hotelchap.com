@@ -272,7 +272,7 @@ export default function Home() {
       <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
-        <div className={`relative w-[95%] md:w-[92%] max-w-6xl mx-auto h-[350px] md:h-[400px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-xl transition-all duration-700 ease-in-out pt-[50px] md:pt-[80px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
+        <div className={`relative w-[95%] md:w-[92%] max-w-6xl mx-auto h-[450px] md:h-[500px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-xl transition-all duration-700 ease-in-out pt-[50px] md:pt-[80px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
           
           {/* Dynamic Full Cover Image */}
           <div 
@@ -313,7 +313,7 @@ export default function Home() {
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[350px] md:pt-[400px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[450px] md:pt-[500px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
@@ -338,10 +338,10 @@ export default function Home() {
                   <button 
                     key={key}
                     onClick={() => setActiveTab(key as any)}
-                    className={`flex flex-col items-center gap-2 font-semibold pb-2 min-w-[80px] transition-all ${activeTab === key ? 'text-[#673AB7] border-b-2 border-[#673AB7]' : 'text-gray-400 hover:text-[#673AB7]'}`}
+                    className={`flex flex-col items-center gap-2 font-bold pb-2 min-w-[90px] transition-all ${activeTab === key ? 'text-[#673AB7] border-b-[3px] border-[#673AB7]' : 'text-gray-500 hover:text-[#673AB7]'}`}
                   >
-                    <span className="text-2xl">{icon}</span>
-                    <span className="text-sm capitalize">{t(key)}</span>
+                    <span className="text-3xl md:text-4xl">{icon}</span>
+                    <span className="text-base md:text-lg capitalize tracking-wide">{t(key)}</span>
                   </button>
                 );
               })}
