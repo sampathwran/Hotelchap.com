@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 
 export const allLanguages = [
-  { code: "EN", name: "English", localName: "English" },
-  { code: "SI", name: "Sinhala", localName: "Sinhala" },
-  { code: "TA", name: "Tamil", localName: "Tamil" },
-  { code: "AR", name: "Arabic", localName: "Arabic" },
-  { code: "ZH-CN", name: "Chinese", localName: "Chinese" },
-  { code: "FR", name: "French", localName: "French" },
-  { code: "DE", name: "German", localName: "German" },
-  { code: "HI", name: "Hindi", localName: "Hindi" },
-  { code: "IT", name: "Italian", localName: "Italian" },
-  { code: "JA", name: "Japanese", localName: "Japanese" },
-  { code: "KO", name: "Korean", localName: "Korean" },
-  { code: "PT", name: "Portuguese", localName: "Portuguese" },
-  { code: "RU", name: "Russian", localName: "Russian" },
-  { code: "ES", name: "Spanish", localName: "Spanish" },
-  { code: "TR", name: "Turkish", localName: "Turkish" },
-  { code: "TH", name: "Thai", localName: "Thai" },
-  { code: "NL", name: "Dutch", localName: "Dutch" },
-  { code: "SV", name: "Swedish", localName: "Swedish" },
-  { code: "NO", name: "Norwegian", localName: "Norwegian" },
-  { code: "FI", name: "Finnish", localName: "Finnish" }
+  { code: "EN", name: "English", localName: "English", flag: "🇺🇸" },
+  { code: "SI", name: "Sinhala", localName: "Sinhala", flag: "🇱🇰" },
+  { code: "TA", name: "Tamil", localName: "Tamil", flag: "🇮🇳" },
+  { code: "AR", name: "Arabic", localName: "Arabic", flag: "🇸🇦" },
+  { code: "ZH-CN", name: "Chinese", localName: "Chinese", flag: "🇨🇳" },
+  { code: "FR", name: "French", localName: "French", flag: "🇫🇷" },
+  { code: "DE", name: "German", localName: "German", flag: "🇩🇪" },
+  { code: "HI", name: "Hindi", localName: "Hindi", flag: "🇮🇳" },
+  { code: "IT", name: "Italian", localName: "Italian", flag: "🇮🇹" },
+  { code: "JA", name: "Japanese", localName: "Japanese", flag: "🇯🇵" },
+  { code: "KO", name: "Korean", localName: "Korean", flag: "🇰🇷" },
+  { code: "PT", name: "Portuguese", localName: "Portuguese", flag: "🇵🇹" },
+  { code: "RU", name: "Russian", localName: "Russian", flag: "🇷🇺" },
+  { code: "ES", name: "Spanish", localName: "Spanish", flag: "🇪🇸" },
+  { code: "TR", name: "Turkish", localName: "Turkish", flag: "🇹🇷" },
+  { code: "TH", name: "Thai", localName: "Thai", flag: "🇹🇭" },
+  { code: "NL", name: "Dutch", localName: "Dutch", flag: "🇳🇱" },
+  { code: "SV", name: "Swedish", localName: "Swedish", flag: "🇸🇪" },
+  { code: "NO", name: "Norwegian", localName: "Norwegian", flag: "🇳🇴" },
+  { code: "FI", name: "Finnish", localName: "Finnish", flag: "🇫🇮" }
 ];
 
 export default function LanguageModal({ 
@@ -81,9 +81,12 @@ export default function LanguageModal({
                 onClick={() => { onSelect(l.code); onClose(); }}
                 className={"flex items-center justify-between p-4 rounded-xl border transition-all " + (isActive ? "border-[#673AB7] bg-purple-50 shadow-md ring-1 ring-[#673AB7]" : "border-gray-100 hover:border-gray-300 hover:shadow-sm hover:bg-gray-50")}
               >
-                <div className="flex flex-col items-start">
-                  <span className={"font-black text-lg " + (isActive ? "text-[#673AB7]" : "text-gray-800")}>{l.localName}</span>
-                  <span className="text-xs text-gray-500 font-medium mt-0.5">{l.name}</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">{l.flag}</span>
+                  <div className="flex flex-col items-start">
+                    <span className={"font-black text-lg " + (isActive ? "text-[#673AB7]" : "text-gray-800")}>{l.localName}</span>
+                    <span className="text-xs text-gray-500 font-medium mt-0.5">{l.name}</span>
+                  </div>
                 </div>
                 <div className={"flex items-center justify-center w-10 h-10 rounded-full font-bold text-sm " + (isActive ? "bg-[#673AB7] text-white" : "bg-gray-100 text-gray-600")}>
                   {l.code}
