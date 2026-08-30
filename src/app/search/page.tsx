@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import { filterCategories } from "@/lib/filterData";
 import { allCurrencies } from "@/components/CurrencyModal";
 import { useSettings } from "@/context/SettingsContext";
+import { addToWishlist, isInWishlist, removeFromWishlist } from "@/utils/wishlistStore";
 
 const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
@@ -267,9 +268,24 @@ function SearchResults() {
                       {hotel.highlights[0]}
                     </span>
                   )}
-                  <button className="absolute top-4 right-4 bg-white/90 p-2 rounded-full text-gray-400 hover:text-red-500 hover:bg-white shadow-sm transition">
-                    <Heart size={20} />
-                  </button>
+                  <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addToWishlist({
+                          id: hotel.id,
+                          type: "hotel",
+                          title: hotel.name,
+                          location: "City Center",
+                          image: hotel.image,
+                          price: `${getCurrencySymbol(currency)}${hotel.price}`,
+                          rating: hotel.rating
+                        });
+                      }}
+                      className="absolute top-4 right-4 bg-white/90 p-2 rounded-full text-gray-400 hover:text-red-500 hover:bg-white shadow-sm transition z-10"
+                    >
+                      <Heart size={20} />
+                    </button>
                 </div>
 
                 {/* Content Section */}
