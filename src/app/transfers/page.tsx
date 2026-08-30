@@ -8,37 +8,9 @@ import {
   PlaneLanding, Wallet, ThumbsUp, Car, Users, Star, Luggage 
 } from "lucide-react";
 
+import TransferFleet from "@/components/TransferFleet";
+
 export default function TransfersPage() {
-  const vehicleClasses = [
-    {
-      name: "Economy Class",
-      desc: "Affordable and comfortable rides for budget travelers.",
-      pax: 3,
-      luggage: 2,
-      img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600&auto=format&fit=crop" // Basic sedan
-    },
-    {
-      name: "Business Class",
-      desc: "Travel in style and comfort with our premium sedans.",
-      pax: 3,
-      luggage: 2,
-      img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=600&auto=format&fit=crop" // BMW/Mercedes
-    },
-    {
-      name: "Minivan / SUV",
-      desc: "Spacious vehicles perfect for families and small groups.",
-      pax: 6,
-      luggage: 4,
-      img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=600&auto=format&fit=crop" // SUV/Minivan
-    },
-    {
-      name: "First Class",
-      desc: "The ultimate luxury experience for VIP travelers.",
-      pax: 3,
-      luggage: 2,
-      img: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=600&auto=format&fit=crop" // Luxury Rolls Royce/Maybach
-    }
-  ];
 
   const faqs = [
     { q: "How do I meet my driver at the airport?", a: "Your driver will wait in the arrivals hall holding a sign with your name. You will also receive their contact details before your trip." },
@@ -109,41 +81,7 @@ export default function TransfersPage() {
       </div>
 
       {/* Vehicle Classes */}
-      <div className="bg-gray-50 py-20 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Fleet Options</h2>
-              <p className="text-gray-500 font-medium text-lg">A vehicle for every traveler and group size</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {vehicleClasses.map((vehicle, idx) => (
-              <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
-                <div className="h-56 overflow-hidden relative">
-                  <img src={vehicle.img} alt={vehicle.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <h3 className="absolute bottom-4 left-6 text-2xl font-black text-white">{vehicle.name}</h3>
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <p className="text-gray-500 font-medium text-sm mb-6 flex-grow">{vehicle.desc}</p>
-                  <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                    <div className="flex items-center text-gray-600 font-bold gap-1.5">
-                      <Users size={18} className="text-[#673AB7]" />
-                      <span>{vehicle.pax} Max</span>
-                    </div>
-                    <div className="flex items-center text-gray-600 font-bold gap-1.5">
-                      <Luggage size={18} className="text-[#673AB7]" />
-                      <span>{vehicle.luggage} Max</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <TransferFleet />
 
       {/* Why Choose Us */}
       <div className="max-w-7xl mx-auto px-4 py-20 w-full">
