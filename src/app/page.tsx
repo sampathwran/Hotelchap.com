@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
 import LanguageModal from "@/components/LanguageModal";
+import MainMenu from "@/components/MainMenu";
 import { useAuth } from "@/context/AuthContext";
 import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
@@ -207,9 +208,7 @@ export default function Home() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex ml-auto items-center gap-5 relative">
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("getApp")}</button>
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("listProperty")}</button>
-          <button className="font-bold text-gray-800 drop-shadow-sm hover:text-[#673AB7] transition">{t("support")}</button>
+          <MainMenu />
           
           <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
           

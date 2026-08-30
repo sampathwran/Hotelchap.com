@@ -9,6 +9,7 @@ import { useSettings } from "@/context/SettingsContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
 import LanguageModal, { allLanguages } from "./LanguageModal";
+import MainMenu from "./MainMenu";
 
 
 export default function Header() {
@@ -88,9 +89,7 @@ export default function Header() {
 
       {/* Desktop Actions */}
       <div className="hidden md:flex ml-auto items-center gap-5 relative">
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("getApp")}</button>
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("listProperty")}</button>
-        <button className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("support")}</button>
+        <MainMenu />
         
         <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
         
