@@ -18,29 +18,25 @@ export default function GoogleTranslate() {
 
       if (targetLang === "en") return;
 
-      // Clean React hydration artifacts
-      const htmlElement = document.getElementsByTagName("html")[0];
-      if (htmlElement) {
-        const classNames = htmlElement.className.split(" ");
-        htmlElement.className = classNames.filter(c => c !== "translated-ltr" && c !== "translated-rtl").join(" ");
-      }
-
-      // Force Google Translate to process newly rendered React nodes (hydration or navigation)
-      // by setting the value (even if it's already set) and dispatching a change event.
-      selectElement.value = targetLang;
+      // To force Google Translate to translate newly rendered English text 
+      // (from React hydration or Next.js client-side navigation),
+      // we must reset it to English, dispatch the event, and then set it back to the target language.
+      selectElement.value = "en";
       selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+
+      setTimeout(() => {
+        selectElement.value = targetLang;
+        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      }, 50);
     };
 
-    // Run after a short delay to allow React to render the new DOM
-    const t1 = setTimeout(doTranslate, 100);
-    // Fallback delay in case the Google Translate script was slow to load
-    const t2 = setTimeout(doTranslate, 1000);
-    const t3 = setTimeout(doTranslate, 3000);
+    // Run when the component mounts or path changes, after giving React time to render
+    const t1 = setTimeout(doTranslate, 150);
+    const t2 = setTimeout(doTranslate, 800);
 
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(t3);
     };
   }, [language, pathname]);
 
