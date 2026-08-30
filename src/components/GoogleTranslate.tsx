@@ -1,11 +1,13 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSettings } from "@/context/SettingsContext";
 
 export default function GoogleTranslate() {
   const { language } = useSettings();
+  const prevLanguage = useRef(language);
 
   useEffect(() => {
+    // Only add the script if it doesn't exist
     if (!document.getElementById("google-translate-script")) {
       (window as any).googleTranslateElementInit = () => {
         try {
@@ -30,31 +32,39 @@ export default function GoogleTranslate() {
   }, []);
 
   useEffect(() => {
+    if (prevLanguage.current === language) return;
+    prevLanguage.current = language;
+
     const triggerTranslation = () => {
+      let targetLang = language.toLowerCase();
+      
+      // Handle special GT codes
+      if (targetLang === "zh-cn") targetLang = "zh-CN";
+      if (targetLang === "zh-tw") targetLang = "zh-TW";
+
+      // If switching back to English, clear cookies and reload to restore original DOM
+      if (targetLang === "en") {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+        window.location.reload();
+        return;
+      }
+
+      // Set cookie to force GT
+      document.cookie = `googtrans=/en/${targetLang}; path=/;`;
+      document.cookie = `googtrans=/en/${targetLang}; path=/; domain=${window.location.hostname};`;
+
       const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (selectElement) {
-        let targetLang = language.toLowerCase();
-        
-        // Handle simplified/traditional chinese codes for GT
-        if (targetLang === "zh-cn") targetLang = "zh-CN";
-        if (targetLang === "zh-tw") targetLang = "zh-TW";
-
-        if (selectElement.value !== targetLang) {
-          selectElement.value = targetLang;
-          selectElement.dispatchEvent(new Event("change"));
-        }
+        selectElement.value = targetLang;
+        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      } else {
+        // If the widget isn't loaded yet, reload the page so the cookie takes effect
+        window.location.reload();
       }
     };
 
-    const intervalId = setInterval(() => {
-      const selectElement = document.querySelector(".goog-te-combo");
-      if (selectElement) {
-        triggerTranslation();
-        clearInterval(intervalId);
-      }
-    }, 500);
-
-    return () => clearInterval(intervalId);
+    triggerTranslation();
   }, [language]);
 
   return <div id="google_translate_element" style={{ display: "none" }}></div>;
