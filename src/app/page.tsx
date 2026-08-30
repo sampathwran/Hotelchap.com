@@ -105,6 +105,16 @@ export default function Home() {
 
   // Fallback to EN if translation doesn't exist
   
+  
+  const tabShapes: Record<string, string> = {
+    "hotels": "rounded-b-[30px] md:rounded-b-[80px]",
+    "flights": "rounded-b-[30px] md:rounded-br-[180px] md:rounded-bl-[30px]",
+    "cars": "rounded-b-[30px] md:rounded-bl-[180px] md:rounded-br-[30px]",
+    "transfers": "rounded-b-[30px] md:rounded-b-[120px]",
+    "attractions": "rounded-b-[30px] md:rounded-br-[60px] md:rounded-bl-[160px]",
+    "cruises": "rounded-b-[30px] md:rounded-bl-[60px] md:rounded-br-[160px]",
+  };
+
   const currentData = tabData[activeTab];
 
   const [showTopNav, setShowTopNav] = useState(true);
@@ -238,7 +248,7 @@ export default function Home() {
 
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-0 left-0 w-full z-0">
-        <div className="relative w-full h-[450px] md:h-[550px] bg-gray-900 rounded-b-[30px] md:rounded-b-[80px] flex flex-col justify-start items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-500 pt-[120px] md:pt-[150px]">
+        <div className={`relative w-full h-[450px] md:h-[550px] bg-gray-900 flex flex-col justify-start items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[120px] md:pt-[150px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
           
           {/* Dynamic Full Cover Image */}
           <div 
@@ -276,7 +286,7 @@ export default function Home() {
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
-            <div className="relative z-20 w-[95%] md:w-[90%] max-w-6xl mx-auto -mt-24 md:-mt-32 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-8 border border-gray-100">
+            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-20 md:-mt-28 bg-white/95 backdrop-blur-2xl rounded-3xl md:rounded-[40px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] p-4 md:p-8 border border-white/60 transition-all duration-700 hover:shadow-[0_40px_70px_-15px_rgba(0,0,0,0.4)]">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
             <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
