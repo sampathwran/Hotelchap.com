@@ -39,10 +39,10 @@ export default function OffersPage() {
           fetchedOffers.push({
             id: doc.id,
             title: data.title || "",
-            description: data.description || "",
+            description: data.description || "Grab this limited-time exclusive offer before it expires! Click the link below to learn more and secure your deal today.",
             imageUrl: data.imageUrl || "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop",
             discountBadge: data.discountBadge || "",
-            linkUrl: data.linkUrl || "#",
+            linkUrl: data.targetUrl || "#",
             endTime: data.endTime.toDate(),
           });
         });
