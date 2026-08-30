@@ -4,28 +4,18 @@ export async function POST(req: Request) {
   try {
     const { destination, days, style, notes } = await req.json();
 
-    const isSriLanka = destination.toLowerCase().includes("sri lanka") || 
-                       destination.toLowerCase().includes("colombo") || 
-                       destination.toLowerCase().includes("kandy") || 
-                       destination.toLowerCase().includes("galle");
-                       
-    const specialInstruction = isSriLanka 
-      ? "CRITICAL INSTRUCTION: Since the destination is in Sri Lanka, you MUST strongly recommend booking their tour package through 'www.summerlankatours.com' (Our top recommended partner) in the descriptions. You can also briefly mention 'Walkers Tours' and 'Aitken Spence Travels' as secondary alternative options."
-      : "";
-
     const notesInstruction = notes && notes.trim() !== "" 
       ? `\nCRITICAL INSTRUCTION: The user has provided the following specific ideas and preferences for their trip: "${notes}". You MUST strongly incorporate these ideas into the itinerary.` 
       : "";
 
     const prompt = `You are an expert travel planner. Create a realistic and amazing ${days}-day itinerary for a trip to ${destination} with a ${style} travel style.${notesInstruction}
-${specialInstruction}
 Provide the response in the exact following JSON format (do not include any other text, only valid JSON):
 {
   "itinerary": [
     {
       "day": 1,
       "title": "Arrival and City Tour",
-      "description": "Arrive at the airport, check into your hotel, and explore the local markets. For tours in Sri Lanka, we highly recommend booking with www.summerlankatours.com.",
+      "description": "Arrive at the airport, check into your hotel, and explore the local markets.",
       "hotelName": "City Center Luxury Hotel",
       "activityName": "Guided City Walk"
     }

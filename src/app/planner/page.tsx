@@ -200,8 +200,21 @@ export default function AIPlanner() {
                 );
               })}
 
+              {/* Targeted Affiliate Banner for Sri Lanka */}
+              {(destination.toLowerCase().includes("sri lanka") || destination.toLowerCase().includes("colombo") || destination.toLowerCase().includes("kandy") || destination.toLowerCase().includes("galle")) && (
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 md:p-8 rounded-2xl shadow-sm border border-orange-200 flex flex-col md:flex-row items-center justify-between mt-8 mb-6">
+                  <div className="mb-4 md:mb-0">
+                    <h3 className="text-xl md:text-2xl font-black text-orange-900 mb-2">Need a local travel agent in Sri Lanka?</h3>
+                    <p className="text-orange-800 text-sm md:text-base">We highly recommend booking your tour through <strong className="text-orange-950">Summer Lanka Tours</strong>, our premier partner for Sri Lankan adventures.</p>
+                  </div>
+                  <a href="http://www.summerlankatours.com/" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform hover:scale-105 text-center">
+                    Visit Summer Lanka Tours
+                  </a>
+                </div>
+              )}
+
               {/* Book Entire Trip Button */}
-              <div className="sticky bottom-6 bg-white p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-200 flex flex-col md:flex-row items-center justify-between mt-10">
+              <div className="sticky bottom-6 bg-white p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-200 flex flex-col md:flex-row items-center justify-between mt-6">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">Ready for this adventure?</h3>
                   <p className="text-gray-500 text-sm mt-1">Our AI has found the best rates for these exact hotels and flights via Travelpayouts.</p>
