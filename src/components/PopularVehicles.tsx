@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PopularVehicles() {
   const [vehicles, setVehicles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchVehicles = async () => {
@@ -30,6 +32,32 @@ export default function PopularVehicles() {
 
     fetchVehicles();
   }, []);
+
+  // Auto-slide effect
+  useEffect(() => {
+    if (vehicles.length === 0) return;
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+        }
+      }
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [vehicles.length]);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+  };
 
   if (loading) {
     return (
@@ -59,13 +87,32 @@ export default function PopularVehicles() {
             <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Vehicle Types</h2>
             <p className="text-gray-500 font-medium">Choose the perfect wheels for your adventure</p>
           </div>
+          
+          <div className="hidden md:flex gap-2">
+            <button 
+              onClick={scrollLeft}
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#673AB7] hover:text-white hover:border-[#673AB7] transition-all"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button 
+              onClick={scrollRight}
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#673AB7] hover:text-white hover:border-[#673AB7] transition-all"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-6 pb-8 -mb-8 snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {vehicles.map((vehicle) => (
             <div 
               key={vehicle.id} 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col min-w-[280px] sm:min-w-[300px] w-[300px] flex-shrink-0 snap-center cursor-pointer"
             >
               <div className="h-48 overflow-hidden bg-gray-100">
                 <img src={vehicle.img} alt={vehicle.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
@@ -81,6 +128,12 @@ export default function PopularVehicles() {
             </div>
           ))}
         </div>
+        
+        <style dangerouslySetInnerHTML={{__html: `
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+        `}} />
       </div>
     </div>
   );
