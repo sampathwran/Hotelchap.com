@@ -3,6 +3,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type SettingsContextType = {
+  isSidebarExpanded: boolean;
+  toggleSidebar: () => void;
   currency: string;
   setCurrency: (currency: string) => void;
   language: string;
@@ -14,6 +16,8 @@ const SettingsContext = createContext<SettingsContextType | undefined>(undefined
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [currency, setCurrencyState] = useState("USD");
   const [language, setLanguageState] = useState("EN");
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const toggleSidebar = () => setIsSidebarExpanded(!isSidebarExpanded);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <SettingsContext.Provider value={{ currency, setCurrency, language, setLanguage }}>
+    <SettingsContext.Provider value={{ currency, setCurrency, language, setLanguage, isSidebarExpanded, toggleSidebar }}>
       {children}
     </SettingsContext.Provider>
   );

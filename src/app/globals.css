@@ -51,3 +51,11 @@ body { top: 0 !important; }
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}

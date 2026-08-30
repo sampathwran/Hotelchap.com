@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSettings } from "@/context/SettingsContext";
 
 const bookingServices = [
   { name: "Hotels & Villas", icon: "🏨", link: "/search" },
@@ -25,6 +26,8 @@ const extras = [
 
 export default function Sidebar() {
   const [isHovered, setIsHovered] = useState(false);
+  const { isSidebarExpanded } = useSettings();
+  const showExpanded = isSidebarExpanded || isHovered;
 
   // Reusable component for rendering menu links
   const renderLinks = (items: any[]) => (
@@ -37,7 +40,7 @@ export default function Sidebar() {
         <span className="text-2xl min-w-[30px] flex items-center justify-center transition-transform group-hover:scale-110">
           {item.icon}
         </span>
-        <span className={`ml-4 font-medium transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+        <span className={`ml-4 font-medium transition-opacity duration-300 ${showExpanded ? 'opacity-100' : 'opacity-0'}`}>
           {item.name}
         </span>
       </Link>
@@ -49,7 +52,7 @@ export default function Sidebar() {
       {/* Desktop Sidebar (Floating/Expanding Glassmorphism) */}
       <div className="hidden md:block sticky top-24 h-[calc(100vh-96px)] z-50 bg-transparent w-[80px]">
         <div 
-          className={`absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${isHovered ? 'w-[250px] bg-white/95 backdrop-blur-2xl shadow-2xl border-r border-white/40' : 'w-[80px] bg-transparent'}`}
+          className={`absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${showExpanded ? 'w-[250px] bg-white/95 backdrop-blur-2xl shadow-2xl border-r border-white/40' : 'w-[80px] bg-transparent'}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

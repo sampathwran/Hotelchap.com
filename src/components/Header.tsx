@@ -6,15 +6,15 @@ import { useAuth } from "@/context/AuthContext";
 
 import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
-import { Globe, CircleDollarSign } from "lucide-react";
+import { Globe, CircleDollarSign, Menu, Smartphone } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
 import LanguageModal, { allLanguages } from "./LanguageModal";
-import MainMenu from "./MainMenu";
+
 
 
 export default function Header() {
   const { user } = useAuth();
-  const { currency, setCurrency, language, setLanguage } = useSettings();
+  const { currency, setCurrency, language, setLanguage, toggleSidebar } = useSettings();
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
@@ -26,9 +26,12 @@ export default function Header() {
       
       {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
       <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
-        <Link href="/" className="flex items-center">
-          <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain scale-110 origin-left" />
-        </Link>
+        <button onClick={toggleSidebar} className="p-2 text-gray-800 hover:text-[#673AB7] hover:bg-white/50 rounded-full transition-colors drop-shadow-sm">
+              <Menu size={28} />
+            </button>
+            <Link href="/" className="flex items-center ml-2">
+            <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
+          </Link>
 
         
 
@@ -73,7 +76,9 @@ export default function Header() {
 
       {/* Desktop Actions */}
       <div className="hidden md:flex ml-auto items-center gap-5 relative">
-        <MainMenu />
+        <button className="flex items-center gap-2 bg-[#673AB7] text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-[#522b94] transition">
+              <Smartphone size={20} className="animate-wiggle" /> {t("getApp")}
+            </button>
         
         <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Divider */}
         
