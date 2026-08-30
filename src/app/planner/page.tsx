@@ -182,7 +182,7 @@ export default function AIPlanner() {
                               <p className="text-xs text-gray-500">Highly Rated • AI Pick</p>
                             </div>
                           </div>
-                          <button className="bg-[#673AB7] text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-purple-700 transition">View Prices</button>
+                          <Link href="/hotel" className="bg-[#673AB7] text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-purple-700 transition inline-block text-center">View Prices</Link>
                         </div>
                         <div className="flex-1 bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex items-center justify-between">
                           <div className="flex items-center gap-3">
@@ -192,7 +192,7 @@ export default function AIPlanner() {
                               <p className="text-xs text-gray-500">Popular Activity</p>
                             </div>
                           </div>
-                          <button className={`bg-${themeColor}-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-${themeColor}-700 transition`}>Book Ticket</button>
+                          <Link href="/attractions" className={`bg-${themeColor}-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-${themeColor}-700 transition inline-block text-center`}>Book Ticket</Link>
                         </div>
                       </div>
                     </div>
