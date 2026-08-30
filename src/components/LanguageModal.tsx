@@ -1,7 +1,38 @@
 import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 
-export const allLanguages = [\n  { code: "EN", name: "English", localName: "English", flag: "🇬🇧" },\n  { code: "SI", name: "Sinhala", localName: "සිංහල", flag: "🇱🇰" },\n  { code: "TA", name: "Tamil", localName: "தமிழ்", flag: "🇱🇰" },\n  { code: "HI", name: "Hindi", localName: "हिन्दी", flag: "🇮🇳" },\n  { code: "AR", name: "Arabic", localName: "العربية", flag: "🇦🇪" },\n  { code: "FR", name: "French", localName: "Français", flag: "🇫🇷" },\n  { code: "EN-CA", name: "Canadian", localName: "English (CA)", flag: "🇨🇦" },\n  { code: "MS", name: "Malay", localName: "Bahasa Melayu", flag: "🇲🇾" },\n  { code: "DE", name: "German", localName: "Deutsch", flag: "🇩🇪" },\n  { code: "ES", name: "Spanish", localName: "Español", flag: "🇪🇸" },\n  { code: "IT", name: "Italian", localName: "Italiano", flag: "🇮🇹" },\n  { code: "JA", name: "Japanese", localName: "日本語", flag: "🇯🇵" },\n  { code: "KO", name: "Korean", localName: "한국어", flag: "🇰🇷" },\n  { code: "PT", name: "Portuguese", localName: "Português", flag: "🇵🇹" },\n  { code: "RU", name: "Russian", localName: "Русский", flag: "🇷🇺" },\n  { code: "ZH-CN", name: "Chinese", localName: "中文", flag: "🇨🇳" },\n  { code: "TH", name: "Thai", localName: "ไทย", flag: "🇹🇭" },\n  { code: "NL", name: "Dutch", localName: "Nederlands", flag: "🇳🇱" },\n  { code: "SV", name: "Swedish", localName: "Svenska", flag: "🇸🇪" },\n  { code: "NO", name: "Norwegian", localName: "Norsk", flag: "🇳🇴" },\n  { code: "FI", name: "Finnish", localName: "Suomi", flag: "🇫🇮" },\n  { code: "DA", name: "Danish", localName: "Dansk", flag: "🇩🇰" },\n  { code: "TR", name: "Turkish", localName: "Türkçe", flag: "🇹🇷" },\n  { code: "VI", name: "Vietnamese", localName: "Tiếng Việt", flag: "🇻🇳" },\n  { code: "ID", name: "Indonesian", localName: "Bahasa Indonesia", flag: "🇮🇩" },\n  { code: "PL", name: "Polish", localName: "Polski", flag: "🇵🇱" },\n  { code: "EL", name: "Greek", localName: "Ελληνικά", flag: "🇬🇷" },\n  { code: "HE", name: "Hebrew", localName: "עברית", flag: "🇮🇱" },\n  { code: "UK", name: "Ukrainian", localName: "Українська", flag: "🇺🇦" },\n  { code: "BN", name: "Bengali", localName: "বাংলা", flag: "🇧🇩" }\n];
+export const allLanguages = [
+  { code: "EN", name: "English", localName: "English", flag: "🇬🇧" },
+  { code: "SI", name: "Sinhala", localName: "සිංහල", flag: "🇱🇰" },
+  { code: "TA", name: "Tamil", localName: "தமிழ்", flag: "🇱🇰" },
+  { code: "HI", name: "Hindi", localName: "हिन्दी", flag: "🇮🇳" },
+  { code: "AR", name: "Arabic", localName: "العربية", flag: "🇦🇪" },
+  { code: "FR", name: "French", localName: "Français", flag: "🇫🇷" },
+  { code: "EN-CA", name: "Canadian", localName: "English (CA)", flag: "🇨🇦" },
+  { code: "MS", name: "Malay", localName: "Bahasa Melayu", flag: "🇲🇾" },
+  { code: "DE", name: "German", localName: "Deutsch", flag: "🇩🇪" },
+  { code: "ES", name: "Spanish", localName: "Español", flag: "🇪🇸" },
+  { code: "IT", name: "Italian", localName: "Italiano", flag: "🇮🇹" },
+  { code: "JA", name: "Japanese", localName: "日本語", flag: "🇯🇵" },
+  { code: "KO", name: "Korean", localName: "한국어", flag: "🇰🇷" },
+  { code: "PT", name: "Portuguese", localName: "Português", flag: "🇵🇹" },
+  { code: "RU", name: "Russian", localName: "Русский", flag: "🇷🇺" },
+  { code: "ZH-CN", name: "Chinese", localName: "中文", flag: "🇨🇳" },
+  { code: "TH", name: "Thai", localName: "ไทย", flag: "🇹🇭" },
+  { code: "NL", name: "Dutch", localName: "Nederlands", flag: "🇳🇱" },
+  { code: "SV", name: "Swedish", localName: "Svenska", flag: "🇸🇪" },
+  { code: "NO", name: "Norwegian", localName: "Norsk", flag: "🇳🇴" },
+  { code: "FI", name: "Finnish", localName: "Suomi", flag: "🇫🇮" },
+  { code: "DA", name: "Danish", localName: "Dansk", flag: "🇩🇰" },
+  { code: "TR", name: "Turkish", localName: "Türkçe", flag: "🇹🇷" },
+  { code: "VI", name: "Vietnamese", localName: "Tiếng Việt", flag: "🇻🇳" },
+  { code: "ID", name: "Indonesian", localName: "Bahasa Indonesia", flag: "🇮🇩" },
+  { code: "PL", name: "Polish", localName: "Polski", flag: "🇵🇱" },
+  { code: "EL", name: "Greek", localName: "Ελληνικά", flag: "🇬🇷" },
+  { code: "HE", name: "Hebrew", localName: "עברית", flag: "🇮🇱" },
+  { code: "UK", name: "Ukrainian", localName: "Українська", flag: "🇺🇦" },
+  { code: "BN", name: "Bengali", localName: "বাংলা", flag: "🇧🇩" }
+];
 
 export default function LanguageModal({ 
   isOpen, 
