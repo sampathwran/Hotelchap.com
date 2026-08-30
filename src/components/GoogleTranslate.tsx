@@ -1,46 +1,52 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useSettings } from "@/context/SettingsContext";
+import { usePathname } from "next/navigation";
 
 export default function GoogleTranslate() {
   const { language } = useSettings();
-  const prevLanguage = useRef(language);
+  const pathname = usePathname();
 
   useEffect(() => {
     let targetLang = language.toLowerCase();
     if (targetLang === "zh-cn") targetLang = "zh-CN";
     if (targetLang === "zh-tw") targetLang = "zh-TW";
 
-    // If switching back to English, clear cookies and reload to restore original DOM
-    if (targetLang === "en") {
-      if (document.cookie.includes("googtrans")) {
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
-        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hotelchap.com;`;
-        window.location.reload();
-      }
-      return;
-    }
-
-    // Aggressively enforce translation even if React hydration tries to undo it
-    const enforceTranslation = setInterval(() => {
+    const forceTranslate = () => {
       const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-      const htmlElement = document.querySelector("html");
-      
-      if (selectElement) {
-        // If the HTML isn't marked as translated OR the dropdown value doesn't match
-        if (
-          !htmlElement?.classList.contains("translated-ltr") || 
-          selectElement.value !== targetLang
-        ) {
-          selectElement.value = targetLang;
+      if (!selectElement) return;
+
+      if (targetLang === "en") {
+        // Restore to English
+        if (selectElement.value !== "en") {
+          selectElement.value = "en";
           selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
         }
+        return;
       }
-    }, 500);
 
-    return () => clearInterval(enforceTranslation);
-  }, [language]);
+      // Force Google Translate to re-evaluate the DOM by toggling to English then to the target language
+      // This defeats React hydration which secretly overwrites translated nodes back to English
+      selectElement.value = "en";
+      selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+
+      setTimeout(() => {
+        selectElement.value = targetLang;
+        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      }, 100);
+    };
+
+    // Run on initial load and whenever language/route changes
+    const timeout = setTimeout(forceTranslate, 500);
+    
+    // Also run an aggressive check every 2 seconds to catch any React re-renders that wiped the translation
+    const interval = setInterval(forceTranslate, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, [language, pathname]);
 
   return null;
 }
