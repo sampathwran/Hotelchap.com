@@ -8,6 +8,7 @@ export default function AIPlanner() {
   const [destination, setDestination] = useState("");
   const [days, setDays] = useState("5");
   const [style, setStyle] = useState("Balanced");
+  const [notes, setNotes] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
@@ -24,7 +25,7 @@ export default function AIPlanner() {
       const res = await fetch("/api/planner", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ destination, days, style }),
+        body: JSON.stringify({ destination, days, style, notes }),
       });
       
       const data = await res.json();
@@ -113,6 +114,17 @@ export default function AIPlanner() {
                       <option>Adventure & Nature</option>
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Any special requests or ideas? (Optional)</label>
+                  <textarea 
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="e.g. I want to visit historical places, I am traveling with kids, I need vegan food..." 
+                    rows={3}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl py-4 px-5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/50 focus:border-[#673AB7] transition-all text-base"
+                  />
                 </div>
 
                 <button 

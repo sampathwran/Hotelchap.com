@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { destination, days, style } = await req.json();
+    const { destination, days, style, notes } = await req.json();
 
     const isSriLanka = destination.toLowerCase().includes("sri lanka") || 
                        destination.toLowerCase().includes("colombo") || 
@@ -13,7 +13,11 @@ export async function POST(req: Request) {
       ? "CRITICAL INSTRUCTION: Since the destination is in Sri Lanka, you MUST strongly recommend booking their tour package through 'www.summerlankatours.com' (Our top recommended partner) in the descriptions. You can also briefly mention 'Walkers Tours' and 'Aitken Spence Travels' as secondary alternative options."
       : "";
 
-    const prompt = `You are an expert travel planner. Create a realistic and amazing ${days}-day itinerary for a trip to ${destination} with a ${style} travel style.
+    const notesInstruction = notes && notes.trim() !== "" 
+      ? `\nCRITICAL INSTRUCTION: The user has provided the following specific ideas and preferences for their trip: "${notes}". You MUST strongly incorporate these ideas into the itinerary.` 
+      : "";
+
+    const prompt = `You are an expert travel planner. Create a realistic and amazing ${days}-day itinerary for a trip to ${destination} with a ${style} travel style.${notesInstruction}
 ${specialInstruction}
 Provide the response in the exact following JSON format (do not include any other text, only valid JSON):
 {
