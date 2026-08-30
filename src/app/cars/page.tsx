@@ -3,15 +3,11 @@
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
+import PopularVehicles from "@/components/PopularVehicles";
 import { Car, ShieldCheck, MapPin, HeadphonesIcon, ChevronDown, CheckCircle } from "lucide-react";
 
 export default function CarsPage() {
-  const popularVehicles = [
-    { name: "Economy Car", desc: "Perfect for city driving", price: "$25/day", img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600&auto=format&fit=crop" },
-    { name: "Luxury SUV", desc: "Spacious for the whole family", price: "$80/day", img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=600&auto=format&fit=crop" },
-    { name: "City Scooter", desc: "Beat the traffic easily", price: "$12/day", img: "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=600&auto=format&fit=crop" },
-    { name: "Off-Road Bike", desc: "Adventure ready", price: "$30/day", img: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=600&auto=format&fit=crop" },
-  ];
+
 
   const faqs = [
     { q: "What do I need to rent a car or bike?", a: "You will need a valid driver's license (International Driving Permit for some countries), a passport or ID card, and a credit card in the main driver's name for the deposit." },
@@ -94,34 +90,7 @@ export default function CarsPage() {
       </div>
 
       {/* Popular Vehicles */}
-      <div className="bg-gray-50 py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="flex justify-between items-end mb-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Vehicle Types</h2>
-              <p className="text-gray-500 font-medium">Choose the perfect wheels for your adventure</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularVehicles.map((vehicle, idx) => (
-              <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer">
-                <div className="h-48 overflow-hidden">
-                  <img src={vehicle.img} alt={vehicle.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                  <p className="text-gray-500 font-medium text-sm mb-4">{vehicle.desc}</p>
-                  <div className="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
-                    <span className="text-sm font-bold text-gray-400">Starting from</span>
-                    <span className="text-lg font-black text-[#673AB7]">{vehicle.price}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PopularVehicles />
 
       {/* Benefits & FAQ */}
       <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
