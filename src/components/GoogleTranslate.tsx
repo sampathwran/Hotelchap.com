@@ -37,25 +37,10 @@ export default function GoogleTranslate() {
           selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
         }
       }
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(enforceTranslation);
   }, [language]);
 
-  return (
-    <div 
-      id="google_translate_element" 
-      style={{ 
-        position: "absolute", 
-        width: "1px", 
-        height: "1px", 
-        overflow: "hidden", 
-        clip: "rect(1px 1px 1px 1px)", 
-        clipPath: "inset(50%)",
-        whiteSpace: "nowrap", 
-        top: 0,
-        left: 0
-      }} 
-    ></div>
-  );
+  return null;
 }
