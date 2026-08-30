@@ -149,15 +149,7 @@ export default function Home() {
             <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md" />
           </Link>
 
-          {/* Destination Search Bar (Desktop) */}
-          <div className="hidden md:flex relative items-center md:w-[350px]">
-            <span className="absolute left-4 text-xl">🔍</span>
-            <input 
-              type="text" 
-              placeholder={t("searchPlaceholder")}
-              className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
-            />
-          </div>
+          
 
           {/* Mobile Actions (Currency, Language, Profile) */}
           <div className="flex md:hidden items-center gap-3">
@@ -196,15 +188,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Destination Search Bar (Mobile) */}
-        <div className="flex md:hidden relative items-center w-full mt-2">
-          <span className="absolute left-4 text-xl">🔍</span>
-          <input 
-            type="text" 
-            placeholder={t("searchPlaceholder")}
-            className="w-full bg-white/70 backdrop-blur-md border border-gray-200 rounded-full py-2.5 pl-12 pr-4 text-gray-800 placeholder-gray-500 text-sm font-medium focus:outline-none focus:bg-white transition shadow-sm"
-          />
-        </div>
+        
 
         {/* Desktop Actions */}
         <div className="hidden md:flex ml-auto items-center gap-5 relative">

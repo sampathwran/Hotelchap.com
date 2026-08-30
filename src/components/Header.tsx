@@ -30,15 +30,7 @@ export default function Header() {
           <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain scale-110 origin-left" />
         </Link>
 
-        {/* Destination Search Bar (Desktop) */}
-        <div className="hidden md:flex relative items-center md:w-[350px]">
-          <span className="absolute left-4 text-xl">🔍</span>
-          <input 
-            type="text" 
-            placeholder={t("searchPlaceholder")}
-            className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
-          />
-        </div>
+        
 
         {/* Mobile Actions (Currency, Language, Profile) */}
         <div className="flex md:hidden items-center gap-3">
@@ -77,15 +69,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Destination Search Bar (Mobile) */}
-      <div className="flex md:hidden relative items-center w-full mt-2">
-        <span className="absolute left-4 text-xl">🔍</span>
-        <input 
-          type="text" 
-          placeholder={t("searchPlaceholder")}
-          className="w-full bg-gray-100/80 rounded-full py-2.5 pl-12 pr-4 text-gray-700 placeholder-gray-500/70 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#673AB7]/40 transition"
-        />
-      </div>
+      
 
       {/* Desktop Actions */}
       <div className="hidden md:flex ml-auto items-center gap-5 relative">
