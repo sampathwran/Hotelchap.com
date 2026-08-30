@@ -50,9 +50,9 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar (Floating/Expanding Glassmorphism) */}
-      <div className="hidden md:block sticky top-24 h-[calc(100vh-96px)] z-50 bg-transparent w-[80px]">
+      <div className={`hidden md:block sticky top-24 h-[calc(100vh-96px)] z-50 bg-transparent transition-all duration-300 ease-in-out ${isSidebarExpanded ? 'w-[250px]' : 'w-[80px]'}`}>
         <div 
-          className={`absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${showExpanded ? 'w-[250px] bg-white/95 backdrop-blur-2xl shadow-2xl border-r border-white/40' : 'w-[80px] bg-transparent'}`}
+          className={`absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${showExpanded ? 'w-[250px] bg-white/95 backdrop-blur-2xl shadow-xl border-r border-gray-200' : 'w-[80px] bg-transparent'}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

@@ -235,8 +235,8 @@ export default function Home() {
       </header>
 
       {/* Dynamic Hero Section - Spans Full Width at Top */}
-      <div className="absolute top-0 left-0 w-full z-0">
-        <div className={`relative w-full h-[450px] md:h-[550px] bg-gray-900 flex flex-col justify-start items-center px-4 md:px-16 overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[120px] md:pt-[150px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
+      <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
+        <div className={`relative w-[95%] md:w-[92%] max-w-6xl mx-auto h-[350px] md:h-[400px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-xl transition-all duration-700 ease-in-out pt-[50px] md:pt-[80px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
           
           {/* Dynamic Full Cover Image */}
           <div 
@@ -270,7 +270,7 @@ export default function Home() {
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen pb-24 md:pb-0 z-10 pt-[420px] md:pt-[480px]">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[350px] md:pt-[400px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
