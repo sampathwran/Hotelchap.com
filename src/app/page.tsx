@@ -97,7 +97,7 @@ export default function Home() {
   const tomorrowStr = tomorrow.toISOString().split("T")[0];
   
   // Global Header States
-  const { currency, setCurrency, language, setLanguage, toggleSidebar } = useSettings();
+  const { currency, setCurrency, language, setLanguage, toggleSidebar, isSidebarExpanded } = useSettings();
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
 
@@ -234,6 +234,9 @@ export default function Home() {
         </div>
       </header>
 
+      <Sidebar />
+      {/* Main Page Wrapper that PUSHES */}
+      <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
         <div className={`relative w-[95%] md:w-[92%] max-w-6xl mx-auto h-[350px] md:h-[400px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-xl transition-all duration-700 ease-in-out pt-[50px] md:pt-[80px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
@@ -388,6 +391,7 @@ export default function Home() {
         </main>
       </div>
 
+      </div>
       {/* SEO Mega Footer */}
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l: string) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c: string) => { setCurrency(c); setShowCurrency(false); }} />
