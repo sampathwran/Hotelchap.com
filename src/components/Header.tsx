@@ -8,7 +8,7 @@ import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
-import LanguageModal from "./LanguageModal";
+import LanguageModal, { allLanguages } from "./LanguageModal";
 
 
 export default function Header() {
@@ -53,7 +53,7 @@ export default function Header() {
           {/* Language Mobile */}
           <div className="relative">
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-              <Globe size={16} className="text-gray-500" /> {language} <span className="text-[10px]">▼</span>
+              <span className="text-base mr-0.5">{allLanguages.find(l => l.code === language)?.flag || "🇺🇸"}</span> {language} <span className="text-[10px]">▼</span>
             </button>
             
           </div>
@@ -105,7 +105,7 @@ export default function Header() {
         {/* Language Dropdown Desktop */}
         <div className="relative">
           <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-            <Globe size={18} className="text-gray-500 mr-1" /> {language} <span className="text-xs">▼</span>
+            <span className="text-lg mr-1">{allLanguages.find(l => l.code === language)?.flag || "🇺🇸"}</span> {language} <span className="text-xs">▼</span>
           </button>
           
         </div>

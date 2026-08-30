@@ -33,6 +33,24 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = (newLanguage: string) => {
     setLanguageState(newLanguage);
     localStorage.setItem("app_language", newLanguage);
+
+    const targetLang = newLanguage.toLowerCase();
+    
+    // Set Google Translate cookie
+    if (targetLang === "en") {
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+    } else {
+      let gLangCode = targetLang;
+      if (targetLang === "zh-cn") gLangCode = "zh-CN";
+      if (targetLang === "zh-tw") gLangCode = "zh-TW";
+      const gLang = `/en/${gLangCode}`;
+      document.cookie = `googtrans=${gLang}; path=/`;
+      document.cookie = `googtrans=${gLang}; path=/; domain=${window.location.hostname}`;
+    }
+    
+    // Reload to apply Google Translate reliably
+    window.location.reload();
   };
 
   return (
