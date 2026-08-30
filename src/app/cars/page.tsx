@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
 import TravelpayoutsRentalWidget from "@/components/TravelpayoutsRentalWidget";
 import PopularVehicles from "@/components/PopularVehicles";
+import TrustedPartnersMarquee from "@/components/TrustedPartnersMarquee";
 import { Car, ShieldCheck, MapPin, HeadphonesIcon, ChevronDown, CheckCircle } from "lucide-react";
 
 export default function CarsPage() {
@@ -40,19 +41,7 @@ export default function CarsPage() {
       </div>
 
       {/* Trusted Partners */}
-      <div className="bg-white py-6 border-b border-gray-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">In partnership with global leaders</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale font-black text-xl text-gray-800">
-            <span>Avis</span>
-            <span>Hertz</span>
-            <span>Europcar</span>
-            <span>Enterprise</span>
-            <span>Sixt</span>
-            <span>Budget</span>
-          </div>
-        </div>
-      </div>
+      <TrustedPartnersMarquee />
 
       {/* Why Choose Us */}
       <div className="max-w-7xl mx-auto px-4 py-16 w-full">
