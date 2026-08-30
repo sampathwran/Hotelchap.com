@@ -67,5 +67,20 @@ export default function GoogleTranslate() {
     return () => clearInterval(enforceTranslation);
   }, [language]);
 
-  return <div id="google_translate_element" style={{ display: "none" }}></div>;
+  return (
+    <div 
+      id="google_translate_element" 
+      style={{ 
+        position: "absolute", 
+        width: "1px", 
+        height: "1px", 
+        overflow: "hidden", 
+        clip: "rect(1px 1px 1px 1px)", 
+        clipPath: "inset(50%)",
+        whiteSpace: "nowrap", 
+        top: 0,
+        left: 0
+      }} 
+    ></div>
+  );
 }
