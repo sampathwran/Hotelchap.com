@@ -16,31 +16,31 @@ export default function GoogleTranslate() {
       const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (!selectElement) return;
 
+      if (targetLang === "en") return;
+
       // Clean React hydration artifacts
       const htmlElement = document.getElementsByTagName("html")[0];
-      const classNames = htmlElement.className.split(" ");
-      htmlElement.className = classNames.filter(c => c !== "translated-ltr" && c !== "translated-rtl").join(" ");
-
-      if (targetLang === "en") {
-        // Do not force the combo box back to "en". The page reload already cleared the cookie,
-        // so the page is in English. If we force it, we fight the native Chrome translation popup.
-        return;
+      if (htmlElement) {
+        const classNames = htmlElement.className.split(" ");
+        htmlElement.className = classNames.filter(c => c !== "translated-ltr" && c !== "translated-rtl").join(" ");
       }
 
-      // Force change for other languages
-      if (selectElement.value !== targetLang) {
-        selectElement.value = targetLang;
-        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
-      }
+      // Force Google Translate to process newly rendered React nodes (hydration or navigation)
+      // by setting the value (even if it's already set) and dispatching a change event.
+      selectElement.value = targetLang;
+      selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
     };
 
-    // Trigger repeatedly to fight React hydration
-    const timeout = setTimeout(doTranslate, 300);
-    const interval = setInterval(doTranslate, 2000);
+    // Run after a short delay to allow React to render the new DOM
+    const t1 = setTimeout(doTranslate, 100);
+    // Fallback delay in case the Google Translate script was slow to load
+    const t2 = setTimeout(doTranslate, 1000);
+    const t3 = setTimeout(doTranslate, 3000);
 
     return () => {
-      clearTimeout(timeout);
-      clearInterval(interval);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
     };
   }, [language, pathname]);
 
