@@ -32,42 +32,39 @@ export default function GoogleTranslate() {
   }, []);
 
   useEffect(() => {
-    if (prevLanguage.current === language) return;
-    prevLanguage.current = language;
+    let targetLang = language.toLowerCase();
+    if (targetLang === "zh-cn") targetLang = "zh-CN";
+    if (targetLang === "zh-tw") targetLang = "zh-TW";
 
-    const triggerTranslation = () => {
-      let targetLang = language.toLowerCase();
-      
-      // Handle special GT codes
-      if (targetLang === "zh-cn") targetLang = "zh-CN";
-      if (targetLang === "zh-tw") targetLang = "zh-TW";
-
-      // If switching back to English, clear cookies
-      if (targetLang === "en") {
-        if (!document.cookie.includes("googtrans")) return; // Already english, no cookies to clear
+    // If switching back to English, clear cookies and reload to restore original DOM
+    if (targetLang === "en") {
+      if (document.cookie.includes("googtrans")) {
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hotelchap.com;`;
         window.location.reload();
-        return;
       }
+      return;
+    }
 
-      const desiredCookie = `googtrans=/en/${targetLang}`;
-      if (document.cookie.includes(desiredCookie)) {
-        // Cookie already set perfectly, no need to reload
-        return;
+    // Aggressively enforce translation even if React hydration tries to undo it
+    const enforceTranslation = setInterval(() => {
+      const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+      const htmlElement = document.querySelector("html");
+      
+      if (selectElement) {
+        // If the HTML isn't marked as translated OR the dropdown value doesn't match
+        if (
+          !htmlElement?.classList.contains("translated-ltr") || 
+          selectElement.value !== targetLang
+        ) {
+          selectElement.value = targetLang;
+          selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+        }
       }
+    }, 1000);
 
-      // Set cookie to force GT
-      document.cookie = `${desiredCookie}; path=/;`;
-      document.cookie = `${desiredCookie}; path=/; domain=${window.location.hostname};`;
-      document.cookie = `${desiredCookie}; path=/; domain=.hotelchap.com;`;
-
-      // Reload to apply the new cookie
-      window.location.reload();
-    };
-
-    triggerTranslation();
+    return () => clearInterval(enforceTranslation);
   }, [language]);
 
   return <div id="google_translate_element" style={{ display: "none" }}></div>;
