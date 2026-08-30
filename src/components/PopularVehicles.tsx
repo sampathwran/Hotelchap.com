@@ -63,7 +63,11 @@ export default function PopularVehicles() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {vehicles.map((vehicle) => (
-            <div key={vehicle.id} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer">
+            <div 
+              key={vehicle.id} 
+              onClick={() => window.open("https://www.summerrides.lk/", "_blank")}
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer"
+            >
               <div className="h-48 overflow-hidden bg-gray-100">
                 <img src={vehicle.img} alt={vehicle.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
