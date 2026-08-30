@@ -272,7 +272,7 @@ export default function Home() {
       <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
-        <div className={`relative w-[95%] md:w-[92%] max-w-6xl mx-auto h-[450px] md:h-[500px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-xl transition-all duration-700 ease-in-out pt-[50px] md:pt-[80px] ${tabShapes[activeTab] || tabShapes["hotels"]}`}>
+        <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
           
           {/* Dynamic Full Cover Image */}
           <div 
@@ -280,27 +280,25 @@ export default function Home() {
             style={{ backgroundImage: `url('${currentData.image}')` }}
           ></div>
           
-          {/* Light Overlay (instead of Dark) to make it vibrant but still readable */}
-          <div className="absolute inset-0 bg-black/50 transition-opacity duration-500"></div>
+          {/* Blue Overlay to match Agoda style */}
+          <div className="absolute inset-0 bg-blue-900/40 transition-opacity duration-500 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/30 to-transparent"></div>
           
           {/* Dynamic Text Layout */}
-          <div className="relative z-10 max-w-3xl text-center transition-all duration-500">
-            <span className="inline-block py-1.5 px-5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-4 border border-white/20 shadow-xl">
-              {currentData.subtitle[language] || currentData.subtitle["EN"]}
-            </span>
-            
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-2xl leading-tight mb-4" style={{ textShadow: '0 4px 24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.9)' }}>
+          <div className="relative z-10 max-w-4xl text-center transition-all duration-500">
+            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight drop-shadow-md leading-tight mb-4">
               {currentData.title[language] || currentData.title["EN"]}{" "}
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+              <span>
                 {currentData.gradientText[language] || currentData.gradientText["EN"]}
               </span>
             </h1>
             
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-4">
+            <div className="flex flex-wrap justify-center items-center mt-2">
               {tabFeatures[activeTab]?.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-white/90 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/30 text-sm md:text-base font-medium shadow-sm">
-                  {feature.icon}
-                  <span>{feature.text}</span>
+                <div key={idx} className="flex items-center text-white text-xs md:text-sm font-medium">
+                  {idx > 0 && <span className="text-white/40 mx-2 md:mx-4">|</span>}
+                  <span className="text-[#34d399] mr-1.5 md:mr-2 drop-shadow-sm">{feature.icon}</span>
+                  <span className="drop-shadow-md">{feature.text}</span>
                 </div>
               ))}
             </div>
@@ -317,7 +315,7 @@ export default function Home() {
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
-            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-20 md:-mt-28 bg-white/95 backdrop-blur-2xl rounded-3xl md:rounded-[40px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] p-4 md:p-8 border border-white/60 transition-all duration-700 hover:shadow-[0_40px_70px_-15px_rgba(0,0,0,0.4)]">
+            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
             <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
@@ -338,10 +336,10 @@ export default function Home() {
                   <button 
                     key={key}
                     onClick={() => setActiveTab(key as any)}
-                    className={`flex flex-col items-center gap-2 font-bold pb-2 min-w-[90px] transition-all ${activeTab === key ? 'text-[#673AB7] border-b-[3px] border-[#673AB7]' : 'text-gray-500 hover:text-[#673AB7]'}`}
+                    className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
-                    <span className="text-3xl md:text-4xl">{icon}</span>
-                    <span className="text-base md:text-lg capitalize tracking-wide">{t(key)}</span>
+                    <span className="text-2xl">{icon}</span>
+                    <span className="text-sm md:text-sm capitalize">{t(key)}</span>
                   </button>
                 );
               })}
