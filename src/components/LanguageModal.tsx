@@ -1,28 +1,7 @@
 import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 
-export const allLanguages = [
-  { code: "EN", name: "English", localName: "English", flag: "🇺🇸" },
-  { code: "SI", name: "Sinhala", localName: "Sinhala", flag: "🇱🇰" },
-  { code: "TA", name: "Tamil", localName: "Tamil", flag: "🇮🇳" },
-  { code: "AR", name: "Arabic", localName: "Arabic", flag: "🇸🇦" },
-  { code: "ZH-CN", name: "Chinese", localName: "Chinese", flag: "🇨🇳" },
-  { code: "FR", name: "French", localName: "French", flag: "🇫🇷" },
-  { code: "DE", name: "German", localName: "German", flag: "🇩🇪" },
-  { code: "HI", name: "Hindi", localName: "Hindi", flag: "🇮🇳" },
-  { code: "IT", name: "Italian", localName: "Italian", flag: "🇮🇹" },
-  { code: "JA", name: "Japanese", localName: "Japanese", flag: "🇯🇵" },
-  { code: "KO", name: "Korean", localName: "Korean", flag: "🇰🇷" },
-  { code: "PT", name: "Portuguese", localName: "Portuguese", flag: "🇵🇹" },
-  { code: "RU", name: "Russian", localName: "Russian", flag: "🇷🇺" },
-  { code: "ES", name: "Spanish", localName: "Spanish", flag: "🇪🇸" },
-  { code: "TR", name: "Turkish", localName: "Turkish", flag: "🇹🇷" },
-  { code: "TH", name: "Thai", localName: "Thai", flag: "🇹🇭" },
-  { code: "NL", name: "Dutch", localName: "Dutch", flag: "🇳🇱" },
-  { code: "SV", name: "Swedish", localName: "Swedish", flag: "🇸🇪" },
-  { code: "NO", name: "Norwegian", localName: "Norwegian", flag: "🇳🇴" },
-  { code: "FI", name: "Finnish", localName: "Finnish", flag: "🇫🇮" }
-];
+export const allLanguages = [\n  { code: "EN", name: "English", localName: "English", flag: "🇬🇧" },\n  { code: "SI", name: "Sinhala", localName: "සිංහල", flag: "🇱🇰" },\n  { code: "TA", name: "Tamil", localName: "தமிழ்", flag: "🇱🇰" },\n  { code: "HI", name: "Hindi", localName: "हिन्दी", flag: "🇮🇳" },\n  { code: "AR", name: "Arabic", localName: "العربية", flag: "🇦🇪" },\n  { code: "FR", name: "French", localName: "Français", flag: "🇫🇷" },\n  { code: "EN-CA", name: "Canadian", localName: "English (CA)", flag: "🇨🇦" },\n  { code: "MS", name: "Malay", localName: "Bahasa Melayu", flag: "🇲🇾" },\n  { code: "DE", name: "German", localName: "Deutsch", flag: "🇩🇪" },\n  { code: "ES", name: "Spanish", localName: "Español", flag: "🇪🇸" },\n  { code: "IT", name: "Italian", localName: "Italiano", flag: "🇮🇹" },\n  { code: "JA", name: "Japanese", localName: "日本語", flag: "🇯🇵" },\n  { code: "KO", name: "Korean", localName: "한국어", flag: "🇰🇷" },\n  { code: "PT", name: "Portuguese", localName: "Português", flag: "🇵🇹" },\n  { code: "RU", name: "Russian", localName: "Русский", flag: "🇷🇺" },\n  { code: "ZH-CN", name: "Chinese", localName: "中文", flag: "🇨🇳" },\n  { code: "TH", name: "Thai", localName: "ไทย", flag: "🇹🇭" },\n  { code: "NL", name: "Dutch", localName: "Nederlands", flag: "🇳🇱" },\n  { code: "SV", name: "Swedish", localName: "Svenska", flag: "🇸🇪" },\n  { code: "NO", name: "Norwegian", localName: "Norsk", flag: "🇳🇴" },\n  { code: "FI", name: "Finnish", localName: "Suomi", flag: "🇫🇮" },\n  { code: "DA", name: "Danish", localName: "Dansk", flag: "🇩🇰" },\n  { code: "TR", name: "Turkish", localName: "Türkçe", flag: "🇹🇷" },\n  { code: "VI", name: "Vietnamese", localName: "Tiếng Việt", flag: "🇻🇳" },\n  { code: "ID", name: "Indonesian", localName: "Bahasa Indonesia", flag: "🇮🇩" },\n  { code: "PL", name: "Polish", localName: "Polski", flag: "🇵🇱" },\n  { code: "EL", name: "Greek", localName: "Ελληνικά", flag: "🇬🇷" },\n  { code: "HE", name: "Hebrew", localName: "עברית", flag: "🇮🇱" },\n  { code: "UK", name: "Ukrainian", localName: "Українська", flag: "🇺🇦" },\n  { code: "BN", name: "Bengali", localName: "বাংলা", flag: "🇧🇩" }\n];
 
 export default function LanguageModal({ 
   isOpen, 
