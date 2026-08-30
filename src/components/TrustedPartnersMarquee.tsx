@@ -4,13 +4,10 @@ import React from "react";
 
 const logos = [
   { name: "Avis", url: "/partners/avis.png" },
-  { name: "Hertz", url: "/partners/hertz.png" },
-  { name: "Europcar", url: "/partners/europcar.png" },
+  { name: "Hertz", url: "/partners/hertz.jpg" },
+  { name: "Europcar", url: "/partners/europcar.jpg" },
   { name: "Enterprise", url: "/partners/enterprise.png" },
   { name: "Sixt", url: "/partners/sixt.png" },
-  { name: "Budget", url: "/partners/budget.png" },
-  { name: "Alamo", url: "/partners/alamo.png" },
-  { name: "National", url: "/partners/national.png" },
 ];
 
 export default function TrustedPartnersMarquee() {
