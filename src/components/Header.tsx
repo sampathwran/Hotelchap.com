@@ -22,14 +22,20 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
-      
-      {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
-      <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
-        <button onClick={toggleSidebar} className="p-2 text-gray-800 hover:text-[#673AB7] hover:bg-white/50 rounded-full transition-colors drop-shadow-sm">
-              <Menu size={28} />
-            </button>
-            <Link href="/" className="flex items-center ml-2">
+    <>
+      {/* Fixed Hamburger Menu */}
+      <button 
+        onClick={toggleSidebar} 
+        className="fixed top-4 left-4 md:top-6 md:left-8 z-[80] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-blue-600 hover:bg-white rounded-full transition-colors drop-shadow-md"
+      >
+        <Menu size={28} />
+      </button>
+
+      <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
+        
+        {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
+        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-12 md:pl-16">
+          <Link href="/" className="flex items-center">
             <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
           </Link>
 
@@ -117,5 +123,6 @@ export default function Header() {
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c) => { setCurrency(c); setShowCurrency(false); }} />
     </header>
+    </>
   );
 }

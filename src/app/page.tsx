@@ -173,15 +173,20 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-transparent">
       
+      {/* Fixed Hamburger Menu (Never scrolls away) */}
+      <button 
+        onClick={toggleSidebar} 
+        className="fixed top-4 left-4 md:top-8 md:left-8 z-[80] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-blue-600 hover:bg-white rounded-full transition-colors drop-shadow-md"
+      >
+        <Menu size={28} />
+      </button>
+
       {/* Global Top Navbar */}
       <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
-        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto">
-          <button onClick={toggleSidebar} className="p-2 text-gray-800 hover:text-[#673AB7] hover:bg-white/50 rounded-full transition-colors drop-shadow-sm">
-              <Menu size={28} />
-            </button>
-            <Link href="/" className="flex items-center ml-2">
+        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-12 md:pl-16">
+          <Link href="/" className="flex items-center">
             <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
           </Link>
 
@@ -311,7 +316,7 @@ export default function Home() {
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[450px] md:pt-[500px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[380px] md:pt-[430px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
