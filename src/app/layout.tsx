@@ -6,7 +6,6 @@ import { SettingsProvider } from "@/context/SettingsContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleOneTap from "@/components/GoogleOneTap";
 import VisitTracker from "@/components/VisitTracker";
-import GoogleTranslate from "@/components/GoogleTranslate";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -46,38 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* Google Translate Native Container & Scripts */}
-        <div 
-          id="google_translate_element" 
-          style={{ 
-            position: "absolute", 
-            width: "1px", 
-            height: "1px", 
-            overflow: "hidden", 
-            clip: "rect(1px 1px 1px 1px)", 
-            clipPath: "inset(50%)",
-            whiteSpace: "nowrap", 
-            top: 0,
-            left: 0
-          }} 
-        ></div>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.googleTranslateElementInit = function() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  autoDisplay: false
-                }, 'google_translate_element');
-              };
-            `,
-          }}
-        />
-        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
-
         <GoogleOAuthProvider clientId="138916892371-uk50uaqnu7ambeml7nvb81k2u45rauvo.apps.googleusercontent.com">
         <SettingsProvider>
-          <GoogleTranslate />
         <AuthProvider>
           <VisitTracker />
           <GoogleOneTap />

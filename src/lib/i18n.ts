@@ -1,26 +1,13 @@
 import { useSettings } from "@/context/SettingsContext";
 
+import EN from "./dictionaries/EN.json";
+import SI from "./dictionaries/SI.json";
+import TA from "./dictionaries/TA.json";
+
 export const translations: Record<string, Record<string, string>> = {
-  EN: {
-    hotels: "Hotels",
-    flights: "Flights",
-    cars: "Cars",
-    packages: "Packages",
-    transfers: "Transfers",
-    attractions: "Attractions",
-    cruises: "Cruises",
-    getApp: "Get the App",
-    listProperty: "List your property",
-    support: "Support",
-    signIn: "Sign In",
-    searchPlaceholder: "Search for a destination...",
-    popularDestinations: "Popular Destinations",
-    searchBtn: "Search",
-    checkIn: "Check-in",
-    checkOut: "Check-out",
-    guests: "Guests",
-    rooms: "Rooms"
-  }
+  EN,
+  SI,
+  TA,
 };
 
 export function useTranslation() {

@@ -313,7 +313,7 @@ export default function Home() {
                 <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-lg border border-gray-100 p-3 md:p-4 flex flex-col md:flex-row items-center gap-3 mt-4 relative z-10 transition-all duration-500">
                   <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
                     <span className="text-gray-400 mr-3 text-lg">🔍</span>
-                    <input type="text" name="city" placeholder="Where are you going?" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium placeholder-gray-400" required />
+                    <input type="text" name="city" placeholder={t("searchWhere")} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium placeholder-gray-400" required />
                   </div>
                   
                   <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
@@ -336,7 +336,7 @@ export default function Home() {
                   <input type="hidden" name="type" value={activeTab} />
 
                   <button type="submit" className="w-full md:w-auto bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 md:py-4 rounded-lg font-black text-lg shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
-                    <span>🔍</span> Search
+                    <span>🔍</span> {t("searchBtn")}
                   </button>
                 </form>
               ) : activeTab === "flights" ? (
