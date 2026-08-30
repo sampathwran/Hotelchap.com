@@ -20,8 +20,9 @@ export default function GoogleTranslate() {
 
       // To force Google Translate to translate newly rendered English text 
       // (from React hydration or Next.js client-side navigation),
-      // we must reset it to English, dispatch the event, and then set it back to the target language.
-      selectElement.value = "en";
+      // Trick Google Translate into re-evaluating by clearing the value first
+      // (Note: "en" is not an option in the select box when pageLanguage is "en")
+      selectElement.selectedIndex = 0;
       selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
 
       setTimeout(() => {
