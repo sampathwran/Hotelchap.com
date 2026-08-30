@@ -42,26 +42,20 @@ export default function GoogleTranslate() {
       if (targetLang === "zh-cn") targetLang = "zh-CN";
       if (targetLang === "zh-tw") targetLang = "zh-TW";
 
-      // If switching back to English, clear cookies and reload to restore original DOM
+      // If switching back to English, clear cookies
       if (targetLang === "en") {
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
-        window.location.reload();
-        return;
-      }
-
-      // Set cookie to force GT
-      document.cookie = `googtrans=/en/${targetLang}; path=/;`;
-      document.cookie = `googtrans=/en/${targetLang}; path=/; domain=${window.location.hostname};`;
-
-      const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-      if (selectElement) {
-        selectElement.value = targetLang;
-        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hotelchap.com;`;
       } else {
-        // If the widget isn't loaded yet, reload the page so the cookie takes effect
-        window.location.reload();
+        // Set cookie to force GT
+        document.cookie = `googtrans=/en/${targetLang}; path=/;`;
+        document.cookie = `googtrans=/en/${targetLang}; path=/; domain=${window.location.hostname};`;
+        document.cookie = `googtrans=/en/${targetLang}; path=/; domain=.hotelchap.com;`;
       }
+
+      // The most foolproof way to apply Google Translate is a full page reload after setting the cookie
+      window.location.reload();
     };
 
     triggerTranslation();
