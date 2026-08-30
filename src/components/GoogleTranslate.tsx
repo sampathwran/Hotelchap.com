@@ -44,17 +44,26 @@ export default function GoogleTranslate() {
 
       // If switching back to English, clear cookies
       if (targetLang === "en") {
+        if (!document.cookie.includes("googtrans")) return; // Already english, no cookies to clear
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hotelchap.com;`;
-      } else {
-        // Set cookie to force GT
-        document.cookie = `googtrans=/en/${targetLang}; path=/;`;
-        document.cookie = `googtrans=/en/${targetLang}; path=/; domain=${window.location.hostname};`;
-        document.cookie = `googtrans=/en/${targetLang}; path=/; domain=.hotelchap.com;`;
+        window.location.reload();
+        return;
       }
 
-      // The most foolproof way to apply Google Translate is a full page reload after setting the cookie
+      const desiredCookie = `googtrans=/en/${targetLang}`;
+      if (document.cookie.includes(desiredCookie)) {
+        // Cookie already set perfectly, no need to reload
+        return;
+      }
+
+      // Set cookie to force GT
+      document.cookie = `${desiredCookie}; path=/;`;
+      document.cookie = `${desiredCookie}; path=/; domain=${window.location.hostname};`;
+      document.cookie = `${desiredCookie}; path=/; domain=.hotelchap.com;`;
+
+      // Reload to apply the new cookie
       window.location.reload();
     };
 
