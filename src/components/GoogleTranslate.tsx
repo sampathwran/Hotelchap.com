@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSettings } from "@/context/SettingsContext";
 import { usePathname } from "next/navigation";
 
@@ -12,12 +12,16 @@ export default function GoogleTranslate() {
     if (targetLang === "zh-cn") targetLang = "zh-CN";
     if (targetLang === "zh-tw") targetLang = "zh-TW";
 
-    const forceTranslate = () => {
+    const doTranslate = () => {
       const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (!selectElement) return;
 
+      // Clean React hydration artifacts
+      const htmlElement = document.getElementsByTagName("html")[0];
+      const classNames = htmlElement.className.split(" ");
+      htmlElement.className = classNames.filter(c => c !== "translated-ltr" && c !== "translated-rtl").join(" ");
+
       if (targetLang === "en") {
-        // Restore to English
         if (selectElement.value !== "en") {
           selectElement.value = "en";
           selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
@@ -25,22 +29,14 @@ export default function GoogleTranslate() {
         return;
       }
 
-      // Force Google Translate to re-evaluate the DOM by toggling to English then to the target language
-      // This defeats React hydration which secretly overwrites translated nodes back to English
-      selectElement.value = "en";
+      // Force change
+      selectElement.value = targetLang;
       selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
-
-      setTimeout(() => {
-        selectElement.value = targetLang;
-        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
-      }, 100);
     };
 
-    // Run on initial load and whenever language/route changes
-    const timeout = setTimeout(forceTranslate, 500);
-    
-    // Also run an aggressive check every 2 seconds to catch any React re-renders that wiped the translation
-    const interval = setInterval(forceTranslate, 2000);
+    // Trigger repeatedly to fight React hydration
+    const timeout = setTimeout(doTranslate, 300);
+    const interval = setInterval(doTranslate, 2000);
 
     return () => {
       clearTimeout(timeout);
