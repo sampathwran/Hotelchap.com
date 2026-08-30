@@ -13,16 +13,14 @@ const bookingServices = [
 ];
 
 const userSection = [
-  { name: "AI Trip Planner", icon: "✨", link: "/planner" },
-  { name: "My Bookings", icon: "📅", link: "/bookings" },
+  { name: "AI Trip Planner", icon: "🤖", link: "/planner" },
   { name: "Saved & Wishlist", icon: "❤️", link: "/wishlist" },
   { name: "Explore Maps", icon: "🗺️", link: "/maps" },
 ];
 
 const extras = [
   { name: "Travel Insurance", icon: "🛡️", link: "/insurance" },
-  { name: "Special Offers", icon: "🏷️", link: "/offers" },
-  { name: "Travel Expert", icon: "🎧", link: "/expert" },
+  { name: "Special Offers", icon: "🔥", link: "/offers" },
 ];
 
 export default function Sidebar() {
