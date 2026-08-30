@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Globe, CircleDollarSign } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
-import LanguageModal, { allLanguages } from "@/components/LanguageModal";
+import LanguageModal from "@/components/LanguageModal";
 import { useAuth } from "@/context/AuthContext";
 import { useTranslation } from "@/lib/i18n";
 import { useSettings } from "@/context/SettingsContext";
@@ -162,7 +162,7 @@ export default function Home() {
             {/* Language Mobile */}
             <div className="relative">
               <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-800 text-sm flex items-center gap-1 drop-shadow-sm">
-                {allLanguages.find(l => l.code === language)?.flag || "🇬🇧"} {language} <span className="text-[10px]">▼</span>
+                <Globe size={16} className="text-blue-600" /> {language} <span className="text-[10px]">▼</span>
               </button>
               
             </div>
@@ -214,7 +214,7 @@ export default function Home() {
           {/* Language Dropdown Desktop */}
           <div className="relative">
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-800 hover:text-[#673AB7] transition flex items-center gap-1 drop-shadow-sm">
-              <span className="text-lg mr-1">{allLanguages.find(l => l.code === language)?.flag || "🇬🇧"}</span> {language} <span className="text-xs">▼</span>
+              <Globe size={18} className="text-blue-600 mr-1" /> {language} <span className="text-xs">▼</span>
             </button>
             
           </div>

@@ -1,37 +1,38 @@
 import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
+import 'flag-icons/css/flag-icons.min.css';
 
 export const allLanguages = [
-  { code: "EN", name: "English", localName: "English", flag: "🇬🇧" },
-  { code: "SI", name: "Sinhala", localName: "සිංහල", flag: "🇱🇰" },
-  { code: "TA", name: "Tamil", localName: "தமிழ்", flag: "🇱🇰" },
-  { code: "HI", name: "Hindi", localName: "हिन्दी", flag: "🇮🇳" },
-  { code: "AR", name: "Arabic", localName: "العربية", flag: "🇦🇪" },
-  { code: "FR", name: "French", localName: "Français", flag: "🇫🇷" },
-  { code: "EN-CA", name: "Canadian", localName: "English (CA)", flag: "🇨🇦" },
-  { code: "MS", name: "Malay", localName: "Bahasa Melayu", flag: "🇲🇾" },
-  { code: "DE", name: "German", localName: "Deutsch", flag: "🇩🇪" },
-  { code: "ES", name: "Spanish", localName: "Español", flag: "🇪🇸" },
-  { code: "IT", name: "Italian", localName: "Italiano", flag: "🇮🇹" },
-  { code: "JA", name: "Japanese", localName: "日本語", flag: "🇯🇵" },
-  { code: "KO", name: "Korean", localName: "한국어", flag: "🇰🇷" },
-  { code: "PT", name: "Portuguese", localName: "Português", flag: "🇵🇹" },
-  { code: "RU", name: "Russian", localName: "Русский", flag: "🇷🇺" },
-  { code: "ZH-CN", name: "Chinese", localName: "中文", flag: "🇨🇳" },
-  { code: "TH", name: "Thai", localName: "ไทย", flag: "🇹🇭" },
-  { code: "NL", name: "Dutch", localName: "Nederlands", flag: "🇳🇱" },
-  { code: "SV", name: "Swedish", localName: "Svenska", flag: "🇸🇪" },
-  { code: "NO", name: "Norwegian", localName: "Norsk", flag: "🇳🇴" },
-  { code: "FI", name: "Finnish", localName: "Suomi", flag: "🇫🇮" },
-  { code: "DA", name: "Danish", localName: "Dansk", flag: "🇩🇰" },
-  { code: "TR", name: "Turkish", localName: "Türkçe", flag: "🇹🇷" },
-  { code: "VI", name: "Vietnamese", localName: "Tiếng Việt", flag: "🇻🇳" },
-  { code: "ID", name: "Indonesian", localName: "Bahasa Indonesia", flag: "🇮🇩" },
-  { code: "PL", name: "Polish", localName: "Polski", flag: "🇵🇱" },
-  { code: "EL", name: "Greek", localName: "Ελληνικά", flag: "🇬🇷" },
-  { code: "HE", name: "Hebrew", localName: "עברית", flag: "🇮🇱" },
-  { code: "UK", name: "Ukrainian", localName: "Українська", flag: "🇺🇦" },
-  { code: "BN", name: "Bengali", localName: "বাংলা", flag: "🇧🇩" }
+  { code: "EN", name: "English", localName: "English", flag: "gb" },
+  { code: "SI", name: "Sinhala", localName: "සිංහල", flag: "lk" },
+  { code: "TA", name: "Tamil", localName: "தமிழ்", flag: "lk" },
+  { code: "HI", name: "Hindi", localName: "हिन्दी", flag: "in" },
+  { code: "AR", name: "Arabic", localName: "العربية", flag: "ae" },
+  { code: "FR", name: "French", localName: "Français", flag: "fr" },
+  { code: "EN-CA", name: "Canadian", localName: "English (CA)", flag: "ca" },
+  { code: "MS", name: "Malay", localName: "Bahasa Melayu", flag: "my" },
+  { code: "DE", name: "German", localName: "Deutsch", flag: "de" },
+  { code: "ES", name: "Spanish", localName: "Español", flag: "es" },
+  { code: "IT", name: "Italian", localName: "Italiano", flag: "it" },
+  { code: "JA", name: "Japanese", localName: "日本語", flag: "jp" },
+  { code: "KO", name: "Korean", localName: "한국어", flag: "kr" },
+  { code: "PT", name: "Portuguese", localName: "Português", flag: "pt" },
+  { code: "RU", name: "Russian", localName: "Русский", flag: "ru" },
+  { code: "ZH-CN", name: "Chinese", localName: "中文", flag: "cn" },
+  { code: "TH", name: "Thai", localName: "ไทย", flag: "th" },
+  { code: "NL", name: "Dutch", localName: "Nederlands", flag: "nl" },
+  { code: "SV", name: "Swedish", localName: "Svenska", flag: "se" },
+  { code: "NO", name: "Norwegian", localName: "Norsk", flag: "no" },
+  { code: "FI", name: "Finnish", localName: "Suomi", flag: "fi" },
+  { code: "DA", name: "Danish", localName: "Dansk", flag: "dk" },
+  { code: "TR", name: "Turkish", localName: "Türkçe", flag: "tr" },
+  { code: "VI", name: "Vietnamese", localName: "Tiếng Việt", flag: "vn" },
+  { code: "ID", name: "Indonesian", localName: "Bahasa Indonesia", flag: "id" },
+  { code: "PL", name: "Polish", localName: "Polski", flag: "pl" },
+  { code: "EL", name: "Greek", localName: "Ελληνικά", flag: "gr" },
+  { code: "HE", name: "Hebrew", localName: "עברית", flag: "il" },
+  { code: "UK", name: "Ukrainian", localName: "Українська", flag: "ua" },
+  { code: "BN", name: "Bengali", localName: "বাংলা", flag: "bd" }
 ];
 
 export default function LanguageModal({ 
@@ -92,7 +93,7 @@ export default function LanguageModal({
                 className={"flex items-center justify-between p-4 rounded-xl border transition-all " + (isActive ? "border-[#673AB7] bg-purple-50 shadow-md ring-1 ring-[#673AB7]" : "border-gray-100 hover:border-gray-300 hover:shadow-sm hover:bg-gray-50")}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl">{l.flag}</span>
+                  <span className={`fi fi-${l.flag} text-3xl rounded-sm`}></span>
                   <div className="flex flex-col items-start">
                     <span className={"font-black text-lg " + (isActive ? "text-[#673AB7]" : "text-gray-800")}>{l.localName}</span>
                     <span className="text-xs text-gray-500 font-medium mt-0.5">{l.name}</span>
