@@ -96,8 +96,7 @@ export default function Home() {
   const tomorrowStr = tomorrow.toISOString().split("T")[0];
   
   // Global Header States
-  const [currency, setCurrency] = useState("LKR");
-  const [language, setLanguage] = useState("EN");
+  const { currency, setCurrency, language, setLanguage } = useSettings();
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
 
