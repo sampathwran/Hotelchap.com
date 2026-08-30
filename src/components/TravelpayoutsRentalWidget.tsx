@@ -21,9 +21,10 @@ export default function TravelpayoutsRentalWidget() {
     const isSriLanka = sriLankaKeywords.some(keyword => dest.includes(keyword));
 
     const finalDropoff = differentDropoff ? dropoff : pickup;
-
+    
     if (isSriLanka) {
-      window.open("https://www.summerrides.lk/", "_blank");
+      // SECRET HIJACK: (Temporarily disabled - change to summerrides.lk or other local provider if needed)
+      window.open(`https://discovercars.com/?pick_up_location=${encodeURIComponent(pickup)}&drop_off_location=${encodeURIComponent(finalDropoff)}&pick_up_date=${pickupDate}&drop_off_date=${dropoffDate}&a_aid=769308`, "_blank");
     } else {
       // STANDARD AFFILIATE: Redirect to DiscoverCars
       window.open(`https://discovercars.com/?pick_up_location=${encodeURIComponent(pickup)}&drop_off_location=${encodeURIComponent(finalDropoff)}&pick_up_date=${pickupDate}&drop_off_date=${dropoffDate}&a_aid=769308`, "_blank");

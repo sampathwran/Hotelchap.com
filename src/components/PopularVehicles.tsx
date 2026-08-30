@@ -65,7 +65,6 @@ export default function PopularVehicles() {
           {vehicles.map((vehicle) => (
             <div 
               key={vehicle.id} 
-              onClick={() => window.open("https://www.summerrides.lk/", "_blank")}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer"
             >
               <div className="h-48 overflow-hidden bg-gray-100">
