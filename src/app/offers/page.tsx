@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
-import { db } from "@/lib/firebase";
+import { db } from "@/firebase";
 import { collection, query, where, getDocs, Timestamp, orderBy } from "firebase/firestore";
 import { Tag, Clock, ChevronRight, Gift } from "lucide-react";
 
