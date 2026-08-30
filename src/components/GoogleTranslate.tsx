@@ -22,16 +22,16 @@ export default function GoogleTranslate() {
       htmlElement.className = classNames.filter(c => c !== "translated-ltr" && c !== "translated-rtl").join(" ");
 
       if (targetLang === "en") {
-        if (selectElement.value !== "en") {
-          selectElement.value = "en";
-          selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
-        }
+        // Do not force the combo box back to "en". The page reload already cleared the cookie,
+        // so the page is in English. If we force it, we fight the native Chrome translation popup.
         return;
       }
 
-      // Force change
-      selectElement.value = targetLang;
-      selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      // Force change for other languages
+      if (selectElement.value !== targetLang) {
+        selectElement.value = targetLang;
+        selectElement.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      }
     };
 
     // Trigger repeatedly to fight React hydration

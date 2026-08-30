@@ -45,8 +45,11 @@ body {
 /* Google Translate Hiding Rules */
 body { top: 0 !important; position: static !important; }
 #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-.goog-te-banner-frame.skiptranslate { display: none !important; }
+.goog-te-banner-frame.skiptranslate, iframe.skiptranslate { display: none !important; }
 .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+iframe[name="goog_te_banner"] { display: none !important; }
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+#google_translate_element { display: none !important; }
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
