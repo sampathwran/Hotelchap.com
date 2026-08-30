@@ -47,9 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
 
         {/* Google Translate Native Scripts */}
-        <Script
-          id="google-translate-init"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.googleTranslateElementInit = function() {
@@ -61,11 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <Script
-          id="google-translate-script"
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          strategy="beforeInteractive"
-        />
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 
         <GoogleOAuthProvider clientId="138916892371-uk50uaqnu7ambeml7nvb81k2u45rauvo.apps.googleusercontent.com">
         <SettingsProvider>
