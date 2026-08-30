@@ -182,17 +182,17 @@ export default function AIPlanner() {
                               <p className="text-xs text-gray-500">Highly Rated • AI Pick</p>
                             </div>
                           </div>
-                          <Link href="/hotel" className="bg-[#673AB7] text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-purple-700 transition inline-block text-center">View Prices</Link>
+                          <Link href="/search" target="_blank" rel="noopener noreferrer" className="bg-[#673AB7] text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-purple-700 transition inline-block text-center">View Prices</Link>
                         </div>
                         <div className="flex-1 bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className={`h-10 w-10 bg-${themeColor}-100 text-${themeColor}-600 rounded-full flex items-center justify-center text-xl`}>🎟️</div>
+                            <div className={`h-10 w-10 bg-${themeColor}-100 text-${themeColor}-600 rounded-full flex items-center justify-center text-xl`}>🗺️</div>
                             <div>
                               <p className="font-bold text-sm text-gray-900">{dayPlan.activityName || "Guided Tour"}</p>
                               <p className="text-xs text-gray-500">Popular Activity</p>
                             </div>
                           </div>
-                          <Link href="/attractions" className={`bg-${themeColor}-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-${themeColor}-700 transition inline-block text-center`}>Book Ticket</Link>
+                          <Link href="/attractions" target="_blank" rel="noopener noreferrer" className={`bg-${themeColor}-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-${themeColor}-700 transition inline-block text-center`}>Book Ticket</Link>
                         </div>
                       </div>
                     </div>
