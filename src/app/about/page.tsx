@@ -21,7 +21,7 @@ export default function AboutUs() {
           <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 tracking-tight">
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">HotelChap</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed text-justify max-w-3xl mx-auto">
             When travelers are searching for their dream stay or perfect flight, we want the obvious choice to be HotelChap.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function AboutUs() {
             <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
               We help you find the best place to stay and the best time to go.
             </h3>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+            <p className="text-lg text-gray-600 leading-relaxed text-justify mb-6">
               We empower travelers to book with confidence, saving them valuable time and money. By aggregating millions of deals across hundreds of platforms, we ensure you always get the absolute best price without the endless searching.
             </p>
           </div>
@@ -67,10 +67,10 @@ export default function AboutUs() {
               <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 leading-tight">
                 Scaling a simple idea into a global travel companion.
               </h3>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              <p className="text-lg text-gray-600 leading-relaxed text-justify mb-6">
                 HotelChap started with a simple idea: use technology to solve real user problems and simplify travel booking. Driven by entrepreneurial passion and the goal to become the ultimate experts in travel deals, we built a platform that cuts through the noise.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed text-justify">
                 Always at the forefront of innovation, we continue to leverage cutting-edge tech like AI in our product - launching the world's smartest AI Trip Planner to simplify hotel search and dramatically enhance the user experience.
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function AboutUs() {
               <Lightbulb size={28} />
             </div>
             <h4 className="text-2xl font-bold text-gray-900 mb-4">We are fanatic learners</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               We maintain our competitive edge by remaining curious, failing fast and learning quickly. Challenges and changes are opportunities to unlock new knowledge and innovation.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function AboutUs() {
               <Zap size={28} />
             </div>
             <h4 className="text-2xl font-bold text-gray-900 mb-4">Technology is at our core</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               By embracing cutting-edge technologies and utilizing AI automation, we are committed to solving real user problems in the smartest way, enhancing experiences through data-backed solutions.
             </p>
           </div>
@@ -111,7 +111,7 @@ export default function AboutUs() {
               <Target size={28} />
             </div>
             <h4 className="text-2xl font-bold text-gray-900 mb-4">Entrepreneurial passion</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-justify">
               We believe in challenging the status quo and experimenting with new ways to tackle our challenges. We aim to simplify complex problems through our tech and expertise.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function AboutUs() {
         <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
           A team of passionate innovators
         </h3>
-        <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-16">
+        <p className="text-lg text-gray-600 leading-relaxed text-justify max-w-3xl mx-auto mb-16">
           Our dynamic leadership team has deep roots in HotelChap, instrumental in our global growth. Bold and execution-focused, they possess extensive experience across tech, marketing, and operations.
         </p>
 

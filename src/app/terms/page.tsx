@@ -27,7 +27,7 @@ export default function TermsOfService() {
             <span className="text-sm font-semibold text-purple-600 bg-purple-50 px-4 py-2 rounded-full">Last Updated: August 2026</span>
           </div>
           
-          <div className="space-y-12 text-gray-700 leading-relaxed text-[15px]">
+          <div className="space-y-12 text-gray-700 leading-relaxed text-[15px] text-justify">
             
             <section>
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">

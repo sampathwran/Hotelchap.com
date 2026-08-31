@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
             <span className="text-sm font-semibold text-purple-600 bg-purple-50 px-4 py-2 rounded-full">Last Updated: October 2025</span>
           </div>
           
-          <div className="space-y-6 text-gray-700 leading-relaxed text-[15px] mb-12">
+          <div className="space-y-6 text-gray-700 leading-relaxed text-[15px] text-justify mb-12">
             <p>
               This Privacy Notice is valid for all websites, applications or other services and offerings (collectively "the Services") operated by HotelChap Inc. and its subsidiaries ("we", "us", or "HotelChap").
             </p>
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
             </p>
           </div>
 
-          <div className="space-y-12 text-gray-700 leading-relaxed text-[15px]">
+          <div className="space-y-12 text-gray-700 leading-relaxed text-[15px] text-justify">
             
             <section>
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
