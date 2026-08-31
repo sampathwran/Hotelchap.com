@@ -342,7 +342,7 @@ export default function Home() {
                     className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
                     <span className="text-2xl">{icon}</span>
-                    <span className="text-sm md:text-sm capitalize">{t(key)}</span>
+                    <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
                   </button>
                 );
               })}
