@@ -24,6 +24,7 @@ export default function FareAlertsForm() {
     try {
       await addDoc(collection(db, "subscribers"), {
         email: email.trim(),
+        source: "fare_alert",
         createdAt: serverTimestamp(),
       });
       setSuccess(true);
