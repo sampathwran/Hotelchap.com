@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useEffect, useState, useRef } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -7,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 
 export default function PopularDestinations() {
+  const { t } = useTranslation();
   const router = useRouter();
   
   const [activeTab, setActiveTab] = useState<"countries" | "cities">("countries");
@@ -90,8 +92,8 @@ export default function PopularDestinations() {
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 md:mb-12 gap-4">
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">Best Destinations</h2>
-            <p className="text-gray-500 font-medium">Explore the world's top countries and vibrant cities.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">{t("Best Destinations")}</h2>
+            <p className="text-gray-500 font-medium">{t("Explore the world's top countries and vibrant cities.")}</p>
           </div>
           
           {/* Custom Tabs */}
