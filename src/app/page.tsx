@@ -8,7 +8,7 @@ import TravelBlog from "@/components/TravelBlog";
 import FlashDeals from "@/components/FlashDeals";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import AppDownload from "@/components/AppDownload";
-import CustomerReviews from "@/components/CustomerReviews";
+import CombinedReviewsApp from "@/components/CombinedReviewsApp";
 import MegaFooter from "@/components/MegaFooter";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -506,10 +506,10 @@ export default function Home() {
           <WhyChooseUs />
 
           {/* Customer Reviews */}
-          <CustomerReviews />
+          <CombinedReviewsApp />
 
           {/* Mobile App Download */}
-          <AppDownload />
+          
 
         </main>
       </div>
