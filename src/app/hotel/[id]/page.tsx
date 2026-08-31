@@ -81,14 +81,10 @@ function HotelDetailsContent() {
   }, [hotel.id, hotel.name, hotel.price, hotel.image, hotel.location]);
 
   const providers = [
+    { name: "Booking.com", logo: "https://www.google.com/s2/favicons?domain=booking.com&sz=64", color: "border-blue-900", text: "text-blue-900", discount: 0, url: bookingUrl },
     { name: "Agoda", logo: "https://www.google.com/s2/favicons?domain=agoda.com&sz=64", color: "border-blue-500", text: "text-blue-500", discount: 5, url: `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name)}` },
     { name: "Expedia", logo: "https://www.google.com/s2/favicons?domain=expedia.com&sz=64", color: "border-yellow-500", text: "text-yellow-600", discount: 2, url: `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.name)}` },
-    { name: "Booking.com", logo: "https://www.google.com/s2/favicons?domain=booking.com&sz=64", color: "border-blue-900", text: "text-blue-900", discount: 0, url: bookingUrl },
     { name: "Trip.com", logo: "https://www.google.com/s2/favicons?domain=trip.com&sz=64", color: "border-cyan-600", text: "text-cyan-600", discount: -2, url: `https://us.trip.com/hotels/list?city=1&keyword=${encodeURIComponent(hotel.name)}` },
-    { name: "Hotels.com", logo: "https://www.google.com/s2/favicons?domain=hotels.com&sz=64", color: "border-red-600", text: "text-red-600", discount: 1, url: `https://www.hotels.com/search.do?q-destination=${encodeURIComponent(hotel.name)}` },
-    { name: "Traveloka", logo: "https://www.google.com/s2/favicons?domain=traveloka.com&sz=64", color: "border-sky-500", text: "text-sky-500", discount: 3, url: `https://www.traveloka.com/en-en/hotel/search?keyword=${encodeURIComponent(hotel.name)}` },
-    { name: "Trivago", logo: "https://www.google.com/s2/favicons?domain=trivago.com&sz=64", color: "border-orange-500", text: "text-orange-500", discount: -1, url: `https://www.trivago.com/search?query=${encodeURIComponent(hotel.name)}` },
-    { name: "Kayak", logo: "https://www.google.com/s2/favicons?domain=kayak.com&sz=64", color: "border-orange-600", text: "text-orange-600", discount: 4, url: `https://www.kayak.com/hotels/${encodeURIComponent(hotel.name)}` }
   ];
 
   const [isRedirecting, setIsRedirecting] = useState<string | null>(null);
