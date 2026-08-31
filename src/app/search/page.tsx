@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -352,8 +353,9 @@ function SearchResults() {
 export const dynamic = 'force-dynamic';
 
 export default function SearchPage() {
+  const { t } = useTranslation();
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 font-bold text-gray-500">Loading search results...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 font-bold text-gray-500">{t("Loading search results...")}</div>}>
       <SearchResults />
     </Suspense>
   );

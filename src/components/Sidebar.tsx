@@ -3,28 +3,31 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useSettings } from "@/context/SettingsContext";
+import { useTranslation } from "@/lib/i18n";
 
+export default function Sidebar() {
+  const { t } = useTranslation();
 const bookingServices = [
-  { name: "Hotels & Villas", icon: "🏨", link: "/search" },
-  { name: "Flights", icon: "✈️", link: "/flights" },
-  { name: "Attractions", icon: "🎟️", link: "/attractions" },
-  { name: "Car & Bike Rentals", icon: "🚗", link: "/cars" },
-  { name: "Airport Transfers", icon: "🚕", link: "/transfers" },
-  { name: "Cruises", icon: "🛳️", link: "/cruises" },
+  { name: t("Hotels & Villas"), icon: "🏨", link: "/search" },
+  { name: t("Flights"), icon: "✈️", link: "/flights" },
+  { name: t("Attractions"), icon: "🎟️", link: "/attractions" },
+  { name: t("Car & Bike Rentals"), icon: "🚗", link: "/cars" },
+  { name: t("Airport Transfers"), icon: "🚕", link: "/transfers" },
+  { name: t("Cruises"), icon: "🛳️", link: "/cruises" },
 ];
 
 const userSection = [
-  { name: "AI Trip Planner", icon: "🤖", link: "/planner" },
-  { name: "Saved & Wishlist", icon: "❤️", link: "/wishlist" },
-  { name: "Explore Maps", icon: "🗺️", link: "/maps" },
+  { name: t("AI Trip Planner"), icon: "🤖", link: "/planner" },
+  { name: t("Saved & Wishlist"), icon: "❤️", link: "/wishlist" },
+  { name: t("Explore Maps"), icon: "🗺️", link: "/maps" },
 ];
 
 const extras = [
-  { name: "Travel Insurance", icon: "🛡️", link: "/insurance" },
-  { name: "Special Offers", icon: "🔥", link: "/offers" },
+  { name: t("Travel Insurance"), icon: "🛡️", link: "/insurance" },
+  { name: t("Special Offers"), icon: "🔥", link: "/offers" },
 ];
 
-export default function Sidebar() {
+
   const [isHovered, setIsHovered] = useState(false);
   const { isSidebarExpanded } = useSettings();
   const showExpanded = isSidebarExpanded || isHovered;
@@ -41,7 +44,7 @@ export default function Sidebar() {
           {item.icon}
         </span>
         <span className={`ml-4 font-medium transition-opacity duration-300 ${showExpanded ? 'opacity-100' : 'opacity-0'}`}>
-          {item.name}
+          {t(item.name)}
         </span>
       </Link>
     ))
@@ -84,7 +87,7 @@ export default function Sidebar() {
         {/* Home Button */}
         <Link href="/" className="flex flex-col items-center justify-center min-w-[65px] px-2 py-1 text-gray-600 hover:text-[#673AB7]">
           <span className="text-xl mb-1">🏠</span>
-          <span className="text-[10px] font-medium text-center leading-tight truncate w-full">Home</span>
+          <span className="text-[10px] font-medium text-center leading-tight truncate w-full">{t("Home")}</span>
         </Link>
         
         {/* Mobile Items: Items NOT in the Home Tabs */}
@@ -95,7 +98,7 @@ export default function Sidebar() {
             className="flex flex-col items-center justify-center min-w-[65px] px-2 py-1 text-gray-600 hover:text-[#673AB7]"
           >
             <span className="text-xl mb-1">{item.icon}</span>
-            <span className="text-[10px] font-medium text-center leading-tight truncate w-full">{item.name}</span>
+            <span className="text-[10px] font-medium text-center leading-tight truncate w-full">{t(item.name)}</span>
           </Link>
         ))}
       </div>

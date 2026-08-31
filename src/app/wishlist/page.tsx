@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
@@ -17,6 +18,7 @@ export type WishlistItem = {
 };
 
 export default function WishlistPage() {
+  const { t } = useTranslation();
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -86,9 +88,9 @@ export default function WishlistPage() {
           <div>
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 flex items-center gap-4 mb-3">
               <Heart className="text-[#673AB7] fill-[#673AB7]" size={40} />
-              Your Wishlist
+              {t("Your Wishlist")}
             </h1>
-            <p className="text-lg text-gray-500 font-medium">Keep track of your favorite stays, flights, and activities.</p>
+            <p className="text-lg text-gray-500 font-medium">{t("Keep track of your favorite stays, flights, and activities.")}</p>
           </div>
           <div className="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm font-bold text-gray-700">
             {wishlist.length} {wishlist.length === 1 ? 'Item' : 'Items'} Saved
@@ -151,7 +153,7 @@ export default function WishlistPage() {
                   </div>
 
                   <Link href={`/${item.type === 'attraction' ? 'attractions' : item.type === 'flight' ? 'flights' : 'search'}`} className="mt-5 w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
-                    View Details
+                    {t("View Details")}
                     <ExternalLink size={16} className="text-gray-400" />
                   </Link>
                 </div>

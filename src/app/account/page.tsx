@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -12,6 +13,7 @@ import { countryCodes as countryCodesList } from "@/lib/countryCodes";
 import Header from "@/components/Header";
 
 export default function AccountPage() {
+  const { t } = useTranslation();
   const { user, loading } = useAuth();
   const router = useRouter();
   
@@ -226,7 +228,7 @@ export default function AccountPage() {
               <Briefcase size={18} /> My Bookings
             </button>
             <button onClick={() => setActiveTab("wishlist")} className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition ${activeTab === "wishlist" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>
-              <Heart size={18} /> Saved & Wishlist
+              <Heart size={18} /> {t("Saved & Wishlist")}
             </button>
             <button onClick={() => setActiveTab("rewards")} className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition ${activeTab === "rewards" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-600 hover:bg-gray-100"}`}>
               <Gift size={18} /> Rewards & Points
@@ -349,7 +351,7 @@ export default function AccountPage() {
 
             {activeTab === "wishlist" && (
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <h2 className="text-2xl font-black text-gray-900 mb-6">Saved & Wishlist</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-6">{t("Saved & Wishlist")}</h2>
                 
                 <div className="border-2 border-dashed border-gray-200 rounded-2xl p-12 flex flex-col items-center justify-center text-center">
                   <Heart size={48} className="text-gray-300 mb-4" />

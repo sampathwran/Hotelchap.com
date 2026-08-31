@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 import React from 'react';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer,
@@ -41,6 +42,7 @@ const miniChartData = [
 ];
 
 export default function AdminDashboard() {
+  const { t } = useTranslation();
   return (
     <div className="w-full max-w-[1600px] mx-auto pb-10 animate-fade-in-up">
       
@@ -52,7 +54,7 @@ export default function AdminDashboard() {
         </div>
         <div className="flex gap-2">
           <button className="flex items-center gap-2 bg-[#845adf] hover:bg-[#734dbf] text-white px-4 py-2 rounded-md text-sm font-medium transition shadow-sm">
-            <span className="text-lg">⚡</span> Filters
+            <span className="text-lg">⚡</span> {t("Filters")}
           </button>
           <button className="flex items-center gap-2 bg-white hover:bg-gray-50 text-[#845adf] border border-gray-200 px-4 py-2 rounded-md text-sm font-medium transition shadow-sm">
             <Download size={16} /> Export
@@ -293,7 +295,7 @@ export default function AdminDashboard() {
               <input type="text" placeholder="Search Here" className="pl-8 pr-4 py-1.5 bg-gray-50 border border-gray-200 rounded-md text-[12px] focus:outline-none focus:border-[#845adf] w-48" />
             </div>
             <button className="flex items-center gap-1 bg-[#845adf] hover:bg-[#734dbf] text-white px-3 py-1.5 rounded-md text-[12px] font-medium transition shadow-sm">
-              Sort By <ChevronDown size={14} />
+              {t("Sort By")} <ChevronDown size={14} />
             </button>
           </div>
         </div>

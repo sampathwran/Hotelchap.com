@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -153,9 +154,9 @@ function HotelDetailsContent() {
         
         {/* Breadcrumb */}
         <div className="flex items-center text-sm text-gray-500 mb-6">
-          <Link href="/" className="hover:text-[#673AB7]">Home</Link>
+          <Link href="/" className="hover:text-[#673AB7]">{t("Home")}</Link>
           <ChevronRight size={14} className="mx-2" />
-          <Link href="/search" className="hover:text-[#673AB7]">Search Results</Link>
+          <Link href="/search" className="hover:text-[#673AB7]">{t("Search Results")}</Link>
           <ChevronRight size={14} className="mx-2" />
           <span className="text-gray-900 font-medium truncate max-w-xs">{hotel.name}</span>
         </div>
@@ -164,7 +165,7 @@ function HotelDetailsContent() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="bg-[#673AB7] text-white text-xs font-bold px-2 py-1 rounded">Recommended</span>
+              <span className="bg-[#673AB7] text-white text-xs font-bold px-2 py-1 rounded">{t("Recommended")}</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">{hotel.name}</h1>
             <div className="flex items-center gap-2 text-gray-500">
@@ -311,6 +312,7 @@ export const dynamic = 'force-dynamic';
 const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
 export default function HotelDetailsPage() {
+  const { t } = useTranslation();
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 font-bold text-gray-500">Loading hotel details...</div>}>
       <HotelDetailsContent />

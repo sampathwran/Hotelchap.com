@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 
 export default function CruisesPage() {
+  const { t } = useTranslation();
   const popularDestinations = [
     {
       name: "Caribbean",
@@ -58,7 +60,7 @@ export default function CruisesPage() {
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
         
         <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center text-center mt-10">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 drop-shadow-2xl">Sail Away on an Ocean Adventure</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 drop-shadow-2xl">{t("Sail Away on an Ocean Adventure")}</h1>
           <p className="text-lg md:text-2xl text-white/90 font-medium mb-10 drop-shadow-md">Compare deals from top cruise lines worldwide.</p>
           
           <div className="w-full bg-white/10 backdrop-blur-xl p-4 md:p-8 rounded-3xl border border-white/20 shadow-2xl">
@@ -119,7 +121,7 @@ export default function CruisesPage() {
             <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
               <DollarSign size={32} />
             </div>
-            <h3 className="text-lg font-black text-gray-900 mb-3">Best Price Guarantee</h3>
+            <h3 className="text-lg font-black text-gray-900 mb-3">{t("Best Price Guarantee")}</h3>
             <p className="text-gray-500 text-sm font-medium">We aggregate prices from all major lines to ensure you get the absolute lowest rate.</p>
           </div>
           

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
@@ -18,6 +19,7 @@ export type SpecialOffer = {
 };
 
 export default function OffersPage() {
+  const { t } = useTranslation();
   const [offers, setOffers] = useState<SpecialOffer[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
@@ -101,10 +103,10 @@ export default function OffersPage() {
             <Gift size={40} />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Exclusive Special Offers
+            {t("Exclusive Special Offers")}
           </h1>
           <p className="text-lg md:text-xl text-gray-500 font-medium max-w-2xl mx-auto">
-            Discover our latest promotions, heavily discounted travel packages, and limited-time deals curated just for you.
+            {t("Discover our latest promotions, heavily discounted travel packages, and limited-time deals curated just for you.")}
           </p>
         </div>
 
@@ -166,22 +168,22 @@ export default function OffersPage() {
               <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
                 <ShieldCheck size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Best Price Guarantee</h3>
-              <p className="text-gray-500 font-medium">Find a lower price? We'll match it and give you an extra 10% discount on your next booking.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("Best Price Guarantee")}</h3>
+              <p className="text-gray-500 font-medium">{t("Find a lower price? We'll match it and give you an extra 10% discount on your next booking.")}</p>
             </div>
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm text-center flex flex-col items-center hover:shadow-md transition-shadow">
               <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6">
                 <CreditCard size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Flexible Payments</h3>
-              <p className="text-gray-500 font-medium">Book now and pay later. Enjoy flexible cancellation policies on thousands of hotels and flights.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("Flexible Payments")}</h3>
+              <p className="text-gray-500 font-medium">{t("Book now and pay later. Enjoy flexible cancellation policies on thousands of hotels and flights.")}</p>
             </div>
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm text-center flex flex-col items-center hover:shadow-md transition-shadow">
               <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6">
                 <Headphones size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">24/7 Premium Support</h3>
-              <p className="text-gray-500 font-medium">Our travel experts are always on standby to help you whenever and wherever you need assistance.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("24/7 Premium Support")}</h3>
+              <p className="text-gray-500 font-medium">{t("Our travel experts are always on standby to help you whenever and wherever you need assistance.")}</p>
             </div>
           </div>
         </div>
@@ -191,9 +193,9 @@ export default function OffersPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#673AB7] rounded-full blur-[100px] opacity-30"></div>
           
           <div className="relative z-10 max-w-xl text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Never Miss a Secret Deal!</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t("Never Miss a Secret Deal!")}</h2>
             <p className="text-gray-400 font-medium text-lg">
-              Sign up for our newsletter to get VIP access to flash sales, exclusive promo codes, and 50% off secret hotel rates.
+              {t("Sign up for our newsletter to get VIP access to flash sales, exclusive promo codes, and 50% off secret hotel rates.")}
             </p>
           </div>
           
@@ -222,7 +224,7 @@ export default function OffersPage() {
                 )}
               </button>
             </form>
-            <p className="text-xs text-gray-500 mt-3 text-center md:text-left">No spam. You can unsubscribe at any time.</p>
+            <p className="text-xs text-gray-500 mt-3 text-center md:text-left">{t("No spam. You can unsubscribe at any time.")}</p>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useEffect, useState, useRef } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
@@ -6,6 +7,7 @@ import { db } from "@/firebase";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PopularVehicles() {
+  const { t } = useTranslation();
   const [vehicles, setVehicles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -65,8 +67,8 @@ export default function PopularVehicles() {
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Vehicle Types</h2>
-              <p className="text-gray-500 font-medium">Choose the perfect wheels for your adventure</p>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">{t("Popular Vehicle Types")}</h2>
+              <p className="text-gray-500 font-medium">{t("Choose the perfect wheels for your adventure")}</p>
             </div>
           </div>
           <div className="flex justify-center items-center py-12">
@@ -84,8 +86,8 @@ export default function PopularVehicles() {
       <div className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Popular Vehicle Types</h2>
-            <p className="text-gray-500 font-medium">Choose the perfect wheels for your adventure</p>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">{t("Popular Vehicle Types")}</h2>
+            <p className="text-gray-500 font-medium">{t("Choose the perfect wheels for your adventure")}</p>
           </div>
           
           <div className="hidden md:flex gap-2">

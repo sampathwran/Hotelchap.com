@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
@@ -11,12 +12,13 @@ import {
 import TransferFleet from "@/components/TransferFleet";
 
 export default function TransfersPage() {
+  const { t } = useTranslation();
 
   const faqs = [
-    { q: "How do I meet my driver at the airport?", a: "Your driver will wait in the arrivals hall holding a sign with your name. You will also receive their contact details before your trip." },
-    { q: "What if my flight is delayed?", a: "We monitor all flights. If your flight is delayed, the driver will adjust the pickup time automatically at no extra charge." },
-    { q: "Are the prices fixed?", a: "Yes, all our transfer prices are fixed and all-inclusive. There are no hidden fees, tolls, or extra charges at the end of your trip." },
-    { q: "Can I cancel or change my booking?", a: "Yes, most of our transfers offer free cancellation up to 24 hours before the scheduled pickup time." }
+    { q: t("How do I meet my driver at the airport?"), a: t("Your driver will wait in the arrivals hall holding a sign with your name. You will also receive their contact details before your trip.") },
+    { q: t("What if my flight is delayed?"), a: t("We monitor all flights. If your flight is delayed, the driver will adjust the pickup time automatically at no extra charge.") },
+    { q: t("Are the prices fixed?"), a: t("Yes, all our transfer prices are fixed and all-inclusive. There are no hidden fees, tolls, or extra charges at the end of your trip.") },
+    { q: t("Can I cancel or change my booking?"), a: t("Yes, most of our transfers offer free cancellation up to 24 hours before the scheduled pickup time.") }
   ];
 
   return (
@@ -32,8 +34,8 @@ export default function TransfersPage() {
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
         
         <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center text-center mt-10">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 drop-shadow-2xl">Premium Airport Transfers</h1>
-          <p className="text-lg md:text-2xl text-white/90 font-medium mb-10 drop-shadow-md">Professional drivers, fixed prices, and flight tracking.</p>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 drop-shadow-2xl">{t("Premium Airport Transfers")}</h1>
+          <p className="text-lg md:text-2xl text-white/90 font-medium mb-10 drop-shadow-md">{t("Professional drivers, fixed prices, and flight tracking.")}</p>
           
           <div className="w-full bg-white/10 backdrop-blur-xl p-4 md:p-8 rounded-3xl border border-white/20 shadow-2xl">
             <TravelpayoutsTransferWidget />
@@ -45,8 +47,8 @@ export default function TransfersPage() {
       <div className="bg-white py-20 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">How it works</h2>
-            <p className="text-gray-500 font-medium text-lg">Book your transfer in 3 simple steps</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">{t("How it works")}</h2>
+            <p className="text-gray-500 font-medium text-lg">{t("Book your transfer in 3 simple steps")}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
@@ -57,24 +59,24 @@ export default function TransfersPage() {
               <div className="w-20 h-20 bg-[#673AB7] text-white rounded-full flex items-center justify-center mb-6 shadow-xl shadow-purple-200 border-4 border-white">
                 <MapPin size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">1. Enter your ride details</h3>
-              <p className="text-gray-500">Specify your pickup location, drop-off destination, and flight details.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("1. Enter your ride details")}</h3>
+              <p className="text-gray-500">{t("Specify your pickup location, drop-off destination, and flight details.")}</p>
             </div>
             
             <div className="flex flex-col items-center text-center bg-white p-6 rounded-2xl">
               <div className="w-20 h-20 bg-[#673AB7] text-white rounded-full flex items-center justify-center mb-6 shadow-xl shadow-purple-200 border-4 border-white">
                 <Car size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">2. Choose your vehicle</h3>
-              <p className="text-gray-500">Select from economy cars, luxury sedans, or spacious minivans.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("2. Choose your vehicle")}</h3>
+              <p className="text-gray-500">{t("Select from economy cars, luxury sedans, or spacious minivans.")}</p>
             </div>
             
             <div className="flex flex-col items-center text-center bg-white p-6 rounded-2xl">
               <div className="w-20 h-20 bg-[#673AB7] text-white rounded-full flex items-center justify-center mb-6 shadow-xl shadow-purple-200 border-4 border-white">
                 <ThumbsUp size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">3. Meet your driver</h3>
-              <p className="text-gray-500">Your driver will be waiting at arrivals with a name sign, ready to help.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t("3. Meet your driver")}</h3>
+              <p className="text-gray-500">{t("Your driver will be waiting at arrivals with a name sign, ready to help.")}</p>
             </div>
           </div>
         </div>
@@ -85,37 +87,37 @@ export default function TransfersPage() {
 
       {/* Why Choose Us */}
       <div className="max-w-7xl mx-auto px-4 py-20 w-full">
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why book with HotelChap Transfers?</h2>
+        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">{t("Why book with HotelChap Transfers?")}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg transition-all transform hover:-translate-y-2">
             <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
               <PlaneLanding size={32} />
             </div>
-            <h3 className="text-lg font-black text-gray-900 mb-3">Flight Tracking</h3>
-            <p className="text-gray-500 text-sm font-medium">Drivers monitor your flight and adjust the pickup time if you're delayed.</p>
+            <h3 className="text-lg font-black text-gray-900 mb-3">{t("Flight Tracking")}</h3>
+            <p className="text-gray-500 text-sm font-medium">{t("Drivers monitor your flight and adjust the pickup time if you're delayed.")}</p>
           </div>
           
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg transition-all transform hover:-translate-y-2">
             <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
               <Wallet size={32} />
             </div>
-            <h3 className="text-lg font-black text-gray-900 mb-3">Fixed Pricing</h3>
-            <p className="text-gray-500 text-sm font-medium">The price you see is the price you pay. No hidden fees or toll surprises.</p>
+            <h3 className="text-lg font-black text-gray-900 mb-3">{t("Fixed Pricing")}</h3>
+            <p className="text-gray-500 text-sm font-medium">{t("The price you see is the price you pay. No hidden fees or toll surprises.")}</p>
           </div>
 
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg transition-all transform hover:-translate-y-2">
             <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
               <ShieldCheck size={32} />
             </div>
-            <h3 className="text-lg font-black text-gray-900 mb-3">Safe & Reliable</h3>
-            <p className="text-gray-500 text-sm font-medium">All our drivers are licensed, insured, and thoroughly vetted for your safety.</p>
+            <h3 className="text-lg font-black text-gray-900 mb-3">{t("Safe & Reliable")}</h3>
+            <p className="text-gray-500 text-sm font-medium">{t("All our drivers are licensed, insured, and thoroughly vetted for your safety.")}</p>
           </div>
 
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg transition-all transform hover:-translate-y-2">
             <div className="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
               <HeadphonesIcon size={32} />
             </div>
-            <h3 className="text-lg font-black text-gray-900 mb-3">24/7 Support</h3>
+            <h3 className="text-lg font-black text-gray-900 mb-3">{t("24/7 Support")}</h3>
             <p className="text-gray-500 text-sm font-medium">Our customer service team is always available to help you via chat or phone.</p>
           </div>
         </div>
@@ -124,7 +126,7 @@ export default function TransfersPage() {
       {/* FAQs */}
       <div className="bg-white py-20 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 w-full">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">{t("Frequently Asked Questions")}</h2>
           <div className="space-y-6">
             {faqs.map((faq, idx) => (
               <div key={idx} className="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-gray-200 transition-colors">

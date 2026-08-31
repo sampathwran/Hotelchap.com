@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useState } from "react";
 import Header from "@/components/Header";
@@ -6,6 +7,7 @@ import MegaFooter from "@/components/MegaFooter";
 import { ShieldCheck, HeartPulse, Plane, Briefcase, Clock, Umbrella, CheckCircle, HelpCircle } from "lucide-react";
 
 export default function InsurancePage() {
+  const { t } = useTranslation();
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [travelers, setTravelers] = useState("1");
@@ -21,15 +23,15 @@ export default function InsurancePage() {
   };
 
   const coverageItems = [
-    { icon: <HeartPulse size={32} />, title: "Medical Emergencies", desc: "Up to $1,000,000 coverage for unexpected illness or injury while abroad." },
-    { icon: <Plane size={32} />, title: "Trip Cancellation", desc: "100% reimbursement if you need to cancel for covered reasons." },
-    { icon: <Briefcase size={32} />, title: "Lost Baggage", desc: "Get compensated for lost, stolen, or damaged luggage and personal items." },
-    { icon: <Clock size={32} />, title: "Travel Delays", desc: "Covers meals and accommodation if your flight is delayed over 6 hours." },
+    { icon: <HeartPulse size={32} />, title: t("Medical Emergencies"), desc: t("Up to $1,000,000 coverage for unexpected illness or injury while abroad.") },
+    { icon: <Plane size={32} />, title: t("Trip Cancellation"), desc: t("100% reimbursement if you need to cancel for covered reasons.") },
+    { icon: <Briefcase size={32} />, title: t("Lost Baggage"), desc: t("Get compensated for lost, stolen, or damaged luggage and personal items.") },
+    { icon: <Clock size={32} />, title: t("Travel Delays"), desc: t("Covers meals and accommodation if your flight is delayed over 6 hours.") },
   ];
 
   const plans = [
     {
-      name: "Basic",
+      name: t("Basic"),
       price: "$15.99",
       period: "per week",
       color: "bg-blue-50 border-blue-200",
@@ -37,7 +39,7 @@ export default function InsurancePage() {
       features: ["$50,000 Medical Coverage", "Trip Delay ($500)", "Lost Baggage ($1,000)", "24/7 Emergency Assistance"]
     },
     {
-      name: "Standard",
+      name: t("Standard"),
       price: "$29.99",
       period: "per week",
       color: "bg-purple-50 border-[#673AB7] shadow-xl transform scale-105 relative z-10",
@@ -46,7 +48,7 @@ export default function InsurancePage() {
       features: ["$250,000 Medical Coverage", "Trip Cancellation (100%)", "Lost Baggage ($2,500)", "Missed Connection Coverage", "24/7 Emergency Assistance"]
     },
     {
-      name: "Premium",
+      name: t("Premium"),
       price: "$49.99",
       period: "per week",
       color: "bg-orange-50 border-orange-200",
@@ -56,9 +58,9 @@ export default function InsurancePage() {
   ];
 
   const faqs = [
-    { q: "Can I buy insurance after I've started my trip?", a: "No, travel insurance must be purchased before you depart from your home country." },
-    { q: "Does the insurance cover COVID-19?", a: "Yes, our Standard and Premium plans include coverage for COVID-19 related medical emergencies and trip cancellations." },
-    { q: "Are pre-existing medical conditions covered?", a: "They can be covered if you purchase the policy within 14 days of your initial trip deposit, subject to certain requirements." },
+    { q: t("Can I buy insurance after I've started my trip?"), a: t("No, travel insurance must be purchased before you depart from your home country.") },
+    { q: t("Does the insurance cover COVID-19?"), a: t("Yes, our Standard and Premium plans include coverage for COVID-19 related medical emergencies and trip cancellations.") },
+    { q: t("Are pre-existing medical conditions covered?"), a: t("They can be covered if you purchase the policy within 14 days of your initial trip deposit, subject to certain requirements.") },
   ];
 
   return (
@@ -78,10 +80,10 @@ export default function InsurancePage() {
               <Umbrella size={16} /> Travel with Peace of Mind
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Protect Your Journey, <br className="hidden lg:block"/> Anywhere You Go.
+              {t("Protect Your Journey, Anywhere You Go.")}
             </h1>
             <p className="text-lg md:text-xl text-white/70 font-medium mb-8 max-w-2xl">
-              Comprehensive travel insurance covering medical emergencies, cancellations, and lost luggage. Because the best trips are worry-free.
+              {t("Comprehensive travel insurance covering medical emergencies, cancellations, and lost luggage. Because the best trips are worry-free.")}
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <div className="flex -space-x-4">
@@ -97,7 +99,7 @@ export default function InsurancePage() {
           <div className="w-full lg:w-[450px] bg-white rounded-3xl p-8 shadow-2xl relative z-10 border border-gray-100">
             <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2">
               <ShieldCheck className="text-[#673AB7]" size={28} />
-              Get a Free Quote
+              {t("Get a Free Quote")}
             </h2>
             <form onSubmit={handleQuote} className="space-y-5">
               <div>
@@ -151,8 +153,8 @@ export default function InsurancePage() {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">What does our insurance cover?</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">We've got your back in almost any situation, so you can focus on making memories.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">{t("What does our insurance cover?")}</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("We've got your back in almost any situation, so you can focus on making memories.")}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -173,8 +175,8 @@ export default function InsurancePage() {
       <div className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">Choose the level of protection that fits your journey and budget.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">{t("Simple, Transparent Pricing")}</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("Choose the level of protection that fits your journey and budget.")}</p>
           </div>
           
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0 mt-8">
@@ -213,7 +215,7 @@ export default function InsurancePage() {
       <div className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-10 text-center flex items-center justify-center gap-3">
-            <HelpCircle className="text-[#673AB7]" size={36} /> Frequently Asked Questions
+            <HelpCircle className="text-[#673AB7]" size={36} /> {t("Frequently Asked Questions")}
           </h2>
           <div className="space-y-6">
             {faqs.map((faq, idx) => (

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useState } from "react";
 import Header from "@/components/Header";
@@ -6,16 +7,17 @@ import MegaFooter from "@/components/MegaFooter";
 import { Search, MapPin, Navigation, Star, Map as MapIcon, Coffee, Bed, Camera } from "lucide-react";
 
 export default function MapsPage() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   // Default map location is Sri Lanka
   const [mapLocation, setMapLocation] = useState("Sri Lanka");
 
   const trendingLocations = [
-    { name: "Colombo, Sri Lanka", desc: "Vibrant city life and coastal views", img: "https://images.unsplash.com/photo-1572973211553-61ebce67c61c?q=80&w=200&auto=format&fit=crop" },
-    { name: "Kandy, Sri Lanka", desc: "Cultural capital and lush mountains", img: "https://images.unsplash.com/photo-1620619553765-b1a8d0526e0e?q=80&w=200&auto=format&fit=crop" },
-    { name: "Galle, Sri Lanka", desc: "Historic fort and stunning beaches", img: "https://images.unsplash.com/photo-1549479361-bd80c05763bd?q=80&w=200&auto=format&fit=crop" },
-    { name: "Bali, Indonesia", desc: "Tropical paradise and temples", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=200&auto=format&fit=crop" },
-    { name: "Paris, France", desc: "The city of love and lights", img: "https://images.unsplash.com/photo-1502602898657-3e907614d642?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Colombo, Sri Lanka"), desc: t("Vibrant city life and coastal views"), img: "https://images.unsplash.com/photo-1572973211553-61ebce67c61c?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Kandy, Sri Lanka"), desc: t("Cultural capital and lush mountains"), img: "https://images.unsplash.com/photo-1620619553765-b1a8d0526e0e?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Galle, Sri Lanka"), desc: t("Historic fort and stunning beaches"), img: "https://images.unsplash.com/photo-1549479361-bd80c05763bd?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Bali, Indonesia"), desc: t("Tropical paradise and temples"), img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Paris, France"), desc: t("The city of love and lights"), img: "https://images.unsplash.com/photo-1502602898657-3e907614d642?q=80&w=200&auto=format&fit=crop" },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -36,9 +38,9 @@ export default function MapsPage() {
           <div className="p-6">
             <h1 className="text-3xl font-black text-gray-900 mb-2 flex items-center gap-3">
               <MapIcon className="text-[#673AB7]" size={32} />
-              Explore Maps
+              {t("Explore Maps")}
             </h1>
-            <p className="text-gray-500 text-sm font-medium mb-6">Discover hotels, attractions, and hidden gems around the world.</p>
+            <p className="text-gray-500 text-sm font-medium mb-6">{t("Discover hotels, attractions, and hidden gems around the world.")}</p>
             
             {/* Search Box */}
             <form onSubmit={handleSearch} className="relative mb-8">
@@ -59,7 +61,7 @@ export default function MapsPage() {
                 <Bed size={16} /> Hotels
               </button>
               <button className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors">
-                <Camera size={16} /> Attractions
+                <Camera size={16} /> {t("Attractions")}
               </button>
               <button className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors">
                 <Coffee size={16} /> Restaurants
@@ -68,7 +70,7 @@ export default function MapsPage() {
 
             <h2 className="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
               <Star className="text-orange-500 fill-orange-500" size={18} />
-              Trending Locations
+              {t("Trending Locations")}
             </h2>
             
             <div className="space-y-4">

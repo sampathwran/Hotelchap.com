@@ -1,4 +1,6 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
+
 
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
@@ -6,6 +8,7 @@ import DummyWidget from "@/components/DummyWidget";
 import { MapPin, ShieldCheck, HeadphonesIcon, ChevronDown, CheckCircle } from "lucide-react";
 
 export default function PackagesPage() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <Header />
@@ -33,7 +36,7 @@ export default function PackagesPage() {
             <MapPin size={48} />
          </div>
          <h2 className="text-4xl font-black text-gray-900 mb-6">More Flight + Hotel Packages Features Coming Soon</h2>
-         <p className="text-xl text-gray-500 max-w-2xl mx-auto">We are currently integrating the best global providers to bring you the ultimate booking experience.</p>
+         <p className="text-xl text-gray-500 max-w-2xl mx-auto">{t("We are currently integrating the best global providers to bring you the ultimate booking experience.")}</p>
       </div>
 
       {/* Push Footer to bottom */}

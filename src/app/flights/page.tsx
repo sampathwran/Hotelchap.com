@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
@@ -10,6 +11,7 @@ import FlightTipsBlog from "@/components/FlightTipsBlog";
 import { Plane, ShieldCheck, Clock, CreditCard, Bell, ChevronDown, ArrowRight } from "lucide-react";
 
 export default function FlightsPage() {
+  const { t } = useTranslation();
 
   const airlines = ["EK", "QR", "UL", "SQ", "EY", "MH", "TG", "CX"];
 
@@ -104,7 +106,7 @@ export default function FlightsPage() {
       <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* FAQ Area (Takes 2 columns) */}
         <div className="lg:col-span-2">
-          <h2 className="text-2xl font-black text-gray-900 mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-8">{t("Frequently Asked Questions")}</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <details key={idx} className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm open:bg-[#673AB7] open:text-white transition-colors duration-300">

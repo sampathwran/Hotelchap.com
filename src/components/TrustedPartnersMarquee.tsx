@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import React from "react";
 
@@ -11,10 +12,11 @@ const logos = [
 ];
 
 export default function TrustedPartnersMarquee() {
+  const { t } = useTranslation();
   return (
     <div className="bg-white py-10 border-b border-gray-100 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 text-center mb-8">
-        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">In partnership with global leaders</p>
+        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">{t("In partnership with global leaders")}</p>
       </div>
       
       {/* Marquee Container */}

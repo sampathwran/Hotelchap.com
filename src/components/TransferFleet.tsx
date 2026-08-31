@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
 
 import { useEffect, useState } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
@@ -6,6 +7,7 @@ import { db } from "@/firebase";
 import { Users, Luggage } from "lucide-react";
 
 export default function TransferFleet() {
+  const { t } = useTranslation();
   const [vehicles, setVehicles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,8 +40,8 @@ export default function TransferFleet() {
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Fleet Options</h2>
-              <p className="text-gray-500 font-medium text-lg">A vehicle for every traveler and group size</p>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">{t("Our Fleet Options")}</h2>
+              <p className="text-gray-500 font-medium text-lg">{t("A vehicle for every traveler and group size")}</p>
             </div>
           </div>
           <div className="flex justify-center items-center py-12">
@@ -57,8 +59,8 @@ export default function TransferFleet() {
       <div className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Fleet Options</h2>
-            <p className="text-gray-500 font-medium text-lg">A vehicle for every traveler and group size</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">{t("Our Fleet Options")}</h2>
+            <p className="text-gray-500 font-medium text-lg">{t("A vehicle for every traveler and group size")}</p>
           </div>
         </div>
         

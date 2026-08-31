@@ -1,10 +1,13 @@
 "use client";
+import { useTranslation } from "@/lib/i18n";
+
 
 import { useState } from "react";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 
 export default function AIPlanner() {
+  const { t } = useTranslation();
   const [destination, setDestination] = useState("");
   const [days, setDays] = useState("5");
   const [style, setStyle] = useState("Balanced");
@@ -58,7 +61,7 @@ export default function AIPlanner() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/" className="font-semibold text-gray-600 hover:text-[#673AB7] transition">Back to Home</Link>
+          <Link href="/" className="font-semibold text-gray-600 hover:text-[#673AB7] transition">{t("Back to Home")}</Link>
         </div>
       </header>
 
@@ -74,7 +77,7 @@ export default function AIPlanner() {
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
                   Design your dream trip with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#673AB7] to-pink-500">AI</span>
                 </h1>
-                <p className="text-gray-500 text-lg">Tell us where you want to go, and our AI will instantly generate a full day-by-day itinerary with hotels and flights.</p>
+                <p className="text-gray-500 text-lg">{t("Tell us where you want to go, and our AI will instantly generate a full day-by-day itinerary with hotels and flights.")}</p>
               </div>
 
               <form onSubmit={handleGenerate} className="flex flex-col gap-6">
