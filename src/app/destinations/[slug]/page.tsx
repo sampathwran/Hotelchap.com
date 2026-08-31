@@ -194,7 +194,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
           <section>
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-black text-gray-900">Top Rated Hotels</h2>
-              <Link href="/search" className="hidden sm:flex items-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition">
+              <Link href={"/search?q=" + data.name + "&type=hotel"} className="hidden sm:flex items-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition">
                 View all <ChevronRight className="w-5 h-5" />
               </Link>
             </div>
@@ -233,10 +233,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
                         <p className="text-xs text-gray-400 font-semibold uppercase">Estimated Price</p>
                         <p className="text-xl font-black text-gray-900">{hotel.price}</p>
                       </div>
-                      <Link 
-                        href="/search" 
-                        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition flex items-center gap-2"
-                      >
+                      <Link href={"/search?q=" + encodeURIComponent(hotel.name + " " + data.name)} className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition flex items-center gap-2">
                         Check Prices <ExternalLink className="w-4 h-4" />
                       </Link>
                     </div>
@@ -245,7 +242,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
               ))}
             </div>
             
-            <Link href="/search" className="sm:hidden flex items-center justify-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition mt-6 bg-blue-50 p-4 rounded-xl">
+            <Link href={"/search?q=" + data.name + "&type=hotel"} className="sm:hidden flex items-center justify-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition mt-6 bg-blue-50 p-4 rounded-xl">
               View all hotels in {data.name} <ChevronRight className="w-5 h-5" />
             </Link>
           </section>
