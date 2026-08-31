@@ -10,7 +10,7 @@ export default function PartnerLogos() {
   ];
 
   return (
-    <div className="w-full px-4 md:px-10 mt-2 mb-6">
+    <div className="w-full px-4 md:px-10 mt-12 md:mt-16 mb-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         
         <div className="text-center md:text-left min-w-[200px]">
