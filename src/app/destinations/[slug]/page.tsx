@@ -130,8 +130,9 @@ const destinationsData: Record<string, any> = {
   }
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const data = destinationsData[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const data = destinationsData[slug];
   if (!data) return { title: 'Destination Not Found' };
   
   return {
@@ -140,8 +141,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function DestinationPage({ params }: { params: { slug: string } }) {
-  const data = destinationsData[params.slug];
+export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const data = destinationsData[slug];
 
   if (!data) {
     notFound();
