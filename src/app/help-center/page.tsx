@@ -2,60 +2,56 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import MegaFooter from '@/components/MegaFooter';
-import { Search, ChevronDown, ChevronUp, Plane, CreditCard, User, HelpCircle, Mail, MessageSquare } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Plane, Info, User, HelpCircle, Mail, ExternalLink } from 'lucide-react';
 
 const faqCategories = [
   {
-    title: "Booking & Reservations",
+    title: "Bookings & Cancellations",
     icon: <Plane className="w-6 h-6 text-blue-500" />,
     questions: [
       {
         q: "How do I book a hotel or flight?",
-        a: "To book, simply enter your destination, travel dates, and number of guests in our search bar. Click 'Search' to view available options. Once you find a suitable deal, click 'Book Now' and follow the secure checkout process."
+        a: "HotelChap is a travel search engine. When you find a deal you like, we redirect you to our trusted partners (such as Booking.com, Agoda, or airlines) to securely complete your booking and payment on their website."
       },
       {
-        q: "Can I cancel or change my booking?",
-        a: "Yes! Most bookings offer free cancellation up to 24 hours before your check-in date. To cancel or modify, log into your HotelChap account, go to 'My Trips', and select the booking you wish to change."
+        q: "Can I cancel or change my booking through HotelChap?",
+        a: "No. Because your booking is made directly with the partner site (e.g., Agoda, Booking.com), you must contact them directly to cancel or modify your reservation. HotelChap does not have access to your booking records."
       },
       {
         q: "Where can I find my booking confirmation?",
-        a: "A confirmation email with your itinerary and booking reference is sent immediately after your payment is processed. You can also view all your active bookings in the 'My Trips' section of your account."
+        a: "Your confirmation email is sent directly by the partner you booked with immediately after your payment is processed. Please check your spam folder if you cannot find it, or contact the partner's support team."
       }
     ]
   },
   {
     title: "Payments & Pricing",
-    icon: <CreditCard className="w-6 h-6 text-purple-500" />,
+    icon: <Info className="w-6 h-6 text-purple-500" />,
     questions: [
       {
-        q: "What payment methods do you accept?",
-        a: "We accept all major credit and debit cards including Visa, MasterCard, and American Express. We also support PayPal, Apple Pay, and Google Pay for faster checkout."
+        q: "Does HotelChap charge any fees?",
+        a: "No! HotelChap is 100% free to use. We do not add any hidden fees or charges to the prices we show you. We earn a small commission from our partners when you book through our links, at absolutely no extra cost to you."
       },
       {
-        q: "Are there any hidden fees?",
-        a: "No! The price you see on our final checkout page is the total price you will pay. It includes all taxes and standard fees. We believe in 100% price transparency."
+        q: "Why do I pay on another website?",
+        a: "We are a price comparison platform, not a travel agency. We aggregate the best deals from across the web, but the actual transaction is always handled securely by the booking partner you select."
       },
       {
-        q: "When will I be charged for my booking?",
-        a: "For most 'Pay Now' bookings, your card is charged immediately to secure the reservation. For 'Pay at Property' bookings, you will only be charged when you arrive at the hotel."
+        q: "Who do I contact for a refund?",
+        a: "All refund requests must be directed to the partner you booked with, as HotelChap does not process payments, hold funds, or manage transactions."
       }
     ]
   },
   {
-    title: "Account & Settings",
+    title: "Account & General",
     icon: <User className="w-6 h-6 text-amber-500" />,
     questions: [
       {
-        q: "How do I reset my password?",
-        a: "Click on 'Sign In' at the top right, then select 'Forgot Password?'. Enter the email address associated with your account, and we will send you a secure link to reset your password."
+        q: "How do I subscribe to Fare Alerts?",
+        a: "You can subscribe to our newsletter and Fare Alerts using the form in our website footer. Just enter your email and we'll notify you when we find massive price drops."
       },
       {
-        q: "How can I subscribe to the Fare Alerts?",
-        a: "You can subscribe to Fare Alerts by navigating to the Flights section or using the 'Secret Deals' form in our website footer. Just enter your email and we'll send you the best customized deals."
-      },
-      {
-        q: "How do I delete my account?",
-        a: "If you wish to permanently delete your account and all associated data, please navigate to your Profile Settings, scroll to the bottom, and click 'Delete Account'. This action cannot be undone."
+        q: "Do I need a HotelChap account to book?",
+        a: "No account is required! You can use HotelChap as a guest to compare prices and be redirected to our partners for booking."
       }
     ]
   }
@@ -77,15 +73,15 @@ export default function HelpCenter() {
       <div className="bg-[#111c43] text-white pt-24 pb-20 px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-blue-600/10 z-10 pointer-events-none"></div>
         <div className="relative z-20 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">How can we help you?</h1>
+          <h1 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Help Center</h1>
           <p className="text-lg text-gray-300 mb-10">
-            Search our knowledge base or browse categories below to find answers to your questions.
+            Find answers to common questions about how our search engine works.
           </p>
           
           <div className="relative max-w-2xl mx-auto">
             <input 
               type="text" 
-              placeholder="Type your question here (e.g. 'cancel booking')"
+              placeholder="Search our FAQs..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full h-16 pl-14 pr-6 rounded-2xl text-gray-900 text-lg shadow-2xl focus:outline-none focus:ring-4 focus:ring-purple-500/30 transition-all border-none"
@@ -143,11 +139,6 @@ export default function HelpCenter() {
                     </div>
                   );
                 })}
-                
-                {/* Empty State if search doesn't match this category */}
-                {category.questions.filter(q => q.q.toLowerCase().includes(searchQuery.toLowerCase()) || q.a.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
-                   <p className="text-gray-400 italic py-4">No results found in this category.</p>
-                )}
               </div>
             </div>
           ))}
@@ -158,18 +149,14 @@ export default function HelpCenter() {
               <HelpCircle className="w-48 h-48" />
             </div>
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h3 className="text-3xl font-black mb-4">Still need help?</h3>
-              <p className="text-lg text-purple-100 mb-8 leading-relaxed">
-                Can't find the answer you're looking for? Our dedicated support team is available 24/7 to assist you with any questions or issues.
+              <h3 className="text-3xl font-black mb-4">Important Notice regarding Support</h3>
+              <p className="text-lg text-purple-100 mb-8 leading-relaxed text-justify">
+                Because HotelChap is a price comparison search engine, we do not have access to your booking details, payment records, or reservations. If you have an issue with a booking, please contact the customer support team of the booking partner (e.g., Booking.com, Agoda) directly.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto px-8 py-4 bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-50 transition-colors shadow-lg flex items-center justify-center gap-2">
-                  <MessageSquare className="w-5 h-5" />
-                  Live Chat
-                </button>
-                <button className="w-full sm:w-auto px-8 py-4 bg-purple-700/50 hover:bg-purple-700/70 text-white font-bold rounded-xl border border-purple-400/30 transition-colors flex items-center justify-center gap-2">
+                <button className="px-8 py-4 bg-purple-700/50 hover:bg-purple-700/70 text-white font-bold rounded-xl border border-purple-400/30 transition-colors flex items-center justify-center gap-2">
                   <Mail className="w-5 h-5" />
-                  Email Support
+                  Email for General Inquiries
                 </button>
               </div>
             </div>

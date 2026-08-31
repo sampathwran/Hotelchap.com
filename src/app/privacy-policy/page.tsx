@@ -81,7 +81,8 @@ export default function PrivacyPolicy() {
                 <ul className="list-disc pl-6 space-y-2 text-gray-600">
                   <li><strong>User data:</strong> Personal data collected for the creation of a member account, such as your name, email address, password, profile picture, and search preferences.</li>
                   <li><strong>Usage data:</strong> Information about how you use our Services, including destination, date, number of guests, deals viewed, and links clicked.</li>
-                  <li><strong>Booking data:</strong> Information about bookings made on or through our Services. Online booking sites may send us personal data relating to any subsequent booking you make.</li>
+                  <li><strong>Affiliate Tracking Data:</strong> When you click a deal, we redirect you to our partners using affiliate tracking codes. Our partners (e.g., Booking.com, Travelpayouts) may share anonymous reporting data with us about whether a booking was completed so we can earn our commission, but this does NOT include your payment information or sensitive personal details.</li>
+                  <li><strong>Financial Data:</strong> HotelChap DOES NOT collect, process, or store credit card numbers, bank details, or payment information. All transactions happen securely on our partners' websites.</li>
                   <li><strong>Location data:</strong> We may process approximate location information based on your IP address. With your prior consent, we may use GPS data to provide customised search results on your mobile.</li>
                   <li><strong>Technical data:</strong> IP address, cookies, session ID, device ID, browser software and version, operating system, and language settings.</li>
                 </ul>

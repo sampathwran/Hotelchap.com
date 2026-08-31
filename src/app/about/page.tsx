@@ -36,7 +36,7 @@ export default function AboutUs() {
               We help you find the best place to stay and the best time to go.
             </h3>
             <p className="text-lg text-gray-600 leading-relaxed text-justify mb-6">
-              We empower travelers to book with confidence, saving them valuable time and money. By aggregating millions of deals across hundreds of platforms, we ensure you always get the absolute best price without the endless searching.
+              We are a leading travel metasearch engine. We empower travelers by aggregating millions of deals across hundreds of trusted booking partners (like Booking.com, Agoda, and more) into one place. We do not take payments or handle bookings directly�we simply connect you to the absolute best price with zero hidden fees and zero risk.
             </p>
           </div>
           <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
@@ -68,7 +68,7 @@ export default function AboutUs() {
                 Scaling a simple idea into a global travel companion.
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed text-justify mb-6">
-                HotelChap started with a simple idea: use technology to solve real user problems and simplify travel booking. Driven by entrepreneurial passion and the goal to become the ultimate experts in travel deals, we built a platform that cuts through the noise.
+                HotelChap started with a simple idea: use technology to simplify travel comparison. As an affiliate platform, we eliminate the need to check ten different websites. We partner with the world's top travel agencies to show you all the prices in one place, allowing you to click through and book directly with the provider you trust.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed text-justify">
                 Always at the forefront of innovation, we continue to leverage cutting-edge tech like AI in our product - launching the world's smartest AI Trip Planner to simplify hotel search and dramatically enhance the user experience.

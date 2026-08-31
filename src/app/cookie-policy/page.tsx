@@ -12,8 +12,8 @@ const cookieCategories = [
     icon: <CheckCircle2 className="w-6 h-6 text-green-500" />,
     services: [
       {
-        name: "HotelChap Essentials",
-        description: "Core functionality required to keep you logged in, remember your basic session, and process your bookings securely.",
+        name: "HotelChap Essentials & Affiliate Tracking",
+        description: "Core functionality required to keep your session active and strictly necessary affiliate tracking cookies that allow our partners to recognize that you were referred by HotelChap, ensuring we earn our commission.",
         duration: "Session",
       },
       {
@@ -91,7 +91,7 @@ export default function CookiePolicy() {
         </div>
         <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Cookie Policy</h1>
         <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed">
-          Cookies are used on HotelChap by us and our trusted partners to enhance your experience. For example, data is collected to remember recent activity or personalize the ads you see. We never use cookies to change what prices are shown on HotelChap.
+          Cookies are used on HotelChap by us and our trusted affiliate networks (such as Travelpayouts, Booking.com, Agoda) to enhance your experience and securely track affiliate referrals. For example, data is collected to remember recent activity or personalize the ads you see. We never use cookies to change what prices are shown on HotelChap.
         </p>
       </div>
 
