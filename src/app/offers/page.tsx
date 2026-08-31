@@ -30,7 +30,7 @@ export default function OffersPage() {
     if (!email) return;
     setIsSubscribing(true);
     try {
-      await addDoc(collection(db, "fare_alerts_subscribers"), {
+      await addDoc(collection(db, "subscribers"), {
         email: email,
         createdAt: Timestamp.now()
       });

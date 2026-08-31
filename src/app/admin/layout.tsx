@@ -27,6 +27,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const menuItems: Array<{ name: string; icon: React.ReactNode; href: string; isMain: boolean; badge?: string }> = [
     { name: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/admin", isMain: true },
     { name: "Bookings", icon: <ShoppingCart size={20} />, href: "/admin/bookings", isMain: true },
+      { name: "Subscribers", icon: <Users size={20} />, href: "/admin/subscribers", isMain: true },
     { name: "Destinations", icon: <Globe size={20} />, href: "/admin/destinations", isMain: true },
     { name: "Flash Deals", icon: <Flame size={20} />, href: "/admin/deals", isMain: true },
     { name: "Travel Blog", icon: <FileText size={20} />, href: "/admin/blog", isMain: true },

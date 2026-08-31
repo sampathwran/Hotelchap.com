@@ -1,20 +1,30 @@
 "use client";
 import { useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/firebase";
 
 export default function MegaFooter() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !email.includes("@")) return;
     setStatus("loading");
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      await addDoc(collection(db, "subscribers"), {
+        email: email.trim(),
+        source: "footer_newsletter",
+        createdAt: serverTimestamp(),
+      });
       setStatus("success");
       setEmail("");
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1000);
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err) {
+      console.error("Error subscribing:", err);
+      setStatus("idle");
+    }
   };
   return (
     <footer className="bg-gray-900 text-white pt-20 pb-10">
