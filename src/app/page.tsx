@@ -156,6 +156,12 @@ export default function Home() {
   const [showTopNav, setShowTopNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Guest Picker States
+  const [showGuestPicker, setShowGuestPicker] = useState(false);
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
+  const [rooms, setRooms] = useState(1);
+
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window !== 'undefined') {
@@ -352,34 +358,118 @@ export default function Home() {
               {/* Render Search Form or Travelpayouts Widget based on tab */}
               {activeTab === "hotels" ? (
                 <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-lg border border-gray-100 p-3 md:p-4 flex flex-col md:flex-row items-center gap-3 mt-4 relative z-10 transition-all duration-500">
-                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
-                    <span className="text-gray-400 mr-3 text-lg">🔍</span>
-                    <input type="text" name="city" placeholder={t("searchWhere")} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium placeholder-gray-400" required />
-                  </div>
-                  
-                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
-                    <span className="text-gray-400 mr-3 text-lg">📅</span>
-                    <input type="date" name="checkin" min={todayStr} defaultValue={todayStr} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
-                    <span className="text-gray-300 mx-2">-</span>
-                    <input type="date" name="checkout" min={todayStr} defaultValue={tomorrowStr} className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium text-sm" required />
+<div className="flex-1 w-full flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                    <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Destination")}</label>
+                    <div className="flex items-center">
+                      <MapPin size={18} className="text-gray-400 mr-2" />
+                      <input type="text" name="city" placeholder={t("Find your next stay...")} className="w-full bg-transparent border-none focus:outline-none text-gray-900 font-bold placeholder-gray-400" required />
+                    </div>
                   </div>
 
-                  <div className="flex-1 w-full flex items-center bg-gray-50 rounded-lg px-4 py-3 md:py-2 border border-gray-100 focus-within:border-[#673AB7] focus-within:ring-1 focus-within:ring-[#673AB7] transition">
-                    <span className="text-gray-400 mr-3 text-lg">👥</span>
-                    <select name="guests" className="w-full bg-transparent border-none focus:outline-none text-gray-800 font-medium">
-                      <option value="1">1 Adult, 0 Children, 1 Room</option>
-                      <option value="2">2 Adults, 0 Children, 1 Room</option>
-                      <option value="3">2 Adults, 1 Child, 1 Room</option>
-                      <option value="4">2 Adults, 2 Children, 2 Rooms</option>
-                    </select>
+                  <div className="flex w-full md:w-auto gap-2">
+                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                      <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Check-in")}</label>
+                      <div className="flex items-center">
+                        <Calendar size={16} className="text-gray-400 mr-2 hidden md:block" />
+                        <input type="date" name="checkin" min={todayStr} defaultValue={todayStr} className="w-full bg-transparent border-none focus:outline-none text-gray-900 font-bold text-sm cursor-pointer" required />
+                      </div>
+                    </div>
+                    
+                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                      <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Check-out")}</label>
+                      <div className="flex items-center">
+                        <Calendar size={16} className="text-gray-400 mr-2 hidden md:block" />
+                        <input type="date" name="checkout" min={todayStr} defaultValue={tomorrowStr} className="w-full bg-transparent border-none focus:outline-none text-gray-900 font-bold text-sm cursor-pointer" required />
+                      </div>
+                    </div>
                   </div>
 
-                  <input type="hidden" name="type" value={activeTab} />
+                  {/* Custom Guest Picker */}
+                  <div className="w-full md:w-auto min-w-[200px] flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 transition relative">
+                    <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Guests & Rooms")}</label>
+                    <div 
+                      className="flex items-center cursor-pointer"
+                      onClick={() => setShowGuestPicker(!showGuestPicker)}
+                    >
+                      <UserCheck size={18} className="text-gray-400 mr-2 hidden md:block" />
+                      <div className="text-sm font-bold text-gray-900 select-none truncate">
+                        {adults + children} {adults + children === 1 ? t('Guest') : t('Guests')}, {rooms} {rooms === 1 ? t('Room') : t('Rooms')}
+                      </div>
+                    </div>
+                    
+                    {/* Dropdown Menu */}
+                    {showGuestPicker && (
+                      <>
+                        {/* Overlay to close when clicking outside */}
+                        <div className="fixed inset-0 z-40" onClick={() => setShowGuestPicker(false)}></div>
+                        
+                        <div className="absolute top-[110%] right-0 md:left-0 w-full md:w-80 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-100 p-5 z-50 animate-in fade-in zoom-in-95 duration-200">
+                          
+                          {/* Adults */}
+                          <div className="flex items-center justify-between mb-6">
+                            <div>
+                              <p className="font-bold text-gray-900 text-lg">{t("Adults")}</p>
+                              <p className="text-xs text-gray-500 font-medium">{t("Age 18+")}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                              <button type="button" onClick={() => setAdults(Math.max(1, adults - 1))} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm disabled:opacity-50" disabled={adults <= 1}>
+                                <span className="text-xl leading-none">-</span>
+                              </button>
+                              <span className="font-bold text-lg w-6 text-center">{adults}</span>
+                              <button type="button" onClick={() => setAdults(adults + 1)} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm">
+                                <span className="text-xl leading-none">+</span>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          {/* Children */}
+                          <div className="flex items-center justify-between mb-6">
+                            <div>
+                              <p className="font-bold text-gray-900 text-lg">{t("Children")}</p>
+                              <p className="text-xs text-gray-500 font-medium">{t("Ages 0-17")}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                              <button type="button" onClick={() => setChildren(Math.max(0, children - 1))} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm disabled:opacity-50" disabled={children <= 0}>
+                                <span className="text-xl leading-none">-</span>
+                              </button>
+                              <span className="font-bold text-lg w-6 text-center">{children}</span>
+                              <button type="button" onClick={() => setChildren(children + 1)} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm">
+                                <span className="text-xl leading-none">+</span>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          {/* Rooms */}
+                          <div className="flex items-center justify-between mb-6">
+                            <div>
+                              <p className="font-bold text-gray-900 text-lg">{t("Rooms")}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                              <button type="button" onClick={() => setRooms(Math.max(1, rooms - 1))} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm disabled:opacity-50" disabled={rooms <= 1}>
+                                <span className="text-xl leading-none">-</span>
+                              </button>
+                              <span className="font-bold text-lg w-6 text-center">{rooms}</span>
+                              <button type="button" onClick={() => setRooms(rooms + 1)} className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 hover:border-blue-600 hover:text-blue-600 transition shadow-sm">
+                                <span className="text-xl leading-none">+</span>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          <button type="button" onClick={() => setShowGuestPicker(false)} className="w-full py-3 bg-[#673AB7]/10 text-[#673AB7] font-bold text-lg rounded-xl hover:bg-[#673AB7] hover:text-white transition-colors duration-300">
+                            {t("Done")}
+                          </button>
+                        </div>
+                      </>
+                    )}
+                    <input type="hidden" name="adults" value={adults} />
+                    <input type="hidden" name="children" value={children} />
+                    <input type="hidden" name="rooms" value={rooms} />
+                  </div>
 
-                  <button type="submit" className="w-full md:w-auto bg-[#673AB7] hover:bg-[#522b94] text-white px-8 py-3 md:py-4 rounded-lg font-black text-lg shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
-                    <span>🔍</span> {t("searchBtn")}
+                  <button type="submit" className="w-full md:w-auto bg-[#673AB7] hover:bg-purple-700 text-white px-8 py-4 md:py-3 rounded-lg font-bold transition transform hover:scale-[1.02] active:scale-95 shadow-md flex items-center justify-center gap-2 text-lg md:text-base">
+                    {t("Search")}
                   </button>
-                </form>
+</form>
               ) : activeTab === "flights" ? (
                 <div className="mt-4 relative z-10 w-full min-h-[150px]">
                   <TravelpayoutsFlightWidget />
