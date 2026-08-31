@@ -35,7 +35,10 @@
   "Download the HotelChap app to book flights, hotels, and unlock secret mobile-only deals instantly.": "ගුවන් ගමන් සහ හෝටල් වෙන්කරවා ගැනීමටත්, ජංගම දුරකථන සඳහා පමණක් ඇති රහසිගත දීමනා ක්ෂණිකව ලබා ගැනීමටත් HotelChap App එක ඩවුන්ලෝඩ් කරගන්න.",
   "Download on the App Store": "App Store හරහා ඩවුන්ලෝඩ් කරන්න",
   "GET IT ON Google Play": "Google Play හරහා ලබාගන්න",
-  "Find your next stay...": "ඔබේ මීළඟ නවාතැන සොයන්න...",
+  "Find your next stay...": "ඔබේ මීළඟ නවාතැන සොයන්න..."
+
+	
+	
   "Loading search results...": "සෙවුම් ප්‍රතිඵල ලබාගනිමින් පවතී...",
   "Search Results": "සෙවුම් ප්‍රතිඵල",
   "Filters": "පෙරහන්",
@@ -59,11 +62,12 @@
   "Per Night": "රාත්‍රියක් සඳහා",
   "Total Price": "මුළු මුදල",
   "Taxes and fees included": "බදු සහ ගාස්තු ඇතුළත් වේ",
-  "Show Map": "සිතියම පෙන්වන්න",
+  "Show Map": "සිතියම පෙන්වන්න"
   "Discover Global Attractions": "ලොව පුරා ඇති නැරඹුම් ස්ථාන ගවේෂණය කරන්න",
   "Book tickets to top museums, tours and theme parks": "ප්‍රමුඛතම කෞතුකාගාර, සංචාර සහ තේමා උද්‍යාන (theme parks) සඳහා ප්‍රවේශපත්‍ර වෙන්කරවා ගන්න",
   "More Attractions & Tours Features Coming Soon": "තවත් නැරඹුම් ස්ථාන සහ සංචාරක විශේෂාංග ළඟදීම බලාපොරොත්තු වන්න",
-  "We are currently integrating the best global providers to bring you the ultimate booking experience.": "ඔබට ඉහළම තත්ත්වයේ වෙන්කරවා ගැනීමේ අත්දැකීමක් ලබා දීම සඳහා අපි මේ වන විට ලොව ප්‍රමුඛතම සේවා සපයන්නන් අප හා සම්බන්ධ කරමින් සිටින්නෙමු.",
+  "We are currently integrating the best global providers to bring you the ultimate booking experience.": "ඔබට ඉහළම තත්ත්වයේ වෙන්කරවා ගැනීමේ අත්දැකීමක් ලබා දීම සඳහා අපි මේ වන විට ලොව ප්‍රමුඛතම සේවා සපයන්නන් අප හා සම්බන්ධ කරමින් සිටින්නෙමු."
+
   "Hit the road with HotelChap": "HotelChap සමඟින් ඔබේ ගමන අරඹන්න",
   "Compare the best car and bike rental deals worldwide": "ලොව පුරා හොඳම මෝටර් රථ සහ යතුරුපැදි කුලියට දීමේ දීමනා සසඳන්න",
   "In partnership with global leaders": "ගෝලීය ප්‍රමුඛයන් සමඟ හවුල්කාරිත්වයෙන්",
@@ -87,7 +91,8 @@
   "You will need a valid driver's license (International Driving Permit for some countries), a passport or ID card, and a credit card in the main driver's name for the deposit.": "තැන්පතුව සඳහා ඔබට වලංගු රියදුරු බලපත්‍රයක් (සමහර රටවල් සඳහා ජාත්‍යන්තර රියදුරු බලපත්‍රයක්), විදේශ ගමන් බලපත්‍රයක් හෝ හැඳුනුම්පතක් සහ ප්‍රධාන රියදුරුගේ නමින් ඇති ක්‍රෙඩිට් කාඩ්පතක් අවශ්‍ය වේ.",
   "Most rentals include basic Collision Damage Waiver (CDW) and Theft Protection. You can always purchase comprehensive insurance at the counter for total peace of mind.": "බොහෝ කුලී රථ සඳහා මූලික ඝට්ටන හානි සමාව (CDW) සහ සොරකම් වලින් ආරක්ෂා වීමේ රක්ෂණයක් ඇතුළත් වේ. ඔබට සම්පූර්ණ මනසේ සාමය සඳහා කවුන්ටරයෙන් පූර්ණ රක්ෂණයක් ලබා ගත හැකිය.",
   "Yes! We offer convenient airport pick-up locations worldwide. Just enter your arrival airport in the search box above.": "ඔව්! අපි ලොව පුරා ගුවන් තොටුපළවල් වල පහසුවෙන් වාහන ලබා ගැනීමේ ස්ථාන ලබා දෙන්නෙමු. ඉහත සෙවුම් කොටුවෙහි ඔබ පැමිණෙන ගුවන් තොටුපළ ඇතුළත් කරන්න.",
-  "Many of our partners offer unlimited mileage, but some special vehicles might have a daily limit. Always check the rental conditions before booking.": "අපගේ බොහෝ හවුල්කරුවන් අසීමිත දුර ප්‍රමාණයක් ලබා දෙන නමුත්, සමහර විශේෂිත වාහන සඳහා දෛනික සීමාවක් තිබිය හැක. වෙන්කරවා ගැනීමට පෙර සැමවිටම කුලියට දීමේ කොන්දේසි පරීක්ෂා කරන්න.",
+  "Many of our partners offer unlimited mileage, but some special vehicles might have a daily limit. Always check the rental conditions before booking.": "අපගේ බොහෝ හවුල්කරුවන් අසීමිත දුර ප්‍රමාණයක් ලබා දෙන නමුත්, සමහර විශේෂිත වාහන සඳහා දෛනික සීමාවක් තිබිය හැක. වෙන්කරවා ගැනීමට පෙර සැමවිටම කුලියට දීමේ කොන්දේසි පරීක්ෂා කරන්න."
+
   "Premium Airport Transfers": "ඉහළම තත්ත්වයේ ගුවන් තොටුපළ ප්‍රවාහන සේවා",
   "Professional drivers, fixed prices, and flight tracking.": "වෘත්තීය රියදුරන්, ස්ථාවර මිල ගණන් සහ ගුවන් ගමන් නිරීක්ෂණය කිරීම.",
   "How it works": "මෙය ක්‍රියාත්මක වන ආකාරය",
@@ -114,9 +119,83 @@
   "Are the prices fixed?": "මිල ගණන් ස්ථාවරද?",
   "Yes, all our transfer prices are fixed and all-inclusive. There are no hidden fees, tolls, or extra charges at the end of your trip.": "ඔව්, අපගේ සියලුම ප්‍රවාහන මිල ගණන් ස්ථාවර වන අතර සියල්ල ඇතුළත් වේ. ඔබගේ ගමන අවසානයේ කිසිදු සැඟවුණු ගාස්තුවක් හෝ අමතර අයකිරීමක් සිදු නොකෙරේ.",
   "Can I cancel or change my booking?": "මට මාගේ වෙන්කරවා ගැනීම අවලංගු කිරීමට හෝ වෙනස් කිරීමට හැකිද?",
-  "Yes, most of our transfers offer free cancellation up to 24 hours before the scheduled pickup time.": "ඔව්, අපගේ බොහෝ ප්‍රවාහන සේවා සඳහා නියමිත වේලාවට පැය 24 කට පෙර කිසිදු ගාස්තුවකින් තොරව අවලංගු කිරීමේ හැකියාව ලබා දේ.",
+  "Yes, most of our transfers offer free cancellation up to 24 hours before the scheduled pickup time.": "ඔව්, අපගේ බොහෝ ප්‍රවාහන සේවා සඳහා නියමිත වේලාවට පැය 24 කට පෙර කිසිදු ගාස්තුවකින් තොරව අවලංගු කිරීමේ හැකියාව ලබා දේ."
+
   "Sail Away on an Ocean Adventure": "සාගර චාරිකාවකට එක්වන්න",
   "Compare deals from top cruise lines worldwide": "ලොව පුරා ප්‍රමුඛතම නෞකා සේවාවන්හි දීමනා සසඳන්න",
   "More Luxury Cruises Features Coming Soon": "තවත් සුඛෝපභෝගී නෞකා සංචාරක විශේෂාංග ළඟදීම බලාපොරොත්තු වන්න",
   "We are currently integrating the best global providers to bring you the ultimate booking experience.": "ඔබට ඉහළම තත්ත්වයේ වෙන්කරවා ගැනීමේ අත්දැකීමක් ලබා දීම සඳහා අපි මේ වන විට ලොව ප්‍රමුඛතම සේවා සපයන්නන් අප හා සම්බන්ධ කරමින් සිටින්නෙමු."
+
+  "Back to Home": "නැවත මුල් පිටුවට",
+  "Design your dream trip with AI": "AI තාක්ෂණය හරහා ඔබේ සිහින චාරිකාව සැලසුම් කරන්න",
+  "Tell us where you want to go, and our AI will instantly generate a full day-by-day itinerary with hotels and flights.": "ඔබට යාමට අවශ්‍ය ස්ථානය අපට කියන්න, එවිට අපගේ AI මගින් ක්ෂණිකව හෝටල් සහ ගුවන් ගමන් ඇතුළත් සම්පූර්ණ දෛනික ගමන් සැලැස්මක් (day-by-day itinerary) ඔබට නිර්මාණය කර දෙනු ඇත."
+
+  "Your Wishlist": "ඔබගේ කැමති දේවල් (Wishlist)",
+  "Keep track of your favorite stays, flights, and activities.": "ඔබ වඩාත් කැමති නවාතැන්, ගුවන් ගමන් සහ ක්‍රියාකාරකම් මෙහි සුරක්ෂිතව තබාගන්න."
+
+  "Explore Maps": "සිතියම් ගවේෂණය කරන්න",
+  "Discover hotels, attractions, and hidden gems around the world.": "ලොව පුරා ඇති හෝටල්, නැරඹුම් ස්ථාන සහ සැඟවුණු සුන්දර ස්ථාන සොයාගන්න.",
+  "Trending Locations": "නැරඹීමට ජනප්‍රිය ස්ථාන (Trending Locations)",
+  "Colombo, Sri Lanka": "කොළඹ, ශ්‍රී ලංකාව",
+  "Vibrant city life and coastal views": "විචිත්‍රවත් නගර ජීවිතයක් සහ වෙරළබඩ දසුන්",
+  "Kandy, Sri Lanka": "මහනුවර, ශ්‍රී ලංකාව",
+  "Cultural capital and lush mountains": "සංස්කෘතික අගනුවර සහ හරිත කඳුකරය",
+  "Galle, Sri Lanka": "ගාල්ල, ශ්‍රී ලංකාව",
+  "Historic fort and stunning beaches": "ඓතිහාසික බලකොටුව සහ විශ්මයජනක වෙරළ තීරයන්",
+  "Bali, Indonesia": "බාලි, ඉන්දුනීසියාව",
+  "Tropical paradise and temples": "නිවර්තන පාරාදීසය සහ පෞරාණික විහාරස්ථාන",
+  "Paris, France": "පැරිස්, ප්‍රංශය",
+  "The city of love and lights": "ආදරයේ සහ ආලෝකයේ නගරය"
+
+  "Protect Your Journey, Anywhere You Go.": "ඔබ යන ඕනෑම තැනක, ඔබේ ගමන ආරක්ෂා කරගන්න.",
+  "Comprehensive travel insurance covering medical emergencies, cancellations, and lost luggage. Because the best trips are worry-free.": "හදිසි වෛද්‍ය ප්‍රතිකාර, අවලංගු කිරීම් සහ ගමන් මලු නැතිවීම් ආවරණය කරන පූර්ණ සංචාරක රක්ෂණයක්. මන්දයත් හොඳම සංචාරයන් යනු කිසිදු කරදරයකින් තොර සංචාරයන් වන බැවිනි.",
+  "10,000+ travelers protected": "10,000 කට අධික සංචාරකයින් පිරිසක් ආරක්ෂා කර ඇත",
+  "Get a Free Quote": "නොමිලේ මිල ගණන් (Quote) ලබාගන්න",
+  "What does our insurance cover?": "අපගේ රක්ෂණය මගින් ආවරණය වන්නේ මොනවාද?",
+  "We've got your back in almost any situation, so you can focus on making memories.": "ඔබට කිසිදු බියකින් තොරව ඔබේ සංචාරයේ සුන්දර මතකයන් ගොඩනගා ගැනීමට හැකි වන පරිදි, ඕනෑම තත්ත්වයකදී අපි ඔබ වෙනුවෙන් පෙනී සිටින්නෙමු.",
+  "Medical Emergencies": "හදිසි වෛද්‍ය අවශ්‍යතා",
+  "Up to $1,000,000 coverage for unexpected illness or injury while abroad.": "විදේශගතව සිටින විට සිදුවන අනපේක්ෂිත රෝගාබාධ හෝ තුවාල වීම් සඳහා ඩොලර් 1,000,000 දක්වා ආවරණයක්.",
+  "Trip Cancellation": "සංචාරය අවලංගු කිරීම්",
+  "100% reimbursement if you need to cancel for covered reasons.": "රක්ෂණයෙන් ආවරණය වන හේතුවක් මත ඔබට සංචාරය අවලංගු කිරීමට සිදුවුවහොත් 100% ක මුදල් ප්‍රතිපූරණයක් ලබා දේ.",
+  "Lost Baggage": "ගමන් මලු නැතිවීම්",
+  "Get compensated for lost, stolen, or damaged luggage and personal items.": "නැතිවූ, සොරකම් කරන ලද හෝ හානි වූ ගමන් මලු සහ පුද්ගලික දේවල් සඳහා වන්දි ලබා ගන්න.",
+  "Travel Delays": "ගමන් ප්‍රමාද වීම්",
+  "Covers meals and accommodation if your flight is delayed over 6 hours.": "ඔබගේ ගුවන් ගමන පැය 6 කට වඩා ප්‍රමාද වුවහොත් ආහාර සහ නවාතැන් පහසුකම් ආවරණය කෙරේ.",
+  "Simple, Transparent Pricing": "සරල, පැහැදිලි මිල ගණන්",
+  "Choose the level of protection that fits your journey and budget.": "ඔබගේ ගමනට සහ අයවැයට ගැලපෙන ආරක්ෂක මට්ටම තෝරාගන්න.",
+  "Basic": "මූලික (Basic)",
+  "$50,000 Medical Coverage": "ඩොලර් 50,000 ක වෛද්‍ය ආවරණයක්",
+  "Trip Delay ($500)": "ගමන් ප්‍රමාදවීම් (ඩොලර් 500 යි)",
+  "Lost Baggage ($1,000)": "ගමන් මලු නැතිවීම් (ඩොලර් 1,000 යි)",
+  "24/7 Emergency Assistance": "පැය 24 පුරා හදිසි සහාය",
+  "Standard": "සම්මත (Standard)",
+  "$250,000 Medical Coverage": "ඩොලර් 250,000 ක වෛද්‍ය ආවරණයක්",
+  "Trip Cancellation (100%)": "සංචාරය අවලංගු කිරීම් (100%)",
+  "Lost Baggage ($2,500)": "ගමන් මලු නැතිවීම් (ඩොලර් 2,500 යි)",
+  "Missed Connection Coverage": "මගහැරුණු ගුවන් ගමන් සම්බන්ධතා ආවරණය",
+  "Premium": "සුපිරි (Premium)",
+  "$1,000,000 Medical Coverage": "ඩොලර් 1,000,000 ක වෛද්‍ය ආවරණයක්",
+  "Cancel For Any Reason (CFAR)": "ඕනෑම හේතුවක් මත අවලංගු කිරීමේ හැකියාව (CFAR)",
+  "Rental Car Damage": "කුලියට ගත් මෝටර් රථ සඳහා සිදුවන හානි",
+  "Adventure Sports Included": "ත්‍රාසජනක ක්‍රීඩා (Adventure Sports) ඇතුළත් වේ",
+  "VIP Concierge Service": "VIP විශේෂ සහායක සේවාව (Concierge Service)",
+  "Frequently Asked Questions": "නිතර අසන ප්‍රශ්න",
+  "Can I buy insurance after I've started my trip?": "මාගේ සංචාරය ආරම්භ කිරීමෙන් පසුව මට රක්ෂණයක් ලබා ගත හැකිද?",
+  "No, travel insurance must be purchased before you depart from your home country.": "නැත, ඔබ ඔබේ මව් රටින් පිටත් වීමට පෙර සංචාරක රක්ෂණය ලබා ගත යුතුය.",
+  "Does the insurance cover COVID-19?": "මෙම රක්ෂණය මගින් COVID-19 ආවරණය කරනු ලබනවාද?",
+  "Yes, our Standard and Premium plans include coverage for COVID-19 related medical emergencies and trip cancellations.": "ඔව්, අපගේ Standard සහ Premium සැලසුම් වලට COVID-19 සම්බන්ධ හදිසි වෛද්‍ය අවශ්‍යතා සහ සංචාර අවලංගු කිරීම් සඳහා ආවරණයක් ඇතුළත් වේ.",
+  "Are pre-existing medical conditions covered?": "පෙර පැවති රෝගී තත්ත්වයන් ආවරණය කරනු ලබනවාද?",
+  "They can be covered if you purchase the policy within 14 days of your initial trip deposit, subject to certain requirements.": "ඔබගේ සංචාරය සඳහා මූලික මුදල ගෙවා දින 14 ක් ඇතුළත ඔබ මෙම රක්ෂණය ලබා ගන්නේ නම්, යම් නිශ්චිත අවශ්‍යතාවයන්ට යටත්ව ඒවා ආවරණය කළ හැකිය."
+
+  "Exclusive Special Offers": "විශේෂ සුවිශේෂී දීමනා",
+  "Discover our latest promotions, heavily discounted travel packages, and limited-time deals curated just for you.": "අපගේ නවතම ප්‍රවර්ධන වැඩසටහන්, විශාල වට්ටම් සහිත සංචාරක පැකේජ සහ ඔබ වෙනුවෙන්ම තෝරාගත් සීමිත කාලීන දීමනා සොයාගන්න.",
+  "Best Price Guarantee": "හොඳම මිල පිළිබඳ සහතිකය",
+  "Find a lower price? We'll match it and give you an extra 10% discount on your next booking.": "වෙනත් තැනක අඩු මිලක් දුටුවාද? අපි එම මුදලම ලබා දෙන අතර ඔබේ මීළඟ වෙන්කරවා ගැනීම සඳහා 10% ක අමතර වට්ටමක්ද ලබා දෙන්නෙමු.",
+  "Flexible Payments": "පහසු ගෙවීම් ක්‍රම",
+  "Book now and pay later. Enjoy flexible cancellation policies on thousands of hotels and flights.": "දැන් වෙන්කරවා ගෙන පසුව ගෙවන්න. හෝටල් සහ ගුවන් ගමන් දහස් ගණනක් සඳහා පහසු අවලංගු කිරීමේ ප්‍රතිපත්ති භුක්ති විඳින්න.",
+  "24/7 Premium Support": "පැය 24 පුරාම සුවිශේෂී සහාය",
+  "Our travel experts are always on standby to help you whenever and wherever you need assistance.": "ඔබට අවශ්‍ය ඕනෑම වේලාවක සහ ඕනෑම තැනකදී ඔබට උපකාර කිරීමට අපගේ සංචාරක විශේෂඥයින් සැමවිටම සූදානම්ව සිටිති.",
+  "Never Miss a Secret Deal!": "කිසිදා රහසිගත දීමනාවක් මගහැරගන්න එපා!",
+  "Sign up for our newsletter to get VIP access to flash sales, exclusive promo codes, and 50% off secret hotel rates.": "ක්ෂණික අලෙවි කිරීම් (flash sales), සුවිශේෂී ප්‍රවර්ධන කේත සහ හෝටල් ගාස්තු වලින් 50% ක වට්ටම් ලබා ගැනීමට අපගේ පුවත් පත්‍රිකාවට (newsletter) ලියාපදිංචි වන්න.",
+  "No spam. You can unsubscribe at any time.": "කිසිදු අනවශ්‍ය ඊමේල් පණිවිඩයක් එවන්නේ නැත (No spam). ඔබට ඕනෑම වේලාවක මෙයින් ඉවත් විය හැක."
 }
