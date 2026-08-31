@@ -85,22 +85,22 @@ export default function MegaFooter() {
           <div>
             <h4 className="font-bold mb-6 text-lg">Top Countries</h4>
             <ul className="flex flex-col gap-3 text-gray-400">
-              <li className="hover:text-white cursor-pointer transition">Hotels in Sri Lanka</li>
-              <li className="hover:text-white cursor-pointer transition">Hotels in Maldives</li>
-              <li className="hover:text-white cursor-pointer transition">Hotels in UAE</li>
-              <li className="hover:text-white cursor-pointer transition">Hotels in Thailand</li>
-              <li className="hover:text-white cursor-pointer transition">Hotels in Japan</li>
+              <li><Link href="/destinations/sri-lanka" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Hotels in Sri Lanka</Link></li>
+              <li><Link href="/destinations/maldives" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Hotels in Maldives</Link></li>
+              <li><Link href="/destinations/uae" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Hotels in UAE</Link></li>
+              <li><Link href="/destinations/thailand" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Hotels in Thailand</Link></li>
+              <li><Link href="/destinations/japan" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Hotels in Japan</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-lg">Top Cities</h4>
             <ul className="flex flex-col gap-3 text-gray-400">
-              <li className="hover:text-white cursor-pointer transition">Dubai</li>
-              <li className="hover:text-white cursor-pointer transition">London</li>
-              <li className="hover:text-white cursor-pointer transition">Paris</li>
-              <li className="hover:text-white cursor-pointer transition">New York</li>
-              <li className="hover:text-white cursor-pointer transition">Tokyo</li>
+              <li><Link href="/destinations/dubai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Dubai</Link></li>
+              <li><Link href="/destinations/london" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">London</Link></li>
+              <li><Link href="/destinations/paris" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Paris</Link></li>
+              <li><Link href="/destinations/new-york" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">New York</Link></li>
+              <li><Link href="/destinations/tokyo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Tokyo</Link></li>
             </ul>
           </div>
 
