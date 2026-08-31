@@ -308,8 +308,6 @@ function HotelDetailsContent() {
   );
 }
 
-export const dynamic = 'force-dynamic';
-
 const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
 export default function HotelDetailsPage() {

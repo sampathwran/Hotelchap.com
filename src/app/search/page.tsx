@@ -442,8 +442,6 @@ function SearchResults() {
   );
 }
 
-export const dynamic = 'force-dynamic';
-
 export default function SearchPage() {
   const { t } = useTranslation();
   return (
