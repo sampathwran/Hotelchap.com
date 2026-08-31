@@ -271,7 +271,7 @@ export default function Home() {
         </div>
       </header>
       {/* Main Page Wrapper that PUSHES */}
-      <div className="relative flex flex-col flex-1 w-full">
+      <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
         <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
