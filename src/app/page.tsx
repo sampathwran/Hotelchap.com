@@ -512,11 +512,12 @@ export default function Home() {
           
 
         </main>
+
+        {/* SEO Mega Footer */}
+        <MegaFooter />
+      </div>
       </div>
 
-      </div>
-      {/* SEO Mega Footer */}
-      <MegaFooter />
       <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l: string) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c: string) => { setCurrency(c); setShowCurrency(false); }} />
