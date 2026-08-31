@@ -13,6 +13,7 @@ import RecentlyViewed from "@/components/RecentlyViewed";
 import Header from "@/components/Header";
 
 function HotelDetailsContent() {
+  const { t } = useTranslation();
   const params = useParams();
   const { currency } = useSettings();
   const searchParams = useSearchParams();
@@ -312,8 +313,7 @@ export const dynamic = 'force-dynamic';
 const getCurrencySymbol = (code: string) => allCurrencies.find(c => c.code === code)?.symbol || code;
 
 export default function HotelDetailsPage() {
-  const { t } = useTranslation();
-  return (
+    return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 font-bold text-gray-500">Loading hotel details...</div>}>
       <HotelDetailsContent />
     </Suspense>
