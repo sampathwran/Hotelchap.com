@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 
@@ -22,6 +23,16 @@ export default function Header() {
   const [showTopNav, setShowTopNav] = useState(true);
 
   const { t } = useTranslation();
+  const pathname = usePathname();
+  
+  const bookingServices = [
+    { name: t("Hotels & Villas"), icon: "??", link: "/search" },
+    { name: t("Flights"), icon: "??", link: "/flights" },
+    { name: t("Attractions"), icon: "???", link: "/attractions" },
+    { name: t("Car & Bike Rentals"), icon: "??", link: "/cars" },
+    { name: t("Airport Transfers"), icon: "??", link: "/transfers" },
+    { name: t("Cruises"), icon: "??", link: "/cruises" },
+  ];
 
   return (
     <>
@@ -33,9 +44,11 @@ export default function Header() {
         <Menu size={28} />
       </button>
 
-      <header className={`w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-20 bg-white shadow-sm z-[60] sticky top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
+      <header className={`w-full flex flex-col bg-white shadow-sm z-[60] sticky top-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
-        {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
+        {/* Top Row (Logo + Desktop Actions) */}
+        <div className="flex flex-row items-center justify-between px-4 py-2 md:py-0 md:px-8 md:h-20 w-full gap-3 md:gap-0">
+          {/* Logo Section */}
         <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-12 md:pl-16">
           <Link href="/" className="flex items-center">
             <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
@@ -118,6 +131,30 @@ export default function Header() {
           )}
       </div>
 
+      
+      </div> {/* End of Top Row */}
+
+      {/* Secondary Navigation Row (Booking.com style) */}
+      <div className="flex flex-row items-center gap-1 md:gap-2 px-4 md:px-12 lg:px-20 pb-2 md:pb-3 overflow-x-auto w-full no-scrollbar">
+        {bookingServices.map((service, index) => {
+          const isActive = pathname === service.link || (pathname === '/' && service.link === '/search'); // Home page defaults to search tab sometimes, but we are in Header
+          return (
+            <Link 
+              key={index} 
+              href={service.link}
+              className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[13px] md:text-sm whitespace-nowrap transition-colors border ${
+                isActive 
+                  ? 'bg-[#673AB7]/10 text-[#673AB7] border-[#673AB7]' 
+                  : 'bg-transparent text-gray-700 border-transparent hover:bg-gray-100'
+              }`}
+            >
+              <span className="text-base md:text-lg">{service.icon}</span>
+              {service.name}
+            </Link>
+          )
+        })}
+      </div>
+      
       <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c) => { setCurrency(c); setShowCurrency(false); }} />
