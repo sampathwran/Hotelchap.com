@@ -107,11 +107,9 @@ export default function MegaFooter() {
           <div>
             <h4 className="font-bold mb-6 text-lg">Company</h4>
             <ul className="flex flex-col gap-3 text-gray-400">
-              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link href="#" className="hover:text-white transition">Careers</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-white transition">Contact Support</Link></li>
+              <li><Link href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Privacy Policy</Link></li>
+              <li><Link href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Terms of Service</Link></li>
             </ul>
           </div>
 
