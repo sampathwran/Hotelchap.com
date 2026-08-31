@@ -219,11 +219,11 @@ export default function Home() {
                 {user.photoURL ? (
                   <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-[#673AB7] font-bold text-sm">{user.email?.charAt(0).toUpperCase()}</span>
+                  <span className="text-[#673AB7] font-bold text-sm">{(user.displayName || user.email || "U").charAt(0).toUpperCase()}</span>
                 )}
               </Link>
             ) : (
-              <button onClick={() => setShowLogin(true)} className="font-bold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-[#522b94] transition"></button>
+              <button onClick={() => setShowLogin(true)} className="font-bold text-white bg-[#673AB7] px-3 py-1.5 rounded-full shadow-md text-[10px] ml-1 hover:bg-[#522b94] transition whitespace-nowrap">Create Account / Sign In</button>
             )}
 
           </div>
@@ -261,11 +261,11 @@ export default function Home() {
               {user.photoURL ? (
                 <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-[#673AB7] font-bold text-lg">{user.email?.charAt(0).toUpperCase()}</span>
+                <span className="text-[#673AB7] font-bold text-lg">{(user.displayName || user.email || "U").charAt(0).toUpperCase()}</span>
               )}
             </Link>
           ) : (
-            <button onClick={() => setShowLogin(true)} className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition"></button>
+            <button onClick={() => setShowLogin(true)} className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition whitespace-nowrap">Create Account / Sign In</button>
           )}
         </div>
       </header>
