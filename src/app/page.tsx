@@ -512,10 +512,12 @@ export default function Home() {
           
 
         </main>
-
-        {/* SEO Mega Footer */}
-        <MegaFooter />
       </div>
+      </div>
+
+      {/* SEO Mega Footer */}
+      <div className={`relative z-[70] transition-all duration-300 ease-in-out ${isSidebarExpanded ? "md:ml-[250px]" : "md:ml-0"}`}>
+        <MegaFooter />
       </div>
 
       <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
