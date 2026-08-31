@@ -111,7 +111,8 @@ export default function MegaFooter() {
                 <li><Link href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">About Us</Link></li>
               <li><Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Privacy Policy</Link></li>
               <li><Link href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Terms of Service</Link></li>
-            </ul>
+                <li><Link href="/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Cookie Policy</Link></li>
+              </ul>
           </div>
 
         </div>
