@@ -37,12 +37,7 @@ export default function Header() {
   return (
     <>
       {/* Fixed Hamburger Menu */}
-      <button 
-        onClick={toggleSidebar} 
-        className="fixed top-4 left-4 md:top-6 md:left-8 z-[80] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-blue-600 hover:bg-white rounded-full transition-colors drop-shadow-md"
-      >
-        <Menu size={28} />
-      </button>
+      
 
       <header className={`w-full flex flex-col bg-white shadow-sm z-[60] sticky top-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         

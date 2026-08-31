@@ -67,7 +67,6 @@ export default function AIPlanner() {
 
       {/* Body */}
       <div className="flex flex-1 relative">
-        <Sidebar />
 
         <main className="flex-1 flex flex-col w-full md:w-[calc(100%-80px)] min-h-screen items-center py-10 px-4">
           

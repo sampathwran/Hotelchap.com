@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleOneTap from "@/components/GoogleOneTap";
 import VisitTracker from "@/components/VisitTracker";
 import Script from "next/script";
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <VisitTracker />
           <GoogleOneTap />
+          <Sidebar />
           {children}
         </AuthProvider>
         </SettingsProvider>

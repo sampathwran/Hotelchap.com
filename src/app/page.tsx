@@ -182,12 +182,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-transparent">
       
       {/* Fixed Hamburger Menu (Never scrolls away) */}
-      <button 
-        onClick={toggleSidebar} 
-        className="fixed top-4 left-4 md:top-8 md:left-8 z-[80] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-blue-600 hover:bg-white rounded-full transition-colors drop-shadow-md"
-      >
-        <Menu size={28} />
-      </button>
+      
 
       {/* Global Top Navbar */}
       <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
@@ -275,10 +270,8 @@ export default function Home() {
           )}
         </div>
       </header>
-
-      <Sidebar />
       {/* Main Page Wrapper that PUSHES */}
-      <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
+      <div className="relative flex flex-col flex-1 w-full">
       {/* Dynamic Hero Section - Spans Full Width at Top */}
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
         <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
@@ -317,7 +310,6 @@ export default function Home() {
 
       {/* Body with Sidebar and Main Content */}
       <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
-        <Sidebar />
 
         {/* Main Content Area */}
         <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[380px] md:pt-[430px] transition-all duration-300 ease-in-out">
