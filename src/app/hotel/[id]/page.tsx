@@ -29,7 +29,15 @@ function HotelDetailsContent() {
   const urlImage = searchParams.get("image");
   const urlRating = searchParams.get("rating");
   const urlReviews = searchParams.get("reviews");
-  const bookingUrl = searchParams.get("url") || "https://www.booking.com";
+  const rawUrl = searchParams.get("url");
+  let bookingUrl = "https://www.booking.com";
+  if (rawUrl) {
+    try {
+      bookingUrl = atob(rawUrl);
+    } catch (e) {
+      bookingUrl = decodeURIComponent(rawUrl);
+    }
+  }
 
   const hotel = {
     id: hotelId,
