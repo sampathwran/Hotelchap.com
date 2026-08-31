@@ -57,7 +57,7 @@ export default function Header() {
           {/* Currency Mobile */}
           <div className="relative">
             <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-              <CircleDollarSign size={16} className="text-gray-500" /> {currency} <span className="text-[10px]">▼</span>
+              <CircleDollarSign size={16} className="text-gray-700" /> {currency} <span className="text-[10px]">▼</span>
             </button>
             
           </div>
@@ -65,7 +65,7 @@ export default function Header() {
           {/* Language Mobile */}
           <div className="relative">
             <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 text-sm flex items-center gap-1">
-              <span className="text-base mr-0.5">{allLanguages.find(l => l.code === language)?.flag || "🇺🇸"}</span> {language} <span className="text-[10px]">▼</span>
+              <Globe size={16} className="text-blue-600 mr-1" /> {language} <span className="text-[10px]">▼</span>
             </button>
             
           </div>
@@ -99,7 +99,7 @@ export default function Header() {
         {/* Currency Dropdown Desktop */}
         <div className="relative">
           <button onClick={() => { setShowCurrency(!showCurrency); setShowLanguage(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-            <CircleDollarSign size={18} className="text-gray-500 mr-1" /> {currency} <span className="text-xs">▼</span>
+            <CircleDollarSign size={18} className="text-gray-700 mr-1" /> {currency} <span className="text-xs">▼</span>
           </button>
           
         </div>
@@ -107,7 +107,7 @@ export default function Header() {
         {/* Language Dropdown Desktop */}
         <div className="relative">
           <button onClick={() => { setShowLanguage(!showLanguage); setShowCurrency(false); }} className="font-bold text-gray-700 hover:text-[#673AB7] transition flex items-center gap-1">
-            <span className="text-lg mr-1">{allLanguages.find(l => l.code === language)?.flag || "🇺🇸"}</span> {language} <span className="text-xs">▼</span>
+            <Globe size={18} className="text-blue-600 mr-1" /> {language} <span className="text-xs">▼</span>
           </button>
           
         </div>
@@ -150,10 +150,11 @@ export default function Header() {
         })}
       </div>
       
+      </header>
+
       <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c) => { setCurrency(c); setShowCurrency(false); }} />
-    </header>
     </>
   );
 }
