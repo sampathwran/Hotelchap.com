@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { Globe, CircleDollarSign, Menu, Smartphone, Building, MapPin, CreditCard, Plane, Calendar, Tag, Car, Map, Shield, Clock, UserCheck, ThumbsUp, Ticket, Camera, Star, Ship, Coffee } from "lucide-react";
 import CurrencyModal from "@/components/CurrencyModal";
 import LanguageModal from "@/components/LanguageModal";
+import LoginModal from "@/components/LoginModal";
 
 import { useAuth } from "@/context/AuthContext";
 import { useTranslation } from "@/lib/i18n";
@@ -99,6 +100,7 @@ export default function Home() {
   // Global Header States
   const { currency, setCurrency, language, setLanguage, toggleSidebar, isSidebarExpanded } = useSettings();
   const [showCurrency, setShowCurrency] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
 
   const currencies = ["LKR", "USD", "EUR", "GBP", "AUD", "SGD", "AED"];
@@ -221,9 +223,7 @@ export default function Home() {
                 )}
               </Link>
             ) : (
-              <Link href="/login" className="font-bold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-[#522b94] transition">
-                {t("signIn")}
-              </Link>
+              <button onClick={() => setShowLogin(true)} className="font-bold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1 hover:bg-[#522b94] transition"></button>
             )}
 
           </div>
@@ -265,9 +265,7 @@ export default function Home() {
               )}
             </Link>
           ) : (
-            <Link href="/login" className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition">
-              {t("signIn")}
-            </Link>
+            <button onClick={() => setShowLogin(true)} className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition"></button>
           )}
         </div>
       </header>
@@ -436,6 +434,7 @@ export default function Home() {
 
       </div>
       {/* SEO Mega Footer */}
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l: string) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c: string) => { setCurrency(c); setShowCurrency(false); }} />
     </div>

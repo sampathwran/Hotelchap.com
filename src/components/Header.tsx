@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 
 import { useTranslation } from "@/lib/i18n";
+import LoginModal from "./LoginModal";
 import { useSettings } from "@/context/SettingsContext";
 import { Globe, CircleDollarSign, Menu, Smartphone } from "lucide-react";
 import CurrencyModal from "./CurrencyModal";
@@ -16,6 +17,7 @@ export default function Header() {
   const { user } = useAuth();
   const { currency, setCurrency, language, setLanguage, toggleSidebar } = useSettings();
   const [showCurrency, setShowCurrency] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
 
@@ -70,9 +72,7 @@ export default function Header() {
               )}
             </Link>
           ) : (
-            <Link href="/login" className="font-semibold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1">
-              {t("signIn")}
-            </Link>
+            <button onClick={() => setShowLogin(true)} className="font-semibold text-white bg-[#673AB7] px-3 py-1 rounded-full shadow-md text-xs ml-1"></button>
           )}
 
         </div>
@@ -114,12 +114,11 @@ export default function Header() {
             )}
           </Link>
         ) : (
-          <Link href="/login" className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition">
-            {t("signIn")}
-          </Link>
+          <button onClick={() => setShowLogin(true)} className="ml-2 font-semibold text-white bg-[#673AB7] px-6 py-2 rounded-full shadow-md hover:bg-[#522b94] transition"></button>
         )}
       </div>
 
+      <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
       <LanguageModal isOpen={showLanguage} onClose={() => setShowLanguage(false)} currentLanguage={language} onSelect={(l) => { setLanguage(l); setShowLanguage(false); }} />
       <CurrencyModal isOpen={showCurrency} onClose={() => setShowCurrency(false)} currentCurrency={currency} onSelect={(c) => { setCurrency(c); setShowCurrency(false); }} />
     </header>
