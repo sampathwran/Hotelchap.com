@@ -318,34 +318,65 @@ export default function Home() {
             {/* Overlapping Search Box Card */}
             <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
               
-            {/* Interactive Tabs (Dynamically Mapped from Database) */}
-            <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
-              
+            
+            {/* Interactive Tabs (Dynamically Mapped from Database) - DESKTOP VIEW */}
+            <div className="hidden md:flex justify-center gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
               {Object.keys(tabData).map((key) => {
                 const tab = tabData[key as keyof typeof tabData];
-                
-                // Get icon dynamically based on category
-                let icon = "🏨";
-                if (key === "flights") icon = "✈️";
-                if (key === "cars") icon = "🚗";
-                if (key === "packages") icon = "💼";
-                if (key === "transfers") icon = "🚕";
-                if (key === "attractions") icon = "🎟️";
-                if (key === "cruises") icon = "🛳️";
+                let icon = "??";
+                if (key === "flights") icon = "??";
+                if (key === "cars") icon = "??";
+                if (key === "packages") icon = "???";
+                if (key === "transfers") icon = "??";
+                if (key === "attractions") icon = "??";
+                if (key === "cruises") icon = "???";
                 
                 return (
                   <button 
                     key={key}
                     onClick={() => setActiveTab(key as any)}
-                    className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
                     <span className="text-2xl">{icon}</span>
-                    <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                    <span className="text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
                   </button>
                 );
               })}
-
             </div>
+
+            {/* Traveloka-style Circular Tabs - MOBILE VIEW */}
+            <div className="flex md:hidden justify-start gap-4 pb-4 mb-4 overflow-x-auto hide-scrollbar snap-x">
+              {Object.keys(tabData).map((key) => {
+                const tab = tabData[key as keyof typeof tabData];
+                let IconComponent = Building;
+                let bgClass = "bg-blue-600";
+                
+                if (key === "flights") { IconComponent = Plane; bgClass = "bg-[#01A4E9]"; } // Traveloka light blue
+                else if (key === "hotels") { IconComponent = Building; bgClass = "bg-[#093A7F]"; } // Traveloka dark blue
+                else if (key === "attractions" || key === "packages") { IconComponent = Ticket; bgClass = "bg-[#FE5860]"; } // Traveloka red
+                else if (key === "transfers") { IconComponent = Car; bgClass = "bg-[#02A499]"; } // Traveloka teal
+                else if (key === "cars") { IconComponent = Map; bgClass = "bg-[#F39C12]"; } // Orange
+                else if (key === "cruises") { IconComponent = Ship; bgClass = "bg-[#8E44AD]"; } // Purple
+
+                const isActive = activeTab === key;
+                
+                return (
+                  <button 
+                    key={key}
+                    onClick={() => setActiveTab(key as any)}
+                    className={`flex flex-col items-center justify-start gap-2 min-w-[70px] snap-center transition-all opacity-100`}
+                  >
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-sm transition-transform ${bgClass} ${isActive ? 'ring-2 ring-offset-2 ring-gray-300 scale-105' : ''}`}>
+                      <IconComponent size={24} strokeWidth={2.5} />
+                    </div>
+                    <span className={`text-[11px] leading-tight text-center max-w-[70px] ${isActive ? 'font-bold text-gray-900' : 'font-semibold text-gray-600'}`}>
+                      {t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Rentals" : key === "transfers" ? "Transfers" : key === "attractions" ? "Xperience" : key === "cruises" ? "Cruises" : key)}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
 
               {/* Render Search Form or Travelpayouts Widget based on tab */}
               {activeTab === "hotels" ? (
