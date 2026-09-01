@@ -3,7 +3,7 @@ import { useTranslation } from "@/lib/i18n";
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Star, MapPin, Heart, Wifi, Coffee, Car, Check, Calendar, UserCheck } from "lucide-react";
+import { Star, MapPin, Heart, Wifi, Coffee, Car, Check, Calendar, UserCheck, Filter } from "lucide-react";
 import { Suspense, useState, useMemo, useEffect } from "react";
 import MegaFooter from "@/components/MegaFooter";
 import RecentlyViewed from "@/components/RecentlyViewed";
@@ -37,6 +37,7 @@ function SearchResults() {
   const [rooms, setRooms] = useState(parseInt(searchParams.get("rooms") || "1", 10));
 
   // Filter State
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [maxPrice, setMaxPrice] = useState<number>(1000);
   
@@ -276,8 +277,16 @@ function SearchResults() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col lg:flex-row gap-8 w-full relative z-10">
         
+                {/* Mobile Filter Toggle */}
+        <button 
+          onClick={() => setShowMobileFilters(!showMobileFilters)}
+          className="lg:hidden w-full bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-center gap-2 font-bold text-gray-800 shadow-sm mb-4"
+        >
+          <Filter size={18} /> {showMobileFilters ? "Hide Filters" : "Show Filters"}
+        </button>
+
         {/* Filters Sidebar */}
-        <div className="w-full lg:w-1/4 flex-shrink-0">
+        <div className={`w-full lg:w-1/4 flex-shrink-0 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
             <h3 className="text-xl font-black text-gray-900 mb-6 border-b border-gray-100 pb-4">Filter by:</h3>
             
