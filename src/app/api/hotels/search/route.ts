@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { convertCurrency } from '@/lib/exchangeRates';
 
 export const dynamic = 'force-dynamic';
 
@@ -70,7 +71,7 @@ export async function GET(request: Request) {
           {
             hotel_id: 3765351,
             hotel_name: "Marino Beach Colombo",
-            price: 110,
+            price: convertCurrency(110, "USD", currency),
             max_photo_url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/156672332.jpg?k=b4f3d04cbc8b0c80193f63046e63e576ba1a50fc9f48289aa152f10a026aab4d&o=",
             review_score: 9.2,
             review_nr: 9910,
@@ -79,7 +80,7 @@ export async function GET(request: Request) {
           {
             hotel_id: 123456,
             hotel_name: "Shangri-La Colombo",
-            price: 185,
+            price: convertCurrency(185, "USD", currency),
             max_photo_url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/125793836.jpg?k=8e24c2fc9dfaefbe0b0943ec34139f408ce950df627db8a680072b8c9d09c314&o=",
             review_score: 9.0,
             review_nr: 4500,
@@ -88,7 +89,7 @@ export async function GET(request: Request) {
           {
             hotel_id: 234567,
             hotel_name: "Cinnamon Grand Colombo",
-            price: 130,
+            price: convertCurrency(130, "USD", currency),
             max_photo_url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/40960589.jpg?k=a2656916e7f8670eb8fc5f6a9e1ff1308aebcb586e680a6ddbf4c2c7f5647565&o=",
             review_score: 8.8,
             review_nr: 6200,

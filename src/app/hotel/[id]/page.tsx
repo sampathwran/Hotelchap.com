@@ -58,7 +58,7 @@ function HotelDetailsContent() {
           type: "hotel",
           title: hotel.name,
           location: hotel.location,
-          price: "$" + hotel.price,
+          price: `${getCurrencySymbol(currency)}${hotel.price}`,
           image: hotel.image,
           url: window.location.search ? `/hotel/${hotel.id}${window.location.search}` : `/hotel/${hotel.id}`,
           timestamp: Date.now()
@@ -289,7 +289,7 @@ function HotelDetailsContent() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-xl font-black text-gray-900">${getCurrencySymbol(currency)} {providerPrice}</p>
+                        <p className="text-xl font-black text-gray-900">{getCurrencySymbol(currency)} {providerPrice}</p>
                         <a 
     href={provider.url}
     target="_blank"

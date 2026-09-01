@@ -287,12 +287,12 @@ function SearchResults() {
                 <h4 className="font-bold text-gray-800 mb-3 text-sm">Your budget (per night)</h4>
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">US$</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">USD</span>
                     <input type="number" value="0" disabled className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                   <span className="text-gray-400 font-bold">-</span>
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">US$</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">USD</span>
                     <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                 </div>
@@ -371,7 +371,7 @@ function SearchResults() {
                           title: hotel.name,
                           location: "City Center",
                           image: hotel.image,
-                          price: `${getCurrencySymbol(currency)}${hotel.price}`,
+                          price: `{getCurrencySymbol(currency)}${hotel.price}`,
                           rating: hotel.rating
                         });
                       }}
@@ -416,8 +416,8 @@ function SearchResults() {
                     <div>
                       <p className="text-xs text-green-600 font-bold mb-1">Limited availability</p>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-400 line-through text-sm font-medium">${getCurrencySymbol(currency)} {hotel.originalPrice}</span>
-                        <span className="text-3xl font-black text-gray-900">${getCurrencySymbol(currency)} {hotel.price}</span>
+                        <span className="text-gray-400 line-through text-sm font-medium">{getCurrencySymbol(currency)} {hotel.originalPrice}</span>
+                        <span className="text-3xl font-black text-gray-900">{getCurrencySymbol(currency)} {hotel.price}</span>
                       </div>
                       <p className="text-xs text-gray-400 font-medium">Includes taxes and charges</p>
                     </div>
