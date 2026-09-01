@@ -312,7 +312,7 @@ export default function Home() {
       <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[100px] md:pt-[430px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[75px] md:pt-[430px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
@@ -340,7 +340,10 @@ export default function Home() {
                     className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
                     <span className="text-xl md:text-2xl">{icon}</span>
-                    <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                    
+                      <span className="md:hidden text-[11px] capitalize font-bold text-center">{t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike" : key === "transfers" ? "Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                      <span className="hidden md:block text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+
                   </button>
                 );
               })}
