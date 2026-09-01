@@ -188,15 +188,15 @@ export default function Home() {
       <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
-        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-12 md:pl-16">
+        <div className="flex flex-row items-center justify-between md:justify-start gap-2 md:gap-12 w-full md:w-auto pl-10 md:pl-16 pr-2">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-8 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
           </Link>
 
           
 
           {/* Mobile Actions (Currency, Language, Profile) */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex md:hidden items-center gap-2 shrink-0">
             
             {/* Currency Mobile */}
             <div className="relative">
@@ -273,7 +273,7 @@ export default function Home() {
       {/* Main Page Wrapper that PUSHES */}
       <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
-      <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
+      <div className="absolute top-[80px] md:top-[100px] left-0 w-full md:flex justify-center z-0 px-2 md:px-0 hidden">
         <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
           
           {/* Dynamic Full Cover Image */}
@@ -312,14 +312,14 @@ export default function Home() {
       <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[380px] md:pt-[430px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[100px] md:pt-[430px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
             {/* Overlapping Search Box Card */}
-            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
+            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto mt-0 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
-            <div className="flex justify-start md:justify-center gap-4 md:gap-6 border-b border-gray-100 pb-4 mb-6 overflow-x-auto hide-scrollbar">
+            <div className="flex justify-start md:justify-center gap-3 md:gap-6 border-b border-gray-100 pb-2 md:pb-4 mb-3 md:mb-6 overflow-x-auto hide-scrollbar">
               
               {Object.keys(tabData).map((key) => {
                 const tab = tabData[key as keyof typeof tabData];
@@ -339,7 +339,7 @@ export default function Home() {
                     onClick={() => setActiveTab(key as any)}
                     className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
-                    <span className="text-2xl">{icon}</span>
+                    <span className="text-xl md:text-2xl">{icon}</span>
                     <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
                   </button>
                 );
@@ -349,8 +349,8 @@ export default function Home() {
 
               {/* Render Search Form or Travelpayouts Widget based on tab */}
               {activeTab === "hotels" ? (
-                <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-lg border border-gray-100 p-3 md:p-4 flex flex-col md:flex-row items-center gap-3 mt-4 relative z-10 transition-all duration-500">
-<div className="flex-1 w-full flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                <form action="/search" method="GET" className="w-full bg-white rounded-xl shadow-lg border border-gray-100 p-2 md:p-4 flex flex-col md:flex-row items-center gap-3 mt-4 relative z-10 transition-all duration-500">
+<div className="flex-1 w-full flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-2 py-1 md:px-3 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
                     <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Destination")}</label>
                     <div className="flex items-center">
                       <MapPin size={18} className="text-gray-400 mr-2" />
@@ -359,7 +359,7 @@ export default function Home() {
                   </div>
 
                   <div className="flex w-full md:w-auto gap-2">
-                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-2 py-1 md:px-3 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
                       <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Check-in")}</label>
                       <div className="flex items-center">
                         <Calendar size={16} className="text-gray-400 mr-2 hidden md:block" />
@@ -367,7 +367,7 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
+                    <div className="flex-1 md:w-36 flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-2 py-1 md:px-3 md:py-1 border border-gray-200 focus-within:border-[#673AB7] focus-within:bg-white transition relative">
                       <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Check-out")}</label>
                       <div className="flex items-center">
                         <Calendar size={16} className="text-gray-400 mr-2 hidden md:block" />
@@ -377,7 +377,7 @@ export default function Home() {
                   </div>
 
                   {/* Custom Guest Picker */}
-                  <div className="w-full md:w-auto min-w-[200px] flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-3 py-1.5 md:py-1 border border-gray-200 transition relative">
+                  <div className="w-full md:w-auto min-w-[200px] flex flex-col bg-gray-50 hover:bg-gray-100 rounded-lg px-2 py-1 md:px-3 md:py-1 border border-gray-200 transition relative">
                     <label className="text-[10px] md:text-xs uppercase font-bold text-gray-500 mb-0.5">{t("Guests & Rooms")}</label>
                     <div 
                       className="flex items-center cursor-pointer"
