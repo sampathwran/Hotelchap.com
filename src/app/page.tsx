@@ -188,9 +188,9 @@ export default function Home() {
       <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
-        <div className="flex flex-row items-center justify-between md:justify-start gap-2 md:gap-12 w-full md:w-auto pl-4 md:pl-16 pr-14">
+        <div className="flex flex-row items-center justify-between md:justify-start gap-2 md:gap-12 w-full md:w-auto pl-10 md:pl-16 pr-2">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-10 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-8 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
           </Link>
 
           
@@ -337,10 +337,10 @@ export default function Home() {
                   <button 
                     key={key}
                     onClick={() => setActiveTab(key as any)}
-                    className={`group flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 md:border-b-[3px] md:border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
-                    <span className={`flex items-center justify-center w-12 h-12 md:w-auto md:h-auto border ${activeTab === key ? 'border-blue-500 bg-blue-50' : 'border-gray-200'} md:border-none md:bg-transparent rounded-full text-[28px] md:text-2xl transition-all group-hover:scale-105`}>{icon}</span>
-                    <span className="text-[11px] md:text-sm capitalize font-bold md:font-medium text-center">{t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike" : key === "transfers" ? "Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                    <span className="text-xl md:text-2xl">{icon}</span>
+                    <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
                   </button>
                 );
               })}
