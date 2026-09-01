@@ -44,9 +44,9 @@ export default function Header() {
         {/* Top Row (Logo + Desktop Actions) */}
         <div className="flex flex-row items-center justify-between px-4 py-2 md:py-0 md:px-8 md:h-20 w-full gap-3 md:gap-0">
           {/* Logo Section */}
-        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-12 md:pl-16">
+        <div className="flex items-center justify-between md:justify-start gap-6 md:gap-12 w-full md:w-auto pl-0 md:pl-16">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-md scale-110 origin-left" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-14 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
           </Link>
 
         
