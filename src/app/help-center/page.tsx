@@ -51,7 +51,7 @@ const faqCategories = [
       },
       {
         q: "Do I need a HotelChap account to book?",
-        a: "No account is required! You can use HotelChap as a guest to compare prices and be redirected to our partners for booking."
+        a: "No account is required to search and book! As a travel search engine, we compare prices and redirect you to our trusted partners to complete your reservation. However, creating a free HotelChap account allows us to notify you about exclusive price drops, hidden deals, and member-only travel discounts."
       }
     ]
   }
