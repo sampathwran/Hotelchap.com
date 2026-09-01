@@ -273,8 +273,8 @@ export default function Home() {
       {/* Main Page Wrapper that PUSHES */}
       <div className={"relative flex flex-col flex-1 transition-all duration-300 ease-in-out " + (isSidebarExpanded ? "md:ml-[250px]" : "md:ml-[80px]")}>
       {/* Dynamic Hero Section - Spans Full Width at Top */}
-      <div className="absolute top-[80px] md:top-[100px] left-0 w-full md:flex justify-center z-0 px-2 md:px-0 hidden">
-        <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
+      <div className="absolute top-[80px] md:top-[100px] left-0 w-full flex justify-center z-0 px-2 md:px-0">
+        <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[350px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
           
           {/* Dynamic Full Cover Images (Cross-Fade) */}
             {Object.keys(tabData).map(key => (
@@ -315,11 +315,11 @@ export default function Home() {
       <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[60px] md:pt-[430px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[300px] md:pt-[430px] transition-all duration-300 ease-in-out">
 
           <div className="w-full px-4 md:px-10 mt-1 md:mt-0">
             {/* Overlapping Search Box Card */}
-            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto mt-0 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
+            <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto -mt-16 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
               
             {/* Interactive Tabs (Dynamically Mapped from Database) */}
             <div className="flex justify-start md:justify-center gap-3 md:gap-6 border-b border-gray-100 pb-2 md:pb-4 mb-3 md:mb-6 overflow-x-auto hide-scrollbar">
