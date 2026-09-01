@@ -276,11 +276,14 @@ export default function Home() {
       <div className="absolute top-[80px] md:top-[100px] left-0 w-full md:flex justify-center z-0 px-2 md:px-0 hidden">
         <div className={`relative w-[95%] md:w-[92%] max-w-[1300px] mx-auto h-[400px] md:h-[450px] bg-gray-900 flex flex-col justify-start items-center overflow-hidden shadow-2xl transition-all duration-700 ease-in-out pt-[60px] md:pt-[100px] rounded-[24px] md:rounded-[36px]`}>
           
-          {/* Dynamic Full Cover Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out"
-            style={{ backgroundImage: `url('${currentData.image}')` }}
-          ></div>
+          {/* Dynamic Full Cover Images (Cross-Fade) */}
+            {Object.keys(tabData).map(key => (
+              <div 
+                key={key}
+                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${activeTab === key ? 'opacity-100 z-0' : 'opacity-0 -z-10'}`}
+                style={{ backgroundImage: `url('${tabData[key].image}')` }}
+              ></div>
+            ))}
           
           {/* Blue Overlay to match Agoda style */}
           <div className="absolute inset-0 bg-blue-900/40 transition-opacity duration-500 mix-blend-multiply"></div>
