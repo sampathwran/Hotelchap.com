@@ -75,18 +75,18 @@ export default function TravelBlog() {
       <style>{`.hide-scroll::-webkit-scrollbar { display: none; }`}</style>
       <div className="relative group">
         {/* Left Arrow Overlay */}
-        <button onClick={scrollLeft} className="absolute left-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex items-center justify-center shadow-md hover:bg-gray-50 transition font-bold ml-1 opacity-90 hover:opacity-100">&lt;</button>
+        <button onClick={scrollLeft} className="absolute left-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex md:hidden items-center justify-center shadow-md ml-1 opacity-90">&lt;</button>
         
         {/* Right Arrow Overlay */}
-        <button onClick={scrollRight} className="absolute right-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex items-center justify-center shadow-md hover:bg-gray-50 transition font-bold mr-1 opacity-90 hover:opacity-100">&gt;</button>
+        <button onClick={scrollRight} className="absolute right-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex md:hidden items-center justify-center shadow-md mr-1 opacity-90">&gt;</button>
 
       <div 
         ref={scrollRef}
-        className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory hide-scroll"
+        className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory hide-scroll"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {articles.map((article) => (
-          <Link href={`/blog/${article.id}`} key={article.id} className="w-[65vw] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer block">
+        {articles.map((article, index) => (
+          <Link href={`/blog/${article.id}`} key={article.id} className={`w-[65vw] sm:min-w-[calc(50%-12px)] md:w-auto md:min-w-0 flex-shrink-0 snap-start group cursor-pointer ${index >= 3 ? "md:hidden block" : "block"}`}>
 
             <div className="relative h-36 md:h-60 w-full rounded-2xl overflow-hidden mb-3 md:mb-4 shadow-sm">
               <div 
