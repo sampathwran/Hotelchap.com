@@ -63,12 +63,12 @@ export default function PopularVehicles() {
 
   if (loading) {
     return (
-      <div className="bg-gray-50 py-16 border-t border-gray-100">
+      <div className="bg-gray-50 py-8 md:py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">{t("Popular Vehicle Types")}</h2>
-              <p className="text-gray-500 font-medium">{t("Choose the perfect wheels for your adventure")}</p>
+              <h2 className="text-xl md:text-3xl font-black text-gray-900 mb-1 md:mb-2">{t("Popular Vehicle Types")}</h2>
+              <p className="text-gray-500 font-medium text-xs md:text-base">{t("Choose the perfect wheels for your adventure")}</p>
             </div>
           </div>
           <div className="flex justify-center items-center py-12">
@@ -82,7 +82,7 @@ export default function PopularVehicles() {
   if (vehicles.length === 0) return null;
 
   return (
-    <div className="bg-gray-50 py-16 border-t border-gray-100">
+    <div className="bg-gray-50 py-8 md:py-16 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex justify-between items-end mb-10">
           <div>
@@ -114,14 +114,14 @@ export default function PopularVehicles() {
           {vehicles.map((vehicle) => (
             <div 
               key={vehicle.id} 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col min-w-[280px] sm:min-w-[300px] w-[300px] flex-shrink-0 snap-center cursor-pointer"
+              className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col min-w-[220px] md:min-w-[280px] w-[220px] md:w-[300px] flex-shrink-0 snap-center cursor-pointer"
             >
-              <div className="h-48 overflow-hidden bg-gray-100">
+              <div className="h-36 md:h-48 overflow-hidden bg-gray-100">
                 <img src={vehicle.img} alt={vehicle.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                <p className="text-gray-500 font-medium text-sm mb-4">{vehicle.desc}</p>
+              <div className="p-4 md:p-6 flex flex-col flex-grow">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">{vehicle.name}</h3>
+                <p className="text-gray-500 font-medium text-[10px] md:text-sm mb-2 md:mb-4">{vehicle.desc}</p>
                 <div className="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
                   <span className="text-sm font-bold text-gray-400">Starting from</span>
                   <span className="text-lg font-black text-[#673AB7]">{vehicle.price}</span>
