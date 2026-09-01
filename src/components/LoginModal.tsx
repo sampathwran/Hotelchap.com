@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, Mail, Lock, User, ArrowRight } from "lucide-react";
-import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "@/firebase";
 
 interface LoginModalProps {
@@ -18,7 +18,35 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  
   if (!isOpen) return null;
+
+  const formatAuthError = (message: string) => {
+    if (message.includes("auth/email-already-in-use")) return "This email is already registered. Please log in.";
+    if (message.includes("auth/invalid-credential") || message.includes("auth/user-not-found") || message.includes("auth/wrong-password")) return "Invalid email or password.";
+    if (message.includes("auth/weak-password")) return "Password should be at least 6 characters.";
+    if (message.includes("auth/invalid-email")) return "Please enter a valid email address.";
+    return "Authentication failed. Please try again.";
+  };
+
+  const handleForgotPassword = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Please enter your email address first to reset your password.");
+      return;
+    }
+    try {
+      setLoading(true);
+      setError("");
+      await sendPasswordResetEmail(auth, email);
+      setError("Password reset email sent! Check your inbox.");
+    } catch (err: any) {
+      setError(formatAuthError(err.message));
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   const handleGoogleLogin = async () => {
     try {
@@ -39,9 +67,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
       }, { merge: true });
       
       onClose(); // Close modal on success
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
+    } catch (err: any) { setError(formatAuthError(err.message)); } finally {
       setLoading(false);
     }
   };
@@ -72,9 +98,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
         }, { merge: true });
       }
       onClose(); // Close modal on success
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
+    } catch (err: any) { setError(formatAuthError(err.message)); } finally {
       setLoading(false);
     }
   };
@@ -198,7 +222,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
               
               {isLogin && (
                 <div className="flex justify-end">
-                  <a href="#" className="text-xs font-bold text-[#673AB7] hover:underline">Forgot password?</a>
+                  <a href="#" onClick={handleForgotPassword} className="text-xs font-bold text-[#673AB7] hover:underline">Forgot password?</a>
                 </div>
               )}
 
