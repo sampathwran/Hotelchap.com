@@ -125,12 +125,12 @@ export default function PopularDestinations() {
               <p>Admin hasn't added any countries yet.</p>
             </div>
           ) : (
-            <div ref={countriesScrollRef} className="grid grid-cols-2 md:flex md:overflow-x-auto gap-3 md:gap-6 pb-2 md:pb-6 md:snap-x md:snap-mandatory custom-scrollbar scroll-smooth">
+            <div ref={countriesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
               {countries.map((country) => (
                 <div 
                   key={country.id}
                   onClick={() => handleCountryClick(country.id)}
-                  className="w-full md:w-[320px] shrink-0 md:snap-start group relative h-[160px] sm:h-[220px] md:h-[280px] rounded-xl md:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="w-[75vw] sm:w-[280px] md:w-[320px] shrink-0 snap-start group relative h-[280px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
                   <img src={country.image} alt={country.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
@@ -170,7 +170,7 @@ export default function PopularDestinations() {
                    <span className="text-gray-700 font-bold text-sm">Showing cities for {countries.find(c => c.id === selectedCountryId)?.name}</span>
                  </div>
               )}
-              <div ref={citiesScrollRef} className="grid grid-cols-2 md:flex md:overflow-x-auto gap-3 md:gap-6 pb-2 md:pb-6 md:snap-x md:snap-mandatory custom-scrollbar scroll-smooth">
+              <div ref={citiesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
                 {displayedCities.map((city) => (
                   <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[540px]">
                     {/* Image Box */}
