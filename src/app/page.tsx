@@ -312,9 +312,9 @@ export default function Home() {
       <div className="flex flex-1 relative max-w-[1400px] mx-auto w-full pt-10 md:pt-20">
 
         {/* Main Content Area */}
-        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[75px] md:pt-[430px] transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col w-full min-h-screen pb-24 md:pb-0 z-10 pt-[60px] md:pt-[430px] transition-all duration-300 ease-in-out">
 
-          <div className="w-full px-4 md:px-10 mt-4 md:mt-0">
+          <div className="w-full px-4 md:px-10 mt-1 md:mt-0">
             {/* Overlapping Search Box Card */}
             <div className="relative z-20 w-[95%] md:w-[92%] max-w-6xl mx-auto mt-0 md:-mt-24 bg-white rounded-xl md:rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 md:p-6 transition-all duration-700">
               
