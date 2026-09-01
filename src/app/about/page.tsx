@@ -153,41 +153,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full text-center">
-        <h2 className="text-purple-600 font-bold uppercase tracking-wider mb-4 text-sm">Leadership</h2>
-        <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
-          A team of passionate innovators
-        </h3>
-        <p className="text-lg text-gray-600 leading-relaxed text-justify max-w-3xl mx-auto mb-16">
-          Our dynamic leadership team has deep roots in HotelChap, instrumental in our global growth. Bold and execution-focused, they possess extensive experience across tech, marketing, and operations.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div className="flex flex-col items-center">
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-100 shadow-lg relative">
-              <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2000&auto=format&fit=crop" alt="CEO" fill className="object-cover" />
-            </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">Alex Mercer</h4>
-            <p className="text-purple-600 font-medium">Chief Executive Officer</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-100 shadow-lg relative">
-              <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2000&auto=format&fit=crop" alt="CFO" fill className="object-cover" />
-            </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">Sarah Jenkins</h4>
-            <p className="text-purple-600 font-medium">Chief Financial Officer</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-100 shadow-lg relative">
-              <Image src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2000&auto=format&fit=crop" alt="CPO" fill className="object-cover" />
-            </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">David Chen</h4>
-            <p className="text-purple-600 font-medium">Chief Product Officer</p>
-          </div>
-        </div>
-      </section>
-
       <MegaFooter />
     </div>
   );
