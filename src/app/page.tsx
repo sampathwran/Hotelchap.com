@@ -337,10 +337,10 @@ export default function Home() {
                   <button 
                     key={key}
                     onClick={() => setActiveTab(key as any)}
-                    className={`flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 border-b-[3px] border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    className={`group flex flex-col items-center justify-center gap-1.5 font-medium pb-3 min-w-[70px] md:min-w-[90px] transition-all ${activeTab === key ? 'text-blue-600 md:border-b-[3px] md:border-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
-                    <span className="text-xl md:text-2xl">{icon}</span>
-                    <span className="text-sm md:text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                    <span className={`flex items-center justify-center w-12 h-12 md:w-auto md:h-auto border ${activeTab === key ? 'border-blue-500 bg-blue-50' : 'border-gray-200'} md:border-none md:bg-transparent rounded-full text-[28px] md:text-2xl transition-all group-hover:scale-105`}>{icon}</span>
+                    <span className="text-[11px] md:text-sm capitalize font-bold md:font-medium text-center">{t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike" : key === "transfers" ? "Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
                   </button>
                 );
               })}
