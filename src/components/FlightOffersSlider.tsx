@@ -96,18 +96,18 @@ export default function FlightOffersSlider() {
           return (
             <div 
               key={offer.id} 
-              className={`min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-start shrink-0 bg-gradient-to-r ${design.bgClass} rounded-2xl md:rounded-3xl p-5 md:p-8 relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300`}
+              className={`min-w-[80%] sm:min-w-[60%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-start shrink-0 bg-gradient-to-r ${design.bgClass} rounded-xl md:rounded-3xl p-4 md:p-8 relative overflow-hidden shadow-lg transform hover:-translate-y-1 transition duration-300`}
             >
               <div className={`absolute right-0 top-0 w-64 h-64 transform translate-x-16 -translate-y-16 ${design.iconColor}`}>
                 <IconComponent size={256} />
               </div>
               
-              <div className="relative z-10 flex flex-col h-full justify-between items-start min-h-[150px] md:min-h-[220px]">
+              <div className="relative z-10 flex flex-col h-full justify-between items-start min-h-[130px] md:min-h-[220px]">
                 <div>
                   <span className={`${design.textColor === "text-white" ? "bg-white/20" : "bg-black/10"} px-2 py-1 md:px-3 rounded-full text-[10px] md:text-sm font-bold tracking-widest uppercase mb-4 inline-block ${design.textColor}`}>
                     {offer.badgeText}
                   </span>
-                  <h3 className={`text-lg md:text-3xl font-black mb-1 md:mb-3 ${design.textColor}`}>
+                  <h3 className={`text-base md:text-3xl font-black mb-1 md:mb-3 ${design.textColor}`}>
                     {offer.title}
                   </h3>
                   <p className={`${design.subTextColor} mb-4 md:mb-8 max-w-sm font-medium text-xs md:text-base line-clamp-2 md:line-clamp-3`}>
@@ -119,7 +119,7 @@ export default function FlightOffersSlider() {
                   href={offer.buttonLink || "#"} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${design.buttonBg} ${design.buttonText} font-bold px-4 py-2 md:px-6 md:py-3 rounded-lg md:rounded-xl text-xs md:text-base shadow-md hover:scale-105 transition-transform mt-auto`}
+                  className={`${design.buttonBg} ${design.buttonText} font-bold px-3 py-1.5 md:px-6 md:py-3 rounded-md md:rounded-xl text-[10px] md:text-base shadow-md hover:scale-105 transition-transform mt-auto`}
                 >
                   {offer.buttonText || "Book Now"}
                 </a>
