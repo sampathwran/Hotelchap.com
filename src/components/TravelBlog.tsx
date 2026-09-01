@@ -65,10 +65,7 @@ export default function TravelBlog() {
           <p className="text-xs md:text-sm text-gray-500">Travel guides, tips, and stories to inspire your next adventure.</p>
         </div>
         <div className="flex items-center gap-3">
-          <div className="hidden md:flex gap-2 mr-4">
-            <button onClick={scrollLeft} className="w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm hover:bg-gray-50 transition font-bold">&lt;</button>
-            <button onClick={scrollRight} className="w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm hover:bg-gray-50 transition font-bold">&gt;</button>
-          </div>
+          
           <Link href="/blog" className="text-[#673AB7] font-bold hover:underline hidden md:block">
             Read all articles &rarr;
           </Link>
@@ -76,15 +73,22 @@ export default function TravelBlog() {
       </div>
 
       <style>{`.hide-scroll::-webkit-scrollbar { display: none; }`}</style>
+      <div className="relative group">
+        {/* Left Arrow Overlay */}
+        <button onClick={scrollLeft} className="absolute left-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex items-center justify-center shadow-md hover:bg-gray-50 transition font-bold ml-1 opacity-90 hover:opacity-100">&lt;</button>
+        
+        {/* Right Arrow Overlay */}
+        <button onClick={scrollRight} className="absolute right-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex items-center justify-center shadow-md hover:bg-gray-50 transition font-bold mr-1 opacity-90 hover:opacity-100">&gt;</button>
+
       <div 
         ref={scrollRef}
         className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory hide-scroll"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {articles.map((article) => (
-          <Link href={`/blog/${article.id}`} key={article.id} className="min-w-[85%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer block">
+          <Link href={`/blog/${article.id}`} key={article.id} className="w-[65vw] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer block">
 
-            <div className="relative h-44 md:h-60 w-full rounded-2xl overflow-hidden mb-3 md:mb-4 shadow-sm">
+            <div className="relative h-36 md:h-60 w-full rounded-2xl overflow-hidden mb-3 md:mb-4 shadow-sm">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url('${article.image}')` }}
@@ -93,12 +97,13 @@ export default function TravelBlog() {
                 {article.category}
               </div>
             </div>
-            <h3 className="text-base md:text-xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-[#673AB7] transition-colors line-clamp-2">
+            <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-[#673AB7] transition-colors line-clamp-2">
               {article.title}
             </h3>
-            <p className="text-xs md:text-sm text-gray-500">{article.readTime}</p>
+            <p className="text-[11px] md:text-sm text-gray-500">{article.readTime}</p>
           </Link>
         ))}
+      </div>
       </div>
       
       <Link href="/blog" className="w-full mt-4 md:mt-6 py-2 md:py-3 border border-gray-200 rounded-xl font-bold text-sm md:text-base text-gray-700 md:hidden flex justify-center items-center">
