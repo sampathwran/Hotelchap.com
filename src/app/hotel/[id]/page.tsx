@@ -130,14 +130,12 @@ function HotelDetailsContent() {
     }
   }, [hotelId]);
 
-  const handleBook = (providerName: string, providerUrl: string) => {
+  const handleBook = (providerName: string) => {
     setIsRedirecting(providerName);
     setTimeout(() => {
-      window.open(providerUrl, '_blank');
       setIsRedirecting(null);
     }, 2000);
   };
-
   if (isRedirecting) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
@@ -292,12 +290,15 @@ function HotelDetailsContent() {
                       </div>
                       <div className="text-right">
                         <p className="text-xl font-black text-gray-900">${getCurrencySymbol(currency)} {providerPrice}</p>
-                        <button 
-                          onClick={() => handleBook(provider.name, provider.url)}
-                          className={`mt-1 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm transition ${isCheapest ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
-                        >
-                          View Deal
-                        </button>
+                        <a 
+    href={provider.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => handleBook(provider.name)}
+    className={`inline-block text-center mt-1 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm transition ${isCheapest ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+  >
+    View Deal
+  </a>
                       </div>
                     </div>
                   );
