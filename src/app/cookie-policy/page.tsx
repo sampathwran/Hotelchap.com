@@ -95,15 +95,15 @@ export default function CookiePolicy() {
         </p>
       </div>
 
-      <main className="flex-1 max-w-5xl mx-auto px-6 py-16 -mt-8 relative z-10 w-full">
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+      <main className="flex-1 max-w-5xl mx-auto px-3 md:px-6 py-12 md:py-16 -mt-8 relative z-10 w-full">
+        <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 p-4 sm:p-6 md:p-12">
           
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-gray-100 pb-8 mb-10 gap-4">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Manage cookie preferences</h2>
               <p className="text-gray-500 text-sm">Below is a detailed list of all cookies used on our platform categorized by their purpose.</p>
             </div>
-            <span className="text-sm font-semibold text-purple-600 bg-purple-50 px-4 py-2 rounded-full whitespace-nowrap">Last Updated: August 2026</span>
+            <span className="text-sm font-semibold text-purple-600 bg-purple-50 px-4 py-2 rounded-full whitespace-normal md:whitespace-nowrap text-center md:text-left">Last Updated: August 2026</span>
           </div>
           
           <div className="space-y-6">
@@ -116,7 +116,7 @@ export default function CookiePolicy() {
                   {/* Category Header */}
                   <button
                     onClick={() => toggleCategory(category.id)}
-                    className={"w-full flex items-start gap-4 p-6 text-left focus:outline-none transition-colors " + (isOpen ? 'bg-purple-50/50' : 'bg-white hover:bg-gray-50/50')}
+                    className={"w-full flex items-start gap-3 md:gap-4 p-4 md:p-6 text-left focus:outline-none transition-colors " + (isOpen ? 'bg-purple-50/50' : 'bg-white hover:bg-gray-50/50')}
                   >
                     <div className="mt-1 flex-shrink-0">
                       {category.icon}
@@ -136,12 +136,12 @@ export default function CookiePolicy() {
                   
                   {/* Category Details (Services) */}
                   <div className={"overflow-hidden transition-all duration-300 bg-white " + (isOpen ? 'max-h-[2000px] opacity-100 border-t border-purple-100' : 'max-h-0 opacity-0')}>
-                    <div className="p-6 md:p-8 space-y-8">
+                    <div className="p-4 md:p-8 space-y-6 md:space-y-8">
                       <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-6">Services Included</h4>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         {category.services.map((service, idx) => (
-                          <div key={idx} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                          <div key={idx} className="bg-gray-50 rounded-xl p-4 md:p-6 border border-gray-100">
                             <h5 className="font-bold text-gray-900 text-lg mb-3">{service.name}</h5>
                             <p className="text-gray-600 text-sm leading-relaxed mb-4 text-justify">
                               {service.description}

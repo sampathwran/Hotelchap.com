@@ -20,8 +20,8 @@ export default function PrivacyPolicy() {
         </p>
       </div>
 
-      <main className="flex-1 max-w-5xl mx-auto px-6 py-16 -mt-8 relative z-10 w-full">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-14">
+      <main className="flex-1 max-w-5xl mx-auto px-3 md:px-6 py-12 md:py-16 -mt-8 relative z-10 w-full">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 sm:p-6 md:p-14">
           <div className="flex items-center justify-between border-b border-gray-100 pb-8 mb-10">
             <h2 className="text-2xl font-bold text-gray-900">Privacy & Data Policy</h2>
             <span className="text-sm font-semibold text-purple-600 bg-purple-50 px-4 py-2 rounded-full">Last Updated: October 2025</span>
