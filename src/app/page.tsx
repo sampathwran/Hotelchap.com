@@ -185,7 +185,7 @@ export default function Home() {
       
 
       {/* Global Top Navbar */}
-      <header className={`absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0 transition-transform duration-300 ${showTopNav ? "translate-y-0" : "-translate-y-full"}`}>
+      <header className="absolute w-full flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 md:px-8 md:h-24 bg-gradient-to-b from-white/95 via-white/80 to-transparent z-[60] top-0 gap-3 md:gap-0">
         
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
         <div className="flex flex-row items-center justify-between md:justify-start gap-2 md:gap-12 w-full md:w-auto pl-2 md:pl-16 pr-2">
