@@ -47,7 +47,7 @@ export default function TravelpayoutsFlightWidget() {
           max-width: 100% !important;
         }
         
-        .tp-widget-wrapper input, 
+                .tp-widget-wrapper input, 
         .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-trip-class, 
         .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-dates {
           height: 60px !important;
@@ -67,6 +67,19 @@ export default function TravelpayoutsFlightWidget() {
         
         .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-submit_button:hover {
           background: #522b94 !important;
+        }
+        
+        @media (max-width: 768px) {
+          .tp-widget-wrapper input, 
+          .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-trip-class, 
+          .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-dates {
+            height: 48px !important;
+            font-size: 14px !important;
+          }
+          .tp-widget-wrapper .mewtwo-widget--default .mewtwo-flights-submit_button {
+            height: 48px !important;
+            font-size: 16px !important;
+          }
         }
       `}</style>
       {/* The widget will be injected here by the script */}
