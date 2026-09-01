@@ -6,10 +6,8 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import { useSettings } from "@/context/SettingsContext";
 import { useTranslation } from "@/lib/i18n";
-import { useAuth } from "@/context/AuthContext";
 
 export default function Sidebar() {
-  const { user } = useAuth();
   const pathname = usePathname();
   const { t } = useTranslation();
 const bookingServices = [
@@ -61,7 +59,7 @@ const extras = [
       {pathname === '/' ? (
         <button 
           onClick={toggleSidebar}
-          className="fixed top-3 right-2 md:top-8 md:left-8 z-[80] p-2 text-gray-800 md:bg-white/80 md:backdrop-blur-md md:shadow-sm hover:text-[#673AB7] md:hover:bg-white md:rounded-full transition-colors md:drop-shadow-md bg-transparent"
+          className="fixed top-3 left-2 md:top-8 md:left-8 z-[80] p-2 text-gray-800 md:bg-white/80 md:backdrop-blur-md md:shadow-sm hover:text-[#673AB7] md:hover:bg-white md:rounded-full transition-colors md:drop-shadow-md bg-transparent"
         >
           <Menu size={28} />
         </button>
@@ -90,34 +88,7 @@ const extras = [
             ? `absolute top-0 left-0 h-[calc(100vh-96px)] transition-all duration-300 ease-in-out flex flex-col py-6 overflow-y-auto overflow-x-hidden ${(isSidebarExpanded || isHovered) ? 'w-[250px] bg-white/95 backdrop-blur-2xl shadow-xl border-r border-gray-200' : 'w-[80px] bg-transparent'}`
             : `w-[250px] h-full bg-white/95 backdrop-blur-2xl shadow-2xl border-r border-gray-200 flex flex-col pt-24 overflow-y-auto`
         }>
-          
-            {/* Mobile Profile Block */}
-            <div className="md:hidden flex items-center gap-4 px-6 py-5 border-b border-gray-200 bg-gray-50/50">
-              {user ? (
-                <>
-                  <div className="w-12 h-12 rounded-full border border-gray-200 bg-white overflow-hidden shadow-sm flex items-center justify-center">
-                    {user.photoURL ? (
-                      <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="text-[#673AB7] font-bold text-xl">{(user.displayName || user.email || "U").charAt(0).toUpperCase()}</span>
-                    )}
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-bold text-gray-900 truncate max-w-[140px]">{user.displayName || user.email?.split('@')[0]}</span>
-                    <Link href="/account" onClick={toggleSidebar} className="text-xs text-[#673AB7] hover:underline font-semibold mt-0.5">View Profile</Link>
-                  </div>
-                </>
-              ) : (
-                <div className="flex flex-col w-full gap-2">
-                  <span className="font-bold text-gray-900 text-sm">Welcome to HotelChap</span>
-                  <Link href="/login" onClick={toggleSidebar} className="bg-[#673AB7] text-white text-center py-2 rounded-xl text-sm font-bold shadow-sm">
-                    Log in / Sign up
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Menu Items Container */}
+          {/* Menu Items Container */}
           <div className="flex flex-col flex-1 mt-2">
             
             {/* Section 1: Core Services */}
