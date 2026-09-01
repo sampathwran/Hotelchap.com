@@ -38,15 +38,15 @@ export default function FareAlertsForm() {
   };
 
   return (
-    <div className="bg-[#673AB7] rounded-3xl p-8 text-center text-white relative overflow-hidden shadow-lg h-full flex flex-col justify-center">
+    <div className="bg-[#673AB7] rounded-2xl md:rounded-3xl p-5 md:p-8 text-center text-white relative overflow-hidden shadow-lg h-full flex flex-col justify-center">
       <div className="absolute top-0 right-0 -mr-16 -mt-16 text-white/10 opacity-50 pointer-events-none transform rotate-12">
         <Bell size={160} />
       </div>
-      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md relative z-10">
-        <Bell size={32} />
+      <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-md relative z-10">
+        <Bell className="w-6 h-6 md:w-8 md:h-8" />
       </div>
-      <h3 className="text-2xl font-black mb-3 relative z-10">Never miss a deal!</h3>
-      <p className="text-purple-200 mb-6 font-medium relative z-10">
+      <h3 className="text-xl md:text-2xl font-black mb-1 md:mb-3 relative z-10">Never miss a deal!</h3>
+      <p className="text-xs md:text-base text-purple-200 mb-4 md:mb-6 font-medium relative z-10">
         Subscribe to fare alerts and get notified instantly when prices drop to your favorite destinations.
       </p>
 

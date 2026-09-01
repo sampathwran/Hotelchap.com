@@ -37,11 +37,11 @@ export default function FlightsPage() {
         <div className="absolute inset-0 bg-black/50"></div>
         
         <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 drop-shadow-lg">Book Your Next Flight</h1>
-          <p className="text-lg md:text-xl text-white/90 font-medium mb-8 drop-shadow-md">Compare over 500 airlines to find the best deals globally</p>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4 drop-shadow-lg">Book Your Next Flight</h1>
+          <p className="text-sm md:text-xl text-white/90 font-medium mb-6 md:mb-8 drop-shadow-md">Compare over 500 airlines to find the best deals globally</p>
           
           {/* Glassmorphism Wrapper for the Widget */}
-          <div className="w-full bg-white/10 backdrop-blur-md p-4 md:p-8 rounded-3xl border border-white/20 shadow-2xl">
+          <div className="w-full bg-white/10 backdrop-blur-md p-3 md:p-8 rounded-2xl md:rounded-3xl border border-white/20 shadow-2xl">
             <TravelpayoutsFlightWidget />
           </div>
         </div>
@@ -51,9 +51,9 @@ export default function FlightsPage() {
       <div className="bg-white py-6 border-b border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">We compare thousands of routes from top airlines</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             {airlines.map(code => (
-              <img key={code} src={`https://pics.avs.io/150/50/${code}.png`} alt={`${code} airline logo`} className="h-8 md:h-10 object-contain mix-blend-multiply" />
+              <img key={code} src={`https://pics.avs.io/150/50/${code}.png`} alt={`${code} airline logo`} className="h-6 md:h-10 object-contain mix-blend-multiply" />
             ))}
           </div>
         </div>
@@ -66,34 +66,34 @@ export default function FlightsPage() {
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-10 text-center">Why book flights with HotelChap?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
-              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
-                <Plane size={36} />
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
+            <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 md:w-20 md:h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <Plane className="w-6 h-6 md:w-9 md:h-9" />
               </div>
-              <h3 className="font-bold text-xl text-gray-900 mb-3">500+ Airlines</h3>
-              <p className="text-gray-500 font-medium leading-relaxed">We search hundreds of airlines globally to find the cheapest flights for you.</p>
+              <h3 className="font-bold text-[13px] md:text-xl text-gray-900 mb-1 md:mb-3">500+ Airlines</h3>
+              <p className="text-gray-500 font-medium text-[10px] md:text-base leading-tight md:leading-relaxed">We search hundreds of airlines globally to find the cheapest flights for you.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
-              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
-                <ShieldCheck size={36} />
+            <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 md:w-20 md:h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <ShieldCheck className="w-6 h-6 md:w-9 md:h-9" />
               </div>
-              <h3 className="font-bold text-xl text-gray-900 mb-3">No Hidden Fees</h3>
-              <p className="text-gray-500 font-medium leading-relaxed">The price you see is the price you pay. No surprise booking fees added.</p>
+              <h3 className="font-bold text-[13px] md:text-xl text-gray-900 mb-1 md:mb-3">No Hidden Fees</h3>
+              <p className="text-gray-500 font-medium text-[10px] md:text-base leading-tight md:leading-relaxed">The price you see is the price you pay. No surprise booking fees added.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
-              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
-                <Clock size={36} />
+            <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 md:w-20 md:h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <Clock className="w-6 h-6 md:w-9 md:h-9" />
               </div>
-              <h3 className="font-bold text-xl text-gray-900 mb-3">Instant Booking</h3>
-              <p className="text-gray-500 font-medium leading-relaxed">Get your e-tickets instantly delivered straight to your email address.</p>
+              <h3 className="font-bold text-[13px] md:text-xl text-gray-900 mb-1 md:mb-3">Instant Booking</h3>
+              <p className="text-gray-500 font-medium text-[10px] md:text-base leading-tight md:leading-relaxed">Get your e-tickets instantly delivered straight to your email address.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
-              <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
-                <CreditCard size={36} />
+            <div className="bg-white p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 md:w-20 md:h-20 bg-purple-50 rounded-full flex items-center justify-center text-[#673AB7] mb-6">
+                <CreditCard className="w-6 h-6 md:w-9 md:h-9" />
               </div>
-              <h3 className="font-bold text-xl text-gray-900 mb-3">Secure Payments</h3>
-              <p className="text-gray-500 font-medium leading-relaxed">Pay securely with international credit cards or alternative methods.</p>
+              <h3 className="font-bold text-[13px] md:text-xl text-gray-900 mb-1 md:mb-3">Secure Payments</h3>
+              <p className="text-gray-500 font-medium text-[10px] md:text-base leading-tight md:leading-relaxed">Pay securely with international credit cards or alternative methods.</p>
             </div>
           </div>
         </div>
@@ -103,18 +103,18 @@ export default function FlightsPage() {
       <PopularFlightRoutes />
 
       {/* 4. Fare Alerts & 3. FAQ Section */}
-      <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 py-16 w-full grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
         {/* FAQ Area (Takes 2 columns) */}
         <div className="lg:col-span-2">
-          <h2 className="text-2xl font-black text-gray-900 mb-8">{t("Frequently Asked Questions")}</h2>
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-4 md:mb-8 text-center md:text-left">{t("Frequently Asked Questions")}</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm open:bg-[#673AB7] open:text-white transition-colors duration-300">
-                <summary className="font-bold text-lg cursor-pointer list-none flex justify-between items-center group-open:text-white text-gray-800">
+              <details key={idx} className="group bg-white p-4 md:p-6 rounded-xl md:rounded-2xl border border-gray-200 shadow-sm open:bg-[#673AB7] open:text-white transition-colors duration-300">
+                <summary className="font-bold text-sm md:text-lg cursor-pointer list-none flex justify-between items-center group-open:text-white text-gray-800">
                   {faq.q}
                   <ChevronDown className="group-open:rotate-180 transition-transform duration-300" />
                 </summary>
-                <p className="mt-4 text-gray-500 group-open:text-white/90 leading-relaxed">
+                <p className="mt-2 md:mt-4 text-xs md:text-base text-gray-500 group-open:text-white/90 leading-relaxed">
                   {faq.a}
                 </p>
               </details>

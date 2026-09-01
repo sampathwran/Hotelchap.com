@@ -38,9 +38,9 @@ export default function PopularFlightRoutes() {
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="h-8 w-64 bg-gray-200 animate-pulse rounded mb-2"></div>
           <div className="h-4 w-48 bg-gray-200 animate-pulse rounded mb-8"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-72 bg-gray-100 animate-pulse rounded-3xl"></div>
+              <div key={i} className="h-48 md:h-72 bg-gray-100 animate-pulse rounded-3xl"></div>
             ))}
           </div>
         </div>
@@ -62,10 +62,10 @@ export default function PopularFlightRoutes() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {routes.map((route) => (
-            <div key={route.id} className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-72">
+            <div key={route.id} className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-48 md:h-72">
               <img src={route.img} alt={route.to} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 w-full">
+              <div className="absolute bottom-0 left-0 p-3 md:p-6 w-full">
                 <div className="flex justify-between items-end">
                   <div>
                     <p className="text-white/80 text-sm font-bold tracking-wider uppercase mb-1">{route.from} to</p>
