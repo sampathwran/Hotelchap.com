@@ -92,21 +92,21 @@ export default function PopularDestinations() {
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 md:mb-12 gap-4">
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">{t("Best Destinations")}</h2>
-            <p className="text-gray-500 font-medium">{t("Explore the world's top countries and vibrant cities.")}</p>
+            <h2 className="text-xl md:text-4xl font-extrabold text-gray-900 mb-1 md:mb-2">{t("Best Destinations")}</h2>
+            <p className="text-xs md:text-sm text-gray-500 font-medium">{t("Explore the world's top countries and vibrant cities.")}</p>
           </div>
           
           {/* Custom Tabs */}
           <div className="flex bg-white p-1 rounded-full shadow-sm border border-gray-100">
             <button 
               onClick={() => { setActiveTab("countries"); setSelectedCountryId(null); }}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === "countries" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
+              className={`px-4 md:px-6 py-1.5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 ${activeTab === "countries" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
             >
               Countries
             </button>
             <button 
               onClick={() => setActiveTab("cities")}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === "cities" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
+              className={`px-4 md:px-6 py-1.5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 ${activeTab === "cities" ? "bg-[#673AB7] text-white shadow-md" : "text-gray-500 hover:text-gray-900"}`}
             >
               Cities
             </button>
@@ -130,7 +130,7 @@ export default function PopularDestinations() {
                 <div 
                   key={country.id}
                   onClick={() => handleCountryClick(country.id)}
-                  className="w-[75vw] sm:w-[280px] md:w-[320px] shrink-0 snap-start group relative h-[280px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="w-[45vw] sm:w-[280px] md:w-[320px] shrink-0 snap-start group relative h-[180px] md:h-[280px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
                   <img src={country.image} alt={country.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
@@ -172,9 +172,9 @@ export default function PopularDestinations() {
               )}
               <div ref={citiesScrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-6 snap-x snap-mandatory custom-scrollbar scroll-smooth">
                 {displayedCities.map((city) => (
-                  <div key={city.id} className="w-[85vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[540px]">
+                  <div key={city.id} className="w-[75vw] sm:w-[320px] md:w-[350px] shrink-0 snap-start bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-[380px] md:h-[540px]">
                     {/* Image Box */}
-                      <div className="h-[220px] w-full relative overflow-hidden shrink-0">
+                      <div className="h-[150px] md:h-[220px] w-full relative overflow-hidden shrink-0">
                         <img src={city.image} alt={city.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
                         
                         <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm hover:scale-110 transition-transform cursor-pointer group/heart">
@@ -207,7 +207,7 @@ export default function PopularDestinations() {
                         )}
 
                         <div className="grow mb-3 flex flex-col">
-                          <div className={`text-sm text-gray-500 leading-relaxed transition-all ${expandedCities.has(city.id) ? '' : 'line-clamp-3'}`}>
+                          <div className={`text-sm text-gray-500 leading-relaxed transition-all ${expandedCities.has(city.id) ? '' : 'line-clamp-2 md:line-clamp-3'}`}>
                             {city.desc}
                           </div>
                           {city.desc && city.desc.length > 100 && (
