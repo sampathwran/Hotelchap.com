@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { collection, query, where, orderBy, limit, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
 import { ArrowRight } from "lucide-react";
@@ -9,6 +9,9 @@ import Link from "next/link";
 export default function FlightTipsBlog() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollLeft = () => { if (scrollRef.current) scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' }); };
+  const scrollRight = () => { if (scrollRef.current) scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' }); };
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -42,7 +45,7 @@ export default function FlightTipsBlog() {
 
   if (loading) {
     return (
-      <div className="bg-gray-50 py-16 border-t border-gray-100">
+      <div className="bg-gray-50 py-8 md:py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-end mb-10">
             <div>
@@ -64,7 +67,7 @@ export default function FlightTipsBlog() {
   }
 
   return (
-    <div className="bg-gray-50 py-16 border-t border-gray-100">
+    <div className="bg-gray-50 py-8 md:py-16 border-t border-gray-100">
       <style>{`.hide-scroll::-webkit-scrollbar { display: none; }`}</style>
       <div className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex justify-between items-end mb-10">
@@ -77,7 +80,11 @@ export default function FlightTipsBlog() {
           </Link>
         </div>
 
-                <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-8 pb-6 md:pb-0 snap-x snap-mandatory hide-scroll" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                
+        <div className="relative group">
+          <button onClick={scrollLeft} className="absolute left-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex md:hidden items-center justify-center shadow-md ml-1 opacity-90">&lt;</button>
+          <button onClick={scrollRight} className="absolute right-0 top-[40%] -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-800 flex md:hidden items-center justify-center shadow-md mr-1 opacity-90">&gt;</button>
+        <div ref={scrollRef} className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-8 pb-6 md:pb-0 snap-x snap-mandatory hide-scroll" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {blogs.map((blog) => (
             <Link key={blog.id} href={`/blog/${blog.id}`} className="min-w-[85%] sm:min-w-[60%] md:min-w-0 snap-start">
               <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer h-full flex flex-col">
@@ -99,6 +106,7 @@ export default function FlightTipsBlog() {
               </div>
             </Link>
           ))}
+        </div>
         </div>
       </div>
     </div>

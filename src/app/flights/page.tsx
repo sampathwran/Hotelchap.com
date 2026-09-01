@@ -63,7 +63,7 @@ export default function FlightsPage() {
       <FlightOffersSlider />
 
       {/* Why Choose Us */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-gray-50 py-6 md:py-16">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-10 text-center">Why book flights with HotelChap?</h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
