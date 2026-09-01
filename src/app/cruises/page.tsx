@@ -54,7 +54,7 @@ export default function CruisesPage() {
       {/* Hero Section with Widget */}
       <div className="relative w-full min-h-[550px] flex items-center justify-center py-12 md:py-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center hidden md:block"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2074&auto=format&fit=crop')" }}
         ></div>
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>

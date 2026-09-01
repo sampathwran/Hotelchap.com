@@ -28,7 +28,7 @@ export default function TransfersPage() {
       {/* Hero Section with Widget */}
       <div className="relative w-full min-h-[550px] flex items-center justify-center py-12 md:py-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center hidden md:block"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1582294191636-407871308aeb?q=80&w=2070&auto=format&fit=crop')" }}
         ></div>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
