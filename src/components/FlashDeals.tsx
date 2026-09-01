@@ -46,6 +46,24 @@ export default function FlashDeals() {
     return deal.startTime.toDate() <= now;
   });
 
+  
+  // Auto slide for PC
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+        if (scrollRef.current) {
+          const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+          if (scrollLeft + clientWidth >= scrollWidth - 10) {
+            scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+          }
+        }
+      }
+    }, 4000);
+    return () => clearInterval(slideInterval);
+  }, []);
+
   const scrollLeft = () => {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
   };
@@ -60,10 +78,10 @@ export default function FlashDeals() {
     <div className="w-full px-4 md:px-10 mt-6 md:mt-8 pb-10 relative">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 bg-red-50 border border-red-100 p-6 rounded-2xl">
         <div className="flex items-center gap-4">
-          <div className="bg-red-500 text-white text-xl font-bold p-3 rounded-xl animate-pulse">HOT</div>
+          <div className="bg-red-500 text-white text-base md:text-xl font-bold p-2 md:p-3 rounded-lg md:rounded-xl animate-pulse">HOT</div>
           <div>
-            <h2 className="text-2xl font-black text-gray-900">Flash Deals</h2>
-            <p className="text-red-500 font-bold">Hurry! Limited time offers selected for you.</p>
+            <h2 className="text-xl md:text-2xl font-black text-gray-900">Flash Deals</h2>
+            <p className="text-xs md:text-base text-red-500 font-bold">Hurry! Limited time offers selected for you.</p>
           </div>
         </div>
         
@@ -99,15 +117,15 @@ export default function FlashDeals() {
         {activeDeals.map((deal) => (
           <div 
             key={deal.id} 
-            className="min-w-[80%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
+            className="min-w-[60%] sm:min-w-[calc(50%-12px)] md:min-w-[calc(33.333%-16px)] lg:min-w-[calc(25%-18px)] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100 group cursor-pointer"
             onClick={() => window.open(deal.targetUrl || '#', '_blank')}
           >
-            <div className="relative h-48 md:h-64 w-full overflow-hidden">
+            <div className="relative h-36 md:h-64 w-full overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url('${deal.imageUrl}')` }}
               ></div>
-              <div className="absolute top-4 left-4 bg-gray-900 text-white font-bold px-3 py-1 rounded-full shadow-lg text-sm flex items-center gap-2">
+              <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-gray-900 text-white font-bold px-2 py-1 md:px-3 rounded-full shadow-lg text-[10px] md:text-sm flex items-center gap-1 md:gap-2">
                 Time Left: {formatTimeLeft(deal.endTime)}
               </div>
               {deal.discountBadge && (
@@ -116,9 +134,9 @@ export default function FlashDeals() {
                 </div>
               )}
             </div>
-            <div className="p-5">
-              <h3 className="font-bold text-lg text-gray-900 mb-2 truncate">{deal.title || 'Special Deal'}</h3>
-              <button className="w-full mt-2 bg-red-50 text-red-600 font-bold py-2 rounded-xl group-hover:bg-red-500 group-hover:text-white transition-colors">
+            <div className="p-3 md:p-5">
+              <h3 className="font-bold text-base md:text-lg text-gray-900 mb-2 truncate">{deal.title || 'Special Deal'}</h3>
+              <button className="w-full mt-2 bg-red-50 text-red-600 font-bold py-1.5 md:py-2 rounded-lg md:rounded-xl text-sm md:text-base group-hover:bg-red-500 group-hover:text-white transition-colors">
                 Grab Deal &rarr;
               </button>
             </div>
