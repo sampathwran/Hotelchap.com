@@ -24,12 +24,12 @@ export default function CarsPage() {
       <Header />
 
       {/* Hero Section with Widget */}
-      <div className="relative w-full min-h-[400px] md:min-h-[500px] flex items-center justify-center py-8 md:py-0 bg-[#673AB7] md:bg-transparent overflow-hidden">
+      <div className="relative w-full min-h-[400px] md:min-h-[500px] flex items-center justify-center py-8 md:py-0 ">
         <div 
-          className="absolute inset-0 bg-cover bg-center hidden md:block"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop')" }}
         ></div>
-        <div className="absolute inset-0 bg-black/50 hidden md:block"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         
         <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center text-center">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4 drop-shadow-lg">{t("Hit the road with HotelChap")}</h1>
