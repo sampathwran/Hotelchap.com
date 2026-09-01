@@ -190,7 +190,7 @@ export default function Home() {
         {/* Top Row (Logo + Mobile Actions) / Desktop Left */}
         <div className="flex flex-row items-center justify-between md:justify-start gap-2 md:gap-12 w-full md:w-auto pl-10 md:pl-16 pr-2">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="HotelChap Logo" className="h-8 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
+            <img src="/logo.png" alt="HotelChap Logo" className="h-14 md:h-28 w-auto object-contain drop-shadow-md origin-left" />
           </Link>
 
           

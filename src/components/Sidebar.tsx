@@ -59,7 +59,7 @@ const extras = [
       {pathname === '/' ? (
         <button 
           onClick={toggleSidebar}
-          className="fixed top-3 left-2 md:top-8 md:left-8 z-[80] p-2 text-gray-800 md:bg-white/80 md:backdrop-blur-md md:shadow-sm hover:text-[#673AB7] md:hover:bg-white md:rounded-full transition-colors md:drop-shadow-md bg-transparent"
+          className="hidden md:block fixed top-3 left-2 md:top-8 md:left-8 z-[80] p-2 text-gray-800 md:bg-white/80 md:backdrop-blur-md md:shadow-sm hover:text-[#673AB7] md:hover:bg-white md:rounded-full transition-colors md:drop-shadow-md bg-transparent"
         >
           <Menu size={28} />
         </button>
@@ -67,7 +67,7 @@ const extras = [
         <button 
           onMouseEnter={() => setIsHovered(true)}
           onClick={() => setIsHovered(!isHovered)}
-          className="fixed top-4 left-4 md:top-6 md:left-8 z-[100] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-[#673AB7] hover:bg-white rounded-full transition-colors drop-shadow-md"
+          className="hidden md:block fixed top-4 left-4 md:top-6 md:left-8 z-[100] p-2 text-gray-800 bg-white/80 backdrop-blur-md shadow-sm hover:text-[#673AB7] hover:bg-white rounded-full transition-colors drop-shadow-md"
         >
           <Menu size={28} />
         </button>
