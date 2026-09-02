@@ -20,8 +20,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HotelChap - Book Hotels, Flights, Cars",
-  description: "Find your perfect stay anywhere in the world.",
+  title: {
+    default: "HotelChap | Best Hotel, Flight & Car Booking Site",
+    template: "%s | HotelChap"
+  },
+  description: "Find the best and cheapest hotel deals, flights, and car rentals worldwide. Compare millions of options and book your perfect stay securely with HotelChap.",
+  keywords: ["hotel booking", "cheap flights", "car rentals", "travel deals", "vacation packages", "HotelChap"],
+  authors: [{ name: "HotelChap" }],
+  creator: "HotelChap",
+  publisher: "HotelChap",
+  icons: {
+    icon: '/image/HotelChap%20App%20Icon.png',
+    shortcut: '/image/HotelChap%20App%20Icon.png',
+    apple: '/image/HotelChap%20App%20Icon.png',
+  },
+  openGraph: {
+    title: "HotelChap | Best Hotel, Flight & Car Booking Site",
+    description: "Compare prices on hotels, flights, and cars. Save big on your next trip with HotelChap.",
+    url: "https://www.hotelchap.com",
+    siteName: "HotelChap",
+    images: [
+      {
+        url: "/image/HotelChap%20App%20Icon.png",
+        width: 800,
+        height: 600,
+        alt: "HotelChap Logo",
+      }
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
