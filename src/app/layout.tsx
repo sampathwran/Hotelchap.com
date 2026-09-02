@@ -31,18 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sky-50 text-gray-900">
-        {/* Stay22 LetMeAllez Script for Affiliate Monetization */}
-        <Script id="stay22-script" strategy="afterInteractive">
+                {/* Travelpayouts Drive Script */}
+        <Script id="travelpayouts-drive" strategy="beforeInteractive">
           {`
-            (function (s, t, a, y, twenty, two) {
-              s.Stay22 = s.Stay22 || {};
-              s.Stay22.params = { lmaID: '6a9143efa8f4d825a1a48e5a' };
-              twenty = t.createElement(a);
-              two = t.getElementsByTagName(a)[0];
-              twenty.async = 1;
-              twenty.src = y;
-              two.parentNode.insertBefore(twenty, two);
-            })(window, document, 'script', 'https://scripts.stay22.com/letmeallez.js');
+            (function () {
+                var script = document.createElement("script");
+                script.async = 1;
+                script.setAttribute("data-cmp-ab","2");
+                script.src = 'https://emrld.ltd/NTY2MDM0.js?t=566034';
+                document.head.appendChild(script);
+            })();
           `}
         </Script>
 
