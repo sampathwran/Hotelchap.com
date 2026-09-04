@@ -261,7 +261,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
                 <Search className="w-5 h-5" />
                 Find Hotels
               </Link>
-              <Link href={"/search?destination=" + data.name + "&type=flights"} className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white py-4 px-6 rounded-xl font-bold transition">
+              <Link href="/flights" className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white py-4 px-6 rounded-xl font-bold transition">
                 <Plane className="w-5 h-5" />
                 Find Flights
               </Link>
