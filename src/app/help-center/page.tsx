@@ -151,14 +151,10 @@ export default function HelpCenter() {
             <div className="relative z-10 max-w-2xl mx-auto">
               <h3 className="text-3xl font-black mb-4">Important Notice regarding Support</h3>
               <p className="text-lg text-purple-100 mb-8 leading-relaxed text-justify">
-                Because HotelChap is a price comparison search engine, we do not have access to your booking details, payment records, or reservations. If you have an issue with a booking, please contact the customer support team of the booking partner (e.g., Booking.com, Agoda) directly.
+                Because HotelChap is a price comparison search engine, we do not have access to your booking details, payment records, or reservations. 
+                <br/><br/>
+                <b>If you have an issue with a booking, you MUST contact the customer support team of the booking partner (e.g., Booking.com, Agoda) directly.</b> We cannot cancel or modify your bookings.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="px-8 py-4 bg-purple-700/50 hover:bg-purple-700/70 text-white font-bold rounded-xl border border-purple-400/30 transition-colors flex items-center justify-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  Email for General Inquiries
-                </button>
-              </div>
             </div>
           </div>
 
