@@ -66,46 +66,62 @@ function SearchResults() {
         }
         
         // Map API format to expected UI format
-        const validResults = (data.results || []).filter((h: any) => h.hotel_name || h.hotel_name_trans || h.name);
+        const validResults = (data.results || []).filter((h: any) => h?.property?.name || h?.hotel_name || h?.name);
         
         const mappedHotels = validResults.map((h: any) => {
-          // Generate keywords mapping to match the UI filters
+          // If it's the old API format
+          if (h.hotel_name) {
+             const keywords = [];
+             if (h.is_free_cancellable) keywords.push("Free cancellation");
+             const rt = h.review_score || 0;
+             if (rt >= 9) keywords.push("Great 9+");
+             if (rt >= 8) keywords.push("Very Good 8+");
+             keywords.push("1 double bed", "Air conditioning", "Restaurant", "Free WiFi");
+             return {
+                id: h.hotel_id?.toString() || Math.random().toString(),
+                name: h.hotel_name || h.hotel_name_trans || "Unknown Hotel",
+                location: h.city_trans || h.city || destination,
+                distance: h.distance_to_cc ? `${h.distance_to_cc} km from center` : "Great location",
+                rating: h.review_score || 0,
+                reviews: h.review_nr || 0,
+                starRating: h.class || 3,
+                price: h.min_total_price ? Math.floor(h.min_total_price) : 100,
+                originalPrice: h.min_total_price ? Math.floor(h.min_total_price * 1.2) : 120,
+                image: h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                highlights: h.is_free_cancellable ? ["Free Cancellation"] : [],
+                amenities: { popular: ["Free WiFi", "Air conditioning"] },
+                bookingUrl: h.url,
+                _searchKeywords: keywords.join(" ")
+             };
+          }
+
+          // New booking-com15 DataCrawler API Format
+          const prop = h.property || {};
           const keywords = [];
-          if (h.has_free_parking) keywords.push("Parking");
-          if (h.has_swimming_pool) keywords.push("Pool", "Private Pool");
-          if (h.hotel_include_breakfast) keywords.push("Breakfast included");
-          if (h.is_free_cancellable) keywords.push("Free cancellation");
-          if (h.is_no_prepayment_block) keywords.push("No prepayment needed", "Pay at Hotel", "Book without credit card", "Pay at property");
-          
-          const rt = h.review_score || 0;
+          if (prop.isFreeCancellable) keywords.push("Free cancellation");
+          const rt = prop.reviewScore || 0;
           if (rt >= 9) keywords.push("Great 9+");
           if (rt >= 8) keywords.push("Very Good 8+");
-          if (rt >= 7) keywords.push("Good 7+");
-          if (rt >= 6) keywords.push("Pleasant 6+");
-          
-          if (h.accommodation_type_name) {
-             keywords.push(h.accommodation_type_name);
-             if (h.accommodation_type_name === "Hotel") keywords.push("Hotels");
-             if (h.accommodation_type_name === "Apartment" || h.accommodation_type_name === "Villa") keywords.push("Homes & apts");
-          }
-          
-          keywords.push("1 double bed", "Air conditioning", "Restaurant", "Free WiFi"); // Generic fallbacks
+          keywords.push("1 double bed", "Air conditioning", "Restaurant", "Free WiFi");
+
+          const priceVal = prop.priceBreakdown?.grossPrice?.value || prop.priceBreakdown?.excludedPrice?.value || 100;
+          const image = prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070";
 
           return {
             id: h.hotel_id?.toString() || Math.random().toString(),
-            name: h.hotel_name || h.hotel_name_trans || h.name || "Unknown Hotel",
-            location: h.city_trans || h.city || destination,
-            address: h.address || h.address_trans || "",
-            distance: h.distance_to_cc ? `${h.distance_to_cc} km from center` : "Great location",
-            rating: h.review_score || 0,
-            reviews: h.review_nr || 0,
-            starRating: h.class || 3,
-            price: h.min_total_price ? Math.floor(h.min_total_price) : 100,
-            originalPrice: h.min_total_price ? Math.floor(h.min_total_price * 1.2) : 120,
-            image: h.max_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
-            highlights: h.is_free_cancellable ? ["Free Cancellation"] : [],
+            name: prop.name || "Unknown Hotel",
+            location: destination,
+            address: "",
+            distance: "Great location",
+            rating: prop.reviewScore || 0,
+            reviews: prop.reviewCount || 0,
+            starRating: prop.starRating || 3,
+            price: Math.floor(priceVal),
+            originalPrice: Math.floor(priceVal * 1.2),
+            image: image,
+            highlights: prop.isFreeCancellable ? ["Free Cancellation"] : [],
             amenities: { popular: ["Free WiFi", "Air conditioning", "Restaurant"] },
-            bookingUrl: h.url,
+            bookingUrl: "",
             _searchKeywords: keywords.join(" ")
           };
         });
