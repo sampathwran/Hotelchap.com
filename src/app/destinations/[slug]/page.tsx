@@ -5,6 +5,7 @@ import MegaFooter from '@/components/MegaFooter';
 import Image from 'next/image';
 import { MapPin, Star, ChevronRight, ExternalLink, Search, Plane } from 'lucide-react';
 import Link from 'next/link';
+import DestinationLiveHotels from './DestinationLiveHotels';
 
 // Pre-defined SEO data for destinations
 const destinationsData: Record<string, any> = {
@@ -186,7 +187,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
           <section>
             <h2 className="text-3xl font-black text-gray-900 mb-6">Why visit {data.name}?</h2>
             <p className="text-lg text-gray-600 leading-relaxed text-justify">
-              {data.whyVisit} At HotelChap, we compare prices from hundreds of trusted booking partners to ensure you get the absolute best deal for your stay in {data.name}. We don't take your money directly�we just connect you to the lowest price.
+              {data.whyVisit} At HotelChap, we compare prices from hundreds of trusted booking partners to ensure you get the absolute best deal for your stay in {data.name}. We don't take your money directly—we just connect you to the lowest price.
             </p>
           </section>
 
@@ -199,48 +200,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
               </Link>
             </div>
             
-            <div className="space-y-6">
-              {data.topHotels.map((hotel: any, index: number) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col sm:flex-row hover:shadow-xl transition-shadow group">
-                  <div className="relative h-56 sm:h-auto sm:w-1/3 overflow-hidden">
-                    <Image 
-                      src={hotel.image} 
-                      alt={hotel.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{hotel.name}</h3>
-                      <div className="flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-lg font-bold text-sm">
-                        <Star className="w-4 h-4 fill-blue-700" />
-                        {hotel.rating}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-1 text-gray-500 text-sm mb-4">
-                      <MapPin className="w-4 h-4" />
-                      {hotel.location}, {data.name}
-                    </div>
-                    
-                    <p className="text-sm text-gray-500 mb-6 text-justify">
-                      Based on {hotel.reviews.toLocaleString()} reviews from our affiliate partners.
-                    </p>
-                    
-                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div>
-                        <p className="text-xs text-gray-400 font-semibold uppercase">Estimated Price</p>
-                        <p className="text-xl font-black text-gray-900">{hotel.price}</p>
-                      </div>
-                      <Link href={"/search?destination=" + encodeURIComponent(hotel.name + " " + data.name)} className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition flex items-center gap-2">
-                        Check Prices <ExternalLink className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <DestinationLiveHotels destination={data.name} />
             
             <Link href={"/search?destination=" + data.name + "&type=hotel"} className="sm:hidden flex items-center justify-center gap-1 text-blue-600 font-bold hover:text-blue-700 transition mt-6 bg-blue-50 p-4 rounded-xl">
               View all hotels in {data.name} <ChevronRight className="w-5 h-5" />
