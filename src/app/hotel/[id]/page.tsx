@@ -31,7 +31,18 @@ function HotelDetailsContent() {
   const urlReviews = searchParams.get("reviews");
   const rawUrl = searchParams.get("url");
   const urlLocation = searchParams.get("location") || "City Center";
-  let bookingUrl = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(urlName + ' ' + urlLocation)}`;
+  const checkin = searchParams.get("checkin");
+  const checkout = searchParams.get("checkout");
+  const adults = searchParams.get("adults") || "2";
+
+  let bookingDateParams = "";
+  if (checkin && checkout) {
+     const [ciY, ciM, ciD] = checkin.split("-");
+     const [coY, coM, coD] = checkout.split("-");
+     bookingDateParams = `&checkin_year=${ciY}&checkin_month=${ciM}&checkin_monthday=${ciD}&checkout_year=${coY}&checkout_month=${coM}&checkout_monthday=${coD}&group_adults=${adults}`;
+  }
+
+  let bookingUrl = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(urlName + ' ' + urlLocation)}${bookingDateParams}`;
   if (rawUrl && rawUrl !== "null" && rawUrl !== "") {
     try {
       const decoded = atob(rawUrl);
@@ -91,11 +102,14 @@ function HotelDetailsContent() {
     }
   }, [hotel.id, hotel.name, hotel.price, hotel.image, hotel.location, currency]);
 
+  const dateParamsGen = checkin ? `&checkIn=${checkin}&checkOut=${checkout}&adults=${adults}` : '';
+  const dateParamsExp = checkin ? `&startDate=${checkin}&endDate=${checkout}&adults=${adults}` : '';
+
   const providers = [
     { name: "Booking.com", logo: "https://www.google.com/s2/favicons?domain=booking.com&sz=64", color: "border-blue-900", text: "text-blue-900", discount: 0, url: bookingUrl },
-    { name: "Agoda", logo: "https://www.google.com/s2/favicons?domain=agoda.com&sz=64", color: "border-blue-500", text: "text-blue-500", discount: 5, url: `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name + ' ' + hotel.location)}` },
-    { name: "Expedia", logo: "https://www.google.com/s2/favicons?domain=expedia.com&sz=64", color: "border-yellow-500", text: "text-yellow-600", discount: 2, url: `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.name + ' ' + hotel.location)}` },
-    { name: "Trip.com", logo: "https://www.google.com/s2/favicons?domain=trip.com&sz=64", color: "border-cyan-600", text: "text-cyan-600", discount: -2, url: `https://us.trip.com/hotels/list?city=1&keyword=${encodeURIComponent(hotel.name + ' ' + hotel.location)}` },
+    { name: "Agoda", logo: "https://www.google.com/s2/favicons?domain=agoda.com&sz=64", color: "border-blue-500", text: "text-blue-500", discount: 5, url: `https://www.agoda.com/search?text=${encodeURIComponent(hotel.name + ' ' + hotel.location)}${dateParamsGen}` },
+    { name: "Expedia", logo: "https://www.google.com/s2/favicons?domain=expedia.com&sz=64", color: "border-yellow-500", text: "text-yellow-600", discount: 2, url: `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(hotel.name + ' ' + hotel.location)}${dateParamsExp}` },
+    { name: "Trip.com", logo: "https://www.google.com/s2/favicons?domain=trip.com&sz=64", color: "border-cyan-600", text: "text-cyan-600", discount: -2, url: `https://us.trip.com/hotels/list?city=1&keyword=${encodeURIComponent(hotel.name + ' ' + hotel.location)}${dateParamsGen}` },
   ];
 
   const [isRedirecting, setIsRedirecting] = useState<string | null>(null);
