@@ -90,9 +90,9 @@ export default function AboutUs() {
             <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
               <Lightbulb size={28} />
             </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-4">We are fanatic learners</h4>
+            <h4 className="text-2xl font-bold text-gray-900 mb-4">We are always learning</h4>
             <p className="text-gray-600 leading-relaxed text-justify">
-              We maintain our competitive edge by remaining curious, failing fast and learning quickly. Challenges and changes are opportunities to unlock new knowledge and innovation.
+              We stay curious, open-minded and ready to grow. We continuously learn, adapt to change and embrace new ideas. Every challenge is an opportunity to improve, innovate and deliver a better experience for our customers.
             </p>
           </div>
 
