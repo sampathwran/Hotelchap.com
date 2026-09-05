@@ -17,18 +17,13 @@ export default function AppDownload() {
           <p className="text-white/80 text-lg mb-8">{t("Download the HotelChap app to book flights, hotels, and unlock secret mobile-only deals instantly.")}</p>
           
           <div className="flex gap-4">
-            <button className="bg-black hover:bg-gray-900 text-white flex items-center gap-3 px-6 py-3 rounded-xl transition transform hover:scale-105">
-              <span className="text-3xl">🍎</span>
-              <div className="text-left">
-                <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-1">{t("Download on the App Store")}</p>
-              </div>
-            </button>
-            <button className="bg-black hover:bg-gray-900 text-white flex items-center gap-3 px-6 py-3 rounded-xl transition transform hover:scale-105">
-              <span className="text-3xl">▶️</span>
-              <div className="text-left">
-                <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-1">{t("GET IT ON Google Play")}</p>
-              </div>
-            </button>
+            <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="transition transform hover:scale-105">
+              <img 
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                alt="Get it on Google Play" 
+                className="h-16 object-contain"
+              />
+            </a>
           </div>
         </div>
 

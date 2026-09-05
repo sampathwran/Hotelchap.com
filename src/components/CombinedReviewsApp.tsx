@@ -24,20 +24,13 @@ export default function CombinedReviewsApp() {
             </p>
             
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
-              <button className="bg-black hover:bg-gray-900 text-white flex items-center gap-3 px-5 py-3 rounded-xl transition transform hover:scale-105 border border-gray-800">
-                <span className="text-2xl">??</span>
-                <div className="text-left">
-                  <p className="text-[10px] text-gray-400 leading-none mb-1">Download on the</p>
-                  <p className="text-sm font-bold leading-none">App Store</p>
-                </div>
-              </button>
-              <button className="bg-black hover:bg-gray-900 text-white flex items-center gap-3 px-5 py-3 rounded-xl transition transform hover:scale-105 border border-gray-800">
-                <span className="text-2xl">??</span>
-                <div className="text-left">
-                  <p className="text-[10px] text-gray-400 leading-none mb-1">GET IT ON</p>
-                  <p className="text-sm font-bold leading-none">Google Play</p>
-                </div>
-              </button>
+              <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" className="transition transform hover:scale-105 inline-block -ml-3">
+                <img 
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                  alt="Get it on Google Play" 
+                  className="h-16 object-contain"
+                />
+              </a>
             </div>
           </div>
           
