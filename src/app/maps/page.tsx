@@ -4,7 +4,7 @@ import { useTranslation } from "@/lib/i18n";
 import { useState } from "react";
 import Header from "@/components/Header";
 import MegaFooter from "@/components/MegaFooter";
-import { Search, MapPin, Navigation, Star, Map as MapIcon, Coffee, Bed, Camera } from "lucide-react";
+import { Search, MapPin, Navigation, Star, Map as MapIcon, Coffee, Bed, Camera, Globe2 } from "lucide-react";
 
 export default function MapsPage() {
   const { t } = useTranslation();
@@ -16,11 +16,11 @@ export default function MapsPage() {
   const mapLocation = `${activeFilter} in ${baseLocation}`;
 
   const trendingLocations = [
-    { name: t("Colombo, Sri Lanka"), desc: t("Vibrant city life and coastal views"), img: "https://images.unsplash.com/photo-1572973211553-61ebce67c61c?q=80&w=200&auto=format&fit=crop" },
-    { name: t("Kandy, Sri Lanka"), desc: t("Cultural capital and lush mountains"), img: "https://images.unsplash.com/photo-1620619553765-b1a8d0526e0e?q=80&w=200&auto=format&fit=crop" },
-    { name: t("Galle, Sri Lanka"), desc: t("Historic fort and stunning beaches"), img: "https://images.unsplash.com/photo-1549479361-bd80c05763bd?q=80&w=200&auto=format&fit=crop" },
-    { name: t("Bali, Indonesia"), desc: t("Tropical paradise and temples"), img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=200&auto=format&fit=crop" },
-    { name: t("Paris, France"), desc: t("The city of love and lights"), img: "https://images.unsplash.com/photo-1502602898657-3e907614d642?q=80&w=200&auto=format&fit=crop" },
+    { name: t("Colombo, Sri Lanka"), desc: t("Vibrant city life and coastal views") },
+    { name: t("Kandy, Sri Lanka"), desc: t("Cultural capital and lush mountains") },
+    { name: t("Galle, Sri Lanka"), desc: t("Historic fort and stunning beaches") },
+    { name: t("Bali, Indonesia"), desc: t("Tropical paradise and temples") },
+    { name: t("Paris, France"), desc: t("The city of love and lights") },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -99,7 +99,9 @@ export default function MapsPage() {
                   }}
                   className={`flex items-center gap-4 p-3 rounded-2xl cursor-pointer transition-all border ${baseLocation === loc.name ? 'border-[#673AB7] bg-purple-50 shadow-sm' : 'border-transparent hover:bg-gray-50'}`}
                 >
-                  <img src={loc.img} alt={loc.name} className="w-16 h-16 rounded-xl object-cover shadow-sm" />
+                  <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center text-[#673AB7] shrink-0">
+                    <Globe2 size={24} />
+                  </div>
                   <div>
                     <h3 className={`font-bold ${baseLocation === loc.name ? 'text-[#673AB7]' : 'text-gray-900'}`}>{loc.name}</h3>
                     <p className="text-xs font-medium text-gray-500 mt-1">{loc.desc}</p>
