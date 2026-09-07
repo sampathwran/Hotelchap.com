@@ -1,4 +1,4 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +40,22 @@ export async function GET(request: Request) {
   const adults = searchParams.get('adults') || '2';
   const rooms = searchParams.get('rooms') || '1';
   const currency = searchParams.get('currency') || 'USD';
+  const allowedCurrencies = ["ARS","AUD","AZN","BHD","BRL","BGN","CAD","CLP","CNY","COP","CZK","DKK","EGP","EUR","FJD","GEL","HKD","HUF","INR","IDR","ILS","JPY","JOD","KZT","KWD","MYR","MXN","MDL","NAD","TWD","NZD","NOK","OMR","PLN","GBP","QAR","RON","RUB","SAR","SGD","ZAR","KRW","SEK","CHF","THB","TRY","UAH","AED","USD","VND","XOF"];
+  let currencyCode = currency;
+  let exchangeRate = 1;
+  
+  if (!allowedCurrencies.includes(currencyCode)) {
+    currencyCode = 'USD'; // Fallback to USD
+    try {
+      const rateRes = await fetch('https://open.er-api.com/v6/latest/USD');
+      const rateData = await rateRes.json();
+      if (rateData && rateData.rates && rateData.rates[currency]) {
+        exchangeRate = rateData.rates[currency];
+      }
+    } catch (e) {
+      console.error('Failed to fetch exchange rate', e);
+    }
+  }
 
   if (!city || !checkin || !checkout) {
     return NextResponse.json(
@@ -69,7 +85,7 @@ export async function GET(request: Request) {
 
     // Step 2: Search for Hotels
     const searchResponse = await fetchWithRetry(
-      `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotels?dest_id=${destination.dest_id}&search_type=${destination.search_type}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currency}`,
+      `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotels?dest_id=${destination.dest_id}&search_type=${destination.search_type}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
       { headers, cache: 'no-store' }
     );
 
@@ -86,7 +102,8 @@ export async function GET(request: Request) {
     return NextResponse.json({
       location: destination,
       results: hotels,
-      count: hotels.length
+      count: hotels.length,
+      exchangeRate
     });
 
   } catch (error: any) {

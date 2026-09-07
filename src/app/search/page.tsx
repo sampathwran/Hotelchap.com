@@ -39,10 +39,21 @@ function SearchResults() {
   // Filter State
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [maxPrice, setMaxPrice] = useState<number>(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(500000);
   
   // API State
   const [apiHotels, setApiHotels] = useState<any[]>([]);
+  
+  const highestPrice = useMemo(() => {
+    if (apiHotels.length === 0) return 500000;
+    return Math.max(...apiHotels.map(h => h.price), 1000);
+  }, [apiHotels]);
+
+  useEffect(() => {
+    if (apiHotels.length > 0) {
+      setMaxPrice(highestPrice);
+    }
+  }, [highestPrice, apiHotels]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -85,8 +96,8 @@ function SearchResults() {
                 rating: h.review_score || 0,
                 reviews: h.review_nr || 0,
                 starRating: h.class || 3,
-                price: h.min_total_price ? Math.floor(h.min_total_price) : 100,
-                originalPrice: h.min_total_price ? Math.floor(h.min_total_price * 1.2) : 120,
+                price: h.min_total_price ? Math.floor(h.min_total_price * (data.exchangeRate || 1)) : Math.floor(100 * (data.exchangeRate || 1)),
+                originalPrice: h.min_total_price ? Math.floor(h.min_total_price * 1.2 * (data.exchangeRate || 1)) : Math.floor(120 * (data.exchangeRate || 1)),
                 image: h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
                 highlights: h.is_free_cancellable ? ["Free Cancellation"] : [],
                 amenities: { popular: ["Free WiFi", "Air conditioning"] },
@@ -104,7 +115,7 @@ function SearchResults() {
           if (rt >= 8) keywords.push("Very Good 8+");
           keywords.push("1 double bed", "Air conditioning", "Restaurant", "Free WiFi");
 
-          const priceVal = prop.priceBreakdown?.grossPrice?.value || prop.priceBreakdown?.excludedPrice?.value || 100;
+          const priceVal = (prop.priceBreakdown?.grossPrice?.value || prop.priceBreakdown?.excludedPrice?.value || 100) * (data.exchangeRate || 1);
           const image = prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070";
 
           return {
@@ -312,16 +323,16 @@ function SearchResults() {
                 <h4 className="font-bold text-gray-800 mb-3 text-sm">Your budget (per night)</h4>
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">USD</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">{currency}</span>
                     <input type="number" value="0" disabled className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                   <span className="text-gray-400 font-bold">-</span>
                   <div className="flex-1 bg-white border border-gray-200 rounded-lg p-2 flex items-center">
-                    <span className="text-gray-400 text-xs font-bold mr-1">USD</span>
+                    <span className="text-gray-400 text-xs font-bold mr-1">{currency}</span>
                     <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none" />
                   </div>
                 </div>
-                <input type="range" min="50" max="1000" step="10" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full accent-[#673AB7] mt-2" />
+                <input type="range" min="0" max={highestPrice} step={Math.max(1, Math.floor(highestPrice / 100))} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="w-full accent-[#673AB7] mt-2" />
               </div>
 
               {/* Dynamic Filters mapped from filterCategories */}

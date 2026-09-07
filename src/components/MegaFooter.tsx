@@ -8,10 +8,10 @@ import { db } from "@/firebase";
 // ADMIN CONFIGURATION: ADD SOCIAL LINKS HERE
 // ==========================================
 const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/", // Add Facebook link inside the quotes
-  instagram: "https://www.instagram.com/", // Add Instagram link inside the quotes
+  facebook: "https://web.facebook.com/profile.php?id=61594341205446", // Add Facebook link inside the quotes
+  instagram: "https://www.instagram.com/hotel_chap/", // Add Instagram link inside the quotes
   tiktok: "https://www.tiktok.com/", // Add TikTok link inside the quotes
-  youtube: "https://www.youtube.com/" // Add YouTube link inside the quotes
+  youtube: "https://www.youtube.com/@HotelChap" // Add YouTube link inside the quotes
 };
 // ==========================================
 
