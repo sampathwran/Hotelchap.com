@@ -9,8 +9,11 @@ import { Search, MapPin, Navigation, Star, Map as MapIcon, Coffee, Bed, Camera }
 export default function MapsPage() {
   const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
-  // Default map location is Sri Lanka
-  const [mapLocation, setMapLocation] = useState("Sri Lanka");
+  const [baseLocation, setBaseLocation] = useState("Sri Lanka");
+  const [activeFilter, setActiveFilter] = useState("Hotels");
+
+  // Computed map location based on base location and active filter
+  const mapLocation = `${activeFilter} in ${baseLocation}`;
 
   const trendingLocations = [
     { name: t("Colombo, Sri Lanka"), desc: t("Vibrant city life and coastal views"), img: "https://images.unsplash.com/photo-1572973211553-61ebce67c61c?q=80&w=200&auto=format&fit=crop" },
@@ -23,8 +26,12 @@ export default function MapsPage() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setMapLocation(searchQuery);
+      setBaseLocation(searchQuery);
     }
+  };
+
+  const handleFilter = (filter: string) => {
+    setActiveFilter(filter);
   };
 
   return (
@@ -57,13 +64,22 @@ export default function MapsPage() {
 
             {/* Quick Filters */}
             <div className="flex gap-2 overflow-x-auto hidden-scrollbar mb-8 pb-2">
-              <button className="bg-[#673AB7] text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap shadow-md">
+              <button 
+                onClick={() => handleFilter("Hotels")}
+                className={`${activeFilter === "Hotels" ? "bg-[#673AB7] text-white shadow-md" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"} px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors`}
+              >
                 <Bed size={16} /> Hotels
               </button>
-              <button className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors">
+              <button 
+                onClick={() => handleFilter("Attractions")}
+                className={`${activeFilter === "Attractions" ? "bg-[#673AB7] text-white shadow-md" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"} px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors`}
+              >
                 <Camera size={16} /> {t("Attractions")}
               </button>
-              <button className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors">
+              <button 
+                onClick={() => handleFilter("Restaurants")}
+                className={`${activeFilter === "Restaurants" ? "bg-[#673AB7] text-white shadow-md" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"} px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors`}
+              >
                 <Coffee size={16} /> Restaurants
               </button>
             </div>
@@ -78,17 +94,17 @@ export default function MapsPage() {
                 <div 
                   key={idx} 
                   onClick={() => {
-                    setMapLocation(loc.name);
+                    setBaseLocation(loc.name);
                     setSearchQuery(loc.name);
                   }}
-                  className={`flex items-center gap-4 p-3 rounded-2xl cursor-pointer transition-all border ${mapLocation === loc.name ? 'border-[#673AB7] bg-purple-50 shadow-sm' : 'border-transparent hover:bg-gray-50'}`}
+                  className={`flex items-center gap-4 p-3 rounded-2xl cursor-pointer transition-all border ${baseLocation === loc.name ? 'border-[#673AB7] bg-purple-50 shadow-sm' : 'border-transparent hover:bg-gray-50'}`}
                 >
                   <img src={loc.img} alt={loc.name} className="w-16 h-16 rounded-xl object-cover shadow-sm" />
                   <div>
-                    <h3 className={`font-bold ${mapLocation === loc.name ? 'text-[#673AB7]' : 'text-gray-900'}`}>{loc.name}</h3>
+                    <h3 className={`font-bold ${baseLocation === loc.name ? 'text-[#673AB7]' : 'text-gray-900'}`}>{loc.name}</h3>
                     <p className="text-xs font-medium text-gray-500 mt-1">{loc.desc}</p>
                   </div>
-                  <Navigation size={16} className={`ml-auto ${mapLocation === loc.name ? 'text-[#673AB7]' : 'text-gray-300'}`} />
+                  <Navigation size={16} className={`ml-auto ${baseLocation === loc.name ? 'text-[#673AB7]' : 'text-gray-300'}`} />
                 </div>
               ))}
             </div>
