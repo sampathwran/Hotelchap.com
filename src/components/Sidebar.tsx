@@ -15,8 +15,7 @@ const bookingServices = [
   { name: t("Flights"), icon: "✈️", link: "/flights" },
   { name: t("Attractions"), icon: "🎟️", link: "/attractions" },
   { name: t("Car & Bike Rentals"), icon: "🚗", link: "/cars" },
-  { name: t("Airport Transfers"), icon: "🚕", link: "/transfers" },
-  { name: t("Cruises"), icon: "🛳️", link: "/cruises" },
+  { name: t("Airport Transfers"), icon: "🚕", link: "/transfers" }
 ];
 
 const userSection = [

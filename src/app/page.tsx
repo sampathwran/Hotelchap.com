@@ -71,18 +71,7 @@ const tabData: any = {
     image: "/api/image/attractions",
     formPlaceholder: { EN: "Travelpayouts Attractions Widget Goes Here", SI: "චාරිකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "சுற்றுப்பயண விட்ஜெட் இங்கே வரும்" },
     badges: { EN: ["🎟️ Skip the Line", "🔒 Secure Booking"], SI: ["🎟️ පෝලිම් නැතිව යන්න", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🎟️ வரிசையை தவிர்க்கவும்", "🔒 பாதுகாப்பான முன்பதிவு"] }
-  },
-  cruises: {
-    id: "cruises",
-    title: { EN: "Sail away on", SI: "මුහුදේ යන්න", TA: "பயணம் செய்யுங்கள்" },
-    subtitle: { EN: "Luxury Cruises", SI: "සුඛෝපභෝගී නෞකා", TA: "சொகுசு கப்பல்கள்" },
-    gradientText: { EN: "an ocean adventure.", SI: "මුහුදු චාරිකාවක්.", TA: "ஒரு கடல் சாகசம்." },
-    image: "/api/image/cruises",
-    formPlaceholder: { EN: "Travelpayouts Cruises Widget Goes Here", SI: "නෞකා සෙවීමේ Widget එක මෙහි පැමිණේ", TA: "கப்பல் விட்ஜெட் இங்கே வரும்" },
-    badges: { EN: ["🛳️ Top Cruise Lines", "🔒 Secure Booking"], SI: ["🛳️ සුපිරි නෞකා", "🔒 ආරක්ෂිත වෙන්කිරීම්"], TA: ["🛳️ சிறந்த கப்பல்கள்", "🔒 பாதுகாப்பான முன்பதிவு"] }
   }
-
-
 };
 
 export default function Home() {
@@ -134,11 +123,6 @@ export default function Home() {
       { icon: <Ticket size={16} />, text: "Skip-the-line" },
       { icon: <Camera size={16} />, text: "Guided Tours" },
       { icon: <Star size={16} />, text: "Exclusive" }
-    ],
-    cruises: [
-      { icon: <Ship size={16} />, text: "Ocean & River" },
-      { icon: <Coffee size={16} />, text: "All-Inclusive" },
-      { icon: <Globe size={16} />, text: "Worldwide" }
     ]
   };
 
@@ -147,8 +131,7 @@ export default function Home() {
     "flights": "rounded-b-[30px] md:rounded-br-[180px] md:rounded-bl-[30px]",
     "cars": "rounded-b-[30px] md:rounded-bl-[180px] md:rounded-br-[30px]",
     "transfers": "rounded-b-[30px] md:rounded-b-[120px]",
-    "attractions": "rounded-b-[30px] md:rounded-br-[60px] md:rounded-bl-[160px]",
-    "cruises": "rounded-b-[30px] md:rounded-bl-[60px] md:rounded-br-[160px]",
+    "attractions": "rounded-b-[30px] md:rounded-br-[60px] md:rounded-bl-[160px]"
   };
 
   const currentData = tabData[activeTab];
@@ -334,7 +317,6 @@ export default function Home() {
                 if (key === "packages") icon = "💼";
                 if (key === "transfers") icon = "🚕";
                 if (key === "attractions") icon = "🎟️";
-                if (key === "cruises") icon = "🛳️";
                 
                 return (
                   <button 
@@ -344,8 +326,8 @@ export default function Home() {
                   >
                     <span className="text-xl md:text-2xl">{icon}</span>
                     
-                      <span className="md:hidden text-[11px] capitalize font-bold text-center">{t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike" : key === "transfers" ? "Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
-                      <span className="hidden md:block text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key === "cruises" ? "Cruises" : key)}</span>
+                      <span className="md:hidden text-[11px] capitalize font-bold text-center">{t(key === "hotels" ? "Hotels" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike" : key === "transfers" ? "Transfers" : key === "attractions" ? "Attractions" : key)}</span>
+                      <span className="hidden md:block text-sm capitalize">{t(key === "hotels" ? "Hotels & Villas" : key === "flights" ? "Flights" : key === "cars" ? "Car & Bike Rentals" : key === "transfers" ? "Airport Transfers" : key === "attractions" ? "Attractions" : key)}</span>
 
                   </button>
                 );
@@ -480,7 +462,7 @@ export default function Home() {
                 <div className="mt-4 relative z-10 w-full min-h-[150px]">
                   <TravelpayoutsTransferWidget />
                 </div>
-              ) : activeTab === "packages" || activeTab === "attractions" || activeTab === "cruises" ? (
+              ) : activeTab === "packages" || activeTab === "attractions" ? (
                 <div className="mt-4 relative z-10 w-full min-h-[150px]">
                   <DummyWidget />
                 </div>
