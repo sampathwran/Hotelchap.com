@@ -22,27 +22,6 @@ export default function OffersPage() {
   const { t } = useTranslation();
   const [offers, setOffers] = useState<SpecialOffer[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("");
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setIsSubscribing(true);
-    try {
-      await addDoc(collection(db, "subscribers"), {
-        email: email,
-        createdAt: Timestamp.now()
-      });
-      alert("Successfully subscribed to VIP alerts! 🎉");
-      setEmail("");
-    } catch (error) {
-      console.error("Subscription error:", error);
-      alert("Failed to subscribe. Please try again.");
-    } finally {
-      setIsSubscribing(false);
-    }
-  };
 
   useEffect(() => {
     const fetchOffers = async () => {
@@ -188,45 +167,6 @@ export default function OffersPage() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="bg-gradient-to-br from-[#1a1c29] to-[#0B1120] rounded-[40px] p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 mt-12 shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#673AB7] rounded-full blur-[100px] opacity-30"></div>
-          
-          <div className="relative z-10 max-w-xl text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{t("Never Miss a Secret Deal!")}</h2>
-            <p className="text-gray-400 font-medium text-lg">
-              {t("Sign up for our newsletter to get VIP access to flash sales, exclusive promo codes, and 50% off secret hotel rates.")}
-            </p>
-          </div>
-          
-          <div className="relative z-10 w-full md:w-auto flex-1 max-w-md">
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
-                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                <input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address..." 
-                  className="w-full bg-white/10 border border-white/20 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#673AB7] backdrop-blur-md"
-                  required
-                />
-              </div>
-              <button 
-                type="submit" 
-                disabled={isSubscribing}
-                className="bg-[#673AB7] hover:bg-purple-700 disabled:bg-purple-900 disabled:text-gray-400 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md whitespace-nowrap flex justify-center items-center"
-              >
-                {isSubscribing ? (
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                ) : (
-                  "Subscribe"
-                )}
-              </button>
-            </form>
-            <p className="text-xs text-gray-500 mt-3 text-center md:text-left">{t("No spam. You can unsubscribe at any time.")}</p>
-          </div>
-        </div>
 
       </main>
 
