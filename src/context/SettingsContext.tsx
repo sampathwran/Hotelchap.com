@@ -22,10 +22,17 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setIsMounted(true);
+    const validCurrencies = ["USD", "EUR", "GBP", "AUD", "CAD", "SGD", "AED", "JPY", "INR", "CHF", "CNY", "SAR"];
     const savedCurrency = localStorage.getItem("app_currency");
     const savedLanguage = localStorage.getItem("app_language");
     
-    if (savedCurrency) setCurrencyState(savedCurrency);
+    if (savedCurrency && validCurrencies.includes(savedCurrency)) {
+      setCurrencyState(savedCurrency);
+    } else if (savedCurrency) {
+      setCurrencyState("USD");
+      localStorage.setItem("app_currency", "USD");
+    }
+    
     if (savedLanguage) setLanguageState(savedLanguage);
   }, []);
 
