@@ -1,0 +1,3906 @@
+{
+  "status": true,
+  "message": "Success",
+  "timestamp": 1788935462377,
+  "data": {
+    "applied_filters": [],
+    "page_loading_threshold": 10,
+    "filters": [
+      {
+        "field": "previous",
+        "title": "Your previous filters"
+      },
+      {
+        "field": "price",
+        "title": "Your budget (for 2 nights)"
+      },
+      {
+        "field": "tdb",
+        "title": "Bed preference"
+      },
+      {
+        "field": "roomfacility",
+        "title": "Room facilities"
+      },
+      {
+        "field": "fc",
+        "title": "Free cancellation "
+      },
+      {
+        "title": "Number of bedrooms",
+        "field": "entire_place_bedroom_count"
+      },
+      {
+        "title": "Meals",
+        "field": "mealplan"
+      }
+    ],
+    "count": 5664,
+    "result": [
+      {
+        "hotel_id": 2586187,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Ashen's Beach House",
+        "currencycode": "USD",
+        "review_score_word": "Exceptional",
+        "city_in_trans": "in Boossa",
+        "review_nr": 67,
+        "soldout": 0,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "composite_price_breakdown": {
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "mode": "all_included",
+            "translated_copy": "",
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$74",
+            "amount_rounded": "US$74",
+            "value": 74
+          },
+          "net_amount": {
+            "amount_rounded": "US$74",
+            "value": 74,
+            "amount_unrounded": "US$74",
+            "currency": "USD"
+          },
+          "benefits": [],
+          "gross_amount": {
+            "amount_rounded": "US$74",
+            "value": 74,
+            "currency": "USD",
+            "amount_unrounded": "US$74"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_rounded": "US$74",
+            "value": 74,
+            "amount_unrounded": "US$74",
+            "currency": "USD"
+          },
+          "items": [],
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$74",
+            "currency": "USD",
+            "value": 74,
+            "amount_rounded": "US$74"
+          },
+          "gross_amount_per_night": {
+            "currency": "USD",
+            "amount_unrounded": "US$37",
+            "amount_rounded": "US$37",
+            "value": 37
+          }
+        },
+        "cant_book": null,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 0,
+        "class": 0,
+        "latitude": 6.07894769415583,
+        "default_language": "xu",
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "min_total_price": 74,
+        "main_photo_id": 254978765,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 9.7,
+        "urgency_message": "We have 2 left at this price",
+        "accommodation_type": 216,
+        "block_ids": [
+          "258618701_269314076_2_41_0"
+        ],
+        "children_not_allowed": null,
+        "id": "property_card_2586187",
+        "distances": [],
+        "preferred_plus": 0,
+        "genius_discount_percentage": 0,
+        "preferred": 0,
+        "ufi": -2214510,
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "extended": 0,
+        "booking_home": {
+          "is_single_unit_property": "",
+          "quality_class": 4,
+          "group": "hotels_and_others",
+          "segment": 0,
+          "is_booking_home": 1
+        },
+        "has_free_parking": 1,
+        "city": "Rathgama",
+        "timezone": "Asia/Colombo",
+        "default_wishlist_name": "Boossa",
+        "is_geo_rate": "",
+        "updated_checkout": null,
+        "ribbon_text": "Breakfast included",
+        "badges": [],
+        "hotel_name": "Ashen's Beach House",
+        "longitude": 80.150845348835,
+        "checkout": {
+          "until": "12:00",
+          "from": "06:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/254978765.jpg?k=e21944c4d697fc272d90ba11b993f1ebf9e403c3d20c110589ce54118a4adf11&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "22:00",
+          "from": "14:00"
+        }
+      },
+      {
+        "hotel_id": 15785162,
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "composite_price_breakdown": {
+          "strikethrough_amount": {
+            "amount_rounded": "US$29",
+            "value": 28.8,
+            "currency": "USD",
+            "amount_unrounded": "US$28.80"
+          },
+          "strikethrough_amount_per_night": {
+            "amount_unrounded": "US$14.40",
+            "currency": "USD",
+            "value": 14.4,
+            "amount_rounded": "US$14"
+          },
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "items": [
+            {
+              "details": "10 % City tax",
+              "base": {
+                "percentage": 10,
+                "kind": "percentage"
+              },
+              "kind": "charge",
+              "name": "City tax",
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$2.53",
+                "value": 2.534,
+                "amount_rounded": "US$3"
+              }
+            },
+            {
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "name": "VAT",
+              "kind": "charge",
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_unrounded": "US$2.79",
+                "currency": "USD",
+                "value": 2.7874,
+                "amount_rounded": "US$3"
+              }
+            },
+            {
+              "identifier": "mobile-discount",
+              "kind": "discount",
+              "name": "Mobile-only price",
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "base": {
+                "kind": "rate"
+              },
+              "item_amount": {
+                "value": 3.46,
+                "amount_rounded": "US$3",
+                "amount_unrounded": "US$3.46",
+                "currency": "USD"
+              }
+            }
+          ],
+          "discounted_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$3.46",
+            "value": 3.46,
+            "amount_rounded": "US$3"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$30.66",
+            "currency": "USD",
+            "value": 30.6614,
+            "amount_rounded": "US$31"
+          },
+          "gross_amount_per_night": {
+            "value": 12.67,
+            "amount_rounded": "US$13",
+            "currency": "USD",
+            "amount_unrounded": "US$12.67"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "excluded_amount": {
+            "amount_unrounded": "US$5.32",
+            "currency": "USD",
+            "amount_rounded": "US$5",
+            "value": 5.3214
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$30.66",
+            "amount_rounded": "US$31",
+            "value": 30.6614
+          },
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "value": 5,
+              "currency": "USD"
+            },
+            "mode": "extra_charges"
+          },
+          "gross_amount_hotel_currency": {
+            "value": 25.34,
+            "amount_rounded": "US$25",
+            "amount_unrounded": "US$25.34",
+            "currency": "USD"
+          },
+          "gross_amount": {
+            "amount_rounded": "US$25",
+            "value": 25.34,
+            "currency": "USD",
+            "amount_unrounded": "US$25.34"
+          },
+          "benefits": [
+            {
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "name": "Mobile-only price",
+              "icon": null,
+              "kind": "badge",
+              "badge_variant": "constructive",
+              "identifier": "mobile-rate"
+            }
+          ],
+          "net_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$25.34",
+            "amount_rounded": "US$25",
+            "value": 25.34
+          }
+        },
+        "cant_book": null,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 0,
+        "class": 0,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "hotel_name_trans": "Villa Nature Glee",
+        "is_tpi_exclusive_property": 0,
+        "review_score_word": "Exceptional",
+        "currencycode": "USD",
+        "soldout": 0,
+        "review_nr": 12,
+        "city_in_trans": "in Dodanduwa",
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 10,
+        "accommodation_type": 216,
+        "urgency_message": "We have 1 left at this price",
+        "children_not_allowed": null,
+        "block_ids": [
+          "1578516201_429011336_2_0_0"
+        ],
+        "id": "property_card_15785162",
+        "hotel_include_breakfast": 0,
+        "default_language": "en",
+        "latitude": 6.10728669748734,
+        "unit_configuration_label": "<b>Entire villa – 19 m²</b>: 1 bed • 1 bedroom • 1 bathroom",
+        "main_photo_id": 820675343,
+        "min_total_price": 25.34,
+        "city": "Dodanduwa",
+        "timezone": "Asia/Colombo",
+        "is_geo_rate": "",
+        "default_wishlist_name": "Dodanduwa",
+        "preferred_plus": 0,
+        "distances": [],
+        "genius_discount_percentage": 0,
+        "preferred": 0,
+        "ufi": -2216160,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "booking_home": {
+          "is_single_unit_property": 1,
+          "quality_class": 0,
+          "group": "hotels_and_others",
+          "is_booking_home": 1,
+          "segment": 0
+        },
+        "has_free_parking": 1,
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/820675343.jpg?k=ec1dc15114a82f8e249862246a6fbfa96f57f1031b16b4b31a36393f92421b98&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "20:00",
+          "from": "15:00"
+        },
+        "updated_checkout": null,
+        "longitude": 80.1251864186844,
+        "hotel_name": "Villa Nature Glee",
+        "badges": [
+          {
+            "text": "Mobile-only price",
+            "id": "Mobile Rate",
+            "badge_variant": "constructive"
+          }
+        ],
+        "checkout": {
+          "until": "11:00",
+          "from": "08:00"
+        }
+      },
+      {
+        "hotel_id": 1004074,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "value": 0,
+            "amount_rounded": "US$0"
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          },
+          "net_amount": {
+            "amount_rounded": "US$104",
+            "value": 103.68,
+            "amount_unrounded": "US$103.68",
+            "currency": "USD"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_rounded": "US$104",
+            "value": 103.68,
+            "amount_unrounded": "US$103.68",
+            "currency": "USD"
+          },
+          "gross_amount": {
+            "value": 103.68,
+            "amount_rounded": "US$104",
+            "amount_unrounded": "US$103.68",
+            "currency": "USD"
+          },
+          "benefits": [
+            {
+              "identifier": "mobile-rate",
+              "badge_variant": "constructive",
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "name": "Mobile-only price",
+              "kind": "badge",
+              "icon": null
+            }
+          ],
+          "all_inclusive_amount_hotel_currency": {
+            "value": 103.68,
+            "amount_rounded": "US$104",
+            "amount_unrounded": "US$103.68",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "mode": "all_included",
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            },
+            "translated_copy": ""
+          },
+          "strikethrough_amount_per_night": {
+            "amount_unrounded": "US$72",
+            "currency": "USD",
+            "amount_rounded": "US$72",
+            "value": 72
+          },
+          "strikethrough_amount": {
+            "value": 144,
+            "amount_rounded": "US$144",
+            "currency": "USD",
+            "amount_unrounded": "US$144"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$103.68",
+            "currency": "USD",
+            "value": 103.68,
+            "amount_rounded": "US$104"
+          },
+          "gross_amount_per_night": {
+            "amount_unrounded": "US$51.84",
+            "currency": "USD",
+            "value": 51.84,
+            "amount_rounded": "US$52"
+          },
+          "items": [
+            {
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate because this property is offering a discount.",
+              "name": "Last-minute Deal",
+              "kind": "discount",
+              "identifier": "last-minute-deal",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$28.80",
+                "amount_rounded": "US$29",
+                "value": 28.8
+              }
+            },
+            {
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "name": "Mobile-only price",
+              "kind": "discount",
+              "identifier": "mobile-discount",
+              "item_amount": {
+                "value": 11.52,
+                "amount_rounded": "US$12",
+                "amount_unrounded": "US$11.52",
+                "currency": "USD"
+              }
+            }
+          ],
+          "discounted_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$40.32",
+            "amount_rounded": "US$40",
+            "value": 40.32
+          },
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ]
+        },
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "class": 0,
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Villa Sarakkuwa",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "review_nr": 334,
+        "city_in_trans": "in Pamunugama",
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Superb",
+        "review_score": 9.2,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_swimming_pool": 1,
+        "id": "property_card_1004074",
+        "block_ids": [
+          "100407411_272033445_2_42_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 216,
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "latitude": 7.11209802173604,
+        "default_language": "en",
+        "hotel_include_breakfast": 0,
+        "min_total_price": 103.68,
+        "main_photo_id": 361266493,
+        "timezone": "Asia/Colombo",
+        "city": "Pamunugama",
+        "default_wishlist_name": "Pamunugama",
+        "is_geo_rate": "",
+        "preferred": 1,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "booking_home": {
+          "is_booking_home": 1,
+          "segment": 0,
+          "is_single_unit_property": "",
+          "group": "hotels_and_others",
+          "quality_class": 3
+        },
+        "has_free_parking": 1,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "ufi": -2232460,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/361266493.jpg?k=7f10e094bbe62fe05079d2bd64ee3afc9ed84f574f03ea32095a311f750714d6&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "until": "21:00",
+          "from": "14:00"
+        },
+        "is_no_prepayment_block": 1,
+        "updated_checkout": null,
+        "checkout": {
+          "from": "05:00",
+          "until": "11:00"
+        },
+        "hotel_name": "Villa Sarakkuwa",
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "text": "Mobile-only price",
+            "id": "Mobile Rate"
+          }
+        ],
+        "longitude": 79.8441843688488
+      },
+      {
+        "hotel_id": 10075343,
+        "hotel_include_breakfast": 0,
+        "latitude": 7.182135107546,
+        "default_language": "xu",
+        "unit_configuration_label": "<b>Private room</b>: 2 beds",
+        "main_photo_id": 908105030,
+        "min_total_price": 43.74,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 8.4,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 208,
+        "block_ids": [
+          "1007534301_418874522_2_0_0"
+        ],
+        "children_not_allowed": null,
+        "id": "property_card_10075343",
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Airport J Dream Resort",
+        "currencycode": "USD",
+        "review_score_word": "Very good",
+        "review_nr": 608,
+        "city_in_trans": "in Dewamottawa",
+        "soldout": 0,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "composite_price_breakdown": {
+          "net_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$43.74",
+            "amount_rounded": "US$44",
+            "value": 43.74
+          },
+          "benefits": [],
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$43.74",
+            "amount_rounded": "US$44",
+            "value": 43.74
+          },
+          "gross_amount": {
+            "amount_rounded": "US$44",
+            "value": 43.74,
+            "currency": "USD",
+            "amount_unrounded": "US$43.74"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "translated_copy": "",
+            "amount": {
+              "value": 9,
+              "currency": "USD"
+            }
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$53.14",
+            "amount_rounded": "US$53",
+            "value": 53.1441
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$9",
+            "value": 9.4041,
+            "currency": "USD",
+            "amount_unrounded": "US$9.40"
+          },
+          "included_taxes_and_charges_amount": {
+            "value": 0,
+            "amount_rounded": "US$0",
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$53.14",
+            "value": 53.1441,
+            "amount_rounded": "US$53"
+          },
+          "gross_amount_per_night": {
+            "currency": "USD",
+            "amount_unrounded": "US$21.87",
+            "value": 21.87,
+            "amount_rounded": "US$22"
+          },
+          "items": [
+            {
+              "name": "VAT",
+              "kind": "charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 18
+              },
+              "details": "18 % VAT",
+              "item_amount": {
+                "amount_unrounded": "US$7.87",
+                "currency": "USD",
+                "amount_rounded": "US$8",
+                "value": 7.8732
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "item_amount": {
+                "value": 1.0935,
+                "amount_rounded": "US$1",
+                "currency": "USD",
+                "amount_unrounded": "US$1.09"
+              },
+              "inclusion_type": "excluded",
+              "name": "Government tax",
+              "kind": "charge",
+              "details": "2.5 % Government tax",
+              "base": {
+                "percentage": 2.5,
+                "kind": "percentage"
+              }
+            },
+            {
+              "name": "Tourism fee",
+              "kind": "charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 1
+              },
+              "details": "1 % Tourism fee",
+              "item_amount": {
+                "amount_rounded": "US$0",
+                "value": 0.4374,
+                "amount_unrounded": "US$0.44",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded"
+            }
+          ],
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ]
+        },
+        "cant_book": null,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 0,
+        "class": 0,
+        "updated_checkout": null,
+        "hotel_name": "Airport J Dream Resort",
+        "badges": [],
+        "longitude": 79.90138585619,
+        "checkout": {
+          "from": "11:30",
+          "until": "12:30"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/908105030.jpg?k=6ec957fc0b5fa1898ae15e23f2014bf56aa4eb5c819463a4925c9b7966cfc45d&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "00:00",
+          "from": "00:00"
+        },
+        "distances": [],
+        "preferred_plus": 1,
+        "genius_discount_percentage": 0,
+        "preferred": 1,
+        "ufi": -2215739,
+        "extended": 0,
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "has_free_parking": 1,
+        "booking_home": {
+          "segment": 0,
+          "is_booking_home": 1,
+          "quality_class": 3,
+          "group": "hotels_and_others",
+          "is_single_unit_property": ""
+        },
+        "city": "kovinna",
+        "timezone": "Asia/Colombo",
+        "default_wishlist_name": "Dewamottawa",
+        "is_geo_rate": 1
+      },
+      {
+        "hotel_id": 15867295,
+        "hotel_name_trans": "The Continental Hotel",
+        "is_tpi_exclusive_property": 0,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "review_score_word": "Superb",
+        "currencycode": "USD",
+        "soldout": 0,
+        "city_in_trans": "in Seeduwa",
+        "review_nr": 78,
+        "composite_price_breakdown": {
+          "strikethrough_amount": {
+            "value": 110,
+            "amount_rounded": "US$110",
+            "currency": "USD",
+            "amount_unrounded": "US$110"
+          },
+          "strikethrough_amount_per_night": {
+            "amount_unrounded": "US$55",
+            "currency": "USD",
+            "amount_rounded": "US$55",
+            "value": 55
+          },
+          "items": [
+            {
+              "kind": "charge",
+              "name": "City tax",
+              "base": {
+                "percentage": 4,
+                "kind": "percentage"
+              },
+              "details": "4 % City tax",
+              "item_amount": {
+                "amount_unrounded": "US$3.52",
+                "currency": "USD",
+                "amount_rounded": "US$4",
+                "value": 3.52
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "kind": "charge",
+              "name": "VAT",
+              "base": {
+                "percentage": 11,
+                "kind": "percentage"
+              },
+              "details": "11 % VAT",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$9.68",
+                "value": 9.68,
+                "amount_rounded": "US$10"
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "item_amount": {
+                "value": 22,
+                "amount_rounded": "US$22",
+                "amount_unrounded": "US$22",
+                "currency": "USD"
+              },
+              "name": "Getaway Deal",
+              "kind": "discount",
+              "identifier": "campaign_38",
+              "base": {
+                "kind": "rate"
+              },
+              "details": "This property is offering a discount on select stays between 26 Mar–30 Sept 2026."
+            }
+          ],
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ],
+          "discounted_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$22",
+            "amount_rounded": "US$22",
+            "value": 22
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "amount_unrounded": "US$44",
+            "currency": "USD",
+            "amount_rounded": "US$44",
+            "value": 44
+          },
+          "all_inclusive_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$101.20",
+            "value": 101.2,
+            "amount_rounded": "US$101"
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          },
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$13.20",
+            "value": 13.2,
+            "amount_rounded": "US$13"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 101.2,
+            "amount_rounded": "US$101",
+            "currency": "USD",
+            "amount_unrounded": "US$101.20"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "amount": {
+              "currency": "USD",
+              "value": 13
+            },
+            "translated_copy": ""
+          },
+          "net_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$88",
+            "value": 88,
+            "amount_rounded": "US$88"
+          },
+          "gross_amount_hotel_currency": {
+            "value": 88,
+            "amount_rounded": "US$88",
+            "amount_unrounded": "US$88",
+            "currency": "USD"
+          },
+          "gross_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$88",
+            "value": 88,
+            "amount_rounded": "US$88"
+          },
+          "benefits": [
+            {
+              "badge_variant": "constructive",
+              "identifier": "getaway-2021",
+              "details": "This property is offering a discount on select stays between 26 Mar–30 Sept 2026.",
+              "icon": null,
+              "name": "Getaway Deal",
+              "kind": "badge"
+            }
+          ]
+        },
+        "cant_book": null,
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "class": 4,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 1,
+        "default_language": "en",
+        "latitude": 7.14294934616507,
+        "unit_configuration_label": "<b>Hotel room</b>: 2 beds",
+        "min_total_price": 88,
+        "main_photo_id": 905797817,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 9.4,
+        "id": "property_card_15867295",
+        "accommodation_type": 204,
+        "urgency_message": "We have 2 left at this price",
+        "children_not_allowed": null,
+        "block_ids": [
+          "1586729502_429789969_4_1_0"
+        ],
+        "preferred": 1,
+        "preferred_plus": 0,
+        "distances": [],
+        "genius_discount_percentage": 0,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "has_free_parking": 1,
+        "ufi": -2235827,
+        "city": "Seeduwa",
+        "timezone": "Asia/Colombo",
+        "is_geo_rate": "",
+        "default_wishlist_name": "Seeduwa",
+        "ribbon_text": "Breakfast included",
+        "updated_checkout": null,
+        "checkout": {
+          "until": "13:00",
+          "from": "10:00"
+        },
+        "longitude": 79.882774081731,
+        "hotel_name": "The Continental Hotel",
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "id": "Getaway 2021 Deals",
+            "text": "Getaway Deal"
+          }
+        ],
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/905797817.jpg?k=738bfa84f4cd485e38c5902f411294f59315f50277eaf6b9bb6808b3fec9e2e2&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "from": "12:00",
+          "until": "23:00"
+        },
+        "is_no_prepayment_block": 1
+      },
+      {
+        "hotel_id": 10506152,
+        "updated_checkout": null,
+        "checkout": {
+          "until": "13:00",
+          "from": "12:00"
+        },
+        "hotel_name": "Great Residence",
+        "badges": [],
+        "longitude": 80.203019660049,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/486768625.jpg?k=6a1408420df0c1c040e43453e3d81ef19bca4f4639bc230cb1bd7cf8266e41d6&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "until": "14:00",
+          "from": "13:00"
+        },
+        "is_no_prepayment_block": 1,
+        "preferred": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "genius_discount_percentage": 0,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "has_free_parking": 1,
+        "ufi": -2213147,
+        "city": "Avissawella",
+        "timezone": "Asia/Colombo",
+        "default_wishlist_name": "Avissawella",
+        "is_geo_rate": "",
+        "latitude": 6.954878848819,
+        "default_language": "xu",
+        "unit_configuration_label": "<b>Hotel room</b>: 1 bed",
+        "hotel_include_breakfast": 0,
+        "main_photo_id": 486768625,
+        "min_total_price": 30,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 7.5,
+        "id": "property_card_10506152",
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 204,
+        "block_ids": [
+          "1050615201_378971913_2_2_0"
+        ],
+        "children_not_allowed": null,
+        "hotel_name_trans": "Great Residence",
+        "is_tpi_exclusive_property": 0,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "currencycode": "USD",
+        "review_score_word": "Good",
+        "review_nr": 76,
+        "city_in_trans": "in Avissawella",
+        "soldout": 0,
+        "composite_price_breakdown": {
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$3.30",
+            "value": 3.3,
+            "amount_rounded": "US$3"
+          },
+          "included_taxes_and_charges_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "amount_rounded": "US$0",
+            "value": 0
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$30",
+            "currency": "USD",
+            "value": 30,
+            "amount_rounded": "US$30"
+          },
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$30",
+            "amount_rounded": "US$30",
+            "value": 30
+          },
+          "benefits": [],
+          "net_amount": {
+            "amount_rounded": "US$30",
+            "value": 30,
+            "amount_unrounded": "US$30",
+            "currency": "USD"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_unrounded": "US$33.30",
+            "currency": "USD",
+            "value": 33.3,
+            "amount_rounded": "US$33"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "translated_copy": "",
+            "amount": {
+              "value": 3,
+              "currency": "USD"
+            }
+          },
+          "gross_amount_per_night": {
+            "value": 15,
+            "amount_rounded": "US$15",
+            "amount_unrounded": "US$15",
+            "currency": "USD"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$33.30",
+            "currency": "USD",
+            "amount_rounded": "US$33",
+            "value": 33.3
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "items": [
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_unrounded": "US$0",
+                "currency": "USD",
+                "amount_rounded": "US$0",
+                "value": 0
+              },
+              "base": {
+                "kind": "percentage",
+                "percentage": 0
+              },
+              "details": "0 % City tax",
+              "name": "City tax",
+              "kind": "charge"
+            },
+            {
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$3.30",
+                "amount_rounded": "US$3",
+                "value": 3.3
+              },
+              "inclusion_type": "excluded",
+              "kind": "charge",
+              "name": "VAT",
+              "details": "11 % VAT",
+              "base": {
+                "percentage": 11,
+                "kind": "percentage"
+              }
+            }
+          ]
+        },
+        "cant_book": null,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "class": 0,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 1
+      },
+      {
+        "hotel_id": 11545599,
+        "longitude": 79.906264420274,
+        "hotel_name": "THE DOCTORS VILLA",
+        "badges": [],
+        "checkout": {
+          "until": "12:00",
+          "from": "08:00"
+        },
+        "updated_checkout": null,
+        "is_no_prepayment_block": 0,
+        "checkin": {
+          "until": "23:30",
+          "from": "15:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/528369555.jpg?k=663fbe5d778b186ec0b836fb6e175e38059bc8e930a14aed2be527b3963e77b7&o=",
+        "ufi": -2234757,
+        "booking_home": {
+          "segment": 0,
+          "is_booking_home": 1,
+          "is_single_unit_property": "",
+          "group": "hotels_and_others",
+          "quality_class": 3
+        },
+        "has_free_parking": 1,
+        "extended": 0,
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "genius_discount_percentage": 0,
+        "preferred_plus": 0,
+        "distances": [],
+        "preferred": 0,
+        "is_geo_rate": "",
+        "default_wishlist_name": "Ragama",
+        "timezone": "Asia/Colombo",
+        "city": "Ragama",
+        "main_photo_id": 528369555,
+        "min_total_price": 35.6,
+        "hotel_include_breakfast": 0,
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "default_language": "en",
+        "latitude": 7.027273310202,
+        "children_not_allowed": null,
+        "block_ids": [
+          "1154559901_415763154_0_2_0"
+        ],
+        "accommodation_type": 216,
+        "urgency_message": "We have 2 left at this price",
+        "id": "property_card_11545599",
+        "review_score": 8.8,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "soldout": 0,
+        "city_in_trans": "in Ragama",
+        "review_nr": 142,
+        "review_score_word": "Fabulous",
+        "currencycode": "USD",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "hotel_name_trans": "THE DOCTORS VILLA",
+        "is_tpi_exclusive_property": 0,
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "class": 0,
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 4
+            },
+            "mode": "extra_charges"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_rounded": "US$40",
+            "value": 39.516,
+            "currency": "USD",
+            "amount_unrounded": "US$39.52"
+          },
+          "benefits": [],
+          "gross_amount": {
+            "amount_rounded": "US$36",
+            "value": 35.6,
+            "amount_unrounded": "US$35.60",
+            "currency": "USD"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_unrounded": "US$35.60",
+            "currency": "USD",
+            "value": 35.6,
+            "amount_rounded": "US$36"
+          },
+          "net_amount": {
+            "amount_rounded": "US$36",
+            "value": 35.6,
+            "currency": "USD",
+            "amount_unrounded": "US$35.60"
+          },
+          "included_taxes_and_charges_amount": {
+            "value": 0,
+            "amount_rounded": "US$0",
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$3.92",
+            "value": 3.916,
+            "amount_rounded": "US$4"
+          },
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ],
+          "items": [
+            {
+              "kind": "charge",
+              "name": "City tax",
+              "base": {
+                "percentage": 0,
+                "kind": "percentage"
+              },
+              "details": "0 % City tax",
+              "item_amount": {
+                "amount_unrounded": "US$0",
+                "currency": "USD",
+                "value": 0,
+                "amount_rounded": "US$0"
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$3.92",
+                "amount_rounded": "US$4",
+                "value": 3.916
+              },
+              "details": "11 % VAT",
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "kind": "charge",
+              "name": "VAT"
+            }
+          ],
+          "gross_amount_per_night": {
+            "amount_rounded": "US$18",
+            "value": 17.8,
+            "amount_unrounded": "US$17.80",
+            "currency": "USD"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_rounded": "US$40",
+            "value": 39.516,
+            "currency": "USD",
+            "amount_unrounded": "US$39.52"
+          },
+          "has_long_stays_weekly_rate_price": 0
+        }
+      },
+      {
+        "hotel_id": 8233010,
+        "composite_price_breakdown": {
+          "gross_amount_per_night": {
+            "amount_rounded": "US$41",
+            "value": 40.5,
+            "amount_unrounded": "US$40.50",
+            "currency": "USD"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$89.91",
+            "currency": "USD",
+            "amount_rounded": "US$90",
+            "value": 89.91
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "items": [
+            {
+              "base": {
+                "kind": "percentage",
+                "percentage": 0
+              },
+              "details": "0 % City tax",
+              "name": "City tax",
+              "kind": "charge",
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_rounded": "US$0",
+                "value": 0,
+                "currency": "USD",
+                "amount_unrounded": "US$0"
+              }
+            },
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$8.91",
+                "amount_rounded": "US$9",
+                "value": 8.91
+              },
+              "base": {
+                "percentage": 11,
+                "kind": "percentage"
+              },
+              "details": "11 % VAT",
+              "name": "VAT",
+              "kind": "charge"
+            },
+            {
+              "item_amount": {
+                "amount_rounded": "US$9",
+                "value": 9,
+                "currency": "USD",
+                "amount_unrounded": "US$9"
+              },
+              "kind": "discount",
+              "name": "Mobile-only price",
+              "identifier": "mobile-discount",
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop."
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "discounted_amount": {
+            "value": 9,
+            "amount_rounded": "US$9",
+            "currency": "USD",
+            "amount_unrounded": "US$9"
+          },
+          "strikethrough_amount_per_night": {
+            "value": 45,
+            "amount_rounded": "US$45",
+            "amount_unrounded": "US$45",
+            "currency": "USD"
+          },
+          "strikethrough_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$90",
+            "amount_rounded": "US$90",
+            "value": 90
+          },
+          "benefits": [
+            {
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "icon": null,
+              "name": "Mobile-only price",
+              "kind": "badge",
+              "identifier": "mobile-rate",
+              "badge_variant": "constructive"
+            }
+          ],
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$81",
+            "value": 81,
+            "amount_rounded": "US$81"
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$81",
+            "currency": "USD",
+            "value": 81,
+            "amount_rounded": "US$81"
+          },
+          "net_amount": {
+            "amount_unrounded": "US$81",
+            "currency": "USD",
+            "amount_rounded": "US$81",
+            "value": 81
+          },
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 9
+            },
+            "mode": "extra_charges"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 89.91,
+            "amount_rounded": "US$90",
+            "currency": "USD",
+            "amount_unrounded": "US$89.91"
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$9",
+            "value": 8.91,
+            "amount_unrounded": "US$8.91",
+            "currency": "USD"
+          },
+          "included_taxes_and_charges_amount": {
+            "value": 0,
+            "amount_rounded": "US$0",
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          }
+        },
+        "cant_book": null,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "class": 3,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 0,
+        "hotel_name_trans": "Spice of Ceylon",
+        "is_tpi_exclusive_property": 0,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "currencycode": "USD",
+        "review_score_word": "Superb",
+        "city_in_trans": "in Chilaw",
+        "review_nr": 163,
+        "soldout": 0,
+        "has_swimming_pool": 1,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 9.2,
+        "id": "property_card_8233010",
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 204,
+        "block_ids": [
+          "823301002_389753000_2_42_0"
+        ],
+        "children_not_allowed": null,
+        "latitude": 7.51462860342287,
+        "default_language": "en",
+        "unit_configuration_label": "<b>Hotel room</b>: 2 beds",
+        "hotel_include_breakfast": 0,
+        "min_total_price": 81,
+        "main_photo_id": 475821706,
+        "city": "Chilaw",
+        "timezone": "Asia/Colombo",
+        "default_wishlist_name": "Chilaw",
+        "is_geo_rate": "",
+        "preferred": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "genius_discount_percentage": 0,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "has_free_parking": 1,
+        "ufi": -2214723,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/475821706.jpg?k=e9154c1efed8b7f730fe27b5ca45ab75bc17d98914f8b9c987f718f05e709837&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "until": "21:00",
+          "from": "13:30"
+        },
+        "is_no_prepayment_block": 1,
+        "updated_checkout": null,
+        "checkout": {
+          "until": "11:30",
+          "from": "11:00"
+        },
+        "badges": [
+          {
+            "text": "Mobile-only price",
+            "id": "Mobile Rate",
+            "badge_variant": "constructive"
+          }
+        ],
+        "hotel_name": "Spice of Ceylon",
+        "longitude": 79.7946447195435
+      },
+      {
+        "hotel_id": 11037313,
+        "default_wishlist_name": "Kudawe",
+        "is_geo_rate": "",
+        "timezone": "Asia/Colombo",
+        "city": "Kudawa",
+        "ufi": -2225298,
+        "has_free_parking": 1,
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "extended": 0,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "preferred": 0,
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "12:00",
+          "from": "12:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/504577552.jpg?k=61670466ceafc6748fdb4501d88f3640a343b1903b3fa5136c67bae55764ecbb&o=",
+        "badges": [],
+        "hotel_name": "Jansen’s Bungalow Sinharaja Rainforest Retreat",
+        "longitude": 80.413279941495,
+        "checkout": {
+          "from": "00:00",
+          "until": "11:00"
+        },
+        "updated_checkout": null,
+        "ribbon_text": "Breakfast included",
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "class": 0,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "benefits": [],
+          "gross_amount_hotel_currency": {
+            "value": 140,
+            "amount_rounded": "US$140",
+            "currency": "USD",
+            "amount_unrounded": "US$140"
+          },
+          "gross_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$140",
+            "value": 140,
+            "amount_rounded": "US$140"
+          },
+          "net_amount": {
+            "value": 140,
+            "amount_rounded": "US$140",
+            "currency": "USD",
+            "amount_unrounded": "US$140"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "translated_copy": "",
+            "amount": {
+              "value": 15,
+              "currency": "USD"
+            }
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$155.40",
+            "value": 155.4,
+            "amount_rounded": "US$155"
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$15",
+            "value": 15.4,
+            "currency": "USD",
+            "amount_unrounded": "US$15.40"
+          },
+          "included_taxes_and_charges_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "value": 0,
+            "amount_rounded": "US$0"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 70,
+            "amount_rounded": "US$70",
+            "currency": "USD",
+            "amount_unrounded": "US$70"
+          },
+          "all_inclusive_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$155.40",
+            "value": 155.4,
+            "amount_rounded": "US$155"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "items": [
+            {
+              "name": "City tax",
+              "kind": "charge",
+              "details": "0 % City tax",
+              "base": {
+                "percentage": 0,
+                "kind": "percentage"
+              },
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$0",
+                "amount_rounded": "US$0",
+                "value": 0
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "name": "VAT",
+              "kind": "charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "item_amount": {
+                "value": 15.4,
+                "amount_rounded": "US$15",
+                "amount_unrounded": "US$15.40",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded"
+            }
+          ],
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ]
+        },
+        "city_in_trans": "in Kudawe",
+        "review_nr": 153,
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Superb",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "hotel_name_trans": "Jansen’s Bungalow Sinharaja Rainforest Retreat",
+        "is_tpi_exclusive_property": 0,
+        "block_ids": [
+          "1103731301_383205261_2_41_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 3 left at this price",
+        "accommodation_type": 206,
+        "id": "property_card_11037313",
+        "review_score": 9.3,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "main_photo_id": 504577552,
+        "min_total_price": 140,
+        "unit_configuration_label": "<b>Hotel room</b>: 1 bed",
+        "latitude": 6.44215889833,
+        "default_language": "en"
+      },
+      {
+        "hotel_id": 11602438,
+        "soldout": 0,
+        "city_in_trans": "in Seeduwa",
+        "review_nr": 501,
+        "review_score_word": "Exceptional",
+        "currencycode": "USD",
+        "hotel_name_trans": "Airport Colombo Pocket Paradise",
+        "is_tpi_exclusive_property": 0,
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "class": 0,
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "items": [
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_unrounded": "US$2",
+                "currency": "USD",
+                "amount_rounded": "US$2",
+                "value": 2
+              },
+              "details": "4 % City tax",
+              "base": {
+                "kind": "percentage",
+                "percentage": 4
+              },
+              "name": "City tax",
+              "kind": "charge"
+            },
+            {
+              "name": "VAT",
+              "kind": "charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "item_amount": {
+                "amount_unrounded": "US$5.50",
+                "currency": "USD",
+                "amount_rounded": "US$6",
+                "value": 5.5
+              },
+              "inclusion_type": "excluded"
+            }
+          ],
+          "all_inclusive_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$57.50",
+            "value": 57.5,
+            "amount_rounded": "US$58"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 25,
+            "amount_rounded": "US$25",
+            "currency": "USD",
+            "amount_unrounded": "US$25"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "included_taxes_and_charges_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "amount_rounded": "US$0",
+            "value": 0
+          },
+          "excluded_amount": {
+            "amount_unrounded": "US$7.50",
+            "currency": "USD",
+            "amount_rounded": "US$8",
+            "value": 7.5
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_rounded": "US$58",
+            "value": 57.5,
+            "currency": "USD",
+            "amount_unrounded": "US$57.50"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "amount": {
+              "value": 8,
+              "currency": "USD"
+            },
+            "translated_copy": ""
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$50",
+            "currency": "USD",
+            "value": 50,
+            "amount_rounded": "US$50"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_unrounded": "US$50",
+            "currency": "USD",
+            "value": 50,
+            "amount_rounded": "US$50"
+          },
+          "benefits": [],
+          "net_amount": {
+            "value": 50,
+            "amount_rounded": "US$50",
+            "amount_unrounded": "US$50",
+            "currency": "USD"
+          }
+        },
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "main_photo_id": 622844285,
+        "min_total_price": 50,
+        "unit_configuration_label": "<b>Hotel room</b>: 1 bed",
+        "default_language": "xu",
+        "latitude": 7.145905240887,
+        "hotel_include_breakfast": 0,
+        "id": "property_card_11602438",
+        "children_not_allowed": null,
+        "block_ids": [
+          "1160243801_388726616_2_2_0"
+        ],
+        "accommodation_type": 204,
+        "urgency_message": "We have 1 left at this price",
+        "review_score": 9.6,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_free_parking": 1,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "ufi": -2235827,
+        "preferred": 1,
+        "genius_discount_percentage": 0,
+        "preferred_plus": 0,
+        "distances": [],
+        "is_geo_rate": "",
+        "default_wishlist_name": "Seeduwa",
+        "timezone": "Asia/Colombo",
+        "city": "Seeduwa",
+        "checkout": {
+          "until": "12:00",
+          "from": "08:00"
+        },
+        "longitude": 79.878734758803,
+        "hotel_name": "Airport Colombo Pocket Paradise",
+        "badges": [],
+        "updated_checkout": null,
+        "checkin": {
+          "until": "00:00",
+          "from": "14:00"
+        },
+        "is_no_prepayment_block": 1,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/622844285.jpg?k=6226e0407564a9884e85c87e59f8c8b374bf1e82a78a2f178358ae4ccb3e7186&o=",
+        "hotel_has_vb_boost": 0
+      },
+      {
+        "hotel_id": 13544496,
+        "checkout": {
+          "until": "12:00",
+          "from": ""
+        },
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "text": "Mobile-only price",
+            "id": "Mobile Rate"
+          }
+        ],
+        "hotel_name": "Singhagra Tropical Villa Negombo",
+        "longitude": 79.8410086,
+        "updated_checkout": null,
+        "checkin": {
+          "from": "14:00",
+          "until": ""
+        },
+        "is_no_prepayment_block": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/644205515.jpg?k=76280b3ed936b8d7fe9f49d864f1a61007c7ede60ab2e2ea4448ed3577e8b67f&o=",
+        "hotel_has_vb_boost": 0,
+        "booking_home": {
+          "segment": 0,
+          "is_booking_home": 1,
+          "group": "hotels_and_others",
+          "quality_class": 4,
+          "is_single_unit_property": ""
+        },
+        "has_free_parking": 1,
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "extended": 0,
+        "ufi": -2223382,
+        "preferred": 0,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "default_wishlist_name": "Kepungoda",
+        "is_geo_rate": "",
+        "timezone": "Asia/Colombo",
+        "city": "Negombo",
+        "main_photo_id": 644205515,
+        "min_total_price": 97.2,
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "latitude": 7.1181265,
+        "default_language": "xu",
+        "hotel_include_breakfast": 0,
+        "id": "property_card_13544496",
+        "block_ids": [
+          "1354449601_407774044_2_42_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 2 left at this price",
+        "accommodation_type": 216,
+        "review_score": 9.1,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_swimming_pool": 1,
+        "city_in_trans": "in Kepungoda",
+        "review_nr": 85,
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Superb",
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Singhagra Tropical Villa Negombo",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "class": 0,
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "net_amount": {
+            "amount_rounded": "US$97",
+            "value": 97.2,
+            "currency": "USD",
+            "amount_unrounded": "US$97.20"
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$97.20",
+            "currency": "USD",
+            "amount_rounded": "US$97",
+            "value": 97.2
+          },
+          "gross_amount_hotel_currency": {
+            "value": 97.2,
+            "amount_rounded": "US$97",
+            "currency": "USD",
+            "amount_unrounded": "US$97.20"
+          },
+          "benefits": [
+            {
+              "name": "Mobile-only price",
+              "kind": "badge",
+              "icon": null,
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "badge_variant": "constructive",
+              "identifier": "mobile-rate"
+            }
+          ],
+          "all_inclusive_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$107.89",
+            "value": 107.892,
+            "amount_rounded": "US$108"
+          },
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 11
+            },
+            "mode": "extra_charges"
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$11",
+            "value": 10.692,
+            "currency": "USD",
+            "amount_unrounded": "US$10.69"
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_unrounded": "US$0",
+            "currency": "USD",
+            "value": 0,
+            "amount_rounded": "US$0"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$107.89",
+            "currency": "USD",
+            "amount_rounded": "US$108",
+            "value": 107.892
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 48.6,
+            "amount_rounded": "US$49",
+            "amount_unrounded": "US$48.60",
+            "currency": "USD"
+          },
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ],
+          "items": [
+            {
+              "item_amount": {
+                "amount_rounded": "US$0",
+                "value": 0,
+                "amount_unrounded": "US$0",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded",
+              "kind": "charge",
+              "name": "City tax",
+              "base": {
+                "percentage": 0,
+                "kind": "percentage"
+              },
+              "details": "0 % City tax"
+            },
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_rounded": "US$11",
+                "value": 10.692,
+                "amount_unrounded": "US$10.69",
+                "currency": "USD"
+              },
+              "details": "11 % VAT",
+              "base": {
+                "percentage": 11,
+                "kind": "percentage"
+              },
+              "kind": "charge",
+              "name": "VAT"
+            },
+            {
+              "kind": "discount",
+              "name": "Mobile-only price",
+              "identifier": "mobile-discount",
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$10.80",
+                "amount_rounded": "US$11",
+                "value": 10.8
+              }
+            }
+          ],
+          "discounted_amount": {
+            "value": 10.8,
+            "amount_rounded": "US$11",
+            "amount_unrounded": "US$10.80",
+            "currency": "USD"
+          },
+          "strikethrough_amount_per_night": {
+            "amount_rounded": "US$54",
+            "value": 54,
+            "amount_unrounded": "US$54",
+            "currency": "USD"
+          },
+          "strikethrough_amount": {
+            "amount_rounded": "US$108",
+            "value": 108,
+            "currency": "USD",
+            "amount_unrounded": "US$108"
+          }
+        },
+        "countrycode": "lk",
+        "is_genius_deal": 0
+      },
+      {
+        "hotel_id": 15037132,
+        "review_score": 9.8,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "id": "property_card_15037132",
+        "block_ids": [
+          "1503713201_422086132_2_2_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 228,
+        "unit_configuration_label": "<b>Entire chalet</b>: 1 bed • 1 bedroom • 1 bathroom",
+        "latitude": 6.1057119608623,
+        "default_language": "xu",
+        "hotel_include_breakfast": 0,
+        "main_photo_id": 757333328,
+        "min_total_price": 22,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "items": [
+            {
+              "item_amount": {
+                "amount_rounded": "US$2",
+                "value": 2.2,
+                "amount_unrounded": "US$2.20",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded",
+              "kind": "charge",
+              "name": "City tax",
+              "base": {
+                "percentage": 10,
+                "kind": "percentage"
+              },
+              "details": "10 % City tax"
+            },
+            {
+              "kind": "charge",
+              "name": "VAT",
+              "details": "11 % VAT",
+              "base": {
+                "percentage": 11,
+                "kind": "percentage"
+              },
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$2.42",
+                "value": 2.42,
+                "amount_rounded": "US$2"
+              },
+              "inclusion_type": "excluded"
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "value": 26.62,
+            "amount_rounded": "US$27",
+            "amount_unrounded": "US$26.62",
+            "currency": "USD"
+          },
+          "gross_amount_per_night": {
+            "amount_unrounded": "US$11",
+            "currency": "USD",
+            "amount_rounded": "US$11",
+            "value": 11
+          },
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 5
+            },
+            "mode": "extra_charges"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 26.62,
+            "amount_rounded": "US$27",
+            "amount_unrounded": "US$26.62",
+            "currency": "USD"
+          },
+          "net_amount": {
+            "amount_rounded": "US$22",
+            "value": 22,
+            "currency": "USD",
+            "amount_unrounded": "US$22"
+          },
+          "benefits": [],
+          "gross_amount_hotel_currency": {
+            "amount_rounded": "US$22",
+            "value": 22,
+            "amount_unrounded": "US$22",
+            "currency": "USD"
+          },
+          "gross_amount": {
+            "amount_rounded": "US$22",
+            "value": 22,
+            "currency": "USD",
+            "amount_unrounded": "US$22"
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_unrounded": "US$0",
+            "currency": "USD",
+            "amount_rounded": "US$0",
+            "value": 0
+          },
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$4.62",
+            "amount_rounded": "US$5",
+            "value": 4.62
+          }
+        },
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "class": 0,
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "hotel_name_trans": "Ayaan Beach Home",
+        "is_tpi_exclusive_property": 0,
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "review_nr": 11,
+        "city_in_trans": "in Dodanduwa",
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Exceptional",
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/757333328.jpg?k=76a143bbb073f02d174bfb78b7d54c7af3a6f04661f792f73dda1fef23e806d0&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "until": "18:00",
+          "from": "15:00"
+        },
+        "is_no_prepayment_block": 1,
+        "updated_checkout": null,
+        "checkout": {
+          "until": "11:00",
+          "from": "08:00"
+        },
+        "hotel_name": "Ayaan Beach Home",
+        "badges": [],
+        "longitude": 80.1253891998165,
+        "timezone": "Asia/Colombo",
+        "city": "Dodanduwa",
+        "default_wishlist_name": "Dodanduwa",
+        "is_geo_rate": "",
+        "preferred": 1,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "booking_home": {
+          "is_single_unit_property": 1,
+          "group": "house_like",
+          "quality_class": 0,
+          "segment": 2,
+          "is_booking_home": 1
+        },
+        "class_is_estimated": 0,
+        "type": "property_card",
+        "extended": 0,
+        "ufi": -2216160
+      },
+      {
+        "hotel_id": 1476310,
+        "min_total_price": 164.56,
+        "main_photo_id": 846118843,
+        "hotel_include_breakfast": 0,
+        "unit_configuration_label": "<b>Hotel room</b>: 2 beds",
+        "default_language": "en",
+        "latitude": 7.0594092,
+        "children_not_allowed": null,
+        "block_ids": [
+          "147631006_262789858_2_42_0"
+        ],
+        "accommodation_type": 204,
+        "urgency_message": "We have 4 left at this price",
+        "id": "property_card_1476310",
+        "review_score": 7.8,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "soldout": 0,
+        "city_in_trans": "in Ramboda",
+        "review_nr": 137,
+        "review_score_word": "Good",
+        "currencycode": "USD",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Oak Ray Tea Bush",
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "class": 4,
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "items": [
+            {
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$14.96",
+                "value": 14.96,
+                "amount_rounded": "US$15"
+              },
+              "inclusion_type": "included",
+              "name": "Service charge",
+              "kind": "charge",
+              "details": "10 % Service charge",
+              "base": {
+                "percentage": 10,
+                "kind": "percentage"
+              }
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 82.28,
+            "amount_rounded": "US$82",
+            "currency": "USD",
+            "amount_unrounded": "US$82.28"
+          },
+          "all_inclusive_amount": {
+            "amount_rounded": "US$165",
+            "value": 164.56,
+            "amount_unrounded": "US$164.56",
+            "currency": "USD"
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_unrounded": "US$14.96",
+            "currency": "USD",
+            "amount_rounded": "US$15",
+            "value": 14.96
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "mode": "all_included",
+            "translated_copy": "",
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_unrounded": "US$164.56",
+            "currency": "USD",
+            "amount_rounded": "US$165",
+            "value": 164.56
+          },
+          "net_amount": {
+            "value": 149.6,
+            "amount_rounded": "US$150",
+            "amount_unrounded": "US$149.60",
+            "currency": "USD"
+          },
+          "benefits": [],
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$164.56",
+            "amount_rounded": "US$165",
+            "value": 164.56
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$164.56",
+            "currency": "USD",
+            "value": 164.56,
+            "amount_rounded": "US$165"
+          }
+        },
+        "longitude": 80.6899854999999,
+        "badges": [],
+        "hotel_name": "Oak Ray Tea Bush",
+        "checkout": {
+          "until": "12:00",
+          "from": ""
+        },
+        "updated_checkout": null,
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "",
+          "from": "14:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/846118843.jpg?k=068f6a7bff88bd8d2998e3e43cafb6823f1472d2164f611bac32a434e3861733&o=",
+        "ufi": -2234876,
+        "has_free_parking": 1,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "genius_discount_percentage": 0,
+        "preferred_plus": 0,
+        "distances": [],
+        "preferred": 1,
+        "is_geo_rate": 1,
+        "default_wishlist_name": "Ramboda",
+        "timezone": "Asia/Colombo",
+        "city": "Ramboda"
+      },
+      {
+        "hotel_id": 2032545,
+        "children_not_allowed": null,
+        "block_ids": [
+          "203254506_195072018_2_2_0"
+        ],
+        "accommodation_type": 204,
+        "id": "property_card_2032545",
+        "review_score": 8.3,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "min_total_price": 35.64,
+        "main_photo_id": 93546216,
+        "hotel_include_breakfast": 0,
+        "unit_configuration_label": "<b>Hotel room</b>: 2 beds",
+        "default_language": "en",
+        "latitude": 7.56989232933969,
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "class": 0,
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            },
+            "mode": "all_included"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 35.64,
+            "amount_rounded": "US$36",
+            "amount_unrounded": "US$35.64",
+            "currency": "USD"
+          },
+          "benefits": [
+            {
+              "name": "Mobile-only price",
+              "icon": null,
+              "kind": "badge",
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "badge_variant": "constructive",
+              "identifier": "mobile-rate"
+            }
+          ],
+          "gross_amount": {
+            "amount_rounded": "US$36",
+            "value": 35.64,
+            "currency": "USD",
+            "amount_unrounded": "US$35.64"
+          },
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$35.64",
+            "value": 35.64,
+            "amount_rounded": "US$36"
+          },
+          "net_amount": {
+            "amount_unrounded": "US$32.40",
+            "currency": "USD",
+            "amount_rounded": "US$32",
+            "value": 32.4
+          },
+          "included_taxes_and_charges_amount": {
+            "value": 3.24,
+            "amount_rounded": "US$3",
+            "amount_unrounded": "US$3.24",
+            "currency": "USD"
+          },
+          "excluded_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "value": 0,
+            "amount_rounded": "US$0"
+          },
+          "discounted_amount": {
+            "value": 3.96,
+            "amount_rounded": "US$4",
+            "currency": "USD",
+            "amount_unrounded": "US$3.96"
+          },
+          "items": [
+            {
+              "base": {
+                "percentage": 10,
+                "kind": "percentage"
+              },
+              "details": "10 % Service charge",
+              "kind": "charge",
+              "name": "Service charge",
+              "inclusion_type": "included",
+              "item_amount": {
+                "amount_rounded": "US$3",
+                "value": 3.24,
+                "amount_unrounded": "US$3.24",
+                "currency": "USD"
+              }
+            },
+            {
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$3.96",
+                "value": 3.96,
+                "amount_rounded": "US$4"
+              },
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "name": "Mobile-only price",
+              "kind": "discount",
+              "identifier": "mobile-discount"
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "gross_amount_per_night": {
+            "value": 17.82,
+            "amount_rounded": "US$18",
+            "currency": "USD",
+            "amount_unrounded": "US$17.82"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_rounded": "US$36",
+            "value": 35.64,
+            "currency": "USD",
+            "amount_unrounded": "US$35.64"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "strikethrough_amount": {
+            "amount_rounded": "US$40",
+            "value": 39.6,
+            "currency": "USD",
+            "amount_unrounded": "US$39.60"
+          },
+          "strikethrough_amount_per_night": {
+            "value": 19.8,
+            "amount_rounded": "US$20",
+            "currency": "USD",
+            "amount_unrounded": "US$19.80"
+          }
+        },
+        "soldout": 0,
+        "review_nr": 57,
+        "city_in_trans": "in Chilaw",
+        "review_score_word": "Very good",
+        "currencycode": "USD",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "hotel_name_trans": "Hotel Pearl Gate",
+        "is_tpi_exclusive_property": 0,
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "12:00",
+          "from": "08:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/93546216.jpg?k=717f790a8c22d08a225b73b18691bc5fa6bb64cb0cd9c2dc17fffa4fb2f4efd3&o=",
+        "longitude": 79.8009882308543,
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "id": "Mobile Rate",
+            "text": "Mobile-only price"
+          }
+        ],
+        "hotel_name": "Hotel Pearl Gate",
+        "checkout": {
+          "until": "16:30",
+          "from": ""
+        },
+        "updated_checkout": null,
+        "is_geo_rate": "",
+        "default_wishlist_name": "Chilaw",
+        "timezone": "Asia/Colombo",
+        "city": "Chilaw",
+        "ufi": -2214723,
+        "has_free_parking": 1,
+        "class_is_estimated": 0,
+        "type": "property_card",
+        "extended": 0,
+        "genius_discount_percentage": 0,
+        "preferred_plus": 0,
+        "distances": [],
+        "preferred": 0
+      },
+      {
+        "hotel_id": 14748123,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/761135843.jpg?k=e462da08fbce77d76b625c13859e2f32eb8f6b832eab1cc395f468e374c04e0d&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "from": "02:00",
+          "until": "00:00"
+        },
+        "is_no_prepayment_block": 1,
+        "updated_checkout": null,
+        "checkout": {
+          "from": "00:00",
+          "until": "00:00"
+        },
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "id": "Mobile Rate",
+            "text": "Mobile-only price"
+          }
+        ],
+        "hotel_name": "Clara Villas Amithirigala",
+        "longitude": 80.2045768,
+        "timezone": "Asia/Colombo",
+        "city": "Avisswella",
+        "default_wishlist_name": "Avissawella",
+        "is_geo_rate": "",
+        "preferred": 0,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "has_free_parking": 1,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "ufi": -2213147,
+        "review_score": 8.4,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_swimming_pool": 1,
+        "id": "property_card_14748123",
+        "block_ids": [
+          "1474812304_418884835_2_42_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 221,
+        "unit_configuration_label": "<b>Entire chalet</b>: 1 bed • 1 bedroom • 1 living room • 1 bathroom",
+        "latitude": 6.9543289,
+        "default_language": "xu",
+        "hotel_include_breakfast": 0,
+        "main_photo_id": 761135843,
+        "min_total_price": 85.5,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "excluded_amount": {
+            "amount_unrounded": "US$9.40",
+            "currency": "USD",
+            "amount_rounded": "US$9",
+            "value": 9.405
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 9
+            }
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 94.905,
+            "amount_rounded": "US$95",
+            "currency": "USD",
+            "amount_unrounded": "US$94.91"
+          },
+          "net_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$85.50",
+            "value": 85.5,
+            "amount_rounded": "US$86"
+          },
+          "benefits": [
+            {
+              "identifier": "mobile-rate",
+              "badge_variant": "constructive",
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "name": "Mobile-only price",
+              "kind": "badge",
+              "icon": null
+            }
+          ],
+          "gross_amount": {
+            "amount_rounded": "US$86",
+            "value": 85.5,
+            "currency": "USD",
+            "amount_unrounded": "US$85.50"
+          },
+          "gross_amount_hotel_currency": {
+            "value": 85.5,
+            "amount_rounded": "US$86",
+            "currency": "USD",
+            "amount_unrounded": "US$85.50"
+          },
+          "strikethrough_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$100",
+            "value": 100,
+            "amount_rounded": "US$100"
+          },
+          "strikethrough_amount_per_night": {
+            "currency": "USD",
+            "amount_unrounded": "US$50",
+            "amount_rounded": "US$50",
+            "value": 50
+          },
+          "discounted_amount": {
+            "amount_unrounded": "US$14.50",
+            "currency": "USD",
+            "amount_rounded": "US$15",
+            "value": 14.5
+          },
+          "items": [
+            {
+              "name": "City tax",
+              "kind": "charge",
+              "details": "0 % City tax",
+              "base": {
+                "percentage": 0,
+                "kind": "percentage"
+              },
+              "item_amount": {
+                "amount_rounded": "US$0",
+                "value": 0,
+                "currency": "USD",
+                "amount_unrounded": "US$0"
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_rounded": "US$9",
+                "value": 9.405,
+                "amount_unrounded": "US$9.40",
+                "currency": "USD"
+              },
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "kind": "charge",
+              "name": "VAT"
+            },
+            {
+              "item_amount": {
+                "value": 9.5,
+                "amount_rounded": "US$10",
+                "currency": "USD",
+                "amount_unrounded": "US$9.50"
+              },
+              "identifier": "mobile-discount",
+              "kind": "discount",
+              "name": "Mobile-only price",
+              "details": "You’re getting a reduced rate compared to the rate available on a computer or laptop.",
+              "base": {
+                "kind": "rate"
+              }
+            },
+            {
+              "base": {
+                "kind": "rate"
+              },
+              "details": "You’re getting a reduced rate because this property is offering a discount.",
+              "kind": "discount",
+              "name": "Bonus savings",
+              "identifier": "basic-deal",
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$5",
+                "amount_rounded": "US$5",
+                "value": 5
+              }
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "all_inclusive_amount": {
+            "value": 94.905,
+            "amount_rounded": "US$95",
+            "currency": "USD",
+            "amount_unrounded": "US$94.91"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "amount_rounded": "US$43",
+            "value": 42.75,
+            "currency": "USD",
+            "amount_unrounded": "US$42.75"
+          }
+        },
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "class": 0,
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "hotel_name_trans": "Clara Villas Amithirigala",
+        "is_tpi_exclusive_property": 0,
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "review_nr": 12,
+        "city_in_trans": "in Avissawella",
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Very good"
+      },
+      {
+        "hotel_id": 14078755,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "preferred": 0,
+        "ufi": -2212615,
+        "booking_home": {
+          "group": "hotels_and_others",
+          "quality_class": 3,
+          "is_single_unit_property": "",
+          "segment": 0,
+          "is_booking_home": 1
+        },
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "timezone": "Asia/Colombo",
+        "city": "andiambalama",
+        "default_wishlist_name": "Andiambalama",
+        "is_geo_rate": "",
+        "updated_checkout": null,
+        "ribbon_text": "Breakfast included",
+        "hotel_name": "Villa Wings Airport Transit",
+        "badges": [],
+        "longitude": 79.9089582845646,
+        "checkout": {
+          "until": "10:00",
+          "from": "09:00"
+        },
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/678960867.jpg?k=8f321c754055f92fa34f46f258b73de0c816572f76a218e360b85c1c5dce030d&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "until": "12:00",
+          "from": "11:00"
+        },
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Villa Wings Airport Transit",
+        "review_nr": 280,
+        "city_in_trans": "in Andiambalama",
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Exceptional",
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "items": [
+            {
+              "kind": "charge",
+              "name": "City tax",
+              "details": "0 % City tax",
+              "base": {
+                "kind": "percentage",
+                "percentage": 0
+              },
+              "item_amount": {
+                "amount_rounded": "US$0",
+                "value": 0,
+                "currency": "USD",
+                "amount_unrounded": "US$0"
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "kind": "charge",
+              "name": "VAT",
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "value": 6.16,
+                "amount_rounded": "US$6",
+                "amount_unrounded": "US$6.16",
+                "currency": "USD"
+              }
+            }
+          ],
+          "all_inclusive_amount": {
+            "amount_rounded": "US$62",
+            "value": 62.16,
+            "amount_unrounded": "US$62.16",
+            "currency": "USD"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 28,
+            "amount_rounded": "US$28",
+            "currency": "USD",
+            "amount_unrounded": "US$28"
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "included_taxes_and_charges_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "amount_rounded": "US$0",
+            "value": 0
+          },
+          "excluded_amount": {
+            "amount_rounded": "US$6",
+            "value": 6.16,
+            "amount_unrounded": "US$6.16",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 6
+            },
+            "mode": "extra_charges"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "value": 62.16,
+            "amount_rounded": "US$62",
+            "amount_unrounded": "US$62.16",
+            "currency": "USD"
+          },
+          "benefits": [],
+          "gross_amount": {
+            "amount_rounded": "US$56",
+            "value": 56,
+            "currency": "USD",
+            "amount_unrounded": "US$56"
+          },
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$56",
+            "value": 56,
+            "amount_rounded": "US$56"
+          },
+          "net_amount": {
+            "amount_rounded": "US$56",
+            "value": 56,
+            "currency": "USD",
+            "amount_unrounded": "US$56"
+          }
+        },
+        "is_free_cancellable": 0,
+        "is_smart_deal": 0,
+        "class": 0,
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "latitude": 7.18295202033343,
+        "default_language": "xu",
+        "min_total_price": 56,
+        "main_photo_id": 678960867,
+        "review_score": 9.5,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "block_ids": [
+          "1407875501_412562788_2_1_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 2 left at this price",
+        "accommodation_type": 216,
+        "id": "property_card_14078755"
+      },
+      {
+        "hotel_id": 3214999,
+        "review_score": 9,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "id": "property_card_3214999",
+        "children_not_allowed": null,
+        "block_ids": [
+          "321499902_403738828_0_34_0"
+        ],
+        "accommodation_type": 201,
+        "urgency_message": "We have 3 left at this price",
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "default_language": "xu",
+        "latitude": 6.62747694989105,
+        "hotel_include_breakfast": 0,
+        "main_photo_id": 235554855,
+        "min_total_price": 50,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "excluded_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "included_taxes_and_charges_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$0",
+            "amount_rounded": "US$0",
+            "value": 0
+          },
+          "net_amount": {
+            "amount_rounded": "US$50",
+            "value": 50,
+            "amount_unrounded": "US$50",
+            "currency": "USD"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_unrounded": "US$50",
+            "currency": "USD",
+            "value": 50,
+            "amount_rounded": "US$50"
+          },
+          "gross_amount": {
+            "amount_unrounded": "US$50",
+            "currency": "USD",
+            "amount_rounded": "US$50",
+            "value": 50
+          },
+          "benefits": [],
+          "all_inclusive_amount_hotel_currency": {
+            "amount_rounded": "US$50",
+            "value": 50,
+            "amount_unrounded": "US$50",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "mode": "all_included",
+            "translated_copy": "",
+            "amount": {
+              "currency": "USD",
+              "value": 0
+            }
+          },
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$50",
+            "value": 50,
+            "amount_rounded": "US$50"
+          },
+          "gross_amount_per_night": {
+            "currency": "USD",
+            "amount_unrounded": "US$25",
+            "amount_rounded": "US$25",
+            "value": 25
+          },
+          "items": [],
+          "price_display_config": [
+            {
+              "key": "use_nightly_prices",
+              "value": 0
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ]
+        },
+        "is_genius_deal": 0,
+        "countrycode": "lk",
+        "class": 0,
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Blue Moon Villa",
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "soldout": 0,
+        "review_nr": 42,
+        "city_in_trans": "in Waskaduwa",
+        "review_score_word": "Superb",
+        "currencycode": "USD",
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/235554855.jpg?k=fbaa0d776dbae438d93ec8f498f97db0db326e7d18b41bc30fca742815e943e4&o=",
+        "hotel_has_vb_boost": 0,
+        "checkin": {
+          "from": "14:00",
+          "until": ""
+        },
+        "is_no_prepayment_block": 1,
+        "updated_checkout": null,
+        "checkout": {
+          "until": "12:00",
+          "from": ""
+        },
+        "longitude": 79.9417177389355,
+        "hotel_name": "Blue Moon Villa",
+        "badges": [],
+        "timezone": "Asia/Colombo",
+        "city": "Waskaduwa",
+        "is_geo_rate": "",
+        "default_wishlist_name": "Waskaduwa",
+        "preferred": 1,
+        "genius_discount_percentage": 0,
+        "preferred_plus": 0,
+        "distances": [],
+        "booking_home": {
+          "is_booking_home": 1,
+          "segment": 1,
+          "quality_class": 4,
+          "group": "apartment_like",
+          "is_single_unit_property": ""
+        },
+        "has_free_parking": 1,
+        "class_is_estimated": 0,
+        "type": "property_card",
+        "extended": 0,
+        "ufi": -2225296
+      },
+      {
+        "hotel_id": 328542,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "items": [
+            {
+              "item_amount": {
+                "value": 9.6,
+                "amount_rounded": "US$10",
+                "amount_unrounded": "US$9.60",
+                "currency": "USD"
+              },
+              "inclusion_type": "included",
+              "kind": "charge",
+              "name": "Service charge",
+              "details": "10 % Service charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 10
+              }
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "gross_amount_per_night": {
+            "currency": "USD",
+            "amount_unrounded": "US$52.80",
+            "value": 52.8,
+            "amount_rounded": "US$53"
+          },
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "value": 105.6,
+            "amount_rounded": "US$106",
+            "amount_unrounded": "US$105.60",
+            "currency": "USD"
+          },
+          "charges_details": {
+            "amount": {
+              "currency": "USD",
+              "value": 0
+            },
+            "translated_copy": "",
+            "mode": "all_included"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_rounded": "US$106",
+            "value": 105.6,
+            "amount_unrounded": "US$105.60",
+            "currency": "USD"
+          },
+          "net_amount": {
+            "value": 96,
+            "amount_rounded": "US$96",
+            "currency": "USD",
+            "amount_unrounded": "US$96"
+          },
+          "benefits": [],
+          "gross_amount": {
+            "value": 105.6,
+            "amount_rounded": "US$106",
+            "amount_unrounded": "US$105.60",
+            "currency": "USD"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_unrounded": "US$105.60",
+            "currency": "USD",
+            "amount_rounded": "US$106",
+            "value": 105.6
+          },
+          "included_taxes_and_charges_amount": {
+            "amount_unrounded": "US$9.60",
+            "currency": "USD",
+            "amount_rounded": "US$10",
+            "value": 9.6
+          },
+          "excluded_amount": {
+            "value": 0,
+            "amount_rounded": "US$0",
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          }
+        },
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "class": 4,
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "hotel_name_trans": "Hotel Elephant Park - Most Elephant Bathing View Rooms in Pinnawala",
+        "is_tpi_exclusive_property": 0,
+        "city_in_trans": "in Pinnawala",
+        "review_nr": 1807,
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Superb",
+        "review_score": 9,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_swimming_pool": 1,
+        "block_ids": [
+          "32854201_86224303_2_41_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 204,
+        "id": "property_card_328542",
+        "unit_configuration_label": "<b>Hotel room</b>: 1 bed",
+        "latitude": 7.30001408869022,
+        "default_language": "en",
+        "min_total_price": 105.6,
+        "main_photo_id": 472707196,
+        "timezone": "Asia/Colombo",
+        "city": "Rambukkana",
+        "default_wishlist_name": "Pinnawala",
+        "is_geo_rate": 1,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "preferred": 1,
+        "ufi": -2233731,
+        "has_free_parking": 1,
+        "class_is_estimated": 0,
+        "type": "property_card",
+        "extended": 0,
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/472707196.jpg?k=983758e3761676b435694fcf5cbb8fdaf882cf47965e8f0e7bf084fb9d4ffc8f&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "from": "16:00",
+          "until": ""
+        },
+        "updated_checkout": null,
+        "ribbon_text": "Breakfast included",
+        "badges": [],
+        "hotel_name": "Hotel Elephant Park - Most Elephant Bathing View Rooms in Pinnawala",
+        "longitude": 80.385160446167,
+        "checkout": {
+          "until": "12:00",
+          "from": ""
+        }
+      },
+      {
+        "hotel_id": 12875872,
+        "has_swimming_pool": 1,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "review_score": 9.7,
+        "urgency_message": "We have 1 left at this price",
+        "accommodation_type": 213,
+        "block_ids": [
+          "1287587201_402297466_2_1_0"
+        ],
+        "children_not_allowed": null,
+        "id": "property_card_12875872",
+        "latitude": 6.11742676598825,
+        "default_language": "en",
+        "unit_configuration_label": "<b>Entire villa – 119 m²</b>: 4 beds • 3 bedrooms • 1 living room • 1 bathroom",
+        "main_photo_id": 601819879,
+        "min_total_price": 72.54,
+        "countrycode": "lk",
+        "is_genius_deal": 0,
+        "composite_price_breakdown": {
+          "included_taxes_and_charges_amount": {
+            "amount_rounded": "US$0",
+            "value": 0,
+            "currency": "USD",
+            "amount_unrounded": "US$0"
+          },
+          "excluded_amount": {
+            "amount_unrounded": "US$15.23",
+            "currency": "USD",
+            "value": 15.2334,
+            "amount_rounded": "US$15"
+          },
+          "charges_details": {
+            "mode": "extra_charges",
+            "amount": {
+              "currency": "USD",
+              "value": 15
+            },
+            "translated_copy": ""
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_unrounded": "US$87.77",
+            "currency": "USD",
+            "amount_rounded": "US$88",
+            "value": 87.7734
+          },
+          "benefits": [],
+          "gross_amount": {
+            "currency": "USD",
+            "amount_unrounded": "US$72.54",
+            "amount_rounded": "US$73",
+            "value": 72.54
+          },
+          "gross_amount_hotel_currency": {
+            "currency": "USD",
+            "amount_unrounded": "US$72.54",
+            "amount_rounded": "US$73",
+            "value": 72.54
+          },
+          "net_amount": {
+            "value": 72.54,
+            "amount_rounded": "US$73",
+            "amount_unrounded": "US$72.54",
+            "currency": "USD"
+          },
+          "items": [
+            {
+              "name": "City tax",
+              "kind": "charge",
+              "details": "10 % City tax",
+              "base": {
+                "kind": "percentage",
+                "percentage": 10
+              },
+              "item_amount": {
+                "value": 7.254,
+                "amount_rounded": "US$7",
+                "amount_unrounded": "US$7.25",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded"
+            },
+            {
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_rounded": "US$8",
+                "value": 7.9794,
+                "currency": "USD",
+                "amount_unrounded": "US$7.98"
+              },
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "details": "11 % VAT",
+              "name": "VAT",
+              "kind": "charge"
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "value": 0,
+              "key": "use_nightly_as_dominant"
+            },
+            {
+              "key": "use_js_tracking",
+              "value": 1
+            }
+          ],
+          "has_long_stays_monthly_rate_price": 0,
+          "all_inclusive_amount": {
+            "amount_rounded": "US$88",
+            "value": 87.7734,
+            "amount_unrounded": "US$87.77",
+            "currency": "USD"
+          },
+          "gross_amount_per_night": {
+            "value": 36.27,
+            "amount_rounded": "US$36",
+            "currency": "USD",
+            "amount_unrounded": "US$36.27"
+          },
+          "has_long_stays_weekly_rate_price": 0
+        },
+        "cant_book": null,
+        "is_smart_deal": 0,
+        "is_free_cancellable": 0,
+        "class": 0,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "updated_checkin": null,
+        "is_tpi_exclusive_property": 0,
+        "hotel_name_trans": "Villa Wonrich",
+        "currencycode": "USD",
+        "review_score_word": "Exceptional",
+        "city_in_trans": "in Dodanduwa",
+        "review_nr": 36,
+        "soldout": 0,
+        "hotel_has_vb_boost": 0,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/601819879.jpg?k=6020561e608daeeac82fc4a5595d529128d65d34676bc29222457052f9211966&o=",
+        "is_no_prepayment_block": 1,
+        "checkin": {
+          "from": "13:00",
+          "until": "14:00"
+        },
+        "updated_checkout": null,
+        "ribbon_text": "Breakfast included",
+        "hotel_name": "Villa Wonrich",
+        "badges": [],
+        "longitude": 80.1197703538494,
+        "checkout": {
+          "until": "11:00",
+          "from": "10:30"
+        },
+        "city": "Dodandoowa",
+        "timezone": "Asia/Colombo",
+        "default_wishlist_name": "Dodanduwa",
+        "is_geo_rate": "",
+        "distances": [],
+        "preferred_plus": 0,
+        "genius_discount_percentage": 0,
+        "preferred": 0,
+        "ufi": -2216160,
+        "type": "property_card",
+        "extended": 0,
+        "class_is_estimated": 0,
+        "booking_home": {
+          "is_booking_home": 1,
+          "segment": 2,
+          "is_single_unit_property": 1,
+          "quality_class": 4,
+          "group": "house_like"
+        },
+        "has_free_parking": 1
+      },
+      {
+        "hotel_id": 14887830,
+        "checkout": {
+          "until": "11:00",
+          "from": "06:00"
+        },
+        "hotel_name": "Lake View Resort",
+        "badges": [
+          {
+            "badge_variant": "constructive",
+            "text": "Getaway Deal",
+            "id": "Getaway 2021 Deals"
+          }
+        ],
+        "longitude": 79.8454301,
+        "updated_checkout": null,
+        "checkin": {
+          "from": "14:00",
+          "until": "20:00"
+        },
+        "is_no_prepayment_block": 1,
+        "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/742006735.jpg?k=3037374c87c7a9e60d7cc3d1d09e50831c66dfbdfffde1eee907e6e2805de842&o=",
+        "hotel_has_vb_boost": 0,
+        "has_free_parking": 1,
+        "booking_home": {
+          "is_booking_home": 1,
+          "segment": 0,
+          "group": "hotels_and_others",
+          "quality_class": 3,
+          "is_single_unit_property": ""
+        },
+        "type": "property_card",
+        "class_is_estimated": 0,
+        "extended": 0,
+        "ufi": -2232460,
+        "preferred": 0,
+        "genius_discount_percentage": 0,
+        "distances": [],
+        "preferred_plus": 0,
+        "default_wishlist_name": "Pamunugama",
+        "is_geo_rate": "",
+        "timezone": "Asia/Colombo",
+        "city": "Pamunugama",
+        "min_total_price": 43.22,
+        "main_photo_id": 742006735,
+        "unit_configuration_label": "<b>Private room</b>: 1 bed",
+        "latitude": 7.105202,
+        "default_language": "en",
+        "hotel_include_breakfast": 0,
+        "id": "property_card_14887830",
+        "block_ids": [
+          "1488783001_425858642_2_2_0"
+        ],
+        "children_not_allowed": null,
+        "urgency_message": "We have 5 left at this price",
+        "accommodation_type": 216,
+        "review_score": 8,
+        "bwallet": {
+          "hotel_eligibility": 0
+        },
+        "has_swimming_pool": 1,
+        "review_nr": 24,
+        "city_in_trans": "in Pamunugama",
+        "soldout": 0,
+        "currencycode": "USD",
+        "review_score_word": "Very good",
+        "hotel_name_trans": "Lake View Resort",
+        "is_tpi_exclusive_property": 0,
+        "updated_checkin": null,
+        "last_reservation_data": {
+          "last_reservation_ellapsed_months": 1
+        },
+        "class": 0,
+        "is_free_cancellable": 1,
+        "is_smart_deal": 0,
+        "cant_book": null,
+        "composite_price_breakdown": {
+          "charges_details": {
+            "amount": {
+              "value": 5,
+              "currency": "USD"
+            },
+            "translated_copy": "",
+            "mode": "extra_charges"
+          },
+          "all_inclusive_amount_hotel_currency": {
+            "amount_rounded": "US$48",
+            "value": 47.9742,
+            "currency": "USD",
+            "amount_unrounded": "US$47.97"
+          },
+          "net_amount": {
+            "amount_unrounded": "US$43.22",
+            "currency": "USD",
+            "amount_rounded": "US$43",
+            "value": 43.22
+          },
+          "benefits": [
+            {
+              "details": "This property is offering a discount on select stays between 26 Mar–30 Sept 2026.",
+              "kind": "badge",
+              "icon": null,
+              "name": "Getaway Deal",
+              "badge_variant": "constructive",
+              "identifier": "getaway-2021"
+            }
+          ],
+          "gross_amount": {
+            "value": 43.22,
+            "amount_rounded": "US$43",
+            "currency": "USD",
+            "amount_unrounded": "US$43.22"
+          },
+          "gross_amount_hotel_currency": {
+            "amount_rounded": "US$43",
+            "value": 43.22,
+            "amount_unrounded": "US$43.22",
+            "currency": "USD"
+          },
+          "included_taxes_and_charges_amount": {
+            "value": 0,
+            "amount_rounded": "US$0",
+            "amount_unrounded": "US$0",
+            "currency": "USD"
+          },
+          "excluded_amount": {
+            "amount_unrounded": "US$4.75",
+            "currency": "USD",
+            "amount_rounded": "US$5",
+            "value": 4.7542
+          },
+          "discounted_amount": {
+            "amount_unrounded": "US$80.26",
+            "currency": "USD",
+            "value": 80.26,
+            "amount_rounded": "US$80"
+          },
+          "items": [
+            {
+              "item_amount": {
+                "value": 0,
+                "amount_rounded": "US$0",
+                "amount_unrounded": "US$0",
+                "currency": "USD"
+              },
+              "inclusion_type": "excluded",
+              "name": "City tax",
+              "kind": "charge",
+              "base": {
+                "kind": "percentage",
+                "percentage": 0
+              },
+              "details": "0 % City tax"
+            },
+            {
+              "details": "11 % VAT",
+              "base": {
+                "kind": "percentage",
+                "percentage": 11
+              },
+              "name": "VAT",
+              "kind": "charge",
+              "inclusion_type": "excluded",
+              "item_amount": {
+                "amount_unrounded": "US$4.75",
+                "currency": "USD",
+                "value": 4.7542,
+                "amount_rounded": "US$5"
+              }
+            },
+            {
+              "item_amount": {
+                "currency": "USD",
+                "amount_unrounded": "US$80.26",
+                "value": 80.26,
+                "amount_rounded": "US$80"
+              },
+              "base": {
+                "kind": "rate"
+              },
+              "details": "This property is offering a discount on select stays between 26 Mar–30 Sept 2026.",
+              "kind": "discount",
+              "name": "Getaway Deal",
+              "identifier": "campaign_38"
+            }
+          ],
+          "price_display_config": [
+            {
+              "value": 0,
+              "key": "use_nightly_prices"
+            },
+            {
+              "key": "use_nightly_as_dominant",
+              "value": 0
+            },
+            {
+              "value": 1,
+              "key": "use_js_tracking"
+            }
+          ],
+          "has_long_stays_weekly_rate_price": 0,
+          "has_long_stays_monthly_rate_price": 0,
+          "gross_amount_per_night": {
+            "value": 21.61,
+            "amount_rounded": "US$22",
+            "currency": "USD",
+            "amount_unrounded": "US$21.61"
+          },
+          "all_inclusive_amount": {
+            "amount_unrounded": "US$47.97",
+            "currency": "USD",
+            "value": 47.9742,
+            "amount_rounded": "US$48"
+          },
+          "strikethrough_amount": {
+            "amount_rounded": "US$123",
+            "value": 123.48,
+            "currency": "USD",
+            "amount_unrounded": "US$123.48"
+          },
+          "strikethrough_amount_per_night": {
+            "amount_rounded": "US$62",
+            "value": 61.74,
+            "currency": "USD",
+            "amount_unrounded": "US$61.74"
+          }
+        },
+        "countrycode": "lk",
+        "is_genius_deal": 0
+      }
+    ],
+    "has_low_availability": "",
+    "room_distribution": [
+      {
+        "adults": "2",
+        "children": []
+      }
+    ],
+    "extended_count": 0,
+    "unfiltered_primary_count": 8319,
+    "b_max_los_data": {
+      "max_allowed_los": 90,
+      "default_los": 45,
+      "extended_los": 90,
+      "is_fullon": 0,
+      "has_extended_los": 1,
+      "experiment": "long_stays_ios_extend_los_2"
+    },
+    "unfiltered_count": 8319,
+    "primary_count": 5664
+  }
+}

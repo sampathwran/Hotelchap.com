@@ -80,16 +80,29 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'City not found' }, { status: 404 });
     }
 
-    // Find the first location that is a city
-    const destination = destResponse.data.find((loc: any) => loc.search_type === 'city') || destResponse.data[0];
+    // Pick the most relevant location (first result)
+    const destination = destResponse.data[0];
 
     // Step 2: Search for Hotels
     let searchResponse;
     
-    // First try the coordinates API which is currently working better than the searchHotels API
-    if (destination.latitude && destination.longitude) {
+    if (destination.search_type === 'hotel' && destination.dest_id) {
+      // Fetch specific hotel details if user searched for a specific hotel
       searchResponse = await fetchWithRetry(
-        `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotelsByCoordinates?latitude=${destination.latitude}&longitude=${destination.longitude}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
+        `https://${RAPIDAPI_HOST}/api/v1/hotels/getHotelDetails?hotel_id=${destination.dest_id}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
+        { headers, cache: 'no-store' }
+      );
+      
+      if (searchResponse && searchResponse.status && searchResponse.data) {
+         // Mock the array structure expected by the frontend without creating a circular reference
+         const h = { ...searchResponse.data };
+         h.min_total_price = h.composite_price_breakdown?.gross_amount_per_night?.value || h.composite_price_breakdown?.gross_amount?.value || 0;
+         searchResponse.data = { result: [h] };
+      }
+    } else if (destination.latitude && destination.longitude) {
+      // First try the coordinates API which is currently working better than the searchHotels API
+      searchResponse = await fetchWithRetry(
+        `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotelsByCoordinates?latitude=${destination.latitude}&longitude=${destination.longitude}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}&page_number=1&radius=15`,
         { headers, cache: 'no-store' }
       );
     }
