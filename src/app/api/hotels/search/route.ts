@@ -84,10 +84,23 @@ export async function GET(request: Request) {
     const destination = destResponse.data.find((loc: any) => loc.search_type === 'city') || destResponse.data[0];
 
     // Step 2: Search for Hotels
-    const searchResponse = await fetchWithRetry(
-      `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotels?dest_id=${destination.dest_id}&search_type=${destination.search_type}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
-      { headers, cache: 'no-store' }
-    );
+    let searchResponse;
+    
+    // First try the coordinates API which is currently working better than the searchHotels API
+    if (destination.latitude && destination.longitude) {
+      searchResponse = await fetchWithRetry(
+        `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotelsByCoordinates?latitude=${destination.latitude}&longitude=${destination.longitude}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
+        { headers, cache: 'no-store' }
+      );
+    }
+
+    // Fallback to old API if coordinate search didn't return data or was missing lat/long
+    if (!searchResponse || searchResponse.status === false || !searchResponse.data) {
+      searchResponse = await fetchWithRetry(
+        `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotels?dest_id=${destination.dest_id}&search_type=${destination.search_type}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
+        { headers, cache: 'no-store' }
+      );
+    }
 
     if (!searchResponse || !searchResponse.status || !searchResponse.data) {
       return NextResponse.json({
@@ -97,7 +110,8 @@ export async function GET(request: Request) {
       }, { status: 500 });
     }
 
-    const hotels = searchResponse.data.hotels || [];
+    // The data might be in data.hotels (searchHotels) or data.result (searchHotelsByCoordinates)
+    const hotels = searchResponse.data.hotels || searchResponse.data.result || [];
 
     return NextResponse.json({
       location: destination,
