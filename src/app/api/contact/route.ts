@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: `"HotelChap Contact Form" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Send to the support email
+      to: 'support@hotelchap.com', // Send directly to the support email
       replyTo: email, // So when they hit reply, it goes to the user who filled the form
       subject: `New Contact Form Submission: ${subject}`,
       html: `
