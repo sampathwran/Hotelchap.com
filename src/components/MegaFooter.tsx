@@ -139,6 +139,7 @@ export default function MegaFooter() {
             <ul className="flex flex-col gap-3 text-gray-400">
                 <li><Link href="/help-center" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Help Center</Link></li>
                 <li><Link href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">About Us</Link></li>
+                <li><Link href="/contact" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Contact Us</Link></li>
               <li><Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Privacy Policy</Link></li>
               <li><Link href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Terms of Service</Link></li>
                 <li><Link href="/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Cookie Policy</Link></li>
@@ -148,8 +149,13 @@ export default function MegaFooter() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
-          <p>© 2026 HotelChap. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-2">
+            <p>© 2026 HotelChap. All rights reserved.</p>
+            <p className="text-xs text-gray-600 max-w-3xl">
+              <strong>Affiliate Disclosure:</strong> This site contains affiliate links to travel partners (such as Booking.com, Agoda, Travelpayouts, etc.). We may receive a commission for purchases made through these links at no extra cost to you. This helps support our website and allows us to continue providing free travel information.
+            </p>
+          </div>
+          <div className="flex gap-6 shrink-0 mt-4 md:mt-0">
             <span>English (US)</span>
             <span>USD ($)</span>
           </div>
