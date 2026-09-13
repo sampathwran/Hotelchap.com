@@ -27,9 +27,19 @@ export default function ContactUs() {
     setStatus("loading");
     
     try {
+      // 1. Save to Firebase Database
       await addDoc(collection(db, "contact_messages"), {
         ...formData,
         createdAt: serverTimestamp(),
+      });
+      
+      // 2. Send Email Notification
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
       
       setStatus("success");
