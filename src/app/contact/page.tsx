@@ -1,11 +1,54 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import MegaFooter from '@/components/MegaFooter';
-import { Mail, MapPin, Phone, MessageSquare, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/firebase";
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    
+    try {
+      await addDoc(collection(db, "contact_messages"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+      
+      setStatus("success");
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: 'General Inquiry',
+        message: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (err) {
+      console.error("Error submitting message:", err);
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
       <Header />
@@ -75,43 +118,72 @@ export default function ContactUs() {
           {/* Right: Contact Form */}
           <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-            <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your message! Our team will get back to you soon."); }}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">First Name</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="John" />
+            
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Last Name</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="Doe" />
+                <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
+                <p className="text-gray-600">Thanks for reaching out. We will get back to you as soon as possible.</p>
+                <button 
+                  onClick={() => setStatus('idle')}
+                  className="mt-6 text-[#673AB7] font-bold hover:underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form className="space-y-5" onSubmit={handleSubmit}>
+                {status === 'error' && (
+                  <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm">
+                    Something went wrong. Please try again later or email us directly.
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700">First Name</label>
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="John" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700">Last Name</label>
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="Doe" />
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Email Address</label>
-                <input type="email" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="john@example.com" />
-              </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700">Email Address</label>
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all" placeholder="john@example.com" />
+                </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Subject</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all bg-white">
-                  <option>General Inquiry</option>
-                  <option>Booking Assistance</option>
-                  <option>Partnerships & Affiliates</option>
-                  <option>Feedback & Suggestions</option>
-                </select>
-              </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700">Subject</label>
+                  <select name="subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all bg-white">
+                    <option>General Inquiry</option>
+                    <option>Booking Assistance</option>
+                    <option>Partnerships & Affiliates</option>
+                    <option>Feedback & Suggestions</option>
+                  </select>
+                </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Message</label>
-                <textarea required rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all resize-none" placeholder="How can we help you?"></textarea>
-              </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700">Message</label>
+                  <textarea name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#673AB7]/20 focus:border-[#673AB7] transition-all resize-none" placeholder="How can we help you?"></textarea>
+                </div>
 
-              <button type="submit" className="w-full bg-[#673AB7] hover:bg-[#522b94] text-white font-bold py-4 rounded-xl transition-colors flex items-center justify-center gap-2">
-                <Send className="w-5 h-5" />
-                Send Message
-              </button>
-            </form>
+                <button type="submit" disabled={status === 'loading'} className="w-full bg-[#673AB7] hover:bg-[#522b94] disabled:opacity-70 text-white font-bold py-4 rounded-xl transition-colors flex items-center justify-center gap-2">
+                  {status === 'loading' ? (
+                    <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
           
         </div>
