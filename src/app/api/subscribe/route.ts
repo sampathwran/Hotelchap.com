@@ -18,6 +18,10 @@ export async function POST(request: Request) {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        // do not fail on invalid certs (common for cPanel shared hosting)
+        rejectUnauthorized: false,
+      },
     });
 
     const mailOptions = {
