@@ -30,6 +30,16 @@ export default function MegaFooter() {
         source: "footer_newsletter",
         createdAt: serverTimestamp(),
       });
+      
+      // Send welcome email
+      await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
       setStatus("success");
       setEmail("");
       setTimeout(() => setStatus("idle"), 4000);
