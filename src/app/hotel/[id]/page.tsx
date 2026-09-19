@@ -57,7 +57,7 @@ function HotelDetailsContent() {
     id: hotelId,
     name: urlName,
     price: displayPrice,
-    image: urlImage || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    image: (urlImage || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop").replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/'),
     rating: urlRating || "8.5",
     reviews: urlReviews || "120",
     location: urlLocation,
@@ -130,8 +130,9 @@ function HotelDetailsContent() {
           setRealDescription(data.description);
         }
         if (data.photos && data.photos.length > 0) {
-          setRealPhotos(data.photos);
-        }
+            const highResPhotos = data.photos.map((url: string) => url.replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/'));
+            setRealPhotos(highResPhotos);
+          }
         if (data.facilities && data.facilities.length > 0) {
           setRealFacilities(data.facilities);
         }

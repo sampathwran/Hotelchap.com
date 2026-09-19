@@ -35,13 +35,13 @@ export default function DestinationLiveHotels({ destination }: { destination: st
                 rating: h.review_score || 0,
                 reviews: h.review_nr || 0,
                 price: h.min_total_price ? Math.floor(h.min_total_price) : 100,
-                image: h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+                image: (h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945").replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/'),
                 url: h.url
              };
           }
           const prop = h.property || {};
           const priceVal = prop.priceBreakdown?.grossPrice?.value || prop.priceBreakdown?.excludedPrice?.value || 100;
-          const image = prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945";
+          const image = (prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945").replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/');
 
           return {
             id: h.hotel_id,

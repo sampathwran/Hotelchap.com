@@ -98,7 +98,7 @@ function SearchResults() {
                 starRating: h.class || 3,
                 price: h.min_total_price ? Math.floor(h.min_total_price * (data.exchangeRate || 1)) : Math.floor(100 * (data.exchangeRate || 1)),
                 originalPrice: h.min_total_price ? Math.floor(h.min_total_price * 1.2 * (data.exchangeRate || 1)) : Math.floor(120 * (data.exchangeRate || 1)),
-                image: h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                image: (h.max_photo_url || h.main_photo_url || "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070").replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/'),
                 highlights: h.is_free_cancellable ? ["Free Cancellation"] : [],
                 amenities: { popular: ["Free WiFi", "Air conditioning"] },
                 bookingUrl: h.url,
@@ -116,7 +116,7 @@ function SearchResults() {
           keywords.push("1 double bed", "Air conditioning", "Restaurant", "Free WiFi");
 
           const priceVal = (prop.priceBreakdown?.grossPrice?.value || prop.priceBreakdown?.excludedPrice?.value || 100) * (data.exchangeRate || 1);
-          const image = prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070";
+          const image = (prop.photoUrls && prop.photoUrls.length > 0 ? prop.photoUrls[0] : "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070").replace(/\/(square\d+|max\d+)(x\d+)?\//g, '/max1024x768/');
 
           return {
             id: h.hotel_id?.toString() || Math.random().toString(),
