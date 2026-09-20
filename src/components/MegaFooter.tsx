@@ -49,7 +49,7 @@ export default function MegaFooter() {
     }
   };
   return (
-    <footer className="bg-gray-900 text-white pt-20 pb-10">
+    <footer className="relative z-[70] bg-gray-900 text-white pt-20 pb-28 md:pb-10">
       <div className="max-w-7xl mx-auto px-4 md:px-10">
         
         {/* Newsletter Signup (Added) */}
