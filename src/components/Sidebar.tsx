@@ -118,7 +118,7 @@ const extras = [
         </Link>
         
         {/* Mobile Items: Items NOT in the Home Tabs */}
-        {[userSection[0], userSection[1], bookingServices[0], extras[0]].map((item, index) => (
+        {[userSection[0], userSection[1], userSection[2], extras[0]].map((item, index) => (
           <Link 
             href={item.link} 
             key={index}
