@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Header from "@/components/Header";
+import MegaFooter from "@/components/MegaFooter";
 import { useTranslation } from "@/lib/i18n";
 
 export default function EsimPage() {
@@ -62,6 +63,7 @@ export default function EsimPage() {
             </div>
         </div>
       </main>
+      <MegaFooter />
     </div>
   );
 }

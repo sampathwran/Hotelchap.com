@@ -22,6 +22,7 @@ const bookingServices = [
 const userSection = [
   { name: t("AI Trip Planner"), icon: "🤖", link: "/planner" },
   { name: t("Saved & Wishlist"), icon: "❤️", link: "/wishlist" },
+  { name: t("eSIM"), icon: "📱", link: "/esim" },
   { name: t("Explore Maps"), icon: "🗺️", link: "/maps" },
 ];
 
