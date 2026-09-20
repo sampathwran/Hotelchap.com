@@ -5,6 +5,7 @@ import { useTranslation } from "@/lib/i18n";
 import { useState } from "react";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
+import MegaFooter from "@/components/MegaFooter";
 
 export default function AIPlanner() {
   const { t } = useTranslation();
@@ -231,6 +232,7 @@ export default function AIPlanner() {
 
         </main>
       </div>
+      <MegaFooter />
     </div>
   );
 }
