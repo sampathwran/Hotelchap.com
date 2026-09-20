@@ -108,7 +108,7 @@ export async function GET(request: Request) {
     }
 
     // Fallback to old API if coordinate search didn't return data or was missing lat/long
-    if (!searchResponse || searchResponse.status === false || !searchResponse.data) {
+    if (!searchResponse || searchResponse.status === false || !searchResponse.data || !searchResponse.data.result || searchResponse.data.result.length === 0) {
       searchResponse = await fetchWithRetry(
         `https://${RAPIDAPI_HOST}/api/v1/hotels/searchHotels?dest_id=${destination.dest_id}&search_type=${destination.search_type}&arrival_date=${checkin}&departure_date=${checkout}&adults=${adults}&room_qty=${rooms}&languagecode=en-us&currency_code=${currencyCode}`,
         { headers, cache: 'no-store' }
