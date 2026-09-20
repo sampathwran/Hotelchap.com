@@ -11,7 +11,6 @@ export default function Sidebar() {
   const pathname = usePathname();
   const { t } = useTranslation();
 const bookingServices = [
-  { name: t("eSIM"), icon: "📱", link: "/esim" },
   { name: t("Hotels & Villas"), icon: "🏨", link: "/search" },
   { name: t("Flights"), icon: "✈️", link: "/flights" },
   { name: t("Attractions"), icon: "🎟️", link: "/attractions" },
