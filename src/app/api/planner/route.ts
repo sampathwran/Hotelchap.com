@@ -25,8 +25,8 @@ Provide the response in the exact following JSON format (do not include any othe
     // Use environment variable for API key
     const API_KEY = process.env.GEMINI_API_KEY || "";
     
-    // We use gemini-3.6-flash as it is the most robust version available
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`, {
+    // We use gemini-1.5-flash as it is the most robust version available
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
